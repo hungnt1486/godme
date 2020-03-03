@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		057F14A6AB6EC262A7404A71 /* Pods_godme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BDC60CE9EE831484CD1BFB /* Pods_godme.framework */; };
+		3A9923B4A1742715745CD5A0 /* Pods_godme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */; };
+		41286ACC240D586D0021157C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41286ACE240D586D0021157C /* Localizable.strings */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C6F2408BAAF001E023D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6E2408BAAF001E023D /* SceneDelegate.swift */; };
-		E6500C712408BAAF001E023D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C702408BAAF001E023D /* ContentView.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
 		E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6500C772408BAB1001E023D /* LaunchScreen.storyboard */; };
@@ -19,19 +19,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B3BDC60CE9EE831484CD1BFB /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7B90086C1FF1E1789A8E12E /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
+		41286ACB240D57400021157C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41286ACD240D586D0021157C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		41286AD0240D588F0021157C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
+		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
 		E6500C692408BAAF001E023D /* godme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = godme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6500C6C2408BAAF001E023D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6500C6E2408BAAF001E023D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E6500C702408BAAF001E023D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6500C722408BAB1001E023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6500C752408BAB1001E023D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E6500C782408BAB1001E023D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6500C7A2408BAB1001E023D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6500C802408BB0F001E023D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E6500C812408BB0F001E023D /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		E73350E7E16C374AABBEF8AF /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,29 +40,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				057F14A6AB6EC262A7404A71 /* Pods_godme.framework in Frameworks */,
+				3A9923B4A1742715745CD5A0 /* Pods_godme.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C69B0811970512EF53AB2308 /* Frameworks */ = {
+		27DF1956D4EC1A82BB4A322C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B3BDC60CE9EE831484CD1BFB /* Pods_godme.framework */,
+				A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */,
+				D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */,
 			);
-			name = Frameworks;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		E62896D805F139F82C3D45FA /* Pods */ = {
+		41286AD1240EAA3D0021157C /* Introduce */ = {
 			isa = PBXGroup;
 			children = (
-				C7B90086C1FF1E1789A8E12E /* Pods-godme.debug.xcconfig */,
-				E73350E7E16C374AABBEF8AF /* Pods-godme.release.xcconfig */,
 			);
-			name = Pods;
-			path = Pods;
+			path = Introduce;
+			sourceTree = "<group>";
+		};
+		7AA1AF2143F2BE6B4393CC57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E6500C602408BAAF001E023D = {
@@ -69,8 +76,8 @@
 			children = (
 				E6500C6B2408BAAF001E023D /* godme */,
 				E6500C6A2408BAAF001E023D /* Products */,
-				E62896D805F139F82C3D45FA /* Pods */,
-				C69B0811970512EF53AB2308 /* Frameworks */,
+				27DF1956D4EC1A82BB4A322C /* Pods */,
+				7AA1AF2143F2BE6B4393CC57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,10 +96,11 @@
 				E6500C6E2408BAAF001E023D /* SceneDelegate.swift */,
 				E6500C802408BB0F001E023D /* MainViewController.swift */,
 				E6500C812408BB0F001E023D /* MainViewController.xib */,
-				E6500C702408BAAF001E023D /* ContentView.swift */,
+				41286AD1240EAA3D0021157C /* Introduce */,
 				E6500C722408BAB1001E023D /* Assets.xcassets */,
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
 				E6500C7A2408BAB1001E023D /* Info.plist */,
+				41286ACE240D586D0021157C /* Localizable.strings */,
 				E6500C742408BAB1001E023D /* Preview Content */,
 			);
 			path = godme;
@@ -113,11 +121,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6500C7D2408BAB1001E023D /* Build configuration list for PBXNativeTarget "godme" */;
 			buildPhases = (
-				F9130B51925FBD8D25E310EA /* [CP] Check Pods Manifest.lock */,
+				80337E18F924D3A90090A476 /* [CP] Check Pods Manifest.lock */,
 				E6500C652408BAAF001E023D /* Sources */,
 				E6500C662408BAAF001E023D /* Frameworks */,
 				E6500C672408BAAF001E023D /* Resources */,
-				7EA63326B5988250A1F4488E /* [CP] Embed Pods Frameworks */,
+				B1EEE7E62967D9FDCEDCA9DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +158,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = E6500C602408BAAF001E023D;
 			productRefGroup = E6500C6A2408BAAF001E023D /* Products */;
@@ -166,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41286ACC240D586D0021157C /* Localizable.strings in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
@@ -176,43 +186,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7EA63326B5988250A1F4488E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F9130B51925FBD8D25E310EA /* [CP] Check Pods Manifest.lock */ = {
+		80337E18F924D3A90090A476 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,6 +208,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B1EEE7E62967D9FDCEDCA9DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/NDParallaxIntroView/NDParallaxIntroView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NDParallaxIntroView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -243,7 +257,6 @@
 			files = (
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				E6500C6F2408BAAF001E023D /* SceneDelegate.swift in Sources */,
-				E6500C712408BAAF001E023D /* ContentView.swift in Sources */,
 				E6500C822408BB0F001E023D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,10 +264,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		41286ACE240D586D0021157C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41286ACD240D586D0021157C /* en */,
+				41286AD0240D588F0021157C /* vi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E6500C772408BAB1001E023D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E6500C782408BAB1001E023D /* Base */,
+				41286ACB240D57400021157C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -266,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -326,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -378,7 +402,7 @@
 		};
 		E6500C7E2408BAB1001E023D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7B90086C1FF1E1789A8E12E /* Pods-godme.debug.xcconfig */;
+			baseConfigurationReference = A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -398,7 +422,7 @@
 		};
 		E6500C7F2408BAB1001E023D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E73350E7E16C374AABBEF8AF /* Pods-godme.release.xcconfig */;
+			baseConfigurationReference = D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -21,5 +21,7 @@ pod 'SDWebImage'
 #pod 'Fabric'
 #pod 'Crashlytics'
 #pod 'Tags'
+pod 'Localize-Swift'
+pod 'NDParallaxIntroView'
 
 end
