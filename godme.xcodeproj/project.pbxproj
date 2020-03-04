@@ -35,6 +35,8 @@
 		E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6500C772408BAB1001E023D /* LaunchScreen.storyboard */; };
 		E6500C822408BB0F001E023D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C802408BB0F001E023D /* MainViewController.swift */; };
 		E6500C832408BB0F001E023D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6500C812408BB0F001E023D /* MainViewController.xib */; };
+		E6BC82C7240F89AC00851FCE /* TwiceComboboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BC82C5240F89AC00851FCE /* TwiceComboboxTableViewCell.swift */; };
+		E6BC82C8240F89AC00851FCE /* TwiceComboboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BC82C6240F89AC00851FCE /* TwiceComboboxTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		E6500C7A2408BAB1001E023D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6500C802408BB0F001E023D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E6500C812408BB0F001E023D /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E6BC82C5240F89AC00851FCE /* TwiceComboboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwiceComboboxTableViewCell.swift; sourceTree = "<group>"; };
+		E6BC82C6240F89AC00851FCE /* TwiceComboboxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwiceComboboxTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				41286AE0240F3EE60021157C /* BaseViewController.swift */,
+				E6BC82C5240F89AC00851FCE /* TwiceComboboxTableViewCell.swift */,
+				E6BC82C6240F89AC00851FCE /* TwiceComboboxTableViewCell.xib */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
 				41286ACC240D586D0021157C /* Localizable.strings in Resources */,
+				E6BC82C8240F89AC00851FCE /* TwiceComboboxTableViewCell.xib in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				41286B05240F75690021157C /* TwiceComboboxTableViewCell.xib in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
@@ -385,6 +392,7 @@
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
 				41286AE9240F3EE70021157C /* Defines.swift in Sources */,
 				41286AEF240F3EE70021157C /* Result.swift in Sources */,
+				E6BC82C7240F89AC00851FCE /* TwiceComboboxTableViewCell.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
