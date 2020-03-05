@@ -23,5 +23,7 @@ pod 'SDWebImage'
 #pod 'Tags'
 pod 'Localize-Swift'
 pod 'NDParallaxIntroView'
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
 
 end
