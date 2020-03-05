@@ -10,6 +10,9 @@ import UIKit
 //239241243 border textfield
 extension UIColor {
     struct FlatColor {
+        struct Oranges {
+            static let BGColor = UIColor(red: 254.0/255.0, green: 130.0/255.0, blue: 2.0/255.0, alpha: 1.0)
+        }
         struct Blue {
             static let BG = UIColor(red: 72.0/255.0, green: 134.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             static let TextColor = UIColor(red: 11.0/255.0, green: 154.0/255.0, blue: 245.0/255.0, alpha: 1.0)
@@ -29,6 +32,8 @@ extension UIColor {
             static let TextColor = UIColor(red: 249.0/255.0, green: 3.0/255.0, blue: 11.0/255.0, alpha: 1.0)
         }
         struct Gray {
+            static let BGColor = UIColor(red: 246.0/255.0, green: 246.0/255.0, blue: 248.0/255.0, alpha: 1.0)
+            static let BGColorChoosePhone = UIColor(red: 226.0/255.0, green: 225.0/255.0, blue: 222.0/255.0, alpha: 1.0)
             static let TextColor = UIColor(red: 174.0/255.0, green: 184.0/255.0, blue: 192.0/255.0, alpha: 1.0)
         }
         struct Black {
@@ -75,6 +80,21 @@ extension UIView {
         layer.masksToBounds = false
     }
     
+}
+
+extension UITextField {
+    func ShadowTextField(scale: Bool = true) {
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        layer.shadowOffset =  CGSize.zero
+        layer.shadowRadius = 1
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+        
+//        textField.layer.shadowOpacity = 1
+//        textField.layer.shadowRadius = 3.0
+//        textField.layer.shadowOffset = CGSize.zero // Use any CGSize
+//        textField.layer.shadowColor = UIColor.gray.cgColor
+    }
 }
 
 extension String {

@@ -80,7 +80,7 @@ class Settings: NSObject {
     }
     
     private func setRadius (uiType: Any) -> Void {
-        (uiType as AnyObject).layer.cornerRadius = 5.0
+        (uiType as AnyObject).layer.cornerRadius = 15.0
 //        if buttonType == ButtonType.ButtonCancelOrder {
 //            (uiType as AnyObject).layer.cornerRadius = 5.0
 //        } else {
@@ -143,14 +143,15 @@ class Settings: NSObject {
             textField.leftView = leftView
             textField.leftViewMode = UITextField.ViewMode.always
         }
-//        textField.backgroundColor = UIColor.FlatColor.White.White
-//        textField.layer.borderColor = UIColor.FlatColor.Gray.GrayBorderTF.cgColor
+        textField.backgroundColor = UIColor.white
+        textField.layer.borderColor = UIColor.FlatColor.Gray.BGColor.cgColor
         textField.layer.borderWidth = 1.0
         textField.clipsToBounds = true
 //        setRadius(uiType: textField)
         setRadiusForTF(uiType: textField)
         return textField
     }
+    
     
     func setupView(v: UIView) -> UIView {
 //        v.backgroundColor = UIColor.FlatColor.White.White

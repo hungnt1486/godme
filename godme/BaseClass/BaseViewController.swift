@@ -34,10 +34,11 @@ class BaseViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         // Do any additional setup after loading the view.
         configToken()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "ic_bg_nav"), for: .default)
     }
     
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
     
     override func viewWillAppear(_ animated: Bool) {

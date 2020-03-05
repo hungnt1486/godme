@@ -28,6 +28,10 @@
 		41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286AFF240F75530021157C /* ComboboxTableViewCell.xib */; };
 		41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B06240FEA670021157C /* TwiceComboboxTableViewCell.xib */; };
 		41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B07240FEA670021157C /* TwiceComboboxTableViewCell.swift */; };
+		41286B0C24106C760021157C /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B0A24106C760021157C /* ContentTableViewCell.swift */; };
+		41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B0B24106C760021157C /* ContentTableViewCell.xib */; };
+		41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B0E24106CAC0021157C /* CompleteTableViewCell.swift */; };
+		41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B0F24106CAC0021157C /* CompleteTableViewCell.xib */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C6F2408BAAF001E023D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6E2408BAAF001E023D /* SceneDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
@@ -60,6 +64,10 @@
 		41286AFF240F75530021157C /* ComboboxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComboboxTableViewCell.xib; sourceTree = "<group>"; };
 		41286B06240FEA670021157C /* TwiceComboboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwiceComboboxTableViewCell.xib; sourceTree = "<group>"; };
 		41286B07240FEA670021157C /* TwiceComboboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwiceComboboxTableViewCell.swift; sourceTree = "<group>"; };
+		41286B0A24106C760021157C /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		41286B0B24106C760021157C /* ContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentTableViewCell.xib; sourceTree = "<group>"; };
+		41286B0E24106CAC0021157C /* CompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTableViewCell.swift; sourceTree = "<group>"; };
+		41286B0F24106CAC0021157C /* CompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteTableViewCell.xib; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +183,10 @@
 				41286AFB240F73C40021157C /* InputTextTableViewCell.xib */,
 				41286AFE240F75530021157C /* ComboboxTableViewCell.swift */,
 				41286AFF240F75530021157C /* ComboboxTableViewCell.xib */,
+				41286B0A24106C760021157C /* ContentTableViewCell.swift */,
+				41286B0B24106C760021157C /* ContentTableViewCell.xib */,
+				41286B0E24106CAC0021157C /* CompleteTableViewCell.swift */,
+				41286B0F24106CAC0021157C /* CompleteTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -299,7 +311,9 @@
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
 				41286ACC240D586D0021157C /* Localizable.strings in Resources */,
+				41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
+				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
 				41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
@@ -388,6 +402,8 @@
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
+				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
+				41286B0C24106C760021157C /* ContentTableViewCell.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,

@@ -8,11 +8,32 @@
 
 import UIKit
 
+@objc protocol InputTextTableViewCellProtocol {
+    @objc optional
+    func getTextInput(_ string: String)
+}
+
 class InputTextTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var tfText: UITextField!
+    var delegate:InputTextTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.setupUI()
+    }
+    
+    func setupUI(){
+        self.tfText = Settings.ShareInstance.setupTextField(textField: self.tfText)
+        self.tfText.ShadowTextField()
+    }
+    
+    @objc func tfTextDidChange(_ textField: UITextField){
+        self.getPriceText(string: textField.text ?? "")
+    }
+    
+    @objc func getPriceText(string: String){
+        delegate?.getTextInput?(string)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
