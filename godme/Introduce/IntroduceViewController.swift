@@ -26,6 +26,15 @@ class IntroduceViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         startIntro()
+        for family: String in UIFont.familyNames
+        {
+            print(family)
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
