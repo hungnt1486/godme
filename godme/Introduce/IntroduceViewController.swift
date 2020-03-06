@@ -7,49 +7,99 @@
 //
 
 import UIKit
-import NDParallaxIntroView
+//import NDParallaxIntroView
 
 class IntroduceViewController: UIViewController {
     
-    var intro = NDIntroView()
+    var scrollView: UIScrollView!
+    var pageControl: UIPageControl!
+    
+//    var intro = NDIntroView()
     
     var pages = [
-        [kNDIntroPageTitle: "Quản trị mối quan hệ", kNDIntroPageDescription: "Giúp bạn quản lý thông tin chi tiết các mối quan hệ chất lượng.", kNDIntroPageImageName: "ic_intro_1"],
-        [kNDIntroPageTitle: "Kết nối đúng người đúng việc", kNDIntroPageDescription: "Kết nối mở rộng mối quan hệ theo ngành, theo địa lý, hợp tác kinh doanh dự án.", kNDIntroPageImageName: "ic_intro_2"],
-        [kNDIntroPageTitle: "Gia tăng thu nhập dựa trên những mối quan hệ bạn sở hữu", kNDIntroPageDescription: "Tạo dòng tài chính thu nhập thụ động từ những mối quan hệ chất lượng do bạn sở hữu.", kNDIntroPageImageName: "ic_intro_3"],
-        [kNDIntroPageTitle: "Tự tạo ra dịch vụ từ giá trị bản thân", kNDIntroPageDescription: "Quản trị kiến thức và khả năng của bạn để tạo các dịch vụ chia sẽ giúp gia tăng mối quan hệ và tài chính.", kNDIntroPageImageName: "ic_intro_4"],
-        [kNDIntroPageTitle: "Đóng góp xã hội cho quỹ từ thiện Godme", kNDIntroPageDescription: "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.", kNDIntroPageImageName: "ic_intro_5"],
-        [kNDIntroPageTitle: "Đóng góp xã hội cho quỹ từ thiện Godme", kNDIntroPageDescription: "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.", kNDIntroPageImageName: "ic_intro_6"]
+        ["title": "Quản trị mối quan hệ",
+         "description": "Giúp bạn quản lý thông tin chi tiết các mối quan hệ chất lượng.",
+         "imageView": "ic_intro_1"],
+        ["title": "Kết nối đúng người đúng việc",
+         "description": "Kết nối mở rộng mối quan hệ theo ngành, theo địa lý, hợp tác kinh doanh dự án.",
+         "imageView": "ic_intro_2"],
+        ["title": "Gia tăng thu nhập dựa trên những mối quan hệ bạn sở hữu",
+         "description": "Tạo dòng tài chính thu nhập thụ động từ những mối quan hệ chất lượng do bạn sở hữu.",
+         "imageView": "ic_intro_3"],
+        ["title": "Tự tạo ra dịch vụ từ giá trị bản thân",
+         "description": "Quản trị kiến thức và khả năng của bạn để tạo các dịch vụ chia sẽ giúp gia tăng mối quan hệ và tài chính.",
+         "imageView": "ic_intro_4"],
+        ["title": "Đóng góp xã hội cho quỹ từ thiện Godme",
+         "description": "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.",
+         "imageView": "ic_intro_5"],
+        ["title": "Đóng góp xã hội cho quỹ từ thiện Godme",
+         "description": "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.",
+         "imageView": "ic_intro_6"]
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        startIntro()
-        
+        self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        self.setupUI()
     }
     
+    func setupUI(){
     
-    func startIntro(){
-        self.intro = NDIntroView.init(frame: self.view.frame, parallaxImage: UIImage.init(named: "parallaxBgImage"), andData: pages)
-        self.intro.delegate = self
-        self.view.addSubview(self.intro)
+        scrollView = UIScrollView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        scrollView.delegate = self
+        scrollView.backgroundColor = UIColor.FlatColor.Gray.BGColor
+        scrollView.isPagingEnabled = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        self.view.addSubview(scrollView)
+        var heightVTwo = 0
+        for index in 0..<pages.count {
+            print(index)
+            let introV = IntroView.instanceFromNib()
+            introV.delegate = self
+            introV.data = pages[index]
+            introV.configIntroView(frameView: self.view.frame, index: index)
+            heightVTwo = Int(introV.vTwo.frame.height)
+            scrollView.addSubview(introV)
+        }
+        scrollView.contentSize = CGSize.init(width: UIScreen.main.bounds.width*CGFloat(pages.count), height: scrollView.frame.height)
+
+        scrollView.bounces = false
         
-        
+        pageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height - CGFloat(heightVTwo) - 30, width: 100, height: 10))
+        pageControl.center.x = self.view.center.x
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.numberOfPages = pages.count
+        self.view.addSubview(pageControl)
     }
 }
 
-extension IntroduceViewController: NDIntroViewDelegate{
-    func launchAppButtonPressed() {
-        print("gwewgwg")
+extension IntroduceViewController: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = UIScreen.main.bounds.width
+        let pageFraction = self.scrollView.contentOffset.x/width
+        self.pageControl.currentPage = Int(round(CGFloat(pageFraction)))
+    }
+}
+
+extension IntroduceViewController: IntroViewProtocol{
+    func didStart() {
         let login = LoginViewController()
         self.navigationController?.pushViewController(login, animated: true)
+    }
+    
+    func didVN() {
+        print("viet nam")
+    }
+    
+    func didEnglish() {
+        print("english")
     }
     
     

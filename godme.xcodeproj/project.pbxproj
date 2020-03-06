@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3A9923B4A1742715745CD5A0 /* Pods_godme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */; };
+		4121FA262412920A00AF26D3 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA242412920A00AF26D3 /* IntroView.swift */; };
+		4121FA272412920A00AF26D3 /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA252412920A00AF26D3 /* IntroView.xib */; };
+		4121FA2E2412933F00AF26D3 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA282412933E00AF26D3 /* province.json */; };
+		4121FA2F2412933F00AF26D3 /* district.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA292412933F00AF26D3 /* district.json */; };
+		4121FA302412933F00AF26D3 /* educations.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2A2412933F00AF26D3 /* educations.json */; };
+		4121FA312412933F00AF26D3 /* country.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2B2412933F00AF26D3 /* country.json */; };
+		4121FA322412933F00AF26D3 /* ward.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2C2412933F00AF26D3 /* ward.json */; };
+		4121FA332412933F00AF26D3 /* socials.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2D2412933F00AF26D3 /* socials.json */; };
 		41286ACC240D586D0021157C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41286ACE240D586D0021157C /* Localizable.strings */; };
 		41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286AD2240EB1120021157C /* IntroduceViewController.swift */; };
 		41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286AD3240EB1120021157C /* IntroduceViewController.xib */; };
@@ -73,6 +81,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4121FA242412920A00AF26D3 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		4121FA252412920A00AF26D3 /* IntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
+		4121FA282412933E00AF26D3 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = province.json; path = "../../../../../../common-info/province.json"; sourceTree = "<group>"; };
+		4121FA292412933F00AF26D3 /* district.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = district.json; path = "../../../../../../common-info/district.json"; sourceTree = "<group>"; };
+		4121FA2A2412933F00AF26D3 /* educations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = educations.json; path = "../../../../../../common-info/educations.json"; sourceTree = "<group>"; };
+		4121FA2B2412933F00AF26D3 /* country.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = country.json; path = "../../../../../../common-info/country.json"; sourceTree = "<group>"; };
+		4121FA2C2412933F00AF26D3 /* ward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ward.json; path = "../../../../../../common-info/ward.json"; sourceTree = "<group>"; };
+		4121FA2D2412933F00AF26D3 /* socials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = socials.json; path = "../../../../../../common-info/socials.json"; sourceTree = "<group>"; };
 		41286ACB240D57400021157C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41286ACD240D586D0021157C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41286AD0240D588F0021157C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -168,6 +184,8 @@
 		41286AD1240EAA3D0021157C /* Introduce */ = {
 			isa = PBXGroup;
 			children = (
+				4121FA242412920A00AF26D3 /* IntroView.swift */,
+				4121FA252412920A00AF26D3 /* IntroView.xib */,
 				41286AD2240EB1120021157C /* IntroduceViewController.swift */,
 				41286AD3240EB1120021157C /* IntroduceViewController.xib */,
 			);
@@ -375,6 +393,12 @@
 		E6F57D872410FBCE005FC9C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4121FA2B2412933F00AF26D3 /* country.json */,
+				4121FA292412933F00AF26D3 /* district.json */,
+				4121FA2A2412933F00AF26D3 /* educations.json */,
+				4121FA282412933E00AF26D3 /* province.json */,
+				4121FA2D2412933F00AF26D3 /* socials.json */,
+				4121FA2C2412933F00AF26D3 /* ward.json */,
 				41286B2724115A720021157C /* Resources.swift */,
 				E6F57D882410FBD7005FC9C2 /* Fonts */,
 			);
@@ -478,6 +502,7 @@
 				E6F57DA22410FC4C005FC9C2 /* Roboto-Medium.ttf in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
 				E6F57DA32410FC4C005FC9C2 /* Roboto-MediumItalic.ttf in Resources */,
+				4121FA322412933F00AF26D3 /* ward.json in Resources */,
 				E6F57DA42410FC4C005FC9C2 /* Roboto-Regular.ttf in Resources */,
 				E6F57DA52410FC4C005FC9C2 /* Roboto-Thin.ttf in Resources */,
 				E6F57DA62410FC4C005FC9C2 /* Roboto-ThinItalic.ttf in Resources */,
@@ -485,8 +510,10 @@
 				E6F57DA82410FC4C005FC9C2 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				E6F57DA92410FC4C005FC9C2 /* RobotoCondensed-Italic.ttf in Resources */,
 				E6F57DAA2410FC4C005FC9C2 /* RobotoCondensed-Light.ttf in Resources */,
+				4121FA312412933F00AF26D3 /* country.json in Resources */,
 				E6F57DAB2410FC4C005FC9C2 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
+				4121FA332412933F00AF26D3 /* socials.json in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				E6F57DAC2410FC4C005FC9C2 /* RobotoCondensed-Regular.ttf in Resources */,
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
@@ -494,6 +521,7 @@
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
 				41286ACC240D586D0021157C /* Localizable.strings in Resources */,
 				41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */,
+				4121FA2E2412933F00AF26D3 /* province.json in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
 				41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */,
@@ -501,10 +529,13 @@
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
+				4121FA2F2412933F00AF26D3 /* district.json in Resources */,
+				4121FA302412933F00AF26D3 /* educations.json in Resources */,
 				41286AF4240F73120021157C /* LoginViewController.xib in Resources */,
 				E6500C832408BB0F001E023D /* MainViewController.xib in Resources */,
 				41286AF8240F732D0021157C /* RegisterViewController.xib in Resources */,
 				E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */,
+				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +581,6 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/NDParallaxIntroView/NDParallaxIntroView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
@@ -568,7 +598,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NDParallaxIntroView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
@@ -603,6 +632,7 @@
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
 				41286B2824115A720021157C /* Resources.swift in Sources */,
 				41286B1F241151850021157C /* RelationshipsViewController.swift in Sources */,
+				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
 				41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */,
 				41286AFC240F73C40021157C /* InputTextTableViewCell.swift in Sources */,
 				41286AEB240F3EE70021157C /* BaseViewController.swift in Sources */,
