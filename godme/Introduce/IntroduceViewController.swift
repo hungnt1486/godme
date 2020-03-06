@@ -14,11 +14,12 @@ class IntroduceViewController: UIViewController {
     var intro = NDIntroView()
     
     var pages = [
-        [kNDIntroPageTitle: "NDParallaxIntroView", kNDIntroPageDescription: "Now you can easily add your beautiful intro into your app with no hassle.", kNDIntroPageImageName: "parallax"],
-        [kNDIntroPageTitle: "NDParallaxIntroView", kNDIntroPageDescription: "Now you can easily add your beautiful intro into your app with no hassle.", kNDIntroPageImageName: "workitout"],
-        [kNDIntroPageTitle: "NDParallaxIntroView", kNDIntroPageDescription: "Now you can easily add your beautiful intro into your app with no hassle.", kNDIntroPageImageName: "colorskill"],
-        [kNDIntroPageTitle: "NDParallaxIntroView", kNDIntroPageDescription: "Now you can easily add your beautiful intro into your app with no hassle.", kNDIntroPageImageName: "appreciate"],
-        [kNDIntroPageTitle: "NDParallaxIntroView", kNDIntroPageDescription: "Now you can easily add your beautiful intro into your app with no hassle.", kNDIntroPageImageName: "firstImage"]
+        [kNDIntroPageTitle: "Quản trị mối quan hệ", kNDIntroPageDescription: "Giúp bạn quản lý thông tin chi tiết các mối quan hệ chất lượng.", kNDIntroPageImageName: "ic_intro_1"],
+        [kNDIntroPageTitle: "Kết nối đúng người đúng việc", kNDIntroPageDescription: "Kết nối mở rộng mối quan hệ theo ngành, theo địa lý, hợp tác kinh doanh dự án.", kNDIntroPageImageName: "ic_intro_2"],
+        [kNDIntroPageTitle: "Gia tăng thu nhập dựa trên những mối quan hệ bạn sở hữu", kNDIntroPageDescription: "Tạo dòng tài chính thu nhập thụ động từ những mối quan hệ chất lượng do bạn sở hữu.", kNDIntroPageImageName: "ic_intro_3"],
+        [kNDIntroPageTitle: "Tự tạo ra dịch vụ từ giá trị bản thân", kNDIntroPageDescription: "Quản trị kiến thức và khả năng của bạn để tạo các dịch vụ chia sẽ giúp gia tăng mối quan hệ và tài chính.", kNDIntroPageImageName: "ic_intro_4"],
+        [kNDIntroPageTitle: "Đóng góp xã hội cho quỹ từ thiện Godme", kNDIntroPageDescription: "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.", kNDIntroPageImageName: "ic_intro_5"],
+        [kNDIntroPageTitle: "Đóng góp xã hội cho quỹ từ thiện Godme", kNDIntroPageDescription: "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.", kNDIntroPageImageName: "ic_intro_6"]
     ]
 
     override func viewDidLoad() {
@@ -26,14 +27,6 @@ class IntroduceViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         startIntro()
-        for family: String in UIFont.familyNames
-        {
-            print(family)
-            for names: String in UIFont.fontNames(forFamilyName: family)
-            {
-                print("== \(names)")
-            }
-        }
         
     }
     

@@ -39,5 +39,7 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func touchLogin(_ sender: Any) {
+        
+        self.loginSuccess()
     }
 }

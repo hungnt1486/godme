@@ -1,14 +1,14 @@
 //
-//  MainViewController.swift
+//  ServicesManageViewController.swift
 //  godme
 //
-//  Created by fcsdev on 2/28/20.
+//  Created by Lê Hùng on 3/5/20.
 //  Copyright © 2020 godme. All rights reserved.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
+class ServicesManageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

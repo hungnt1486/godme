@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="FeatureTableViewCell" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeT-Po-fgI">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N6-fi-SvZ">
+                                <rect key="frame" x="10" y="5" width="140" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.20392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Ví tài chính">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchOne:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="c1l-8e-5r9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0N6-fi-SvZ" secondAttribute="trailing" constant="10" id="Bs3-J9-1xq"/>
+                            <constraint firstItem="0N6-fi-SvZ" firstAttribute="top" secondItem="xeT-Po-fgI" secondAttribute="top" constant="5" id="Gvn-7R-MnY"/>
+                            <constraint firstAttribute="bottom" secondItem="0N6-fi-SvZ" secondAttribute="bottom" constant="5" id="K4L-LR-sbb"/>
+                            <constraint firstItem="0N6-fi-SvZ" firstAttribute="leading" secondItem="xeT-Po-fgI" secondAttribute="leading" constant="10" id="cb9-Ls-iyE"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHn-hz-7Nn">
+                        <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O95-xD-czd">
+                                <rect key="frame" x="10" y="5" width="140" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Tạo dịch vụ">
+                                    <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchTwo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xa6-Hg-qgH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O95-xD-czd" secondAttribute="trailing" constant="10" id="4nn-jv-5nV"/>
+                            <constraint firstItem="O95-xD-czd" firstAttribute="top" secondItem="UHn-hz-7Nn" secondAttribute="top" constant="5" id="5bw-1e-5n8"/>
+                            <constraint firstItem="O95-xD-czd" firstAttribute="leading" secondItem="UHn-hz-7Nn" secondAttribute="leading" constant="10" id="b2G-CM-tiC"/>
+                            <constraint firstAttribute="bottom" secondItem="O95-xD-czd" secondAttribute="bottom" constant="5" id="uLr-15-P0n"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="UHn-hz-7Nn" secondAttribute="bottom" id="Kos-PE-NwZ"/>
+                    <constraint firstItem="xeT-Po-fgI" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" id="LPX-2L-u0x"/>
+                    <constraint firstItem="UHn-hz-7Nn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="P2a-Na-3aJ"/>
+                    <constraint firstItem="xeT-Po-fgI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="T1e-d2-IBw"/>
+                    <constraint firstAttribute="trailing" secondItem="UHn-hz-7Nn" secondAttribute="trailing" id="bxl-fL-FET"/>
+                    <constraint firstAttribute="bottom" secondItem="xeT-Po-fgI" secondAttribute="bottom" id="iRQ-nY-mSs"/>
+                    <constraint firstItem="xeT-Po-fgI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jKT-hp-cBQ"/>
+                    <constraint firstItem="UHn-hz-7Nn" firstAttribute="leading" secondItem="xeT-Po-fgI" secondAttribute="trailing" id="yB9-et-XNx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btOne" destination="0N6-fi-SvZ" id="8Rh-hq-8wJ"/>
+                <outlet property="btTwo" destination="O95-xD-czd" id="ObO-Ml-Reo"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

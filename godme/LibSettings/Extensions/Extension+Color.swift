@@ -14,7 +14,8 @@ extension UIColor {
             static let BGColor = UIColor(red: 254.0/255.0, green: 130.0/255.0, blue: 2.0/255.0, alpha: 1.0)
         }
         struct Blue {
-            static let BG = UIColor(red: 72.0/255.0, green: 134.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+//            003470
+            static let BGColor = UIColor(red: 0.0/255.0, green: 52.0/255.0, blue: 112.0/255.0, alpha: 1.0)
             static let TextColor = UIColor(red: 11.0/255.0, green: 154.0/255.0, blue: 245.0/255.0, alpha: 1.0)
         }
         struct Aquamarine {
@@ -69,14 +70,6 @@ extension UIView {
         layer.shadowOffset = CGSize(width: -1, height: 1)
         layer.shadowRadius = 1
         layer.shadowOpacity = 0.5
-        layer.masksToBounds = false
-    }
-    
-    func dropShadowOrderDoctor(scale: Bool = true) {
-        layer.shadowColor = UIColor.FlatColor.Blue.BG.withAlphaComponent(0.7).cgColor
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowRadius = 10
-        layer.shadowOpacity = 0.8
         layer.masksToBounds = false
     }
     
