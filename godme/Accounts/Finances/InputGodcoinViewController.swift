@@ -25,6 +25,11 @@ class InputGodcoinViewController: BaseViewController {
         self.setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "input_godcoin".localized()
+    }
+    
     func setupTableView(){
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel1TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel1TableViewCell")
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel2TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel2TableViewCell")

@@ -20,3 +20,10 @@
 "withdraw" = "Rút tiền";
 "find_history" = "Tra cứu lịch sử";
 "follow_table" = "Bảng theo dõi thụ hưởng";
+
+"withdraw_money" = "Số tiền cần rút";
+"bank_name" = "Tên ngân hàng";
+"branch" = "Chi nhánh";
+"account_name" = "Tên chủ tài khoản";
+"same_account" = "(Phải trùng với tài khoản user Godme)";
+"confirm" = "Xác nhận";

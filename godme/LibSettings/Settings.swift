@@ -205,11 +205,11 @@ class Settings: NSObject {
     
     func setupBTV(v: UIView) -> UIView {
         let layer = CALayer.init()
-        if #available(iOS 12.0, *) {
-            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height + 5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
+        if #available(iOS 13.0, *) {
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height - 0.5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
         } else {
             // Fallback on earlier versions
-            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height + 5, width: (v as AnyObject).size.width, height: 0.5)
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height - 0.5, width: (v as AnyObject).size.width, height: 0.5)
         }
         layer.backgroundColor = UIColor.lightGray.cgColor
         (v as AnyObject).layer.addSublayer(layer)

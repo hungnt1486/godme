@@ -29,8 +29,12 @@ class FinanceViewController: BaseViewController {
         self.setupTableView()
     }
     
-    func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = "wallet_finance".localized()
+    }
+    
+    func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -97,6 +101,8 @@ extension FinanceViewController: FinanceBlueButtonTableViewCellProtocol{
             self.navigationController?.pushViewController(withDraw, animated: true)
             break
         case .Button4:
+            let follow = FollowTableViewController()
+            self.navigationController?.pushViewController(follow, animated: true)
             break
         case .Title:
             break
@@ -116,6 +122,8 @@ extension FinanceViewController: FinanceOrangesButtonTableViewCellProtocol{
             self.navigationController?.pushViewController(inputGodCoin, animated: true)
             break
         case .Button3:
+            let history = HistoryViewController()
+            self.navigationController?.pushViewController(history, animated: true)
             break
         case .Title:
             break

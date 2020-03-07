@@ -1,16 +1,15 @@
 //
-//  WithDrawLabelTableViewCell.swift
+//  MyServicesTableViewCell.swift
 //  godme
 //
-//  Created by Lê Hùng on 3/7/20.
+//  Created by Lê Hùng on 3/8/20.
 //  Copyright © 2020 godme. All rights reserved.
 //
 
 import UIKit
 
-class WithDrawLabelTableViewCell: UITableViewCell {
+class MyServicesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lbTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

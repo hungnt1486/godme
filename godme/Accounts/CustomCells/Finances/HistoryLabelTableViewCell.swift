@@ -1,5 +1,5 @@
 //
-//  WithDrawLabelTableViewCell.swift
+//  HistoryLabelTableViewCell.swift
 //  godme
 //
 //  Created by Lê Hùng on 3/7/20.
@@ -8,9 +8,11 @@
 
 import UIKit
 
-class WithDrawLabelTableViewCell: UITableViewCell {
+class HistoryLabelTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbDate: UILabel!
+    @IBOutlet weak var lbContent: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,3 +25,4 @@ class WithDrawLabelTableViewCell: UITableViewCell {
     }
     
 }
+

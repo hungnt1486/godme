@@ -1,5 +1,5 @@
 //
-//  WithDrawLabelTableViewCell.swift
+//  FollowTableViewCell.swift
 //  godme
 //
 //  Created by Lê Hùng on 3/7/20.
@@ -8,9 +8,8 @@
 
 import UIKit
 
-class WithDrawLabelTableViewCell: UITableViewCell {
+class FollowTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lbTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
