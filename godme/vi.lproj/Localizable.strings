@@ -5,3 +5,18 @@
   Created by Lê Hùng on 3/2/20.
   Copyright © 2020 godme. All rights reserved.
 */
+"wallet_finance" = "Ví tài chính";
+"create_services" = "Tạo dịch vụ";
+"create_auction" = "Tạo đấu giá";
+"create_event" = "Tạo event";
+"security_term" = "Qui định bảo mật";
+"use_term" = "Thoả thuận sử dụng";
+"support_report" = "Hỗ trợ/Báo lỗi";
+"contact" = "Liên hệ";
+"collaboration" = "Hợp tác";
+"logout" = "Đăng xuất";
+// finance page
+"input_godcoin" = "Nạp Godcoin";
+"withdraw" = "Rút tiền";
+"find_history" = "Tra cứu lịch sử";
+"follow_table" = "Bảng theo dõi thụ hưởng";

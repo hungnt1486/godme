@@ -110,6 +110,12 @@ class Settings: NSObject {
         uiType.layer.cornerRadius = 5.0
     }
     
+    func setupLabel(label: UILabel) -> UILabel{
+        label.layer.cornerRadius = 12.0
+        label.clipsToBounds = true
+        return label
+    }
+    
     func setupButton(button: UIButton) -> UIButton {
         // button login
 //        if buttonType == ButtonType.ButtonLogin {
@@ -152,13 +158,24 @@ class Settings: NSObject {
         return textField
     }
     
+    func setupTextFieldRadius(textField: UITextField, isLeftView: Bool = false) -> UITextField{
+        if isLeftView {
+            let leftView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.size.height))
+            textField.leftView = leftView
+            textField.leftViewMode = UITextField.ViewMode.always
+        }
+        textField.layer.cornerRadius = 15.0
+        textField.clipsToBounds = true
+        textField.backgroundColor = UIColor.white
+        return textField
+    }
+    
     
     func setupView(v: UIView) -> UIView {
 //        v.backgroundColor = UIColor.FlatColor.White.White
 //        v.layer.borderColor = UIColor.FlatColor.Gray.GrayBorderTF.cgColor
-        v.layer.borderWidth = 2.0
         v.clipsToBounds = true
-        v.layer.cornerRadius = 5.0
+        v.layer.cornerRadius = 20.0
 //        setRadius(uiType: v)
         return v
     }

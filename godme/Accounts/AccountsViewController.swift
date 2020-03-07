@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize_Swift
 
 enum typeCellAccounts: Int {
     case Avatar = 0
@@ -25,6 +26,15 @@ class AccountsViewController: BaseViewController {
         super.viewDidLoad()
 
         self.setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+    }
+    
+    func setupUI(){
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func setupTableView(){
@@ -50,24 +60,107 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource{
             
            case .Avatar:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AvatarTableViewCell") as! AvatarTableViewCell
+                cell.delegate = self
             return cell
            case .Services:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureTableViewCell") as! FeatureTableViewCell
+                cell.btOne.tag = indexPath.row
+                cell.btTwo.tag = indexPath.row
+                cell.btOne.setTitle("wallet_finance".localized(), for: .normal)
+                cell.btTwo.setTitle("create_services".localized(), for: .normal)
+                cell.delegate = self
             return cell
            case .Events:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureTableViewCell") as! FeatureTableViewCell
+                cell.btOne.tag = indexPath.row
+                cell.btTwo.tag = indexPath.row
+                cell.btOne.setTitle("create_auction".localized(), for: .normal)
+                cell.btTwo.setTitle("create_event".localized(), for: .normal)
+                cell.delegate = self
             return cell
            case .Security:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureTableViewCell") as! FeatureTableViewCell
+                cell.btOne.tag = indexPath.row
+                cell.btTwo.tag = indexPath.row
+                cell.btOne.setTitle("security_term".localized(), for: .normal)
+                cell.btTwo.setTitle("use_term".localized(), for: .normal)
+                cell.delegate = self
             return cell
            case .Contact:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureTableViewCell") as! FeatureTableViewCell
+                cell.btOne.tag = indexPath.row
+                cell.btTwo.tag = indexPath.row
+                cell.btOne.setTitle("support_report".localized(), for: .normal)
+                cell.btTwo.setTitle("contact".localized(), for: .normal)
+                cell.delegate = self
             return cell
            case .Signout:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureTableViewCell") as! FeatureTableViewCell
+                cell.btOne.tag = indexPath.row
+                cell.btTwo.tag = indexPath.row
+                cell.btOne.setTitle("collaboration".localized(), for: .normal)
+                cell.btTwo.setTitle("logout".localized(), for: .normal)
+                cell.delegate = self
             return cell
         }
     }
+}
+
+extension AccountsViewController: AvatarTableViewCellProtocol{
+    func didImg() {
+        
+    }
+    
+    
+}
+
+extension AccountsViewController: FeatureTableViewCellProtocol{
+    func didOne(type: typeCellAccounts, index: Int) {
+        switch type {
+        case .Services:
+            let finance = FinanceViewController()
+            self.navigationController?.pushViewController(finance, animated: true)
+            break
+        case .Events:
+            print("Events")
+            break
+        case .Security:
+            print("Security")
+            break
+        case .Contact:
+            print("Contact")
+            break
+        case .Signout:
+            print("Signout")
+            break
+        case .Avatar:
+            break
+        }
+    }
+    
+    func didTwo(type: typeCellAccounts, index: Int) {
+        switch type {
+        case .Services:
+            print("Services 2")
+            break
+        case .Events:
+            print("Events 2")
+            break
+        case .Security:
+            print("Security 2")
+            break
+        case .Contact:
+            print("Contact 2")
+            break
+        case .Signout:
+            print("Signout 2")
+            break
+        case .Avatar:
+            break
+        }
+    }
+    
+    
     
     
 }

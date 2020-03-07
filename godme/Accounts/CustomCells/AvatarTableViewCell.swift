@@ -8,8 +8,7 @@
 
 import UIKit
 
-@objc protocol AvatarTableViewCellProtocol {
-    @objc optional
+protocol AvatarTableViewCellProtocol {
     func didImg()
 }
 
@@ -29,7 +28,7 @@ class AvatarTableViewCell: UITableViewCell {
     }
     
     @objc func touchImg(){
-        delegate?.didImg?()
+        delegate?.didImg()
     }
     
     func didUpdateImg(img: UIImage){

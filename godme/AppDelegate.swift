@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkLogin() -> Void {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
+        window?.backgroundColor = UIColor.FlatColor.Gray.BGColor
         let splash = IntroduceViewController(nibName: "IntroduceViewController", bundle: nil)
         let nav = UINavigationController(rootViewController: splash)
         window?.rootViewController = nav

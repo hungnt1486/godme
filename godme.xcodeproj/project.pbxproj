@@ -16,6 +16,14 @@
 		4121FA312412933F00AF26D3 /* country.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2B2412933F00AF26D3 /* country.json */; };
 		4121FA322412933F00AF26D3 /* ward.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2C2412933F00AF26D3 /* ward.json */; };
 		4121FA332412933F00AF26D3 /* socials.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2D2412933F00AF26D3 /* socials.json */; };
+		4121FA3E24133AC500AF26D3 /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA3C24133AC500AF26D3 /* FinanceViewController.swift */; };
+		4121FA3F24133AC500AF26D3 /* FinanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA3D24133AC500AF26D3 /* FinanceViewController.xib */; };
+		4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA4024133B1E00AF26D3 /* FinanceTitleTableViewCell.swift */; };
+		4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4124133B1E00AF26D3 /* FinanceTitleTableViewCell.xib */; };
+		4121FA4724133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA4524133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift */; };
+		4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4624133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib */; };
+		4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */; };
+		4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */; };
 		41286ACC240D586D0021157C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41286ACE240D586D0021157C /* Localizable.strings */; };
 		41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286AD2240EB1120021157C /* IntroduceViewController.swift */; };
 		41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286AD3240EB1120021157C /* IntroduceViewController.xib */; };
@@ -53,6 +61,22 @@
 		41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B742411DC7E0021157C /* FeatureTableViewCell.xib */; };
 		41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B772411DEF30021157C /* AvatarTableViewCell.xib */; };
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
+		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
+		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
+		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
+		41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168F24134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib */; };
+		41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169224134A44001E132E /* InputGodcoinLabel3TableViewCell.swift */; };
+		41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD169324134A44001E132E /* InputGodcoinLabel3TableViewCell.xib */; };
+		41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169624134CFC001E132E /* InputGodcoinViewController.swift */; };
+		41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD169724134CFC001E132E /* InputGodcoinViewController.xib */; };
+		41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169A241358D1001E132E /* WithdrawViewController.swift */; };
+		41AD169D241358D1001E132E /* WithdrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD169B241358D1001E132E /* WithdrawViewController.xib */; };
+		41AD16A024135985001E132E /* WithDraw1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169E24135985001E132E /* WithDraw1TableViewCell.swift */; };
+		41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD169F24135985001E132E /* WithDraw1TableViewCell.xib */; };
+		41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD16A2241359AA001E132E /* WithDrawLabelTableViewCell.swift */; };
+		41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD16A3241359AA001E132E /* WithDrawLabelTableViewCell.xib */; };
+		41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD16A6241359CB001E132E /* WithDrawButtonTableViewCell.swift */; };
+		41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD16A7241359CB001E132E /* WithDrawButtonTableViewCell.xib */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -89,6 +113,14 @@
 		4121FA2B2412933F00AF26D3 /* country.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = country.json; path = "../../../../../../common-info/country.json"; sourceTree = "<group>"; };
 		4121FA2C2412933F00AF26D3 /* ward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ward.json; path = "../../../../../../common-info/ward.json"; sourceTree = "<group>"; };
 		4121FA2D2412933F00AF26D3 /* socials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = socials.json; path = "../../../../../../common-info/socials.json"; sourceTree = "<group>"; };
+		4121FA3C24133AC500AF26D3 /* FinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceViewController.swift; sourceTree = "<group>"; };
+		4121FA3D24133AC500AF26D3 /* FinanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceViewController.xib; sourceTree = "<group>"; };
+		4121FA4024133B1E00AF26D3 /* FinanceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTitleTableViewCell.swift; sourceTree = "<group>"; };
+		4121FA4124133B1E00AF26D3 /* FinanceTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceTitleTableViewCell.xib; sourceTree = "<group>"; };
+		4121FA4524133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceOrangesButtonTableViewCell.swift; sourceTree = "<group>"; };
+		4121FA4624133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceOrangesButtonTableViewCell.xib; sourceTree = "<group>"; };
+		4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceBlueButtonTableViewCell.swift; sourceTree = "<group>"; };
+		4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceBlueButtonTableViewCell.xib; sourceTree = "<group>"; };
 		41286ACB240D57400021157C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41286ACD240D586D0021157C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41286AD0240D588F0021157C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -128,6 +160,22 @@
 		41286B742411DC7E0021157C /* FeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTableViewCell.xib; sourceTree = "<group>"; };
 		41286B772411DEF30021157C /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
+		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
+		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
+		41AD168F24134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel2TableViewCell.xib; sourceTree = "<group>"; };
+		41AD169224134A44001E132E /* InputGodcoinLabel3TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel3TableViewCell.swift; sourceTree = "<group>"; };
+		41AD169324134A44001E132E /* InputGodcoinLabel3TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel3TableViewCell.xib; sourceTree = "<group>"; };
+		41AD169624134CFC001E132E /* InputGodcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinViewController.swift; sourceTree = "<group>"; };
+		41AD169724134CFC001E132E /* InputGodcoinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinViewController.xib; sourceTree = "<group>"; };
+		41AD169A241358D1001E132E /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		41AD169B241358D1001E132E /* WithdrawViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithdrawViewController.xib; sourceTree = "<group>"; };
+		41AD169E24135985001E132E /* WithDraw1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDraw1TableViewCell.swift; sourceTree = "<group>"; };
+		41AD169F24135985001E132E /* WithDraw1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDraw1TableViewCell.xib; sourceTree = "<group>"; };
+		41AD16A2241359AA001E132E /* WithDrawLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawLabelTableViewCell.swift; sourceTree = "<group>"; };
+		41AD16A3241359AA001E132E /* WithDrawLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDrawLabelTableViewCell.xib; sourceTree = "<group>"; };
+		41AD16A6241359CB001E132E /* WithDrawButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawButtonTableViewCell.swift; sourceTree = "<group>"; };
+		41AD16A7241359CB001E132E /* WithDrawButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithDrawButtonTableViewCell.xib; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +227,44 @@
 				D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4121FA3B24133A5800AF26D3 /* Finances */ = {
+			isa = PBXGroup;
+			children = (
+				4121FA3C24133AC500AF26D3 /* FinanceViewController.swift */,
+				4121FA3D24133AC500AF26D3 /* FinanceViewController.xib */,
+				41AD169624134CFC001E132E /* InputGodcoinViewController.swift */,
+				41AD169724134CFC001E132E /* InputGodcoinViewController.xib */,
+				41AD169A241358D1001E132E /* WithdrawViewController.swift */,
+				41AD169B241358D1001E132E /* WithdrawViewController.xib */,
+			);
+			path = Finances;
+			sourceTree = "<group>";
+		};
+		4121FA4424133B2B00AF26D3 /* Finances */ = {
+			isa = PBXGroup;
+			children = (
+				4121FA4024133B1E00AF26D3 /* FinanceTitleTableViewCell.swift */,
+				4121FA4124133B1E00AF26D3 /* FinanceTitleTableViewCell.xib */,
+				4121FA4524133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift */,
+				4121FA4624133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib */,
+				4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */,
+				4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */,
+				41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */,
+				41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */,
+				41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */,
+				41AD168F24134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib */,
+				41AD169224134A44001E132E /* InputGodcoinLabel3TableViewCell.swift */,
+				41AD169324134A44001E132E /* InputGodcoinLabel3TableViewCell.xib */,
+				41AD169E24135985001E132E /* WithDraw1TableViewCell.swift */,
+				41AD169F24135985001E132E /* WithDraw1TableViewCell.xib */,
+				41AD16A2241359AA001E132E /* WithDrawLabelTableViewCell.swift */,
+				41AD16A3241359AA001E132E /* WithDrawLabelTableViewCell.xib */,
+				41AD16A6241359CB001E132E /* WithDrawButtonTableViewCell.swift */,
+				41AD16A7241359CB001E132E /* WithDrawButtonTableViewCell.xib */,
+			);
+			path = Finances;
 			sourceTree = "<group>";
 		};
 		41286AD1240EAA3D0021157C /* Introduce */ = {
@@ -279,6 +365,7 @@
 				41286B6E2411DC1E0021157C /* CustomCells */,
 				41286B13241151210021157C /* AccountsViewController.swift */,
 				41286B14241151210021157C /* AccountsViewController.xib */,
+				4121FA3B24133A5800AF26D3 /* Finances */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -322,6 +409,7 @@
 		41286B6E2411DC1E0021157C /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				4121FA4424133B2B00AF26D3 /* Finances */,
 				41286B782411DEF40021157C /* AvatarTableViewCell.swift */,
 				41286B772411DEF30021157C /* AvatarTableViewCell.xib */,
 				41286B732411DC7E0021157C /* FeatureTableViewCell.swift */,
@@ -491,13 +579,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AD169D241358D1001E132E /* WithdrawViewController.xib in Resources */,
 				E6F57D9B2410FC4C005FC9C2 /* Roboto-Black.ttf in Resources */,
 				E6F57D9C2410FC4C005FC9C2 /* Roboto-BlackItalic.ttf in Resources */,
 				E6F57D9D2410FC4C005FC9C2 /* Roboto-Bold.ttf in Resources */,
 				E6F57D9E2410FC4C005FC9C2 /* Roboto-BoldItalic.ttf in Resources */,
 				E6F57D9F2410FC4C005FC9C2 /* Roboto-Italic.ttf in Resources */,
+				41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */,
 				E6F57DA02410FC4C005FC9C2 /* Roboto-Light.ttf in Resources */,
 				E6F57DA12410FC4C005FC9C2 /* Roboto-LightItalic.ttf in Resources */,
+				41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */,
+				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
 				E6F57DA22410FC4C005FC9C2 /* Roboto-Medium.ttf in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
@@ -506,10 +598,12 @@
 				E6F57DA42410FC4C005FC9C2 /* Roboto-Regular.ttf in Resources */,
 				E6F57DA52410FC4C005FC9C2 /* Roboto-Thin.ttf in Resources */,
 				E6F57DA62410FC4C005FC9C2 /* Roboto-ThinItalic.ttf in Resources */,
+				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
 				E6F57DA72410FC4C005FC9C2 /* RobotoCondensed-Bold.ttf in Resources */,
 				E6F57DA82410FC4C005FC9C2 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				E6F57DA92410FC4C005FC9C2 /* RobotoCondensed-Italic.ttf in Resources */,
 				E6F57DAA2410FC4C005FC9C2 /* RobotoCondensed-Light.ttf in Resources */,
+				4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */,
 				4121FA312412933F00AF26D3 /* country.json in Resources */,
 				E6F57DAB2410FC4C005FC9C2 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
@@ -524,15 +618,21 @@
 				4121FA2E2412933F00AF26D3 /* province.json in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
+				4121FA3F24133AC500AF26D3 /* FinanceViewController.xib in Resources */,
 				41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */,
 				41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */,
+				41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
+				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
+				4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */,
 				4121FA2F2412933F00AF26D3 /* district.json in Resources */,
 				4121FA302412933F00AF26D3 /* educations.json in Resources */,
 				41286AF4240F73120021157C /* LoginViewController.xib in Resources */,
+				41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */,
 				E6500C832408BB0F001E023D /* MainViewController.xib in Resources */,
+				41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */,
 				41286AF8240F732D0021157C /* RegisterViewController.xib in Resources */,
 				E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */,
 				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
@@ -619,24 +719,36 @@
 				41286AE9240F3EE70021157C /* Defines.swift in Sources */,
 				41286AEF240F3EE70021157C /* Result.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
+				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,
 				41286B15241151210021157C /* AccountsViewController.swift in Sources */,
 				41286B1A2411514B0021157C /* ServicesManageViewController.swift in Sources */,
+				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
+				41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */,
+				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
 				41286B0C24106C760021157C /* ContentTableViewCell.swift in Sources */,
+				41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */,
+				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
 				41286B2824115A720021157C /* Resources.swift in Sources */,
+				4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */,
 				41286B1F241151850021157C /* RelationshipsViewController.swift in Sources */,
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
 				41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */,
+				41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */,
+				4121FA4724133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift in Sources */,
+				4121FA3E24133AC500AF26D3 /* FinanceViewController.swift in Sources */,
 				41286AFC240F73C40021157C /* InputTextTableViewCell.swift in Sources */,
+				41AD16A024135985001E132E /* WithDraw1TableViewCell.swift in Sources */,
 				41286AEB240F3EE70021157C /* BaseViewController.swift in Sources */,
 				41286AF7240F732D0021157C /* RegisterViewController.swift in Sources */,
+				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,
 				E6500C822408BB0F001E023D /* MainViewController.swift in Sources */,
 				41286AEA240F3EE70021157C /* BaseModel.swift in Sources */,
 				41286B24241151A90021157C /* MapsViewController.swift in Sources */,

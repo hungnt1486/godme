@@ -28,7 +28,7 @@
                                 <rect key="frame" x="10" y="5" width="140" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.20392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="9HM-Sd-ARW"/>
+                                    <constraint firstAttribute="height" constant="40" id="fDo-BW-aMg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Ví tài chính">
@@ -54,7 +54,7 @@
                                 <rect key="frame" x="10" y="5" width="140" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="z5y-9O-esR"/>
+                                    <constraint firstAttribute="height" constant="40" id="V8t-Rz-oOf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="Tạo dịch vụ">

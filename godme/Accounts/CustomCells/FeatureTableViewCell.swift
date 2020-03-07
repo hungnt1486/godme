@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol FeatureTableViewCellProtocol {
+//    func eventGetTextWithType(_ string: String, type: typeCellPost, index: Int)
+    func didOne(type: typeCellAccounts, index: Int)
+    func didTwo(type: typeCellAccounts, index: Int)
+}
+
 class FeatureTableViewCell: UITableViewCell {
 
     @IBOutlet weak var btOne: UIButton!
     @IBOutlet weak var btTwo: UIButton!
+    var delegate: FeatureTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,15 +32,16 @@ class FeatureTableViewCell: UITableViewCell {
     }
     
     func setupUI(){
-        
+        self.btOne = Settings.ShareInstance.setupButton(button: self.btOne)
+        self.btTwo = Settings.ShareInstance.setupButton(button: self.btTwo)
     }
     
     @IBAction func touchOne(_ sender: Any) {
-        
+        delegate?.didOne(type: typeCellAccounts(rawValue: self.btOne.tag)!, index: self.btOne.tag)
     }
     
     @IBAction func touchTwo(_ sender: Any) {
-        
+        delegate?.didTwo(type: typeCellAccounts(rawValue: self.btTwo.tag)!, index: self.btTwo.tag)
     }
     
 }
