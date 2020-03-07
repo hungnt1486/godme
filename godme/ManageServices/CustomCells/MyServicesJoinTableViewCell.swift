@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol MyServicesTableViewCellProtocol {
+protocol MyServicesJoinTableViewCellProtocol {
     func didCancel(index: Int)
 }
 
-class MyServicesTableViewCell: UITableViewCell {
+class MyServicesJoinTableViewCell: UITableViewCell {
 
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var imgAvatar: UIImageView!
@@ -20,9 +20,8 @@ class MyServicesTableViewCell: UITableViewCell {
     @IBOutlet weak var lbTime: UILabel!
     @IBOutlet weak var lbCity: UILabel!
     @IBOutlet weak var lbName: UILabel!
-    @IBOutlet weak var lbCoin: UILabel!
     @IBOutlet weak var btCancel: UIButton!
-    var delegate: MyServicesTableViewCellProtocol?
+    var delegate: MyServicesJoinTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

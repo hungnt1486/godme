@@ -20,6 +20,8 @@ class MyServicesViewController: BaseViewController {
     
     func setupTableView(){
         self.tbvMyServices.register(UINib(nibName: "MyServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "MyServicesTableViewCell")
+        self.tbvMyServices.register(UINib(nibName: "MyServicesJoinTableViewCell", bundle: nil), forCellReuseIdentifier: "MyServicesJoinTableViewCell")
+        self.tbvMyServices.register(UINib.init(nibName: "HeaderMyServices", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderMyServices")
 
         self.tbvMyServices.delegate = self
         self.tbvMyServices.dataSource = self
@@ -32,12 +34,45 @@ class MyServicesViewController: BaseViewController {
 
 extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 20
+        }
         return 30
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0{
+            return UIView()
+        }else{
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderMyServices") as! HeaderMyServices
+            header.backgroundColor = UIColor.FlatColor.Gray.BGColor
+            return header
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyServicesTableViewCell") as! MyServicesTableViewCell
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyServicesTableViewCell") as! MyServicesTableViewCell
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyServicesJoinTableViewCell") as! MyServicesJoinTableViewCell
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
