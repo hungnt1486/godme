@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderSubMain" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDI-6u-XDN">
+                    <rect key="frame" x="10" y="0.0" width="394" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCI-wo-28o">
+                            <rect key="frame" x="10" y="5" width="284" height="40"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKb-eo-OOY">
+                            <rect key="frame" x="304" y="5" width="80" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="0pu-pf-yRN"/>
+                                <constraint firstAttribute="height" constant="40" id="hhz-54-zHT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="Xem thêm">
+                                <color key="titleColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="touchMore:" destination="iN0-l3-epB" eventType="touchUpInside" id="Byz-Me-7jx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="OKb-eo-OOY" secondAttribute="trailing" constant="10" id="BVz-81-adJ"/>
+                        <constraint firstAttribute="bottom" secondItem="OKb-eo-OOY" secondAttribute="bottom" constant="5" id="Cpq-ry-mZQ"/>
+                        <constraint firstItem="OKb-eo-OOY" firstAttribute="top" secondItem="HDI-6u-XDN" secondAttribute="top" constant="5" id="GHl-11-MI9"/>
+                        <constraint firstItem="OKb-eo-OOY" firstAttribute="leading" secondItem="tCI-wo-28o" secondAttribute="trailing" constant="10" id="e0r-fS-JL9"/>
+                        <constraint firstItem="tCI-wo-28o" firstAttribute="leading" secondItem="HDI-6u-XDN" secondAttribute="leading" constant="10" id="oQw-aD-ca2"/>
+                        <constraint firstAttribute="bottom" secondItem="tCI-wo-28o" secondAttribute="bottom" constant="5" id="pDn-Tn-ye4"/>
+                        <constraint firstItem="tCI-wo-28o" firstAttribute="top" secondItem="HDI-6u-XDN" secondAttribute="top" constant="5" id="x9X-MK-gyX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HDI-6u-XDN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DZ2-wV-4gv"/>
+                <constraint firstAttribute="bottom" secondItem="HDI-6u-XDN" secondAttribute="bottom" id="DyQ-XO-6v4"/>
+                <constraint firstItem="HDI-6u-XDN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="qga-xa-KXT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HDI-6u-XDN" secondAttribute="trailing" constant="10" id="z1Z-Xk-4Gg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btMore" destination="OKb-eo-OOY" id="7iV-xu-gQG"/>
+                <outlet property="lbTitle" destination="tCI-wo-28o" id="dOf-6v-0Uz"/>
+                <outlet property="vContent" destination="HDI-6u-XDN" id="V4g-Qc-Dwi"/>
+            </connections>
+            <point key="canvasLocation" x="93" y="137"/>
+        </view>
+    </objects>
+</document>

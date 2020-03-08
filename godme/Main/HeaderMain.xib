@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderMain" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KA3-th-oog">
+                    <rect key="frame" x="10" y="10" width="394" height="85"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Godme Charity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bs1-eb-asN">
+                            <rect key="frame" x="10" y="5" width="374" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="MjV-Y5-W7w"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                            <color key="textColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cá nhân: 100.000 vnd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfA-kr-OVe">
+                            <rect key="frame" x="10" y="60" width="374" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="xkP-tn-oXk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <color key="textColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.000.000 vnd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMJ-UC-Hjc">
+                            <rect key="frame" x="10" y="30" width="374" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="CD2-hS-jWe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                            <color key="textColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Bs1-eb-asN" firstAttribute="top" secondItem="KA3-th-oog" secondAttribute="top" constant="5" id="26s-sL-rNE"/>
+                        <constraint firstAttribute="trailing" secondItem="Bs1-eb-asN" secondAttribute="trailing" constant="10" id="3wp-HA-k7N"/>
+                        <constraint firstAttribute="trailing" secondItem="DfA-kr-OVe" secondAttribute="trailing" constant="10" id="4c3-Rk-OgK"/>
+                        <constraint firstAttribute="trailing" secondItem="YMJ-UC-Hjc" secondAttribute="trailing" constant="10" id="84U-Zo-tDV"/>
+                        <constraint firstItem="YMJ-UC-Hjc" firstAttribute="top" secondItem="Bs1-eb-asN" secondAttribute="bottom" constant="5" id="MI0-KM-jnA"/>
+                        <constraint firstItem="DfA-kr-OVe" firstAttribute="leading" secondItem="KA3-th-oog" secondAttribute="leading" constant="10" id="Nwy-0f-KOz"/>
+                        <constraint firstItem="YMJ-UC-Hjc" firstAttribute="leading" secondItem="KA3-th-oog" secondAttribute="leading" constant="10" id="QbS-XD-tXT"/>
+                        <constraint firstAttribute="bottom" secondItem="DfA-kr-OVe" secondAttribute="bottom" constant="5" id="SPY-tM-9xU"/>
+                        <constraint firstItem="Bs1-eb-asN" firstAttribute="leading" secondItem="KA3-th-oog" secondAttribute="leading" constant="10" id="ZrM-th-2iu"/>
+                        <constraint firstItem="DfA-kr-OVe" firstAttribute="top" secondItem="YMJ-UC-Hjc" secondAttribute="bottom" constant="5" id="pP6-4g-T1W"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="KA3-th-oog" secondAttribute="bottom" constant="10" id="8ao-8V-I74"/>
+                <constraint firstItem="KA3-th-oog" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="FbE-YT-YOF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KA3-th-oog" secondAttribute="trailing" constant="10" id="e73-m3-bU8"/>
+                <constraint firstItem="KA3-th-oog" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="wEM-gn-6bf"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="lbCharity" destination="Bs1-eb-asN" id="hL5-Kp-Srh"/>
+                <outlet property="lbMoney" destination="DfA-kr-OVe" id="l8I-Ji-tgd"/>
+                <outlet property="lbTotalMoney" destination="YMJ-UC-Hjc" id="JgK-Sk-yNf"/>
+                <outlet property="vContent" destination="KA3-th-oog" id="aKH-6U-U6i"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="79.891304347826093"/>
+        </view>
+    </objects>
+</document>
