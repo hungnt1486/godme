@@ -45,7 +45,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="OKb-eo-OOY" secondAttribute="trailing" constant="10" id="BVz-81-adJ"/>
                         <constraint firstAttribute="bottom" secondItem="OKb-eo-OOY" secondAttribute="bottom" constant="5" id="Cpq-ry-mZQ"/>

@@ -18,10 +18,18 @@
 		410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67ED2414959100FA2F54 /* HeaderMain.xib */; };
 		410E67F02414998400FA2F54 /* HeaderSubMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E67EF2414998400FA2F54 /* HeaderSubMain.swift */; };
 		410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67F12414998D00FA2F54 /* HeaderSubMain.xib */; };
-		410E67F624149E4100FA2F54 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E67F424149E4100FA2F54 /* MainTableViewCell.swift */; };
-		410E67F724149E4100FA2F54 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67F524149E4100FA2F54 /* MainTableViewCell.xib */; };
 		410E67FA24149E4F00FA2F54 /* Main1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E67F824149E4F00FA2F54 /* Main1TableViewCell.swift */; };
 		410E67FB24149E4F00FA2F54 /* Main1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67F924149E4F00FA2F54 /* Main1TableViewCell.xib */; };
+		4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113297A2414E3DA0089DD18 /* MainTableViewCell.swift */; };
+		4113297D2414E3DA0089DD18 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113297B2414E3DA0089DD18 /* MainTableViewCell.xib */; };
+		411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113297E2414E3F70089DD18 /* MainCollectionViewCell.swift */; };
+		411329812414E3F70089DD18 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113297F2414E3F70089DD18 /* MainCollectionViewCell.xib */; };
+		4113298424154E710089DD18 /* Main1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113298224154E710089DD18 /* Main1CollectionViewCell.swift */; };
+		4113298524154E710089DD18 /* Main1CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113298324154E710089DD18 /* Main1CollectionViewCell.xib */; };
+		41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41132986241550070089DD18 /* Main2CollectionViewCell.swift */; };
+		41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41132987241550070089DD18 /* Main2CollectionViewCell.xib */; };
+		4113298C2415552C0089DD18 /* Main2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113298A2415552C0089DD18 /* Main2TableViewCell.swift */; };
+		4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113298B2415552C0089DD18 /* Main2TableViewCell.xib */; };
 		4121FA262412920A00AF26D3 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA242412920A00AF26D3 /* IntroView.swift */; };
 		4121FA272412920A00AF26D3 /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA252412920A00AF26D3 /* IntroView.xib */; };
 		4121FA2E2412933F00AF26D3 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA282412933E00AF26D3 /* province.json */; };
@@ -151,10 +159,18 @@
 		410E67ED2414959100FA2F54 /* HeaderMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderMain.xib; sourceTree = "<group>"; };
 		410E67EF2414998400FA2F54 /* HeaderSubMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSubMain.swift; sourceTree = "<group>"; };
 		410E67F12414998D00FA2F54 /* HeaderSubMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSubMain.xib; sourceTree = "<group>"; };
-		410E67F424149E4100FA2F54 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		410E67F524149E4100FA2F54 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		410E67F824149E4F00FA2F54 /* Main1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main1TableViewCell.swift; sourceTree = "<group>"; };
 		410E67F924149E4F00FA2F54 /* Main1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Main1TableViewCell.xib; sourceTree = "<group>"; };
+		4113297A2414E3DA0089DD18 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		4113297B2414E3DA0089DD18 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		4113297E2414E3F70089DD18 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		4113297F2414E3F70089DD18 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		4113298224154E710089DD18 /* Main1CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main1CollectionViewCell.swift; sourceTree = "<group>"; };
+		4113298324154E710089DD18 /* Main1CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main1CollectionViewCell.xib; sourceTree = "<group>"; };
+		41132986241550070089DD18 /* Main2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2CollectionViewCell.swift; sourceTree = "<group>"; };
+		41132987241550070089DD18 /* Main2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Main2CollectionViewCell.xib; sourceTree = "<group>"; };
+		4113298A2415552C0089DD18 /* Main2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main2TableViewCell.swift; sourceTree = "<group>"; };
+		4113298B2415552C0089DD18 /* Main2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main2TableViewCell.xib; sourceTree = "<group>"; };
 		4121FA242412920A00AF26D3 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		4121FA252412920A00AF26D3 /* IntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
 		4121FA282412933E00AF26D3 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = province.json; path = "../../../../../../common-info/province.json"; sourceTree = "<group>"; };
@@ -304,10 +320,18 @@
 		410E67F324149E0B00FA2F54 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				410E67F424149E4100FA2F54 /* MainTableViewCell.swift */,
-				410E67F524149E4100FA2F54 /* MainTableViewCell.xib */,
+				4113298A2415552C0089DD18 /* Main2TableViewCell.swift */,
+				4113298B2415552C0089DD18 /* Main2TableViewCell.xib */,
+				4113298224154E710089DD18 /* Main1CollectionViewCell.swift */,
+				4113298324154E710089DD18 /* Main1CollectionViewCell.xib */,
 				410E67F824149E4F00FA2F54 /* Main1TableViewCell.swift */,
 				410E67F924149E4F00FA2F54 /* Main1TableViewCell.xib */,
+				4113297A2414E3DA0089DD18 /* MainTableViewCell.swift */,
+				4113297B2414E3DA0089DD18 /* MainTableViewCell.xib */,
+				4113297E2414E3F70089DD18 /* MainCollectionViewCell.swift */,
+				4113297F2414E3F70089DD18 /* MainCollectionViewCell.xib */,
+				41132986241550070089DD18 /* Main2CollectionViewCell.swift */,
+				41132987241550070089DD18 /* Main2CollectionViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -721,8 +745,10 @@
 				E6F57D9F2410FC4C005FC9C2 /* Roboto-Italic.ttf in Resources */,
 				41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */,
 				E6F57DA02410FC4C005FC9C2 /* Roboto-Light.ttf in Resources */,
+				4113297D2414E3DA0089DD18 /* MainTableViewCell.xib in Resources */,
 				E6F57DA12410FC4C005FC9C2 /* Roboto-LightItalic.ttf in Resources */,
 				41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */,
+				411329812414E3F70089DD18 /* MainCollectionViewCell.xib in Resources */,
 				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
 				41AD16B92413A734001E132E /* FollowTableViewController.xib in Resources */,
@@ -766,11 +792,13 @@
 				41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */,
 				41AD16CE2413FD9E001E132E /* MyServicesViewController.xib in Resources */,
 				41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */,
-				410E67F724149E4100FA2F54 /* MainTableViewCell.xib in Resources */,
+				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
+				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
+				4113298524154E710089DD18 /* Main1CollectionViewCell.xib in Resources */,
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
 				4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */,
 				4121FA2F2412933F00AF26D3 /* district.json in Resources */,
@@ -875,12 +903,12 @@
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
 				41AD16D624141A55001E132E /* MyServicesTableViewCell.swift in Sources */,
-				410E67F624149E4100FA2F54 /* MainTableViewCell.swift in Sources */,
 				41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */,
 				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,
 				41286B15241151210021157C /* AccountsViewController.swift in Sources */,
 				41286B1A2411514B0021157C /* ServicesManageViewController.swift in Sources */,
 				410E67E92414311C00FA2F54 /* HeaderServicesInfoBook.swift in Sources */,
+				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
 				410E67EC2414958400FA2F54 /* HeaderMain.swift in Sources */,
@@ -895,12 +923,14 @@
 				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
+				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
 				41286B2824115A720021157C /* Resources.swift in Sources */,
 				41AD16B424139CCF001E132E /* HistoryViewController.swift in Sources */,
+				4113298C2415552C0089DD18 /* Main2TableViewCell.swift in Sources */,
 				4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */,
 				41286B1F241151850021157C /* RelationshipsViewController.swift in Sources */,
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
@@ -918,7 +948,9 @@
 				41286AF7240F732D0021157C /* RegisterViewController.swift in Sources */,
 				410E67F02414998400FA2F54 /* HeaderSubMain.swift in Sources */,
 				41AD16CD2413FD9E001E132E /* MyServicesViewController.swift in Sources */,
+				41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */,
 				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,
+				4113298424154E710089DD18 /* Main1CollectionViewCell.swift in Sources */,
 				E6500C822408BB0F001E023D /* MainViewController.swift in Sources */,
 				41286AEA240F3EE70021157C /* BaseModel.swift in Sources */,
 				41286B24241151A90021157C /* MapsViewController.swift in Sources */,

@@ -25,7 +25,7 @@ class HeaderSubMain: UITableViewHeaderFooterView {
     }
     
     func setup(){
-        self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
+//        self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
     }
     
     @IBAction func touchMore(_ sender: Any) {

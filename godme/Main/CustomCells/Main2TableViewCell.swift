@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol MainTableViewCellProtocol {
-    func didCell(index: Int)
+protocol Main2TableViewCellProtocol {
+    func didCellMain2(index: Int)
 }
 
-class MainTableViewCell: UITableViewCell {
+class Main2TableViewCell: UITableViewCell {
 
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var flowLayout = UICollectionViewFlowLayout()
-    var delegate: MainTableViewCellProtocol?
+    var delegate: Main2TableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -44,15 +44,15 @@ class MainTableViewCell: UITableViewCell {
         collectionView.delegate = self
         
         collectionView.dataSource = self
-        self.collectionView.register(UINib.init(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MainCollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "Main2CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main2CollectionViewCell")
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.8, height: 130)
+        flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 290)
         self.collectionView.collectionViewLayout = flowLayout
     }
     
 }
 
-extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+extension Main2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return 10
         }
@@ -63,8 +63,10 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             //        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell",
-                                                          for: indexPath) as! MainCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main2CollectionViewCell",
+                                                          for: indexPath) as! Main2CollectionViewCell
+            cell.btJoin.tag = indexPath.row
+            cell.delegate = self
 //            let modelAds = arrBanner[indexPath.row]
 //            cell.imgAds.sd_setImage(with: URL.init(string: modelAds.Photos ?? ""), placeholderImage: UIImage.init(named: "ic_ads_default"), options: .lowPriority) { (img, error, nil, url) in
 //                if error == nil {
@@ -80,7 +82,7 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //            delegate?.didEvent(index: indexPath.row)
-            delegate?.didCell(index: indexPath.row)
+            delegate?.didCellMain2(index: indexPath.row)
         }
         
         func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -92,4 +94,12 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
 //                }
 //            }
         }
+}
+
+extension Main2TableViewCell: Main2CollectionViewCellProtocol{
+    func didJoin(index: Int) {
+        print("index join = ", index)
+    }
+    
+    
 }

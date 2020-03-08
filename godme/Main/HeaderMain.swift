@@ -21,7 +21,7 @@ class HeaderMain: GSKStretchyHeaderView {
     }
     
     func setup(){
-        
+        self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
     }
     
 }

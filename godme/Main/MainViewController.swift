@@ -11,10 +11,102 @@ import UIKit
 class MainViewController: BaseViewController {
 
     @IBOutlet weak var tbvMain: UITableView!
+    var stretchyHeaderView: HeaderMain?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupTableView()
     }
     
+    func setupTableView(){
+        self.tbvMain.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "MainTableViewCell")
+        self.tbvMain.register(UINib(nibName: "Main1TableViewCell", bundle: nil), forCellReuseIdentifier: "Main1TableViewCell")
+        self.tbvMain.register(UINib(nibName: "Main2TableViewCell", bundle: nil), forCellReuseIdentifier: "Main2TableViewCell")
+        self.tbvMain.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
+
+        self.tbvMain.delegate = self
+        self.tbvMain.dataSource = self
+        self.tbvMain.separatorColor = UIColor.clear
+        self.tbvMain.separatorInset = UIEdgeInsets.zero
+        self.tbvMain.estimatedRowHeight = 300
+        self.tbvMain.rowHeight = UITableView.automaticDimension
+        
+        let nibViews = Bundle.main.loadNibNamed("HeaderMain", owner: self, options: nil)
+
+        self.stretchyHeaderView = nibViews![0] as? HeaderMain
+        self.tbvMain.addSubview(self.stretchyHeaderView!)
+    }
+    
+}
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
+        header.backgroundColor = UIColor.FlatColor.Gray.BGColor
+        if section == 0 {
+            header.lbTitle.text = "Dịch vụ cơ bản"
+        }else if section == 1 {
+            header.lbTitle.text = "Đấu giá dịch vụ"
+        }else{
+            header.lbTitle.text = "Sự kiện"
+        }
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return 130
+        }else{
+            return 290
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
+            cell.delegate = self
+            return cell
+        }else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main1TableViewCell") as! Main1TableViewCell
+            cell.delegate = self
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
+            cell.delegate = self
+            return cell
+        }
+     
+    }
+}
+
+extension MainViewController: MainTableViewCellProtocol{
+    func didCell(index: Int) {
+        print("index = ", index)
+    }
+}
+
+extension MainViewController: Main1TableViewCellProtocol{
+    func didCellMain1(index: Int) {
+        print("index1 = ", index)
+    }
+}
+
+extension MainViewController: Main2TableViewCellProtocol{
+    func didCellMain2(index: Int) {
+        print("index2 = ", index)
+    }
 }
