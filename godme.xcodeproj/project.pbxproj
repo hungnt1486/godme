@@ -30,6 +30,29 @@
 		41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41132987241550070089DD18 /* Main2CollectionViewCell.xib */; };
 		4113298C2415552C0089DD18 /* Main2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113298A2415552C0089DD18 /* Main2TableViewCell.swift */; };
 		4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113298B2415552C0089DD18 /* Main2TableViewCell.xib */; };
+		41132990241684450089DD18 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41132992241684450089DD18 /* Localizable.strings */; };
+		411329972416888C0089DD18 /* BasicServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329952416888C0089DD18 /* BasicServicesTableViewCell.swift */; };
+		411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329962416888C0089DD18 /* BasicServicesTableViewCell.xib */; };
+		4113299C24168A090089DD18 /* BasicServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113299A24168A090089DD18 /* BasicServiceViewController.swift */; };
+		4113299D24168A090089DD18 /* BasicServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113299B24168A090089DD18 /* BasicServiceViewController.xib */; };
+		411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113299F24168C970089DD18 /* AuctionServiceViewController.swift */; };
+		411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329A024168C970089DD18 /* AuctionServiceViewController.xib */; };
+		411329A524168CB60089DD18 /* AuctionServicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329A324168CB60089DD18 /* AuctionServicesTableViewCell.xib */; };
+		411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329A424168CB60089DD18 /* AuctionServicesTableViewCell.swift */; };
+		411329AA24168F5D0089DD18 /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329A824168F5D0089DD18 /* EventsViewController.xib */; };
+		411329AB24168F5D0089DD18 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329A924168F5D0089DD18 /* EventsViewController.swift */; };
+		411329AE24168F670089DD18 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329AC24168F670089DD18 /* EventsTableViewCell.swift */; };
+		411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329AD24168F670089DD18 /* EventsTableViewCell.xib */; };
+		411329B22416932F0089DD18 /* DetailBasicServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329B02416932F0089DD18 /* DetailBasicServiceViewController.swift */; };
+		411329B32416932F0089DD18 /* DetailBasicServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329B12416932F0089DD18 /* DetailBasicServiceViewController.xib */; };
+		411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329B4241694BE0089DD18 /* ImageDetailTableViewCell.swift */; };
+		411329B7241694BE0089DD18 /* ImageDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329B5241694BE0089DD18 /* ImageDetailTableViewCell.xib */; };
+		411329BA2416A3380089DD18 /* TimeAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329B82416A3380089DD18 /* TimeAddressTableViewCell.swift */; };
+		411329BB2416A3380089DD18 /* TimeAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329B92416A3380089DD18 /* TimeAddressTableViewCell.xib */; };
+		411329BE2416A6160089DD18 /* InfoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329BC2416A6160089DD18 /* InfoDetailTableViewCell.swift */; };
+		411329BF2416A6160089DD18 /* InfoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329BD2416A6160089DD18 /* InfoDetailTableViewCell.xib */; };
+		411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329C02416A78C0089DD18 /* BookServiceTableViewCell.swift */; };
+		411329C32416A78C0089DD18 /* BookServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */; };
 		4121FA262412920A00AF26D3 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA242412920A00AF26D3 /* IntroView.swift */; };
 		4121FA272412920A00AF26D3 /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA252412920A00AF26D3 /* IntroView.xib */; };
 		4121FA2E2412933F00AF26D3 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA282412933E00AF26D3 /* province.json */; };
@@ -46,7 +69,6 @@
 		4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4624133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib */; };
 		4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */; };
 		4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */; };
-		41286ACC240D586D0021157C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41286ACE240D586D0021157C /* Localizable.strings */; };
 		41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286AD2240EB1120021157C /* IntroduceViewController.swift */; };
 		41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286AD3240EB1120021157C /* IntroduceViewController.xib */; };
 		41286AE9240F3EE70021157C /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286ADD240F3EE60021157C /* Defines.swift */; };
@@ -171,6 +193,31 @@
 		41132987241550070089DD18 /* Main2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Main2CollectionViewCell.xib; sourceTree = "<group>"; };
 		4113298A2415552C0089DD18 /* Main2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main2TableViewCell.swift; sourceTree = "<group>"; };
 		4113298B2415552C0089DD18 /* Main2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main2TableViewCell.xib; sourceTree = "<group>"; };
+		41132991241684450089DD18 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		411329932416845E0089DD18 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		411329942416845F0089DD18 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		411329952416888C0089DD18 /* BasicServicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicServicesTableViewCell.swift; sourceTree = "<group>"; };
+		411329962416888C0089DD18 /* BasicServicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicServicesTableViewCell.xib; sourceTree = "<group>"; };
+		4113299A24168A090089DD18 /* BasicServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicServiceViewController.swift; sourceTree = "<group>"; };
+		4113299B24168A090089DD18 /* BasicServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicServiceViewController.xib; sourceTree = "<group>"; };
+		4113299F24168C970089DD18 /* AuctionServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionServiceViewController.swift; sourceTree = "<group>"; };
+		411329A024168C970089DD18 /* AuctionServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuctionServiceViewController.xib; sourceTree = "<group>"; };
+		411329A324168CB60089DD18 /* AuctionServicesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionServicesTableViewCell.xib; sourceTree = "<group>"; };
+		411329A424168CB60089DD18 /* AuctionServicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuctionServicesTableViewCell.swift; sourceTree = "<group>"; };
+		411329A824168F5D0089DD18 /* EventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
+		411329A924168F5D0089DD18 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		411329AC24168F670089DD18 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		411329AD24168F670089DD18 /* EventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewCell.xib; sourceTree = "<group>"; };
+		411329B02416932F0089DD18 /* DetailBasicServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBasicServiceViewController.swift; sourceTree = "<group>"; };
+		411329B12416932F0089DD18 /* DetailBasicServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBasicServiceViewController.xib; sourceTree = "<group>"; };
+		411329B4241694BE0089DD18 /* ImageDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailTableViewCell.swift; sourceTree = "<group>"; };
+		411329B5241694BE0089DD18 /* ImageDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailTableViewCell.xib; sourceTree = "<group>"; };
+		411329B82416A3380089DD18 /* TimeAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAddressTableViewCell.swift; sourceTree = "<group>"; };
+		411329B92416A3380089DD18 /* TimeAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeAddressTableViewCell.xib; sourceTree = "<group>"; };
+		411329BC2416A6160089DD18 /* InfoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailTableViewCell.swift; sourceTree = "<group>"; };
+		411329BD2416A6160089DD18 /* InfoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoDetailTableViewCell.xib; sourceTree = "<group>"; };
+		411329C02416A78C0089DD18 /* BookServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceTableViewCell.swift; sourceTree = "<group>"; };
+		411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookServiceTableViewCell.xib; sourceTree = "<group>"; };
 		4121FA242412920A00AF26D3 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		4121FA252412920A00AF26D3 /* IntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
 		4121FA282412933E00AF26D3 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = province.json; path = "../../../../../../common-info/province.json"; sourceTree = "<group>"; };
@@ -188,8 +235,6 @@
 		4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceBlueButtonTableViewCell.swift; sourceTree = "<group>"; };
 		4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceBlueButtonTableViewCell.xib; sourceTree = "<group>"; };
 		41286ACB240D57400021157C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		41286ACD240D586D0021157C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		41286AD0240D588F0021157C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		41286AD2240EB1120021157C /* IntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceViewController.swift; sourceTree = "<group>"; };
 		41286AD3240EB1120021157C /* IntroduceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroduceViewController.xib; sourceTree = "<group>"; };
 		41286ADD240F3EE60021157C /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
@@ -320,6 +365,10 @@
 		410E67F324149E0B00FA2F54 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				411329B4241694BE0089DD18 /* ImageDetailTableViewCell.swift */,
+				411329B5241694BE0089DD18 /* ImageDetailTableViewCell.xib */,
+				411329AC24168F670089DD18 /* EventsTableViewCell.swift */,
+				411329AD24168F670089DD18 /* EventsTableViewCell.xib */,
 				4113298A2415552C0089DD18 /* Main2TableViewCell.swift */,
 				4113298B2415552C0089DD18 /* Main2TableViewCell.xib */,
 				4113298224154E710089DD18 /* Main1CollectionViewCell.swift */,
@@ -332,8 +381,47 @@
 				4113297F2414E3F70089DD18 /* MainCollectionViewCell.xib */,
 				41132986241550070089DD18 /* Main2CollectionViewCell.swift */,
 				41132987241550070089DD18 /* Main2CollectionViewCell.xib */,
+				411329952416888C0089DD18 /* BasicServicesTableViewCell.swift */,
+				411329962416888C0089DD18 /* BasicServicesTableViewCell.xib */,
+				411329A424168CB60089DD18 /* AuctionServicesTableViewCell.swift */,
+				411329A324168CB60089DD18 /* AuctionServicesTableViewCell.xib */,
+				411329B82416A3380089DD18 /* TimeAddressTableViewCell.swift */,
+				411329B92416A3380089DD18 /* TimeAddressTableViewCell.xib */,
+				411329BC2416A6160089DD18 /* InfoDetailTableViewCell.swift */,
+				411329BD2416A6160089DD18 /* InfoDetailTableViewCell.xib */,
+				411329C02416A78C0089DD18 /* BookServiceTableViewCell.swift */,
+				411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		41132999241689E30089DD18 /* BasicService */ = {
+			isa = PBXGroup;
+			children = (
+				4113299A24168A090089DD18 /* BasicServiceViewController.swift */,
+				4113299B24168A090089DD18 /* BasicServiceViewController.xib */,
+				411329B02416932F0089DD18 /* DetailBasicServiceViewController.swift */,
+				411329B12416932F0089DD18 /* DetailBasicServiceViewController.xib */,
+			);
+			path = BasicService;
+			sourceTree = "<group>";
+		};
+		4113299E24168C770089DD18 /* AuctionService */ = {
+			isa = PBXGroup;
+			children = (
+				4113299F24168C970089DD18 /* AuctionServiceViewController.swift */,
+				411329A024168C970089DD18 /* AuctionServiceViewController.xib */,
+			);
+			path = AuctionService;
+			sourceTree = "<group>";
+		};
+		411329A724168F250089DD18 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				411329A924168F5D0089DD18 /* EventsViewController.swift */,
+				411329A824168F5D0089DD18 /* EventsViewController.xib */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		4121FA3B24133A5800AF26D3 /* Finances */ = {
@@ -523,6 +611,9 @@
 		41286B26241151B70021157C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				411329A724168F250089DD18 /* Events */,
+				4113299E24168C770089DD18 /* AuctionService */,
+				41132999241689E30089DD18 /* BasicService */,
 				410E67F324149E0B00FA2F54 /* CustomCells */,
 				E6500C802408BB0F001E023D /* MainViewController.swift */,
 				E6500C812408BB0F001E023D /* MainViewController.xib */,
@@ -618,9 +709,9 @@
 				41286AD1240EAA3D0021157C /* Introduce */,
 				E6500C722408BAB1001E023D /* Assets.xcassets */,
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
+				41132992241684450089DD18 /* Localizable.strings */,
 				E6500C7A2408BAB1001E023D /* Info.plist */,
 				E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */,
-				41286ACE240D586D0021157C /* Localizable.strings */,
 				E6500C742408BAB1001E023D /* Preview Content */,
 			);
 			path = godme;
@@ -738,6 +829,7 @@
 				41AD16D724141A55001E132E /* MyServicesTableViewCell.xib in Resources */,
 				41AD169D241358D1001E132E /* WithdrawViewController.xib in Resources */,
 				E6F57D9B2410FC4C005FC9C2 /* Roboto-Black.ttf in Resources */,
+				411329BB2416A3380089DD18 /* TimeAddressTableViewCell.xib in Resources */,
 				41AD16DB2414210A001E132E /* MyServicesJoinTableViewCell.xib in Resources */,
 				E6F57D9C2410FC4C005FC9C2 /* Roboto-BlackItalic.ttf in Resources */,
 				E6F57D9D2410FC4C005FC9C2 /* Roboto-Bold.ttf in Resources */,
@@ -745,6 +837,7 @@
 				E6F57D9F2410FC4C005FC9C2 /* Roboto-Italic.ttf in Resources */,
 				41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */,
 				E6F57DA02410FC4C005FC9C2 /* Roboto-Light.ttf in Resources */,
+				411329B32416932F0089DD18 /* DetailBasicServiceViewController.xib in Resources */,
 				4113297D2414E3DA0089DD18 /* MainTableViewCell.xib in Resources */,
 				E6F57DA12410FC4C005FC9C2 /* Roboto-LightItalic.ttf in Resources */,
 				41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */,
@@ -759,8 +852,12 @@
 				4121FA322412933F00AF26D3 /* ward.json in Resources */,
 				E6F57DA42410FC4C005FC9C2 /* Roboto-Regular.ttf in Resources */,
 				E6F57DA52410FC4C005FC9C2 /* Roboto-Thin.ttf in Resources */,
+				41132990241684450089DD18 /* Localizable.strings in Resources */,
+				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
 				E6F57DA62410FC4C005FC9C2 /* Roboto-ThinItalic.ttf in Resources */,
+				411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */,
 				410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */,
+				411329A524168CB60089DD18 /* AuctionServicesTableViewCell.xib in Resources */,
 				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
 				E6F57DA72410FC4C005FC9C2 /* RobotoCondensed-Bold.ttf in Resources */,
 				E6F57DA82410FC4C005FC9C2 /* RobotoCondensed-BoldItalic.ttf in Resources */,
@@ -773,6 +870,7 @@
 				E6F57DAB2410FC4C005FC9C2 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
 				4121FA332412933F00AF26D3 /* socials.json in Resources */,
+				411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */,
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
@@ -780,7 +878,6 @@
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
 				41286B20241151850021157C /* RelationshipsViewController.xib in Resources */,
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
-				41286ACC240D586D0021157C /* Localizable.strings in Resources */,
 				41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */,
 				4121FA2E2412933F00AF26D3 /* province.json in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
@@ -789,18 +886,23 @@
 				41AD16C12413A8DF001E132E /* FollowMonthTableViewCell.xib in Resources */,
 				4121FA3F24133AC500AF26D3 /* FinanceViewController.xib in Resources */,
 				41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */,
+				411329C32416A78C0089DD18 /* BookServiceTableViewCell.xib in Resources */,
+				411329B7241694BE0089DD18 /* ImageDetailTableViewCell.xib in Resources */,
+				411329AA24168F5D0089DD18 /* EventsViewController.xib in Resources */,
 				41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */,
 				41AD16CE2413FD9E001E132E /* MyServicesViewController.xib in Resources */,
 				41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */,
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
 				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
+				411329BF2416A6160089DD18 /* InfoDetailTableViewCell.xib in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
 				4113298524154E710089DD18 /* Main1CollectionViewCell.xib in Resources */,
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
 				4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */,
+				4113299D24168A090089DD18 /* BasicServiceViewController.xib in Resources */,
 				4121FA2F2412933F00AF26D3 /* district.json in Resources */,
 				4121FA302412933F00AF26D3 /* educations.json in Resources */,
 				41AD16D22413FDC6001E132E /* ServicesInfoBookedViewController.xib in Resources */,
@@ -895,14 +997,17 @@
 			files = (
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
 				41AD16C02413A8DF001E132E /* FollowMonthTableViewCell.swift in Sources */,
+				411329B22416932F0089DD18 /* DetailBasicServiceViewController.swift in Sources */,
 				41AD16C92413FC31001E132E /* ViewPagerController.swift in Sources */,
 				41286AE9240F3EE70021157C /* Defines.swift in Sources */,
 				41286AEF240F3EE70021157C /* Result.swift in Sources */,
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
+				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
 				41AD16D624141A55001E132E /* MyServicesTableViewCell.swift in Sources */,
+				411329AB24168F5D0089DD18 /* EventsViewController.swift in Sources */,
 				41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */,
 				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,
 				41286B15241151210021157C /* AccountsViewController.swift in Sources */,
@@ -910,9 +1015,11 @@
 				410E67E92414311C00FA2F54 /* HeaderServicesInfoBook.swift in Sources */,
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
+				411329BE2416A6160089DD18 /* InfoDetailTableViewCell.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
 				410E67EC2414958400FA2F54 /* HeaderMain.swift in Sources */,
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
+				411329972416888C0089DD18 /* BasicServicesTableViewCell.swift in Sources */,
 				41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */,
 				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
@@ -924,18 +1031,24 @@
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
+				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
 				41286B2824115A720021157C /* Resources.swift in Sources */,
+				411329BA2416A3380089DD18 /* TimeAddressTableViewCell.swift in Sources */,
 				41AD16B424139CCF001E132E /* HistoryViewController.swift in Sources */,
 				4113298C2415552C0089DD18 /* Main2TableViewCell.swift in Sources */,
 				4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */,
 				41286B1F241151850021157C /* RelationshipsViewController.swift in Sources */,
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
+				411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */,
 				41AD16C82413FC31001E132E /* ViewPagerTab.swift in Sources */,
+				4113299C24168A090089DD18 /* BasicServiceViewController.swift in Sources */,
 				41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */,
+				411329AE24168F670089DD18 /* EventsTableViewCell.swift in Sources */,
+				411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */,
 				41AD16B82413A734001E132E /* FollowTableViewController.swift in Sources */,
 				41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */,
 				41AD16D12413FDC6001E132E /* ServicesInfoBookedViewController.swift in Sources */,
@@ -960,11 +1073,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		41286ACE240D586D0021157C /* Localizable.strings */ = {
+		41132992241684450089DD18 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				41286ACD240D586D0021157C /* en */,
-				41286AD0240D588F0021157C /* vi */,
+				41132991241684450089DD18 /* en */,
+				411329942416845F0089DD18 /* vi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -973,6 +1086,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				41286ACB240D57400021157C /* Base */,
+				411329932416845E0089DD18 /* vi */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

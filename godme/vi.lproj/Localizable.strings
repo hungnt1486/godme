@@ -2,7 +2,7 @@
   Localizable.strings
   godme
 
-  Created by Lê Hùng on 3/2/20.
+  Created by Lê Hùng on 3/9/20.
   Copyright © 2020 godme. All rights reserved.
 */
 "wallet_finance" = "Ví tài chính";
@@ -27,3 +27,8 @@
 "account_name" = "Tên chủ tài khoản";
 "same_account" = "(Phải trùng với tài khoản user Godme)";
 "confirm" = "Xác nhận";
+
+// main page
+"basic_service" = "Dịch vụ cơ bản";
+"auction_service" = "Đấu giá dịch vụ";
+"events" = "Sự kiện";

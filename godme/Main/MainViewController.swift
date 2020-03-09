@@ -52,6 +52,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
         header.backgroundColor = UIColor.FlatColor.Gray.BGColor
+        header.delegate = self
+        header.btMore.tag = section
         if section == 0 {
             header.lbTitle.text = "Dịch vụ cơ bản"
         }else if section == 1 {
@@ -108,5 +110,21 @@ extension MainViewController: Main1TableViewCellProtocol{
 extension MainViewController: Main2TableViewCellProtocol{
     func didCellMain2(index: Int) {
         print("index2 = ", index)
+    }
+}
+
+extension MainViewController: HeaderSubMainProtocol{
+    func didMore(index: Int) {
+        if index == 0 {
+            // for case basic service
+            let basicService = BasicServiceViewController()
+            self.navigationController?.pushViewController(basicService, animated: true)
+        }else if index == 1 {
+            let auctionService = AuctionServiceViewController()
+            self.navigationController?.pushViewController(auctionService, animated: true)
+        }else{
+            let event = EventsViewController()
+            self.navigationController?.pushViewController(event, animated: true)
+        }
     }
 }
