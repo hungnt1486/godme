@@ -9,6 +9,10 @@
 import UIKit
 import SDWebImage
 
+protocol ImageDetailAuctionTableViewCellProtocol {
+    func didShowMoreAuction()
+}
+
 class ImageDetailAuctionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -20,18 +24,28 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
     @IBOutlet weak var lbJob: UILabel!
     @IBOutlet weak var lbCoin: UILabel!
     
+    var delegate: ImageDetailAuctionTableViewCellProtocol?
+    
     var arrImageBanner: [String] = [String]()
     weak var bannerTimer: Timer?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchShowMore))
+        self.imgShowMore.isUserInteractionEnabled = true
+        self.imgShowMore.addGestureRecognizer(tapGesture)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    @objc func touchShowMore(){
+        delegate?.didShowMoreAuction()
     }
     
     func crollViewImage() {

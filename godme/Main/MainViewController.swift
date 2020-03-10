@@ -111,18 +111,24 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
 extension MainViewController: MainTableViewCellProtocol{
     func didCell(index: Int) {
         print("index = ", index)
+        let detail = DetailBasicServiceViewController()
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
 
 extension MainViewController: Main1TableViewCellProtocol{
     func didCellMain1(index: Int) {
         print("index1 = ", index)
+        let detailAuction = DetailAuctionViewController()
+        self.navigationController?.pushViewController(detailAuction, animated: true)
     }
 }
 
 extension MainViewController: Main2TableViewCellProtocol{
     func didCellMain2(index: Int) {
         print("index2 = ", index)
+        let detailEvent = DetailEventViewController()
+        self.navigationController?.pushViewController(detailEvent, animated: true)
     }
 }
 

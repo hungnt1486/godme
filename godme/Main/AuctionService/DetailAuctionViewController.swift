@@ -61,6 +61,7 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
         case .Avatar:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailAuctionTableViewCell") as! ImageDetailAuctionTableViewCell
             cell.arrImageBanner = ["ic_logo"]
+            cell.delegate = self
             if cell.arrImageBanner.count > 0 {
                 cell.crollViewImage()
                 cell.configCrollView()
@@ -82,4 +83,26 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension DetailAuctionViewController: ImageDetailAuctionTableViewCellProtocol{
+    func didShowMoreAuction() {
+        let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let action2 = UIAlertAction.init(title: "Tạo đấu giá dịch vụ của bạn", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        
+        alertControl.addAction(action2)
+        alertControl.addAction(action3)
+        alertControl.addAction(actionCancel)
+        self.navigationController?.present(alertControl, animated: true, completion: nil)
+    }
+    
+    
 }
