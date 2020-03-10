@@ -15,6 +15,7 @@ let InstagramAppClientId = "9183d291a7c04acaa471d2999c79c866"
 // NSUserDefault
 let information_login = "information_user"
 let information_is_login = "information_is_login"
+let info_language = "info_language"
 // define post notification
 let receive_remote_notification_patient = "receive_remote_notification_patient"
 let receive_remote_notification_doctor = "receive_remote_notification_doctor"

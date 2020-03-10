@@ -9,6 +9,8 @@
 import UIKit
 
 class Settings: NSObject {
+    
+    static var bundle = Bundle()
     // declare singleton
     static let ShareInstance = Settings()
     
@@ -317,6 +319,29 @@ class Settings: NSObject {
         if let url = URL(string: link) {
             UIApplication.shared.open(url)
         }
+    }
+    
+    func getCurrentLanguage() -> String{
+        let lang = UserDefaults.standard.object(forKey: info_language) as! String
+        if (lang != "") {
+            return lang
+        }else{
+            let language = Locale.preferredLanguages[0]
+            return language.contains("vi") ? "vi" : "en"
+        }
+    }
+    
+    func traslate(key: String) -> String{
+        if !Settings.bundle.isLoaded {
+            let language = self.getCurrentLanguage()
+            let filePath = Bundle.main.path(forResource: language, ofType: "lproj")
+            Settings.bundle = Bundle(path: filePath!)!
+        }
+        var result = Settings.bundle.localizedString(forKey: key, value: nil, table: nil)
+        if result != "" {
+            result = key
+        }
+        return result
     }
 }
 
