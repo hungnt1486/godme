@@ -8,17 +8,17 @@
 
 import UIKit
 
-enum typeCellDetailBasic: Int {
+enum typeCellDetailEvent: Int {
     case Avatar = 0
     case Address = 1
     case Detail = 2
     case Book = 3
 }
 
-class DetailBasicServiceViewController: BaseViewController {
+class DetailEventViewController: BaseViewController {
 
     @IBOutlet weak var tbvDetailBasicService: UITableView!
-    var listTypeCell: [typeCellDetailBasic] = [.Avatar, .Address, .Detail, .Book]
+    var listTypeCell: [typeCellDetailEvent] = [.Avatar, .Address, .Detail, .Book]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,7 +46,7 @@ class DetailBasicServiceViewController: BaseViewController {
     }
 }
 
-extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewDataSource{
+extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listTypeCell.count
     }
@@ -86,7 +86,7 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
     
 }
 
-extension DetailBasicServiceViewController: BookServiceTableViewCellProtocol{
+extension DetailEventViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
         
     }

@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ImageDetailTableViewCell: UITableViewCell {
+class ImageDetailAuctionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageView: UIPageControl!
@@ -101,7 +101,7 @@ class ImageDetailTableViewCell: UITableViewCell {
     
 }
 
-extension ImageDetailTableViewCell: UIScrollViewDelegate {
+extension ImageDetailAuctionTableViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
             let pageWidth = scrollView.frame.size.width

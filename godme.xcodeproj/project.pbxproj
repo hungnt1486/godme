@@ -53,6 +53,14 @@
 		411329BF2416A6160089DD18 /* InfoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329BD2416A6160089DD18 /* InfoDetailTableViewCell.xib */; };
 		411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329C02416A78C0089DD18 /* BookServiceTableViewCell.swift */; };
 		411329C32416A78C0089DD18 /* BookServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */; };
+		411329C624171C3A0089DD18 /* DetailEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329C424171C3A0089DD18 /* DetailEventViewController.xib */; };
+		411329C724171C3A0089DD18 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329C524171C3A0089DD18 /* DetailEventViewController.swift */; };
+		411329CA24171CAA0089DD18 /* DetailAuctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329C824171CAA0089DD18 /* DetailAuctionViewController.swift */; };
+		411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329C924171CAA0089DD18 /* DetailAuctionViewController.xib */; };
+		411329CE24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329CC24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift */; };
+		411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329CD24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib */; };
+		411329D2241722330089DD18 /* InfoAuctionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411329D0241722330089DD18 /* InfoAuctionTableViewCell.swift */; };
+		411329D3241722330089DD18 /* InfoAuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */; };
 		4121FA262412920A00AF26D3 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA242412920A00AF26D3 /* IntroView.swift */; };
 		4121FA272412920A00AF26D3 /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA252412920A00AF26D3 /* IntroView.xib */; };
 		4121FA2E2412933F00AF26D3 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA282412933E00AF26D3 /* province.json */; };
@@ -218,6 +226,14 @@
 		411329BD2416A6160089DD18 /* InfoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoDetailTableViewCell.xib; sourceTree = "<group>"; };
 		411329C02416A78C0089DD18 /* BookServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookServiceTableViewCell.swift; sourceTree = "<group>"; };
 		411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookServiceTableViewCell.xib; sourceTree = "<group>"; };
+		411329C424171C3A0089DD18 /* DetailEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailEventViewController.xib; sourceTree = "<group>"; };
+		411329C524171C3A0089DD18 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
+		411329C824171CAA0089DD18 /* DetailAuctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAuctionViewController.swift; sourceTree = "<group>"; };
+		411329C924171CAA0089DD18 /* DetailAuctionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAuctionViewController.xib; sourceTree = "<group>"; };
+		411329CC24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailAuctionTableViewCell.swift; sourceTree = "<group>"; };
+		411329CD24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailAuctionTableViewCell.xib; sourceTree = "<group>"; };
+		411329D0241722330089DD18 /* InfoAuctionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAuctionTableViewCell.swift; sourceTree = "<group>"; };
+		411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoAuctionTableViewCell.xib; sourceTree = "<group>"; };
 		4121FA242412920A00AF26D3 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		4121FA252412920A00AF26D3 /* IntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
 		4121FA282412933E00AF26D3 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = province.json; path = "../../../../../../common-info/province.json"; sourceTree = "<group>"; };
@@ -365,6 +381,8 @@
 		410E67F324149E0B00FA2F54 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				411329CC24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift */,
+				411329CD24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib */,
 				411329B4241694BE0089DD18 /* ImageDetailTableViewCell.swift */,
 				411329B5241694BE0089DD18 /* ImageDetailTableViewCell.xib */,
 				411329AC24168F670089DD18 /* EventsTableViewCell.swift */,
@@ -391,6 +409,8 @@
 				411329BD2416A6160089DD18 /* InfoDetailTableViewCell.xib */,
 				411329C02416A78C0089DD18 /* BookServiceTableViewCell.swift */,
 				411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */,
+				411329D0241722330089DD18 /* InfoAuctionTableViewCell.swift */,
+				411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -411,6 +431,8 @@
 			children = (
 				4113299F24168C970089DD18 /* AuctionServiceViewController.swift */,
 				411329A024168C970089DD18 /* AuctionServiceViewController.xib */,
+				411329C824171CAA0089DD18 /* DetailAuctionViewController.swift */,
+				411329C924171CAA0089DD18 /* DetailAuctionViewController.xib */,
 			);
 			path = AuctionService;
 			sourceTree = "<group>";
@@ -418,6 +440,8 @@
 		411329A724168F250089DD18 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				411329C524171C3A0089DD18 /* DetailEventViewController.swift */,
+				411329C424171C3A0089DD18 /* DetailEventViewController.xib */,
 				411329A924168F5D0089DD18 /* EventsViewController.swift */,
 				411329A824168F5D0089DD18 /* EventsViewController.xib */,
 			);
@@ -845,6 +869,7 @@
 				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
 				41AD16B92413A734001E132E /* FollowTableViewController.xib in Resources */,
+				411329D3241722330089DD18 /* InfoAuctionTableViewCell.xib in Resources */,
 				E6F57DA22410FC4C005FC9C2 /* Roboto-Medium.ttf in Resources */,
 				41AD16B1241399BF001E132E /* HistoryLabelTableViewCell.xib in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
@@ -853,6 +878,7 @@
 				E6F57DA42410FC4C005FC9C2 /* Roboto-Regular.ttf in Resources */,
 				E6F57DA52410FC4C005FC9C2 /* Roboto-Thin.ttf in Resources */,
 				41132990241684450089DD18 /* Localizable.strings in Resources */,
+				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
 				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
 				E6F57DA62410FC4C005FC9C2 /* Roboto-ThinItalic.ttf in Resources */,
 				411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */,
@@ -869,6 +895,7 @@
 				41AD16BD2413A8D0001E132E /* FollowTableViewCell.xib in Resources */,
 				E6F57DAB2410FC4C005FC9C2 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
+				411329C624171C3A0089DD18 /* DetailEventViewController.xib in Resources */,
 				4121FA332412933F00AF26D3 /* socials.json in Resources */,
 				411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */,
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
@@ -913,6 +940,7 @@
 				41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */,
 				41286AF8240F732D0021157C /* RegisterViewController.xib in Resources */,
 				E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */,
+				411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */,
 				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1006,6 +1034,7 @@
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
+				411329CE24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift in Sources */,
 				41AD16D624141A55001E132E /* MyServicesTableViewCell.swift in Sources */,
 				411329AB24168F5D0089DD18 /* EventsViewController.swift in Sources */,
 				41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */,
@@ -1033,12 +1062,15 @@
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
+				411329D2241722330089DD18 /* InfoAuctionTableViewCell.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
+				411329CA24171CAA0089DD18 /* DetailAuctionViewController.swift in Sources */,
 				41286B2824115A720021157C /* Resources.swift in Sources */,
 				411329BA2416A3380089DD18 /* TimeAddressTableViewCell.swift in Sources */,
 				41AD16B424139CCF001E132E /* HistoryViewController.swift in Sources */,
+				411329C724171C3A0089DD18 /* DetailEventViewController.swift in Sources */,
 				4113298C2415552C0089DD18 /* Main2TableViewCell.swift in Sources */,
 				4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */,
 				41286B1F241151850021157C /* RelationshipsViewController.swift in Sources */,

@@ -91,7 +91,20 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             cell.delegate = self
             return cell
         }
-     
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            let detail = DetailBasicServiceViewController()
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else if indexPath.section == 1 {
+            let detailAuction = DetailAuctionViewController()
+            self.navigationController?.pushViewController(detailAuction, animated: true)
+        }else{
+            let detailEvent = DetailEventViewController()
+            self.navigationController?.pushViewController(detailEvent, animated: true)
+        }
     }
 }
 
