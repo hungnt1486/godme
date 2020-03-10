@@ -14,7 +14,7 @@ class IntroduceViewController: UIViewController {
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
     
-//    var intro = NDIntroView()
+    var introV: IntroView!
     
     var pages = [
         ["title": "Quản trị mối quan hệ",
@@ -60,8 +60,9 @@ class IntroduceViewController: UIViewController {
         var heightVTwo = 0
         for index in 0..<pages.count {
             print(index)
-            let introV = IntroView.instanceFromNib()
+            introV = IntroView.instanceFromNib()
             introV.delegate = self
+            introV.tag = 10
             introV.data = pages[index]
             introV.configIntroView(frameView: self.view.frame, index: index)
             heightVTwo = Int(introV.vTwo.frame.height)
@@ -90,15 +91,23 @@ extension IntroduceViewController: UIScrollViewDelegate{
 
 extension IntroduceViewController: IntroViewProtocol{
     func didStart() {
+        introV.viewWithTag(10)?.removeFromSuperview()
+        introV = nil
         let login = LoginViewController()
         self.navigationController?.pushViewController(login, animated: true)
     }
     
     func didVN() {
+        UserDefaults.standard.setValue("vi", forKey: info_language)
+        UserDefaults.standard.synchronize()
+        introV.setupLanguage()
         print("viet nam")
     }
     
     func didEnglish() {
+        UserDefaults.standard.setValue("en", forKey: info_language)
+        UserDefaults.standard.synchronize()
+        introV.setupLanguage()
         print("english")
     }
     

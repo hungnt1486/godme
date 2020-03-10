@@ -40,6 +40,7 @@ class RegisterViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        self.configButtonBack()
         self.setupTableView()
     }
     

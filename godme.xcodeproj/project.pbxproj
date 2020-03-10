@@ -113,6 +113,10 @@
 		41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B742411DC7E0021157C /* FeatureTableViewCell.xib */; };
 		41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B772411DEF30021157C /* AvatarTableViewCell.xib */; };
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
+		4155001E2417F10B006B189E /* ConfirmBasicServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */; };
+		4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */; };
+		415500222417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */; };
+		415500232417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415500212417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -287,6 +291,10 @@
 		41286B742411DC7E0021157C /* FeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTableViewCell.xib; sourceTree = "<group>"; };
 		41286B772411DEF30021157C /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBasicServiceViewController.swift; sourceTree = "<group>"; };
+		4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmBasicServiceViewController.xib; sourceTree = "<group>"; };
+		415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBasicServiceTableViewCell.swift; sourceTree = "<group>"; };
+		415500212417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmBasicServiceTableViewCell.xib; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -411,6 +419,8 @@
 				411329C12416A78C0089DD18 /* BookServiceTableViewCell.xib */,
 				411329D0241722330089DD18 /* InfoAuctionTableViewCell.swift */,
 				411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */,
+				415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */,
+				415500212417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -635,6 +645,7 @@
 		41286B26241151B70021157C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4155001B2417F0E9006B189E /* Confirm */,
 				411329A724168F250089DD18 /* Events */,
 				4113299E24168C770089DD18 /* AuctionService */,
 				41132999241689E30089DD18 /* BasicService */,
@@ -659,6 +670,15 @@
 				41286B742411DC7E0021157C /* FeatureTableViewCell.xib */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		4155001B2417F0E9006B189E /* Confirm */ = {
+			isa = PBXGroup;
+			children = (
+				4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */,
+				4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */,
+			);
+			path = Confirm;
 			sourceTree = "<group>";
 		};
 		41AD16C22413FC30001E132E /* Page View */ = {
@@ -933,7 +953,9 @@
 				4121FA2F2412933F00AF26D3 /* district.json in Resources */,
 				4121FA302412933F00AF26D3 /* educations.json in Resources */,
 				41AD16D22413FDC6001E132E /* ServicesInfoBookedViewController.xib in Resources */,
+				415500232417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib in Resources */,
 				41286AF4240F73120021157C /* LoginViewController.xib in Resources */,
+				4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */,
 				41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */,
 				E6500C832408BB0F001E023D /* MainViewController.xib in Resources */,
 				410E67EA2414311C00FA2F54 /* HeaderServicesInfoBook.xib in Resources */,
@@ -1064,6 +1086,7 @@
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				411329D2241722330089DD18 /* InfoAuctionTableViewCell.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
+				415500222417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
 				411329CA24171CAA0089DD18 /* DetailAuctionViewController.swift in Sources */,
@@ -1092,6 +1115,7 @@
 				41286AEB240F3EE70021157C /* BaseViewController.swift in Sources */,
 				41286AF7240F732D0021157C /* RegisterViewController.swift in Sources */,
 				410E67F02414998400FA2F54 /* HeaderSubMain.swift in Sources */,
+				4155001E2417F10B006B189E /* ConfirmBasicServiceViewController.swift in Sources */,
 				41AD16CD2413FD9E001E132E /* MyServicesViewController.swift in Sources */,
 				41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */,
 				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,

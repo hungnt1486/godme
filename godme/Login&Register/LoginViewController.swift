@@ -20,6 +20,7 @@ class LoginViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        self.configButtonBack()
     }
     
     func setupUI(){

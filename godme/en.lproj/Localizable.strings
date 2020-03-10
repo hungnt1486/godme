@@ -5,6 +5,13 @@
   Created by Lê Hùng on 3/9/20.
   Copyright © 2020 godme. All rights reserved.
 */
+
+// intro
+
+"start" = "Start";
+"vietnamese" = "VietNamese";
+"english" = "English";
+
 "wallet_finance" = "Finance Wallet";
 "create_services" = "Create service";
 "create_auction" = "Create auction";

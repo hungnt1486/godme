@@ -89,7 +89,8 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
 
 extension DetailBasicServiceViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
-        
+        let confirm = ConfirmBasicServiceViewController()
+        self.navigationController?.pushViewController(confirm, animated: true)
     }
 }
 

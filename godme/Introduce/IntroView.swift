@@ -34,6 +34,7 @@ class IntroView: UIView {
     }
     
     func configIntroView(frameView: CGRect, index: Int = 0) {
+        self.setupLanguage()
         self.setupUI()
         self.frame = CGRect(x: ((frameView.size.width)*CGFloat(index)), y: frameView.origin.y, width: frameView.size.width, height: frameView.size.height)
     }
@@ -45,6 +46,13 @@ class IntroView: UIView {
         self.lbDescription.text = data["description"] ?? ""
         self.lbTitle.text = data["title"] ?? ""
     }
+    
+    func setupLanguage(){
+        self.btStart.setTitle(Settings.ShareInstance.translate(key: "start"), for: .normal)
+        self.btVN.setTitle(Settings.ShareInstance.translate(key: "vietnamese"), for: .normal)
+        self.btEnglish.setTitle(Settings.ShareInstance.translate(key: "english"), for: .normal)
+    }
+    
     @IBAction func touchStart(_ sender: Any) {
         delegate?.didStart()
     }
