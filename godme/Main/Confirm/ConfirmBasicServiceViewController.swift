@@ -67,7 +67,9 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
 
 extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
-        
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đặt dịch vụ?", vc: self) { (str) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     

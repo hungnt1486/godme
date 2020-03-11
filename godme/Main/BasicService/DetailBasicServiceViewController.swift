@@ -36,7 +36,9 @@ class DetailBasicServiceViewController: BaseViewController {
         self.tbvDetailBasicService.register(UINib(nibName: "ImageDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageDetailTableViewCell")
         self.tbvDetailBasicService.register(UINib(nibName: "TimeAddressTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeAddressTableViewCell")
         self.tbvDetailBasicService.register(UINib(nibName: "InfoDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "InfoDetailTableViewCell")
+        self.tbvDetailBasicService.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "MainTableViewCell")
         self.tbvDetailBasicService.register(UINib(nibName: "BookServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "BookServiceTableViewCell")
+        self.tbvDetailBasicService.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
         self.tbvDetailBasicService.delegate = self
         self.tbvDetailBasicService.dataSource = self
         self.tbvDetailBasicService.separatorColor = UIColor.clear
@@ -48,32 +50,67 @@ class DetailBasicServiceViewController: BaseViewController {
 
 extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listTypeCell.count
+        if section == 0 {
+            return listTypeCell.count
+        }else{
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            return 130
+        }
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
+            header.backgroundColor = UIColor.FlatColor.Gray.BGColor
+            header.btMore.isHidden = true
+            header.lbTitle.text = "Các dịch vụ khác"
+            return header
+        }
+        return UIView()
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let typeCell = listTypeCell[indexPath.row]
-        
-        switch typeCell {
+        if indexPath.section == 0 {
+            let typeCell = listTypeCell[indexPath.row]
             
-        case .Avatar:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as! ImageDetailTableViewCell
-            cell.arrImageBanner = ["ic_logo"]
-            cell.delegate = self
-            if cell.arrImageBanner.count > 0 {
-                cell.crollViewImage()
-                cell.configCrollView()
+            switch typeCell {
+                
+            case .Avatar:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as! ImageDetailTableViewCell
+                cell.arrImageBanner = ["ic_logo"]
+                cell.delegate = self
+                if cell.arrImageBanner.count > 0 {
+                    cell.crollViewImage()
+                    cell.configCrollView()
+                }
+                return cell
+            case .Address:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
+                return cell
+            case .Detail:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
+                return cell
+            case .Book:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
+                cell.delegate = self
+                return cell
             }
-            return cell
-        case .Address:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
-            return cell
-        case .Detail:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
-            return cell
-        case .Book:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
             cell.delegate = self
             return cell
         }
@@ -111,5 +148,13 @@ extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
         alertControl.addAction(action3)
         alertControl.addAction(actionCancel)
         self.navigationController?.present(alertControl, animated: true, completion: nil)
+    }
+}
+
+extension DetailBasicServiceViewController: MainTableViewCellProtocol{
+    func didCell(index: Int) {
+        print("index = ", index)
+        let detail = DetailBasicServiceViewController()
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
