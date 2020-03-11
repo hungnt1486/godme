@@ -68,7 +68,7 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
             let imageViewName = "view\(index)"
             listImageViewName.append(imageViewName)
             if let url = URL(string: arrImageBanner[index]) {
-                imageView.sd_setImage(with: url, placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (img, error, nil, url) in
+                imageView.sd_setImage(with: url, placeholderImage: UIImage.init(named: "ic_banner_default"), options: .lowPriority) { (img, error, nil, url) in
                     if error == nil {
                         imageView.image = img
                     }

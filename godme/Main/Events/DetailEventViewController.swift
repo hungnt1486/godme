@@ -90,7 +90,7 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
                 
             case .Avatar:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as! ImageDetailTableViewCell
-                cell.arrImageBanner = ["ic_logo"]
+                cell.arrImageBanner = ["ic_banner_default"]
                 cell.delegate = self
                 if cell.arrImageBanner.count > 0 {
                     cell.crollViewImage()
