@@ -24,13 +24,13 @@ class SearchBarDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
         self.configButtonBack()
         self.configPageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupUI()
     }
     
     func setupUI(){
