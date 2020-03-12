@@ -179,6 +179,8 @@
 		E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6500C772408BAB1001E023D /* LaunchScreen.storyboard */; };
 		E6500C822408BB0F001E023D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C802408BB0F001E023D /* MainViewController.swift */; };
 		E6500C832408BB0F001E023D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6500C812408BB0F001E023D /* MainViewController.xib */; };
+		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
+		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
 		E6F57D9B2410FC4C005FC9C2 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D922410FBE9005FC9C2 /* Roboto-Black.ttf */; };
 		E6F57D9C2410FC4C005FC9C2 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D912410FBE9005FC9C2 /* Roboto-BlackItalic.ttf */; };
@@ -379,6 +381,8 @@
 		E6500C7A2408BAB1001E023D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6500C802408BB0F001E023D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E6500C812408BB0F001E023D /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F57D862410EAA8005FC9C2 /* godme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = godme.entitlements; sourceTree = "<group>"; };
 		E6F57D892410FBE6005FC9C2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
@@ -698,6 +702,8 @@
 				410E67ED2414959100FA2F54 /* HeaderMain.xib */,
 				410E67EF2414998400FA2F54 /* HeaderSubMain.swift */,
 				410E67F12414998D00FA2F54 /* HeaderSubMain.xib */,
+				E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */,
+				E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -947,6 +953,7 @@
 				41AD16DB2414210A001E132E /* MyServicesJoinTableViewCell.xib in Resources */,
 				E6F57D9C2410FC4C005FC9C2 /* Roboto-BlackItalic.ttf in Resources */,
 				E6F57D9D2410FC4C005FC9C2 /* Roboto-Bold.ttf in Resources */,
+				E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */,
 				4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */,
 				E6F57D9E2410FC4C005FC9C2 /* Roboto-BoldItalic.ttf in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
@@ -1081,6 +1088,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CollapseTableView/CollapseTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
@@ -1099,6 +1107,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollapseTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
@@ -1135,6 +1144,7 @@
 				4155003124194164006B189E /* SearchBarTableViewCell.swift in Sources */,
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
 				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
+				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
