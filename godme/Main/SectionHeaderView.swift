@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CollapseTableView
 
 class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
     
@@ -19,7 +18,7 @@ class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageView.image = #imageLiteral(resourceName: "arrow_down").withRenderingMode(.alwaysTemplate)
+//        imageView.image = .withRenderingMode(.alwaysTemplate)
         imageView.tintColor = .white
     }
 }

@@ -135,6 +135,8 @@
 		415500492419BEB3006B189E /* SearchBarInfoBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415500472419BEB2006B189E /* SearchBarInfoBaseViewController.xib */; };
 		4155004C2419BECB006B189E /* SearchBarServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155004A2419BECB006B189E /* SearchBarServiceViewController.swift */; };
 		4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4155004B2419BECB006B189E /* SearchBarServiceViewController.xib */; };
+		41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155004F241A662B006B189E /* CollapseSectionHeader.swift */; };
+		41550052241A662B006B189E /* CollapseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41550050241A662B006B189E /* CollapseTableView.swift */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -333,6 +335,8 @@
 		415500472419BEB2006B189E /* SearchBarInfoBaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarInfoBaseViewController.xib; sourceTree = "<group>"; };
 		4155004A2419BECB006B189E /* SearchBarServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarServiceViewController.swift; sourceTree = "<group>"; };
 		4155004B2419BECB006B189E /* SearchBarServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarServiceViewController.xib; sourceTree = "<group>"; };
+		4155004F241A662B006B189E /* CollapseSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapseSectionHeader.swift; sourceTree = "<group>"; };
+		41550050241A662B006B189E /* CollapseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapseTableView.swift; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -581,6 +585,7 @@
 		41286AE1240F3EE70021157C /* LibSettings */ = {
 			isa = PBXGroup;
 			children = (
+				4155004E241A662B006B189E /* Collapse */,
 				4155002424190CCB006B189E /* CustomViews */,
 				41AD16C22413FC30001E132E /* Page View */,
 				E6F57D872410FBCE005FC9C2 /* Resources */,
@@ -755,6 +760,15 @@
 				4155004B2419BECB006B189E /* SearchBarServiceViewController.xib */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		4155004E241A662B006B189E /* Collapse */ = {
+			isa = PBXGroup;
+			children = (
+				4155004F241A662B006B189E /* CollapseSectionHeader.swift */,
+				41550050241A662B006B189E /* CollapseTableView.swift */,
+			);
+			path = Collapse;
 			sourceTree = "<group>";
 		};
 		41AD16C22413FC30001E132E /* Page View */ = {
@@ -1088,7 +1102,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CollapseTableView/CollapseTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
@@ -1107,7 +1120,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollapseTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
@@ -1134,6 +1146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
+				41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */,
 				41AD16C02413A8DF001E132E /* FollowMonthTableViewCell.swift in Sources */,
 				4155004C2419BECB006B189E /* SearchBarServiceViewController.swift in Sources */,
 				411329B22416932F0089DD18 /* DetailBasicServiceViewController.swift in Sources */,
@@ -1200,6 +1213,7 @@
 				411329AE24168F670089DD18 /* EventsTableViewCell.swift in Sources */,
 				411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */,
 				41AD16B82413A734001E132E /* FollowTableViewController.swift in Sources */,
+				41550052241A662B006B189E /* CollapseTableView.swift in Sources */,
 				41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */,
 				41AD16D12413FDC6001E132E /* ServicesInfoBookedViewController.swift in Sources */,
 				4121FA4724133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift in Sources */,

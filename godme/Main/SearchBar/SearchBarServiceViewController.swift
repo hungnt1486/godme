@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CollapseTableView
 
 class SearchBarServiceViewController: BaseViewController {
     @IBOutlet weak var tbvServices: CollapseTableView!
@@ -52,6 +51,10 @@ class SearchBarServiceViewController: BaseViewController {
 
 extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
     
