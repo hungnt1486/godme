@@ -25,5 +25,6 @@ pod 'Localize-Swift'
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'GSKStretchyHeaderView'
+pod 'CollapseTableView'
 
 end
