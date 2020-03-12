@@ -12,11 +12,55 @@ class MainViewController: BaseViewController {
 
     @IBOutlet weak var tbvMain: UITableView!
     var stretchyHeaderView: HeaderMain?
+    var vSearchBar: VSearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
         self.setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupSearchBar()
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if vSearchBar != nil {
+            vSearchBar.viewWithTag(5)?.removeFromSuperview()
+            vSearchBar = nil
+        }
+    }
+    
+    func setupSearchBar(){
+        if vSearchBar == nil {
+            vSearchBar = VSearchBar.instanceFromNib()
+            vSearchBar.delegate = self
+            vSearchBar.tag = 5
+            vSearchBar.configVSearchBar(frameView: CGRect.init(x: (UIScreen.main.bounds.width - 200)/2, y: 0, width: 200, height: 50))
+            self.navigationController?.navigationBar.addSubview(vSearchBar)
+        }
+    }
+    
+    func setupUI(){
+        let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(touchLeft))
+        self.navigationItem.leftBarButtonItem = left
+
+
+
+        let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_notification")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(touchRight))
+        self.navigationItem.rightBarButtonItem = right
+    }
+    
+    @objc func touchLeft(){
+        
+    }
+    
+    @objc func touchRight(){
+        
     }
     
     func setupTableView(){
@@ -146,4 +190,14 @@ extension MainViewController: HeaderSubMainProtocol{
             self.navigationController?.pushViewController(event, animated: true)
         }
     }
+}
+
+extension MainViewController: VSearchBarProtocol{
+    func didSearch() {
+        print("search")
+        let searchBar = SearchBarViewController()
+        self.navigationController?.pushViewController(searchBar, animated: true)
+    }
+    
+    
 }
