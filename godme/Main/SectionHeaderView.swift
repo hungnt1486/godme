@@ -8,9 +8,14 @@
 
 import UIKit
 
+//protocol SectionHeaderViewProtocol {
+////    func 
+//}
+
 class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var lbTitle: UILabel!
     
     var indicatorImageView: UIImageView {
         return imageView
@@ -19,6 +24,6 @@ class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
     override func awakeFromNib() {
         super.awakeFromNib()
 //        imageView.image = .withRenderingMode(.alwaysTemplate)
-        imageView.tintColor = .white
+//        imageView.tintColor = .white
     }
 }
