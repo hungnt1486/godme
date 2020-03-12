@@ -163,6 +163,7 @@
                 <outlet property="lbNumberRegister" destination="h6i-BY-FHl" id="LWy-sI-84S"/>
                 <outlet property="lbTime" destination="x68-5U-HFe" id="cRU-1u-nhm"/>
                 <outlet property="lbTitle" destination="lYC-s1-J8p" id="BUO-YZ-rrX"/>
+                <outlet property="vContent" destination="r4Y-8Y-OeH" id="bWb-Ha-JXt"/>
                 <outlet property="vSubContent" destination="NWr-JD-hSe" id="6eG-xa-kt4"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>

@@ -15,6 +15,7 @@ protocol IntroViewProtocol {
 }
 
 class IntroView: UIView {
+    @IBOutlet weak var vOne: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbDescription: UILabel!

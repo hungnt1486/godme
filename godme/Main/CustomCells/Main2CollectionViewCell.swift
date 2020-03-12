@@ -14,6 +14,7 @@ protocol Main2CollectionViewCellProtocol {
 
 class Main2CollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbTime: UILabel!

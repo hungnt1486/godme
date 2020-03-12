@@ -39,13 +39,17 @@ class IntroduceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        self.setupUI()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
     }
     
     func setupUI(){
@@ -57,7 +61,6 @@ class IntroduceViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         self.view.addSubview(scrollView)
-        var heightVTwo = 0
         for index in 0..<pages.count {
             print(index)
             introV = IntroView.instanceFromNib()
@@ -65,19 +68,40 @@ class IntroduceViewController: UIViewController {
             introV.tag = 10
             introV.data = pages[index]
             introV.configIntroView(frameView: self.view.frame, index: index)
-            heightVTwo = Int(introV.vTwo.frame.height)
             scrollView.addSubview(introV)
         }
         scrollView.contentSize = CGSize.init(width: UIScreen.main.bounds.width*CGFloat(pages.count), height: scrollView.frame.height)
 
         scrollView.bounces = false
         
-        pageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height - CGFloat(heightVTwo) - 30, width: 100, height: 10))
+        pageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height*0.6 - 30, width: 100, height: 10))
         pageControl.center.x = self.view.center.x
         pageControl.currentPageIndicatorTintColor = UIColor.black
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.numberOfPages = pages.count
         self.view.addSubview(pageControl)
+    }
+    
+    func setupVIntro(){
+        if introV == nil {
+            for index in 0..<pages.count {
+                print(index)
+                introV = IntroView.instanceFromNib()
+                introV.delegate = self
+                introV.tag = 10
+                introV.data = pages[index]
+                introV.configIntroView(frameView: self.view.frame, index: index)
+                scrollView.addSubview(introV)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if introV != nil {
+            introV.viewWithTag(10)?.removeFromSuperview()
+            introV = nil
+        }
     }
 }
 
@@ -98,16 +122,25 @@ extension IntroduceViewController: IntroViewProtocol{
     }
     
     func didVN() {
+        if introV != nil {
+            introV.viewWithTag(10)?.removeFromSuperview()
+            introV = nil
+        }
         UserDefaults.standard.setValue("vi", forKey: info_language)
         UserDefaults.standard.synchronize()
-        introV.setupLanguage()
+        
+        self.setupVIntro()
         print("viet nam")
     }
     
     func didEnglish() {
+        if introV != nil {
+            introV.viewWithTag(10)?.removeFromSuperview()
+            introV = nil
+        }
         UserDefaults.standard.setValue("en", forKey: info_language)
         UserDefaults.standard.synchronize()
-        introV.setupLanguage()
+        self.setupVIntro()
         print("english")
     }
     

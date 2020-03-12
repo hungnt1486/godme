@@ -25,5 +25,6 @@ class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
         super.awakeFromNib()
 //        imageView.image = .withRenderingMode(.alwaysTemplate)
 //        imageView.tintColor = .white
+        self.contentView.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
     }
 }
