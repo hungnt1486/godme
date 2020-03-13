@@ -63,12 +63,6 @@
 		411329D3241722330089DD18 /* InfoAuctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */; };
 		4121FA262412920A00AF26D3 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA242412920A00AF26D3 /* IntroView.swift */; };
 		4121FA272412920A00AF26D3 /* IntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA252412920A00AF26D3 /* IntroView.xib */; };
-		4121FA2E2412933F00AF26D3 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA282412933E00AF26D3 /* province.json */; };
-		4121FA2F2412933F00AF26D3 /* district.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA292412933F00AF26D3 /* district.json */; };
-		4121FA302412933F00AF26D3 /* educations.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2A2412933F00AF26D3 /* educations.json */; };
-		4121FA312412933F00AF26D3 /* country.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2B2412933F00AF26D3 /* country.json */; };
-		4121FA322412933F00AF26D3 /* ward.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2C2412933F00AF26D3 /* ward.json */; };
-		4121FA332412933F00AF26D3 /* socials.json in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA2D2412933F00AF26D3 /* socials.json */; };
 		4121FA3E24133AC500AF26D3 /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA3C24133AC500AF26D3 /* FinanceViewController.swift */; };
 		4121FA3F24133AC500AF26D3 /* FinanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA3D24133AC500AF26D3 /* FinanceViewController.xib */; };
 		4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA4024133B1E00AF26D3 /* FinanceTitleTableViewCell.swift */; };
@@ -108,11 +102,33 @@
 		41286B20241151850021157C /* RelationshipsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B1E241151850021157C /* RelationshipsViewController.xib */; };
 		41286B24241151A90021157C /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B22241151A90021157C /* MapsViewController.swift */; };
 		41286B25241151A90021157C /* MapsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B23241151A90021157C /* MapsViewController.xib */; };
-		41286B2824115A720021157C /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B2724115A720021157C /* Resources.swift */; };
 		41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B732411DC7E0021157C /* FeatureTableViewCell.swift */; };
 		41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B742411DC7E0021157C /* FeatureTableViewCell.xib */; };
 		41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B772411DEF30021157C /* AvatarTableViewCell.xib */; };
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
+		4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA51241B15B600F8A7E4 /* Resources.swift */; };
+		4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */; };
+		4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */; };
+		4150DA68241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA55241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf */; };
+		4150DA69241B15B600F8A7E4 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA56241B15B600F8A7E4 /* RobotoCondensed-Light.ttf */; };
+		4150DA6A241B15B600F8A7E4 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA57241B15B600F8A7E4 /* Roboto-Regular.ttf */; };
+		4150DA6B241B15B600F8A7E4 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA58241B15B600F8A7E4 /* Roboto-MediumItalic.ttf */; };
+		4150DA6C241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA59241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf */; };
+		4150DA6D241B15B600F8A7E4 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA5A241B15B600F8A7E4 /* RobotoCondensed-BoldItalic.ttf */; };
+		4150DA6E241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA5B241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf */; };
+		4150DA6F241B15B600F8A7E4 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA5C241B15B600F8A7E4 /* Roboto-ThinItalic.ttf */; };
+		4150DA70241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA5D241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf */; };
+		4150DA71241B15B600F8A7E4 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA5E241B15B600F8A7E4 /* Roboto-BoldItalic.ttf */; };
+		4150DA72241B15B600F8A7E4 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA5F241B15B600F8A7E4 /* Roboto-LightItalic.ttf */; };
+		4150DA73241B15B600F8A7E4 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA60241B15B600F8A7E4 /* Roboto-Italic.ttf */; };
+		4150DA74241B15B600F8A7E4 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA61241B15B600F8A7E4 /* Roboto-BlackItalic.ttf */; };
+		4150DA75241B15B600F8A7E4 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA62241B15B600F8A7E4 /* Roboto-Bold.ttf */; };
+		4150DA76241B15B600F8A7E4 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA63241B15B600F8A7E4 /* Roboto-Thin.ttf */; };
+		4150DA77241B15B600F8A7E4 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA64241B15B600F8A7E4 /* Roboto-Black.ttf */; };
+		4150DA7A241B15E800F8A7E4 /* VImageStarsOranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA78241B15E800F8A7E4 /* VImageStarsOranges.swift */; };
+		4150DA7B241B15E800F8A7E4 /* VImageStarsOranges.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA79241B15E800F8A7E4 /* VImageStarsOranges.xib */; };
+		4150DA7E241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */; };
+		4150DA7F241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */; };
 		4155001E2417F10B006B189E /* ConfirmBasicServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */; };
 		4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */; };
 		415500222417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */; };
@@ -137,6 +153,8 @@
 		4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4155004B2419BECB006B189E /* SearchBarServiceViewController.xib */; };
 		41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155004F241A662B006B189E /* CollapseSectionHeader.swift */; };
 		41550052241A662B006B189E /* CollapseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41550050241A662B006B189E /* CollapseTableView.swift */; };
+		41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41550053241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift */; };
+		41550056241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -184,24 +202,6 @@
 		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
-		E6F57D9B2410FC4C005FC9C2 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D922410FBE9005FC9C2 /* Roboto-Black.ttf */; };
-		E6F57D9C2410FC4C005FC9C2 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D912410FBE9005FC9C2 /* Roboto-BlackItalic.ttf */; };
-		E6F57D9D2410FC4C005FC9C2 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D902410FBE8005FC9C2 /* Roboto-Bold.ttf */; };
-		E6F57D9E2410FC4C005FC9C2 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D952410FBEB005FC9C2 /* Roboto-BoldItalic.ttf */; };
-		E6F57D9F2410FC4C005FC9C2 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D8B2410FBE6005FC9C2 /* Roboto-Italic.ttf */; };
-		E6F57DA02410FC4C005FC9C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D942410FBEB005FC9C2 /* Roboto-Light.ttf */; };
-		E6F57DA12410FC4C005FC9C2 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D8D2410FBE7005FC9C2 /* Roboto-LightItalic.ttf */; };
-		E6F57DA22410FC4C005FC9C2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D8A2410FBE6005FC9C2 /* Roboto-Medium.ttf */; };
-		E6F57DA32410FC4C005FC9C2 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D992410FBED005FC9C2 /* Roboto-MediumItalic.ttf */; };
-		E6F57DA42410FC4C005FC9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D932410FBEA005FC9C2 /* Roboto-Regular.ttf */; };
-		E6F57DA52410FC4C005FC9C2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D892410FBE6005FC9C2 /* Roboto-Thin.ttf */; };
-		E6F57DA62410FC4C005FC9C2 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D982410FBEC005FC9C2 /* Roboto-ThinItalic.ttf */; };
-		E6F57DA72410FC4C005FC9C2 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D8F2410FBE8005FC9C2 /* RobotoCondensed-Bold.ttf */; };
-		E6F57DA82410FC4C005FC9C2 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D8E2410FBE7005FC9C2 /* RobotoCondensed-BoldItalic.ttf */; };
-		E6F57DA92410FC4C005FC9C2 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D972410FBEC005FC9C2 /* RobotoCondensed-Italic.ttf */; };
-		E6F57DAA2410FC4C005FC9C2 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D9A2410FBED005FC9C2 /* RobotoCondensed-Light.ttf */; };
-		E6F57DAB2410FC4C005FC9C2 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D8C2410FBE7005FC9C2 /* RobotoCondensed-LightItalic.ttf */; };
-		E6F57DAC2410FC4C005FC9C2 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D962410FBEC005FC9C2 /* RobotoCondensed-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,12 +262,6 @@
 		411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoAuctionTableViewCell.xib; sourceTree = "<group>"; };
 		4121FA242412920A00AF26D3 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		4121FA252412920A00AF26D3 /* IntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView.xib; sourceTree = "<group>"; };
-		4121FA282412933E00AF26D3 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = province.json; path = "../../../../../../common-info/province.json"; sourceTree = "<group>"; };
-		4121FA292412933F00AF26D3 /* district.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = district.json; path = "../../../../../../common-info/district.json"; sourceTree = "<group>"; };
-		4121FA2A2412933F00AF26D3 /* educations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = educations.json; path = "../../../../../../common-info/educations.json"; sourceTree = "<group>"; };
-		4121FA2B2412933F00AF26D3 /* country.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = country.json; path = "../../../../../../common-info/country.json"; sourceTree = "<group>"; };
-		4121FA2C2412933F00AF26D3 /* ward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ward.json; path = "../../../../../../common-info/ward.json"; sourceTree = "<group>"; };
-		4121FA2D2412933F00AF26D3 /* socials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = socials.json; path = "../../../../../../common-info/socials.json"; sourceTree = "<group>"; };
 		4121FA3C24133AC500AF26D3 /* FinanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceViewController.swift; sourceTree = "<group>"; };
 		4121FA3D24133AC500AF26D3 /* FinanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceViewController.xib; sourceTree = "<group>"; };
 		4121FA4024133B1E00AF26D3 /* FinanceTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceTitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -308,11 +302,33 @@
 		41286B1E241151850021157C /* RelationshipsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RelationshipsViewController.xib; sourceTree = "<group>"; };
 		41286B22241151A90021157C /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		41286B23241151A90021157C /* MapsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapsViewController.xib; sourceTree = "<group>"; };
-		41286B2724115A720021157C /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		41286B732411DC7E0021157C /* FeatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTableViewCell.swift; sourceTree = "<group>"; };
 		41286B742411DC7E0021157C /* FeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTableViewCell.xib; sourceTree = "<group>"; };
 		41286B772411DEF30021157C /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		4150DA51241B15B600F8A7E4 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = godme/LibSettings/Resources/Resources.swift; sourceTree = SOURCE_ROOT; };
+		4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		4150DA55241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		4150DA56241B15B600F8A7E4 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		4150DA57241B15B600F8A7E4 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		4150DA58241B15B600F8A7E4 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4150DA59241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		4150DA5A241B15B600F8A7E4 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4150DA5B241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		4150DA5C241B15B600F8A7E4 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4150DA5D241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		4150DA5E241B15B600F8A7E4 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4150DA5F241B15B600F8A7E4 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		4150DA60241B15B600F8A7E4 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		4150DA61241B15B600F8A7E4 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		4150DA62241B15B600F8A7E4 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		4150DA63241B15B600F8A7E4 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		4150DA64241B15B600F8A7E4 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		4150DA78241B15E800F8A7E4 /* VImageStarsOranges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VImageStarsOranges.swift; sourceTree = "<group>"; };
+		4150DA79241B15E800F8A7E4 /* VImageStarsOranges.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VImageStarsOranges.xib; sourceTree = "<group>"; };
+		4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarBaseInfor2TableViewCell.swift; sourceTree = "<group>"; };
+		4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarBaseInfor2TableViewCell.xib; sourceTree = "<group>"; };
 		4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBasicServiceViewController.swift; sourceTree = "<group>"; };
 		4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmBasicServiceViewController.xib; sourceTree = "<group>"; };
 		415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBasicServiceTableViewCell.swift; sourceTree = "<group>"; };
@@ -337,6 +353,8 @@
 		4155004B2419BECB006B189E /* SearchBarServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarServiceViewController.xib; sourceTree = "<group>"; };
 		4155004F241A662B006B189E /* CollapseSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapseSectionHeader.swift; sourceTree = "<group>"; };
 		41550050241A662B006B189E /* CollapseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapseTableView.swift; sourceTree = "<group>"; };
+		41550053241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarBaseInfoTableViewCell.swift; sourceTree = "<group>"; };
+		41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarBaseInfoTableViewCell.xib; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -389,24 +407,6 @@
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F57D862410EAA8005FC9C2 /* godme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = godme.entitlements; sourceTree = "<group>"; };
-		E6F57D892410FBE6005FC9C2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		E6F57D8A2410FBE6005FC9C2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		E6F57D8B2410FBE6005FC9C2 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
-		E6F57D8C2410FBE7005FC9C2 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D8D2410FBE7005FC9C2 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D8E2410FBE7005FC9C2 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D8F2410FBE8005FC9C2 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		E6F57D902410FBE8005FC9C2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		E6F57D912410FBE9005FC9C2 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D922410FBE9005FC9C2 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
-		E6F57D932410FBEA005FC9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		E6F57D942410FBEB005FC9C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		E6F57D952410FBEB005FC9C2 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D962410FBEC005FC9C2 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
-		E6F57D972410FBEC005FC9C2 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
-		E6F57D982410FBEC005FC9C2 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D992410FBED005FC9C2 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
-		E6F57D9A2410FBED005FC9C2 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +469,10 @@
 				411329D1241722330089DD18 /* InfoAuctionTableViewCell.xib */,
 				415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */,
 				415500212417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib */,
+				41550053241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift */,
+				41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */,
+				4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */,
+				4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -585,10 +589,10 @@
 		41286AE1240F3EE70021157C /* LibSettings */ = {
 			isa = PBXGroup;
 			children = (
+				E6F57D872410FBCE005FC9C2 /* Resources */,
 				4155004E241A662B006B189E /* Collapse */,
 				4155002424190CCB006B189E /* CustomViews */,
 				41AD16C22413FC30001E132E /* Page View */,
-				E6F57D872410FBCE005FC9C2 /* Resources */,
 				41286AE2240F3EE70021157C /* Extensions */,
 				41286AE5240F3EE70021157C /* Settings.swift */,
 			);
@@ -725,6 +729,32 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
+		4150DA52241B15B600F8A7E4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */,
+				4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */,
+				4150DA55241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf */,
+				4150DA56241B15B600F8A7E4 /* RobotoCondensed-Light.ttf */,
+				4150DA57241B15B600F8A7E4 /* Roboto-Regular.ttf */,
+				4150DA58241B15B600F8A7E4 /* Roboto-MediumItalic.ttf */,
+				4150DA59241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf */,
+				4150DA5A241B15B600F8A7E4 /* RobotoCondensed-BoldItalic.ttf */,
+				4150DA5B241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf */,
+				4150DA5C241B15B600F8A7E4 /* Roboto-ThinItalic.ttf */,
+				4150DA5D241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf */,
+				4150DA5E241B15B600F8A7E4 /* Roboto-BoldItalic.ttf */,
+				4150DA5F241B15B600F8A7E4 /* Roboto-LightItalic.ttf */,
+				4150DA60241B15B600F8A7E4 /* Roboto-Italic.ttf */,
+				4150DA61241B15B600F8A7E4 /* Roboto-BlackItalic.ttf */,
+				4150DA62241B15B600F8A7E4 /* Roboto-Bold.ttf */,
+				4150DA63241B15B600F8A7E4 /* Roboto-Thin.ttf */,
+				4150DA64241B15B600F8A7E4 /* Roboto-Black.ttf */,
+			);
+			name = Fonts;
+			path = godme/LibSettings/Resources/Fonts;
+			sourceTree = SOURCE_ROOT;
+		};
 		4155001B2417F0E9006B189E /* Confirm */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +767,8 @@
 		4155002424190CCB006B189E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				4150DA78241B15E800F8A7E4 /* VImageStarsOranges.swift */,
+				4150DA79241B15E800F8A7E4 /* VImageStarsOranges.xib */,
 				4155002524190CE7006B189E /* VSearchBar.swift */,
 				4155002724190CF2006B189E /* VSearchBar.xib */,
 				41550032241941E7006B189E /* VImageStars.swift */,
@@ -862,41 +894,11 @@
 		E6F57D872410FBCE005FC9C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4121FA2B2412933F00AF26D3 /* country.json */,
-				4121FA292412933F00AF26D3 /* district.json */,
-				4121FA2A2412933F00AF26D3 /* educations.json */,
-				4121FA282412933E00AF26D3 /* province.json */,
-				4121FA2D2412933F00AF26D3 /* socials.json */,
-				4121FA2C2412933F00AF26D3 /* ward.json */,
-				41286B2724115A720021157C /* Resources.swift */,
-				E6F57D882410FBD7005FC9C2 /* Fonts */,
+				4150DA52241B15B600F8A7E4 /* Fonts */,
+				4150DA51241B15B600F8A7E4 /* Resources.swift */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E6F57D882410FBD7005FC9C2 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				E6F57D922410FBE9005FC9C2 /* Roboto-Black.ttf */,
-				E6F57D912410FBE9005FC9C2 /* Roboto-BlackItalic.ttf */,
-				E6F57D902410FBE8005FC9C2 /* Roboto-Bold.ttf */,
-				E6F57D952410FBEB005FC9C2 /* Roboto-BoldItalic.ttf */,
-				E6F57D8B2410FBE6005FC9C2 /* Roboto-Italic.ttf */,
-				E6F57D942410FBEB005FC9C2 /* Roboto-Light.ttf */,
-				E6F57D8D2410FBE7005FC9C2 /* Roboto-LightItalic.ttf */,
-				E6F57D8A2410FBE6005FC9C2 /* Roboto-Medium.ttf */,
-				E6F57D992410FBED005FC9C2 /* Roboto-MediumItalic.ttf */,
-				E6F57D932410FBEA005FC9C2 /* Roboto-Regular.ttf */,
-				E6F57D892410FBE6005FC9C2 /* Roboto-Thin.ttf */,
-				E6F57D982410FBEC005FC9C2 /* Roboto-ThinItalic.ttf */,
-				E6F57D8F2410FBE8005FC9C2 /* RobotoCondensed-Bold.ttf */,
-				E6F57D8E2410FBE7005FC9C2 /* RobotoCondensed-BoldItalic.ttf */,
-				E6F57D972410FBEC005FC9C2 /* RobotoCondensed-Italic.ttf */,
-				E6F57D9A2410FBED005FC9C2 /* RobotoCondensed-Light.ttf */,
-				E6F57D8C2410FBE7005FC9C2 /* RobotoCondensed-LightItalic.ttf */,
-				E6F57D962410FBEC005FC9C2 /* RobotoCondensed-Regular.ttf */,
-			);
-			path = Fonts;
+			name = Resources;
+			path = CustomViews/Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -962,68 +964,61 @@
 			files = (
 				41AD16D724141A55001E132E /* MyServicesTableViewCell.xib in Resources */,
 				41AD169D241358D1001E132E /* WithdrawViewController.xib in Resources */,
-				E6F57D9B2410FC4C005FC9C2 /* Roboto-Black.ttf in Resources */,
 				411329BB2416A3380089DD18 /* TimeAddressTableViewCell.xib in Resources */,
+				4150DA71241B15B600F8A7E4 /* Roboto-BoldItalic.ttf in Resources */,
 				41AD16DB2414210A001E132E /* MyServicesJoinTableViewCell.xib in Resources */,
-				E6F57D9C2410FC4C005FC9C2 /* Roboto-BlackItalic.ttf in Resources */,
-				E6F57D9D2410FC4C005FC9C2 /* Roboto-Bold.ttf in Resources */,
+				4150DA77241B15B600F8A7E4 /* Roboto-Black.ttf in Resources */,
 				E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */,
 				4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */,
-				E6F57D9E2410FC4C005FC9C2 /* Roboto-BoldItalic.ttf in Resources */,
+				4150DA74241B15B600F8A7E4 /* Roboto-BlackItalic.ttf in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
-				E6F57D9F2410FC4C005FC9C2 /* Roboto-Italic.ttf in Resources */,
+				4150DA72241B15B600F8A7E4 /* Roboto-LightItalic.ttf in Resources */,
 				41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */,
-				E6F57DA02410FC4C005FC9C2 /* Roboto-Light.ttf in Resources */,
+				41550056241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib in Resources */,
 				411329B32416932F0089DD18 /* DetailBasicServiceViewController.xib in Resources */,
 				4113297D2414E3DA0089DD18 /* MainTableViewCell.xib in Resources */,
-				E6F57DA12410FC4C005FC9C2 /* Roboto-LightItalic.ttf in Resources */,
 				41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */,
 				411329812414E3F70089DD18 /* MainCollectionViewCell.xib in Resources */,
 				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
 				41AD16B92413A734001E132E /* FollowTableViewController.xib in Resources */,
 				411329D3241722330089DD18 /* InfoAuctionTableViewCell.xib in Resources */,
-				E6F57DA22410FC4C005FC9C2 /* Roboto-Medium.ttf in Resources */,
 				41AD16B1241399BF001E132E /* HistoryLabelTableViewCell.xib in Resources */,
+				4150DA68241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf in Resources */,
+				4150DA75241B15B600F8A7E4 /* Roboto-Bold.ttf in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
-				E6F57DA32410FC4C005FC9C2 /* Roboto-MediumItalic.ttf in Resources */,
-				4121FA322412933F00AF26D3 /* ward.json in Resources */,
-				E6F57DA42410FC4C005FC9C2 /* Roboto-Regular.ttf in Resources */,
-				E6F57DA52410FC4C005FC9C2 /* Roboto-Thin.ttf in Resources */,
 				41132990241684450089DD18 /* Localizable.strings in Resources */,
 				4155003D2419B666006B189E /* SearchBarRelationShipViewController.xib in Resources */,
 				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
 				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
-				E6F57DA62410FC4C005FC9C2 /* Roboto-ThinItalic.ttf in Resources */,
+				4150DA76241B15B600F8A7E4 /* Roboto-Thin.ttf in Resources */,
+				4150DA7F241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib in Resources */,
 				411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */,
+				4150DA73241B15B600F8A7E4 /* Roboto-Italic.ttf in Resources */,
 				410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */,
 				411329A524168CB60089DD18 /* AuctionServicesTableViewCell.xib in Resources */,
 				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
-				E6F57DA72410FC4C005FC9C2 /* RobotoCondensed-Bold.ttf in Resources */,
-				E6F57DA82410FC4C005FC9C2 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				41AD16B524139CCF001E132E /* HistoryViewController.xib in Resources */,
-				E6F57DA92410FC4C005FC9C2 /* RobotoCondensed-Italic.ttf in Resources */,
 				415500492419BEB3006B189E /* SearchBarInfoBaseViewController.xib in Resources */,
-				E6F57DAA2410FC4C005FC9C2 /* RobotoCondensed-Light.ttf in Resources */,
 				4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */,
-				4121FA312412933F00AF26D3 /* country.json in Resources */,
 				41AD16BD2413A8D0001E132E /* FollowTableViewCell.xib in Resources */,
-				E6F57DAB2410FC4C005FC9C2 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */,
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
+				4150DA70241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf in Resources */,
+				4150DA69241B15B600F8A7E4 /* RobotoCondensed-Light.ttf in Resources */,
 				4155002824190CF2006B189E /* VSearchBar.xib in Resources */,
 				411329C624171C3A0089DD18 /* DetailEventViewController.xib in Resources */,
-				4121FA332412933F00AF26D3 /* socials.json in Resources */,
 				411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */,
+				4150DA6F241B15B600F8A7E4 /* Roboto-ThinItalic.ttf in Resources */,
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
-				E6F57DAC2410FC4C005FC9C2 /* RobotoCondensed-Regular.ttf in Resources */,
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
 				4155002D24193B5F006B189E /* SearchBarViewController.xib in Resources */,
 				41286B20241151850021157C /* RelationshipsViewController.xib in Resources */,
+				4150DA6D241B15B600F8A7E4 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
 				41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */,
-				4121FA2E2412933F00AF26D3 /* province.json in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
 				410E67FB24149E4F00FA2F54 /* Main1TableViewCell.xib in Resources */,
@@ -1032,6 +1027,7 @@
 				41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */,
 				411329C32416A78C0089DD18 /* BookServiceTableViewCell.xib in Resources */,
 				41550035241941EF006B189E /* VImageStars.xib in Resources */,
+				4150DA7B241B15E800F8A7E4 /* VImageStarsOranges.xib in Resources */,
 				411329B7241694BE0089DD18 /* ImageDetailTableViewCell.xib in Resources */,
 				411329AA24168F5D0089DD18 /* EventsViewController.xib in Resources */,
 				41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */,
@@ -1048,17 +1044,20 @@
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
 				4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */,
 				4113299D24168A090089DD18 /* BasicServiceViewController.xib in Resources */,
-				4121FA2F2412933F00AF26D3 /* district.json in Resources */,
-				4121FA302412933F00AF26D3 /* educations.json in Resources */,
 				41AD16D22413FDC6001E132E /* ServicesInfoBookedViewController.xib in Resources */,
+				4150DA6E241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				415500232417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib in Resources */,
 				41286AF4240F73120021157C /* LoginViewController.xib in Resources */,
 				4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */,
 				41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */,
 				E6500C832408BB0F001E023D /* MainViewController.xib in Resources */,
+				4150DA6B241B15B600F8A7E4 /* Roboto-MediumItalic.ttf in Resources */,
+				4150DA6A241B15B600F8A7E4 /* Roboto-Regular.ttf in Resources */,
 				410E67EA2414311C00FA2F54 /* HeaderServicesInfoBook.xib in Resources */,
 				41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */,
 				41286AF8240F732D0021157C /* RegisterViewController.xib in Resources */,
+				4150DA6C241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf in Resources */,
+				4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */,
 				415500392419B2D2006B189E /* SearchBarDetailViewController.xib in Resources */,
 				E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */,
 				411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */,
@@ -1158,6 +1157,7 @@
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
 				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
 				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
+				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
@@ -1195,8 +1195,8 @@
 				415500222417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift in Sources */,
 				41286AEE240F3EE70021157C /* Settings.swift in Sources */,
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
+				4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */,
 				411329CA24171CAA0089DD18 /* DetailAuctionViewController.swift in Sources */,
-				41286B2824115A720021157C /* Resources.swift in Sources */,
 				411329BA2416A3380089DD18 /* TimeAddressTableViewCell.swift in Sources */,
 				41AD16B424139CCF001E132E /* HistoryViewController.swift in Sources */,
 				411329C724171C3A0089DD18 /* DetailEventViewController.swift in Sources */,
@@ -1204,6 +1204,7 @@
 				4121FA4224133B1E00AF26D3 /* FinanceTitleTableViewCell.swift in Sources */,
 				4155002624190CE7006B189E /* VSearchBar.swift in Sources */,
 				41286B1F241151850021157C /* RelationshipsViewController.swift in Sources */,
+				4150DA7A241B15E800F8A7E4 /* VImageStarsOranges.swift in Sources */,
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
 				411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */,
 				41AD16C82413FC31001E132E /* ViewPagerTab.swift in Sources */,
@@ -1228,6 +1229,7 @@
 				410E67F02414998400FA2F54 /* HeaderSubMain.swift in Sources */,
 				4155001E2417F10B006B189E /* ConfirmBasicServiceViewController.swift in Sources */,
 				415500452419B9C2006B189E /* SearchBarRelationShipTableViewCell.swift in Sources */,
+				4150DA7E241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift in Sources */,
 				41AD16CD2413FD9E001E132E /* MyServicesViewController.swift in Sources */,
 				41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */,
 				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,

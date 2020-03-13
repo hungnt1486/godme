@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SearchBarBaseInfor2TableViewCell" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Minh Hung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zs-H5-Ci8">
+                        <rect key="frame" x="40" y="10" width="230" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="pI4-hw-qEN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giảng dạy dễ hiểu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzr-pp-NI9">
+                        <rect key="frame" x="40" y="65" width="260" height="20"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13/03/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqp-IG-gGR">
+                        <rect key="frame" x="40" y="95" width="260" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Hxe-VP-gi2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_more" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-FD-QPY">
+                        <rect key="frame" x="280" y="5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="5lJ-Lr-Jjw"/>
+                            <constraint firstAttribute="height" constant="30" id="c8W-OL-Ief"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfd-qU-vxG">
+                        <rect key="frame" x="40" y="35" width="100" height="20"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="IL8-is-ZXF"/>
+                            <constraint firstAttribute="height" constant="20" id="Kdk-7P-7lC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="9zs-H5-Ci8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="6r0-Py-T73"/>
+                    <constraint firstItem="kzr-pp-NI9" firstAttribute="top" secondItem="pfd-qU-vxG" secondAttribute="bottom" constant="10" id="8Ju-XW-Yv5"/>
+                    <constraint firstItem="Eqp-IG-gGR" firstAttribute="top" secondItem="kzr-pp-NI9" secondAttribute="bottom" constant="10" id="HHU-gO-8e7"/>
+                    <constraint firstItem="pfd-qU-vxG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="HK7-Sj-jiZ"/>
+                    <constraint firstItem="0Ta-FD-QPY" firstAttribute="centerY" secondItem="9zs-H5-Ci8" secondAttribute="centerY" id="TtL-Oj-ESD"/>
+                    <constraint firstAttribute="trailing" secondItem="kzr-pp-NI9" secondAttribute="trailing" constant="20" id="b1s-WM-mz7"/>
+                    <constraint firstAttribute="trailing" secondItem="Eqp-IG-gGR" secondAttribute="trailing" constant="20" id="bTi-iP-U1h"/>
+                    <constraint firstAttribute="bottom" secondItem="Eqp-IG-gGR" secondAttribute="bottom" constant="5" id="dLV-aD-jLZ"/>
+                    <constraint firstItem="9zs-H5-Ci8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="j9i-tS-rKS"/>
+                    <constraint firstItem="kzr-pp-NI9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="nte-rF-esv"/>
+                    <constraint firstAttribute="trailing" secondItem="0Ta-FD-QPY" secondAttribute="trailing" constant="10" id="qQ4-DZ-zaP"/>
+                    <constraint firstItem="Eqp-IG-gGR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="r0C-ws-FF1"/>
+                    <constraint firstItem="pfd-qU-vxG" firstAttribute="top" secondItem="9zs-H5-Ci8" secondAttribute="bottom" constant="5" id="vU6-XS-oes"/>
+                    <constraint firstItem="0Ta-FD-QPY" firstAttribute="leading" secondItem="9zs-H5-Ci8" secondAttribute="trailing" constant="10" id="vlL-M6-Zaz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgMore" destination="0Ta-FD-QPY" id="1Ay-Tg-TBg"/>
+                <outlet property="lbComment" destination="kzr-pp-NI9" id="gbo-Pz-OvE"/>
+                <outlet property="lbTime" destination="Eqp-IG-gGR" id="gov-Ej-aqJ"/>
+                <outlet property="lbTitle" destination="9zs-H5-Ci8" id="aiR-Ev-Wnu"/>
+                <outlet property="vImageStar" destination="pfd-qU-vxG" id="YVp-mV-nvg"/>
+            </connections>
+            <point key="canvasLocation" x="-36.231884057971016" y="99.776785714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_more" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
+</document>

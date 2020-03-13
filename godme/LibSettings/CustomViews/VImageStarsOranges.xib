@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VImageStarsOranges" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_inactive_oranges" translatesAutoresizingMaskIntoConstraints="NO" id="QOK-Wh-aik">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Q0s-km-FKF"/>
+                        <constraint firstAttribute="width" constant="20" id="ofu-vJ-jwg"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_inactive_oranges" translatesAutoresizingMaskIntoConstraints="NO" id="la5-4H-zP9">
+                    <rect key="frame" x="20" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="MPC-It-fX4"/>
+                        <constraint firstAttribute="width" constant="20" id="kkE-B9-eLE"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_inactive_oranges" translatesAutoresizingMaskIntoConstraints="NO" id="6uP-as-Wv1">
+                    <rect key="frame" x="40" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="GTH-Bj-9rn"/>
+                        <constraint firstAttribute="height" constant="20" id="d2X-1O-on4"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_inactive_oranges" translatesAutoresizingMaskIntoConstraints="NO" id="gud-Au-ZmF">
+                    <rect key="frame" x="60" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="JS6-S0-Cbq"/>
+                        <constraint firstAttribute="width" constant="20" id="fcs-5P-sI5"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star_inactive_oranges" translatesAutoresizingMaskIntoConstraints="NO" id="P1J-ZS-8P8">
+                    <rect key="frame" x="80" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="9sU-34-lRj"/>
+                        <constraint firstAttribute="width" constant="20" id="adI-Kl-xBy"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="P1J-ZS-8P8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0Ep-el-cQA"/>
+                <constraint firstItem="6uP-as-Wv1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1Jk-7r-hE2"/>
+                <constraint firstItem="la5-4H-zP9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="1wx-x8-ssI"/>
+                <constraint firstItem="la5-4H-zP9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="C2Y-dE-ZJl"/>
+                <constraint firstItem="6uP-as-Wv1" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="KXL-bu-00L"/>
+                <constraint firstItem="QOK-Wh-aik" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="T1X-4V-grL"/>
+                <constraint firstItem="P1J-ZS-8P8" firstAttribute="leading" secondItem="gud-Au-ZmF" secondAttribute="trailing" id="Vdw-vv-YhO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="P1J-ZS-8P8" secondAttribute="bottom" id="aff-aa-dkJ"/>
+                <constraint firstItem="6uP-as-Wv1" firstAttribute="leading" secondItem="la5-4H-zP9" secondAttribute="trailing" id="fdg-FL-HXa"/>
+                <constraint firstItem="gud-Au-ZmF" firstAttribute="leading" secondItem="6uP-as-Wv1" secondAttribute="trailing" id="jz0-as-P7f"/>
+                <constraint firstItem="QOK-Wh-aik" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="kev-PU-gSQ"/>
+                <constraint firstItem="QOK-Wh-aik" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ltM-jK-LSa"/>
+                <constraint firstItem="la5-4H-zP9" firstAttribute="leading" secondItem="QOK-Wh-aik" secondAttribute="trailing" id="qxq-Rg-xWy"/>
+                <constraint firstItem="gud-Au-ZmF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="sYd-89-PCU"/>
+                <constraint firstItem="gud-Au-ZmF" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="tEF-4N-b3P"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="img1" destination="QOK-Wh-aik" id="zxA-fW-fg6"/>
+                <outlet property="img2" destination="la5-4H-zP9" id="U2b-Qh-luK"/>
+                <outlet property="img3" destination="6uP-as-Wv1" id="ErH-Bt-baa"/>
+                <outlet property="img4" destination="gud-Au-ZmF" id="vUX-47-ipE"/>
+                <outlet property="img5" destination="P1J-ZS-8P8" id="z4V-xz-zAe"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="136.95652173913044"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_star_inactive_oranges" width="28" height="28"/>
+    </resources>
+</document>
