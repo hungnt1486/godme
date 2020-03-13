@@ -91,8 +91,8 @@ class BaseViewController: UIViewController {
         
         let main = MainViewController()
         main.tabBarItem.tag = 3
-        main.tabBarItem.image = UIImage.init(named: "ic_home")
-        main.tabBarItem.selectedImage = UIImage.init(named: "ic_home_active")?.withRenderingMode(.alwaysOriginal)
+        main.tabBarItem.image = UIImage.init(named: "ic_tabbar_logo")
+        main.tabBarItem.selectedImage = UIImage.init(named: "ic_tabbar_logo")?.withRenderingMode(.alwaysOriginal)
         let navMain = UINavigationController.init(rootViewController: main)
         
         let relationship = RelationshipsViewController()

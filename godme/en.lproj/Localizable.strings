@@ -12,6 +12,10 @@
 "vietnamese" = "VietNamese";
 "english" = "English";
 
+"account" = "Account";
+"manager_service" = "Manage Services";
+"relationships" = "RelationShips";
+
 "wallet_finance" = "Finance Wallet";
 "create_services" = "Create service";
 "create_auction" = "Create auction";

@@ -22,9 +22,21 @@ class ServicesManageViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
         self.configPageView()
     }
     
+    func setupUI(){
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "manager_service")
+        
+        let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
+        self.navigationItem.leftBarButtonItem = left
+    }
+    
+    @objc func touchLeft(){
+        print("left")
+    }
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         

@@ -20,6 +20,13 @@ class SearchBarDetailViewController: BaseViewController {
        var options: ViewPagerOptions!
 
     @IBOutlet weak var vTop: UIView!
+    @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var imgMore: UIImageView!
+    @IBOutlet weak var lbFullName: UILabel!
+    @IBOutlet weak var lbSchool: UILabel!
+    @IBOutlet weak var lbJob: UILabel!
+    @IBOutlet weak var lbDegree: UILabel!
+    @IBOutlet weak var lbCity: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

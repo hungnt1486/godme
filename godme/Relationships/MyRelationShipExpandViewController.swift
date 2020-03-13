@@ -39,8 +39,37 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRelationShipTableViewCell") as! MyRelationShipTableViewCell
+        cell.delegate = self
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
+    
+}
+
+extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtocol{
+    func didMoreRelationShip(index: Int) {
+        let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        
+        alertControl.addAction(action2)
+        alertControl.addAction(action3)
+        alertControl.addAction(action4)
+        alertControl.addAction(actionCancel)
+        self.navigationController?.present(alertControl, animated: true, completion: nil)
+    }
 }

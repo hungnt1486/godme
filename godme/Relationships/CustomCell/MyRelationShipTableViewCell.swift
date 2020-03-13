@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MyRelationShipTableViewCellProtocol {
+    func didMoreRelationShip(index: Int)
+}
+
 class MyRelationShipTableViewCell: UITableViewCell {
 
     @IBOutlet weak var vContent: UIView!
@@ -20,19 +24,28 @@ class MyRelationShipTableViewCell: UITableViewCell {
     @IBOutlet weak var lbCoin: UILabel!
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
+    @IBOutlet weak var imgMore: UIImageView!
     var vImgStars: VImageStars!
+    var delegate: MyRelationShipTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 //        DispatchQueue.main.async {
-            self.setupUI()
+        self.setupUI()
 //        }
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchMore))
+        self.imgMore.isUserInteractionEnabled = true
+        self.imgMore.addGestureRecognizer(tapGesture)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func touchMore(){
+        delegate?.didMoreRelationShip(index: self.imgMore.tag)
     }
     
     func setupUI(){

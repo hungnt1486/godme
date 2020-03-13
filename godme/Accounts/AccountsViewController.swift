@@ -35,6 +35,13 @@ class AccountsViewController: BaseViewController {
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "account")
+        let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
+        self.navigationItem.leftBarButtonItem = left
+    }
+    
+    @objc func touchLeft(){
+        print("left")
     }
     
     func setupTableView(){

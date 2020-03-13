@@ -12,6 +12,10 @@
 "vietnamese" = "Tiếng việt";
 "english" = "Tiếng anh";
 
+"account" = "Tài khoản";
+"manager_service" = "Quản lý dịch vụ";
+"relationships" = "Các mối quan hệ";
+
 "wallet_finance" = "Ví tài chính";
 "create_services" = "Tạo dịch vụ";
 "create_auction" = "Tạo đấu giá";
