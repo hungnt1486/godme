@@ -213,6 +213,7 @@
 		E66F691D241B792F00A0EC99 /* district.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6917241B792E00A0EC99 /* district.json */; };
 		E66F691E241B792F00A0EC99 /* educations.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6918241B792E00A0EC99 /* educations.json */; };
 		E66F691F241B792F00A0EC99 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6919241B792E00A0EC99 /* province.json */; };
+		E66F6922241B7F0000A0EC99 /* ProvinceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F6921241B7EFF00A0EC99 /* ProvinceModel.swift */; };
 		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
@@ -431,6 +432,7 @@
 		E66F6917241B792E00A0EC99 /* district.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = district.json; sourceTree = "<group>"; };
 		E66F6918241B792E00A0EC99 /* educations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = educations.json; sourceTree = "<group>"; };
 		E66F6919241B792E00A0EC99 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province.json; sourceTree = "<group>"; };
+		E66F6921241B7EFF00A0EC99 /* ProvinceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceModel.swift; sourceTree = "<group>"; };
 		E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -935,9 +937,18 @@
 			path = CustomCell;
 			sourceTree = "<group>";
 		};
+		E66F6920241B7EBE00A0EC99 /* Model_local */ = {
+			isa = PBXGroup;
+			children = (
+				E66F6921241B7EFF00A0EC99 /* ProvinceModel.swift */,
+			);
+			path = Model_local;
+			sourceTree = "<group>";
+		};
 		E6F57D872410FBCE005FC9C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E66F6920241B7EBE00A0EC99 /* Model_local */,
 				E66F6916241B792D00A0EC99 /* country.json */,
 				E66F6917241B792E00A0EC99 /* district.json */,
 				E66F6918241B792E00A0EC99 /* educations.json */,
@@ -1211,6 +1222,7 @@
 				4155004C2419BECB006B189E /* SearchBarServiceViewController.swift in Sources */,
 				411329B22416932F0089DD18 /* DetailBasicServiceViewController.swift in Sources */,
 				41AD16C92413FC31001E132E /* ViewPagerController.swift in Sources */,
+				E66F6922241B7F0000A0EC99 /* ProvinceModel.swift in Sources */,
 				41550033241941E7006B189E /* VImageStars.swift in Sources */,
 				41286AE9240F3EE70021157C /* Defines.swift in Sources */,
 				41286AEF240F3EE70021157C /* Result.swift in Sources */,
