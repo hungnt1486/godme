@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchBarBaseInfor2TableViewCellProtocol {
+    func didMore(index: Int)
+}
+
 class SearchBarBaseInfor2TableViewCell: UITableViewCell {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbComment: UILabel!
@@ -15,6 +19,7 @@ class SearchBarBaseInfor2TableViewCell: UITableViewCell {
     @IBOutlet weak var imgMore: UIImageView!
     @IBOutlet weak var vImageStar: UIView!
     var vStarOranges: VImageStarsOranges!
+    var delegate: SearchBarBaseInfor2TableViewCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +33,16 @@ class SearchBarBaseInfor2TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @objc func touchMore(){
+        delegate?.didMore(index: self.imgMore.tag)
+    }
+    
     func setupUI(){
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchMore))
+        self.imgMore.isUserInteractionEnabled = true
+        self.imgMore.addGestureRecognizer(tapGesture)
+        
         vStarOranges = VImageStarsOranges.instanceFromNib()
         
         self.vImageStar.addSubview(vStarOranges)

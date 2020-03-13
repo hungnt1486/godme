@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchBarBaseInfoTableViewCellProtocol {
-    func didMore()
+    func didMoreButton()
 }
 
 class SearchBarBaseInfoTableViewCell: UITableViewCell {
@@ -45,7 +45,7 @@ class SearchBarBaseInfoTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchMore(_ sender: Any) {
-        delegate?.didMore()
+        delegate?.didMoreButton()
     }
     
 }

@@ -47,11 +47,26 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfoTableViewCell") as! SearchBarBaseInfoTableViewCell
+            cell.delegate = self
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfor2TableViewCell") as! SearchBarBaseInfor2TableViewCell
+            cell.imgMore.tag = indexPath.row
+            cell.delegate = self
             return cell
         }
+    }
+}
+
+extension SearchBarInfoBaseViewController: SearchBarBaseInfoTableViewCellProtocol{
+    func didMoreButton(){
+        Settings.ShareInstance.showAlertView(message: "more button", vc: self)
+    }
+}
+
+extension SearchBarInfoBaseViewController: SearchBarBaseInfor2TableViewCellProtocol{
+    func didMore(index: Int) {
+        Settings.ShareInstance.showAlertView(message: "more + index = \(index)" , vc: self)
     }
     
     
