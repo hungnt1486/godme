@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,7 +76,6 @@
                                 <rect key="frame" x="210" y="129" width="80" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="cG5-hz-8ca"/>
                                     <constraint firstAttribute="height" constant="20" id="gRI-ZD-ieh"/>
                                 </constraints>
                             </view>
@@ -120,6 +119,7 @@
                             <constraint firstAttribute="trailing" secondItem="EAz-md-s4d" secondAttribute="trailing" constant="10" id="ORs-H6-sYn"/>
                             <constraint firstItem="Ysl-cM-Qgu" firstAttribute="top" secondItem="oe4-Zw-QHZ" secondAttribute="bottom" constant="15" id="Re8-xP-Ylu"/>
                             <constraint firstItem="YCs-KJ-nu4" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="SGY-Nb-ZM5"/>
+                            <constraint firstItem="oe4-Zw-QHZ" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="TNi-5Y-nr9"/>
                             <constraint firstAttribute="trailing" secondItem="HvH-V6-23g" secondAttribute="trailing" constant="5" id="URf-Zz-TXP"/>
                             <constraint firstAttribute="trailing" secondItem="65R-5J-O7L" secondAttribute="trailing" constant="5" id="UTY-We-OJU"/>
                             <constraint firstItem="EAz-md-s4d" firstAttribute="top" secondItem="YCs-KJ-nu4" secondAttribute="bottom" constant="5" id="WrW-y3-gQI"/>
@@ -153,7 +153,7 @@
                 <outlet property="vContent" destination="dct-yg-3cD" id="dav-2V-kQK"/>
                 <outlet property="vImgStar" destination="EAz-md-s4d" id="SLU-yW-xBO"/>
             </connections>
-            <point key="canvasLocation" x="-120" y="124"/>
+            <point key="canvasLocation" x="-120.28985507246378" y="123.88392857142857"/>
         </tableViewCell>
     </objects>
     <resources>
