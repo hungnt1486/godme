@@ -16,6 +16,8 @@
 "manager_service" = "Quản lý dịch vụ";
 "relationships" = "Các mối quan hệ";
 
+"info_user" = "Thông tin người dùng";
+
 "wallet_finance" = "Ví tài chính";
 "create_services" = "Tạo dịch vụ";
 "create_auction" = "Tạo đấu giá";

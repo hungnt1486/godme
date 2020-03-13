@@ -42,6 +42,7 @@ class SearchBarDetailViewController: BaseViewController {
     
     func setupUI(){
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "info_user")
     }
     
     override func viewDidLayoutSubviews() {

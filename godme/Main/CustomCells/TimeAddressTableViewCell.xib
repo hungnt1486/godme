@@ -69,14 +69,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="nZ2-hZ-EjQ" secondAttribute="bottom" constant="5" id="5MI-f1-qa2"/>
                             <constraint firstItem="nZ2-hZ-EjQ" firstAttribute="leading" secondItem="Sqa-US-GJH" secondAttribute="leading" constant="10" id="Ark-bf-pyX"/>
                             <constraint firstItem="Hrx-PV-dt8" firstAttribute="top" secondItem="Sqa-US-GJH" secondAttribute="top" constant="5" id="Cns-dF-ZPn"/>
                             <constraint firstItem="Hrx-PV-dt8" firstAttribute="leading" secondItem="nZ2-hZ-EjQ" secondAttribute="trailing" constant="10" id="Rxw-ts-3Kf"/>
                             <constraint firstAttribute="bottom" secondItem="Hrx-PV-dt8" secondAttribute="bottom" constant="5" id="ZiL-rw-lgz"/>
                             <constraint firstAttribute="trailing" secondItem="Hrx-PV-dt8" secondAttribute="trailing" constant="10" id="rQK-YD-yEV"/>
                             <constraint firstItem="nZ2-hZ-EjQ" firstAttribute="top" secondItem="Sqa-US-GJH" secondAttribute="top" constant="5" id="u0k-cO-dr6"/>
-                            <constraint firstAttribute="height" constant="30" id="z0R-Pu-zvr"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ec-S3-HU7">
@@ -99,13 +97,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VHo-88-B0Q" secondAttribute="trailing" constant="10" id="0Hr-3Z-ibL"/>
+                            <constraint firstAttribute="bottom" secondItem="Bbl-1t-G9y" secondAttribute="bottom" constant="5" id="9c1-pF-82Z"/>
                             <constraint firstAttribute="bottom" secondItem="VHo-88-B0Q" secondAttribute="bottom" constant="5" id="Fha-bb-h8v"/>
                             <constraint firstItem="Bbl-1t-G9y" firstAttribute="leading" secondItem="6ec-S3-HU7" secondAttribute="leading" constant="10" id="SFF-jM-WOj"/>
                             <constraint firstItem="VHo-88-B0Q" firstAttribute="top" secondItem="6ec-S3-HU7" secondAttribute="top" constant="5" id="Tdd-HU-W1T"/>
-                            <constraint firstItem="Bbl-1t-G9y" firstAttribute="top" secondItem="6ec-S3-HU7" secondAttribute="top" constant="5" id="VvN-Lm-zxg"/>
                             <constraint firstItem="VHo-88-B0Q" firstAttribute="leading" secondItem="Bbl-1t-G9y" secondAttribute="trailing" constant="10" id="ZUV-wf-aCG"/>
                             <constraint firstAttribute="height" constant="30" id="eVl-XZ-pkq"/>
-                            <constraint firstAttribute="bottom" secondItem="Bbl-1t-G9y" secondAttribute="bottom" constant="5" id="qLX-sf-OrE"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-Vb-uBb">

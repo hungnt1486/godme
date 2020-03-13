@@ -16,6 +16,8 @@
 "manager_service" = "Manage Services";
 "relationships" = "RelationShips";
 
+"info_user" = "Information User";
+
 "wallet_finance" = "Finance Wallet";
 "create_services" = "Create service";
 "create_auction" = "Create auction";

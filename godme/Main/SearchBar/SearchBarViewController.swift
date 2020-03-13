@@ -34,6 +34,7 @@ class SearchBarViewController: BaseViewController {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchSearch))
         self.imgSearch.isUserInteractionEnabled = true
         self.imgSearch.addGestureRecognizer(tapGesture)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupTableView(){
@@ -72,6 +73,7 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detail = SearchBarDetailViewController()
+        self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(detail, animated: true)
     }
     

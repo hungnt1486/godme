@@ -67,12 +67,12 @@ class RelationshipsViewController: BaseViewController {
         
 //        options.tabViewTextHighlightColor = Color.appColor.colorFromHexString()
 //        options.tabIndicatorViewBackgroundColor = Color.appColor.colorFromHexString()
-        options.tabImageName1 = "ic_page_post"
-        options.tabImageName2 = "ic_manage_post"
-        options.tabImageName3 = "ic_candidate"
-        options.tabImageName1Active = "ic_page_post_active"
-        options.tabImageName2Active = "ic_manage_post_active"
-        options.tabImageName3Active = "ic_candidate_active"
+//        options.tabImageName1 = "ic_page_post"
+//        options.tabImageName2 = "ic_manage_post"
+//        options.tabImageName3 = "ic_candidate"
+//        options.tabImageName1Active = "ic_page_post_active"
+//        options.tabImageName2Active = "ic_manage_post_active"
+//        options.tabImageName3Active = "ic_candidate_active"
         options.isTabHighlightAvailable = true
         viewPager = ViewPagerController()
         viewPager.options = options
