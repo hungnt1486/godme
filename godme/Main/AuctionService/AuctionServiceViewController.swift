@@ -21,7 +21,8 @@ class AuctionServiceViewController: BaseViewController {
     }
     
     func setupUI(){
-        self.title = "auction_service".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "auction_service")
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupTableView(){

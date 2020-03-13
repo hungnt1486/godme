@@ -25,6 +25,15 @@ class MainViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.setupSearchBar()
         self.navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if vSearchBar != nil {
+            vSearchBar.viewWithTag(5)?.removeFromSuperview()
+            vSearchBar = nil
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

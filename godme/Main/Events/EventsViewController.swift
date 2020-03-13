@@ -21,7 +21,8 @@ class EventsViewController: BaseViewController {
     }
     
     func setupUI(){
-        self.title = "events".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "events")
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupTableView(){

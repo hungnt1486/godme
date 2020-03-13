@@ -38,7 +38,6 @@ class SearchBarViewController: BaseViewController {
     
     func setupTableView(){
         self.tbvSearchBar.register(UINib(nibName: "SearchBarTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchBarTableViewCell")
-//        self.tbvSearchBar.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
 
         self.tbvSearchBar.delegate = self
         self.tbvSearchBar.dataSource = self
@@ -53,6 +52,7 @@ class SearchBarViewController: BaseViewController {
     }
 
     @IBAction func touchCancel(_ sender: Any) {
+        self.navigationItem.hidesBackButton = true
         self.navigationController?.popViewController(animated: true)
         
     }

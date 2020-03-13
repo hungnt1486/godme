@@ -21,7 +21,8 @@ class BasicServiceViewController: BaseViewController {
     }
     
     func setupUI(){
-        self.title = "basic_service".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "basic_service")
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupTableView(){

@@ -30,7 +30,7 @@ class DetailAuctionViewController: BaseViewController {
     }
     
     func setupUI(){
-        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupTableView(){

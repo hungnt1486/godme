@@ -29,7 +29,7 @@ class DetailBasicServiceViewController: BaseViewController {
     }
     
     func setupUI(){
-        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupTableView(){
