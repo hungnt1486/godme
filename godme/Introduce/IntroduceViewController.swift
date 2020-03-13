@@ -132,9 +132,13 @@ extension IntroduceViewController: IntroViewProtocol{
         self.setupVIntro()
         print("viet nam")
         
-        let json = Settings.ShareInstance.loadFileJson(name: "province")
-        let data = ProvinceModel.init(json: json)
-        print("data = ", data?.name)
+//        var arrModel: [ProvinceArrModel] = []
+//        let json = Settings.ShareInstance.loadFileJson(name: "province")
+//        let data = ProvinceModel.init(json: json)
+//        arrModel = data!.ProvinceArr!
+//        print("gwgrg = ", arrModel[0].name)
+//        let provinceModel = data![]
+//        print("data = ", data)
         
     }
     
