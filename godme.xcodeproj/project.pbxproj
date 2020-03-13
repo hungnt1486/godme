@@ -199,6 +199,14 @@
 		E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6500C772408BAB1001E023D /* LaunchScreen.storyboard */; };
 		E6500C822408BB0F001E023D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C802408BB0F001E023D /* MainViewController.swift */; };
 		E6500C832408BB0F001E023D /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6500C812408BB0F001E023D /* MainViewController.xib */; };
+		E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F68FF241B404A00A0EC99 /* MyRelationShipViewController.swift */; };
+		E66F6902241B404B00A0EC99 /* MyRelationShipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66F6900241B404B00A0EC99 /* MyRelationShipViewController.xib */; };
+		E66F6905241B405C00A0EC99 /* MyRelationShipExpandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F6903241B405C00A0EC99 /* MyRelationShipExpandViewController.swift */; };
+		E66F6906241B405C00A0EC99 /* MyRelationShipExpandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66F6904241B405C00A0EC99 /* MyRelationShipExpandViewController.xib */; };
+		E66F6909241B407000A0EC99 /* ListHiddenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F6907241B407000A0EC99 /* ListHiddenViewController.swift */; };
+		E66F690A241B407000A0EC99 /* ListHiddenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */; };
+		E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */; };
+		E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */; };
 		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
@@ -403,6 +411,14 @@
 		E6500C7A2408BAB1001E023D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6500C802408BB0F001E023D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E6500C812408BB0F001E023D /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E66F68FF241B404A00A0EC99 /* MyRelationShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRelationShipViewController.swift; sourceTree = "<group>"; };
+		E66F6900241B404B00A0EC99 /* MyRelationShipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRelationShipViewController.xib; sourceTree = "<group>"; };
+		E66F6903241B405C00A0EC99 /* MyRelationShipExpandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRelationShipExpandViewController.swift; sourceTree = "<group>"; };
+		E66F6904241B405C00A0EC99 /* MyRelationShipExpandViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRelationShipExpandViewController.xib; sourceTree = "<group>"; };
+		E66F6907241B407000A0EC99 /* ListHiddenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHiddenViewController.swift; sourceTree = "<group>"; };
+		E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListHiddenViewController.xib; sourceTree = "<group>"; };
+		E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRelationShipTableViewCell.swift; sourceTree = "<group>"; };
+		E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRelationShipTableViewCell.xib; sourceTree = "<group>"; };
 		E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -681,8 +697,15 @@
 		41286B1C2411516E0021157C /* Relationships */ = {
 			isa = PBXGroup;
 			children = (
+				E66F690B241B419200A0EC99 /* CustomCell */,
 				41286B1D241151850021157C /* RelationshipsViewController.swift */,
 				41286B1E241151850021157C /* RelationshipsViewController.xib */,
+				E66F68FF241B404A00A0EC99 /* MyRelationShipViewController.swift */,
+				E66F6900241B404B00A0EC99 /* MyRelationShipViewController.xib */,
+				E66F6903241B405C00A0EC99 /* MyRelationShipExpandViewController.swift */,
+				E66F6904241B405C00A0EC99 /* MyRelationShipExpandViewController.xib */,
+				E66F6907241B407000A0EC99 /* ListHiddenViewController.swift */,
+				E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */,
 			);
 			path = Relationships;
 			sourceTree = "<group>";
@@ -891,6 +914,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E66F690B241B419200A0EC99 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */,
+				E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		E6F57D872410FBCE005FC9C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,6 +994,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66F6906241B405C00A0EC99 /* MyRelationShipExpandViewController.xib in Resources */,
 				41AD16D724141A55001E132E /* MyServicesTableViewCell.xib in Resources */,
 				41AD169D241358D1001E132E /* WithdrawViewController.xib in Resources */,
 				411329BB2416A3380089DD18 /* TimeAddressTableViewCell.xib in Resources */,
@@ -971,6 +1004,7 @@
 				E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */,
 				4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */,
 				4150DA74241B15B600F8A7E4 /* Roboto-BlackItalic.ttf in Resources */,
+				E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
 				4150DA72241B15B600F8A7E4 /* Roboto-LightItalic.ttf in Resources */,
 				41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */,
@@ -998,6 +1032,7 @@
 				410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */,
 				411329A524168CB60089DD18 /* AuctionServicesTableViewCell.xib in Resources */,
 				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
+				E66F6902241B404B00A0EC99 /* MyRelationShipViewController.xib in Resources */,
 				41AD16B524139CCF001E132E /* HistoryViewController.xib in Resources */,
 				415500492419BEB3006B189E /* SearchBarInfoBaseViewController.xib in Resources */,
 				4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */,
@@ -1020,6 +1055,7 @@
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
 				41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
+				E66F690A241B407000A0EC99 /* ListHiddenViewController.xib in Resources */,
 				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
 				410E67FB24149E4F00FA2F54 /* Main1TableViewCell.xib in Resources */,
 				41AD16C12413A8DF001E132E /* FollowMonthTableViewCell.xib in Resources */,
@@ -1144,6 +1180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66F6909241B407000A0EC99 /* ListHiddenViewController.swift in Sources */,
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
 				41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */,
 				41AD16C02413A8DF001E132E /* FollowMonthTableViewCell.swift in Sources */,
@@ -1157,8 +1194,10 @@
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
 				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
 				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
+				E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */,
 				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
+				E66F6905241B405C00A0EC99 /* MyRelationShipExpandViewController.swift in Sources */,
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
 				411329CE24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift in Sources */,
@@ -1188,6 +1227,7 @@
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
+				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				411329D2241722330089DD18 /* InfoAuctionTableViewCell.swift in Sources */,
