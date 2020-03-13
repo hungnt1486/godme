@@ -207,6 +207,12 @@
 		E66F690A241B407000A0EC99 /* ListHiddenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */; };
 		E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */; };
 		E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */; };
+		E66F691A241B792F00A0EC99 /* socials.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6914241B792D00A0EC99 /* socials.json */; };
+		E66F691B241B792F00A0EC99 /* ward.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6915241B792D00A0EC99 /* ward.json */; };
+		E66F691C241B792F00A0EC99 /* country.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6916241B792D00A0EC99 /* country.json */; };
+		E66F691D241B792F00A0EC99 /* district.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6917241B792E00A0EC99 /* district.json */; };
+		E66F691E241B792F00A0EC99 /* educations.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6918241B792E00A0EC99 /* educations.json */; };
+		E66F691F241B792F00A0EC99 /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = E66F6919241B792E00A0EC99 /* province.json */; };
 		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
@@ -419,6 +425,12 @@
 		E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListHiddenViewController.xib; sourceTree = "<group>"; };
 		E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRelationShipTableViewCell.swift; sourceTree = "<group>"; };
 		E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRelationShipTableViewCell.xib; sourceTree = "<group>"; };
+		E66F6914241B792D00A0EC99 /* socials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = socials.json; sourceTree = "<group>"; };
+		E66F6915241B792D00A0EC99 /* ward.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ward.json; sourceTree = "<group>"; };
+		E66F6916241B792D00A0EC99 /* country.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = country.json; sourceTree = "<group>"; };
+		E66F6917241B792E00A0EC99 /* district.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = district.json; sourceTree = "<group>"; };
+		E66F6918241B792E00A0EC99 /* educations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = educations.json; sourceTree = "<group>"; };
+		E66F6919241B792E00A0EC99 /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province.json; sourceTree = "<group>"; };
 		E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -926,6 +938,12 @@
 		E6F57D872410FBCE005FC9C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E66F6916241B792D00A0EC99 /* country.json */,
+				E66F6917241B792E00A0EC99 /* district.json */,
+				E66F6918241B792E00A0EC99 /* educations.json */,
+				E66F6919241B792E00A0EC99 /* province.json */,
+				E66F6914241B792D00A0EC99 /* socials.json */,
+				E66F6915241B792D00A0EC99 /* ward.json */,
 				4150DA52241B15B600F8A7E4 /* Fonts */,
 				4150DA51241B15B600F8A7E4 /* Resources.swift */,
 			);
@@ -1002,8 +1020,10 @@
 				41AD16DB2414210A001E132E /* MyServicesJoinTableViewCell.xib in Resources */,
 				4150DA77241B15B600F8A7E4 /* Roboto-Black.ttf in Resources */,
 				E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */,
+				E66F691C241B792F00A0EC99 /* country.json in Resources */,
 				4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */,
 				4150DA74241B15B600F8A7E4 /* Roboto-BlackItalic.ttf in Resources */,
+				E66F691F241B792F00A0EC99 /* province.json in Resources */,
 				E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
 				4150DA72241B15B600F8A7E4 /* Roboto-LightItalic.ttf in Resources */,
@@ -1012,6 +1032,7 @@
 				411329B32416932F0089DD18 /* DetailBasicServiceViewController.xib in Resources */,
 				4113297D2414E3DA0089DD18 /* MainTableViewCell.xib in Resources */,
 				41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */,
+				E66F691D241B792F00A0EC99 /* district.json in Resources */,
 				411329812414E3F70089DD18 /* MainCollectionViewCell.xib in Resources */,
 				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
@@ -1022,6 +1043,7 @@
 				4150DA75241B15B600F8A7E4 /* Roboto-Bold.ttf in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
 				41132990241684450089DD18 /* Localizable.strings in Resources */,
+				E66F691A241B792F00A0EC99 /* socials.json in Resources */,
 				4155003D2419B666006B189E /* SearchBarRelationShipViewController.xib in Resources */,
 				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
 				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
@@ -1045,6 +1067,7 @@
 				411329C624171C3A0089DD18 /* DetailEventViewController.xib in Resources */,
 				411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */,
 				4150DA6F241B15B600F8A7E4 /* Roboto-ThinItalic.ttf in Resources */,
+				E66F691E241B792F00A0EC99 /* educations.json in Resources */,
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
@@ -1080,6 +1103,7 @@
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
 				4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */,
 				4113299D24168A090089DD18 /* BasicServiceViewController.xib in Resources */,
+				E66F691B241B792F00A0EC99 /* ward.json in Resources */,
 				41AD16D22413FDC6001E132E /* ServicesInfoBookedViewController.xib in Resources */,
 				4150DA6E241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				415500232417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib in Resources */,
