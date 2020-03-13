@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class Settings: NSObject {
     
@@ -345,6 +346,23 @@ class Settings: NSObject {
             result = key
         }
         return result
+    }
+    
+    func loadFileJson(name: String) -> JSON{
+        var json: JSON?
+        if let path = Bundle.main.path(forResource: name, ofType: "json") {
+            do {
+                let fileUrl = URL(fileURLWithPath: path)
+                // Getting data from JSON file using the file URL
+                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
+//                json = try? JSONSerialization.jsonObject(with: data)
+                json = try JSON.init(data: data, options: .fragmentsAllowed)
+            } catch {
+                // Handle error here
+            }
+        }
+//        print(json)
+        return json ?? JSON()
     }
 }
 

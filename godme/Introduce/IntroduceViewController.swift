@@ -131,6 +131,11 @@ extension IntroduceViewController: IntroViewProtocol{
         
         self.setupVIntro()
         print("viet nam")
+        
+        let json = Settings.ShareInstance.loadFileJson(name: "province")
+        let data = ProvinceModel.init(json: json)
+        print("data = ", data?.name)
+        
     }
     
     func didEnglish() {

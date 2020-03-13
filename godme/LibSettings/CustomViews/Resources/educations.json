@@ -1,0 +1,18 @@
+[
+  {
+    "code": "TRUOC_DAI_HOC",
+    "label": "educations.before_university"
+  },
+  {
+    "code": "DAI_HOC",
+    "label": "educations.university"
+  },
+  {
+    "code": "THAC_SI",
+    "label": "educations.master"
+  },
+  {
+    "code": "TIEN_SI",
+    "label": "educations.doctor"
+  }
+]
