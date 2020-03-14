@@ -129,6 +129,8 @@
 		4150DA7B241B15E800F8A7E4 /* VImageStarsOranges.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA79241B15E800F8A7E4 /* VImageStarsOranges.xib */; };
 		4150DA7E241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */; };
 		4150DA7F241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */; };
+		4150DA82241CEC0100F8A7E4 /* CreateNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA80241CEC0100F8A7E4 /* CreateNotificationViewController.swift */; };
+		4150DA83241CEC0100F8A7E4 /* CreateNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA81241CEC0100F8A7E4 /* CreateNotificationViewController.xib */; };
 		4155001E2417F10B006B189E /* ConfirmBasicServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */; };
 		4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */; };
 		415500222417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */; };
@@ -344,6 +346,8 @@
 		4150DA79241B15E800F8A7E4 /* VImageStarsOranges.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VImageStarsOranges.xib; sourceTree = "<group>"; };
 		4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarBaseInfor2TableViewCell.swift; sourceTree = "<group>"; };
 		4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarBaseInfor2TableViewCell.xib; sourceTree = "<group>"; };
+		4150DA80241CEC0100F8A7E4 /* CreateNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationViewController.swift; sourceTree = "<group>"; };
+		4150DA81241CEC0100F8A7E4 /* CreateNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNotificationViewController.xib; sourceTree = "<group>"; };
 		4155001C2417F10B006B189E /* ConfirmBasicServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBasicServiceViewController.swift; sourceTree = "<group>"; };
 		4155001D2417F10B006B189E /* ConfirmBasicServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmBasicServiceViewController.xib; sourceTree = "<group>"; };
 		415500202417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBasicServiceTableViewCell.swift; sourceTree = "<group>"; };
@@ -720,6 +724,8 @@
 				E66F6904241B405C00A0EC99 /* MyRelationShipExpandViewController.xib */,
 				E66F6907241B407000A0EC99 /* ListHiddenViewController.swift */,
 				E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */,
+				4150DA80241CEC0100F8A7E4 /* CreateNotificationViewController.swift */,
+				4150DA81241CEC0100F8A7E4 /* CreateNotificationViewController.xib */,
 			);
 			path = Relationships;
 			sourceTree = "<group>";
@@ -1055,6 +1061,7 @@
 				4150DA75241B15B600F8A7E4 /* Roboto-Bold.ttf in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
 				41132990241684450089DD18 /* Localizable.strings in Resources */,
+				4150DA83241CEC0100F8A7E4 /* CreateNotificationViewController.xib in Resources */,
 				E66F691A241B792F00A0EC99 /* socials.json in Resources */,
 				4155003D2419B666006B189E /* SearchBarRelationShipViewController.xib in Resources */,
 				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
@@ -1261,6 +1268,7 @@
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
 				411329CE24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift in Sources */,
 				41AD16D624141A55001E132E /* MyServicesTableViewCell.swift in Sources */,
+				4150DA82241CEC0100F8A7E4 /* CreateNotificationViewController.swift in Sources */,
 				411329AB24168F5D0089DD18 /* EventsViewController.swift in Sources */,
 				41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */,
 				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,

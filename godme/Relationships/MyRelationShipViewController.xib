@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRelationShipViewController" customModule="godme" customModuleProvider="target">
             <connections>
+                <outlet property="lbFilterJob" destination="sRu-qe-4uS" id="fy6-nE-b5d"/>
                 <outlet property="tbvMyRelationShip" destination="gtN-mQ-9Q1" id="GYm-ZY-jK6"/>
+                <outlet property="tfInputName" destination="6jK-tC-zHX" id="XKH-Bt-Bfv"/>
+                <outlet property="vTop" destination="U7H-g3-PSI" id="ZQe-ba-OeJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +26,50 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7H-g3-PSI">
+                    <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tìm kiếm theo tên người dùng" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jK-tC-zHX">
+                            <rect key="frame" x="20" y="10" width="374" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="7c9-9q-fNY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lọc theo ngành" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRu-qe-4uS">
+                            <rect key="frame" x="20" y="70" width="103" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="mK3-Pq-fFG"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="zj7-iS-uhN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="7bb-zh-DoH">
+                            <rect key="frame" x="133" y="72.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="3KP-mG-U8t"/>
+                                <constraint firstAttribute="height" constant="15" id="EgH-96-58G"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="6jK-tC-zHX" firstAttribute="leading" secondItem="U7H-g3-PSI" secondAttribute="leading" constant="20" id="5QS-uz-Fnd"/>
+                        <constraint firstItem="sRu-qe-4uS" firstAttribute="leading" secondItem="U7H-g3-PSI" secondAttribute="leading" constant="20" id="N3v-ru-ymg"/>
+                        <constraint firstAttribute="height" constant="100" id="Nvo-wU-XBa"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="OxO-sT-C9w"/>
+                        <constraint firstItem="6jK-tC-zHX" firstAttribute="top" secondItem="U7H-g3-PSI" secondAttribute="top" constant="10" id="Rcv-Sp-w9G"/>
+                        <constraint firstAttribute="trailing" secondItem="6jK-tC-zHX" secondAttribute="trailing" constant="20" id="VbC-8R-eXt"/>
+                        <constraint firstItem="sRu-qe-4uS" firstAttribute="top" secondItem="6jK-tC-zHX" secondAttribute="bottom" constant="20" id="aMu-rM-TfH"/>
+                        <constraint firstItem="7bb-zh-DoH" firstAttribute="leading" secondItem="sRu-qe-4uS" secondAttribute="trailing" constant="10" id="dOK-an-HfG"/>
+                        <constraint firstItem="7bb-zh-DoH" firstAttribute="centerY" secondItem="sRu-qe-4uS" secondAttribute="centerY" id="oqG-zn-UQt"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gtN-mQ-9Q1">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="9fz-kZ-EEV"/>
@@ -30,12 +80,18 @@
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gtN-mQ-9Q1" secondAttribute="trailing" id="CqS-XD-gYC"/>
-                <constraint firstItem="gtN-mQ-9Q1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dLd-JC-dcH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U7H-g3-PSI" secondAttribute="trailing" id="DVX-j4-E8F"/>
+                <constraint firstItem="U7H-g3-PSI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bfp-as-D3u"/>
+                <constraint firstItem="U7H-g3-PSI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ceK-U2-nGP"/>
                 <constraint firstItem="gtN-mQ-9Q1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fkk-Vp-h4f"/>
+                <constraint firstItem="gtN-mQ-9Q1" firstAttribute="top" secondItem="U7H-g3-PSI" secondAttribute="bottom" id="i4h-PE-SgW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gtN-mQ-9Q1" secondAttribute="bottom" id="oJp-YW-POW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="125"/>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_arrow_down" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
 </document>

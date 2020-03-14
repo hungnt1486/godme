@@ -94,6 +94,10 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
         return 60
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.5
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {

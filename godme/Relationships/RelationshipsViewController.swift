@@ -11,7 +11,7 @@ import UIKit
 class RelationshipsViewController: BaseViewController {
     
     var tabs = [
-        ViewPagerTab(title: "Mối quan hệ", image: nil),
+        ViewPagerTab(title: "Các mối quan hệ", image: nil),
         ViewPagerTab(title: "MQH mở rộng", image: nil),
         ViewPagerTab(title: "Danh sách ẩn", image: nil),
     ]
@@ -31,10 +31,19 @@ class RelationshipsViewController: BaseViewController {
         self.navigationItem.title = Settings.ShareInstance.translate(key: "relationships")
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
+        
+        let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_notification_fast")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight))
+        self.navigationItem.rightBarButtonItem = right
     }
     
     @objc func touchLeft(){
         print("left")
+    }
+    
+    @objc func touchRight(){
+        print("right")
+        let createNotification = CreateNotificationViewController()
+        self.navigationController?.pushViewController(createNotification, animated: true)
     }
     
     override func viewWillLayoutSubviews() {

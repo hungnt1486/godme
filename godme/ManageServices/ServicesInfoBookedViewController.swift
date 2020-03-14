@@ -26,18 +26,16 @@ class ServicesInfoBookedViewController: BaseViewController {
     }
     
     func setupTableView(){
-//        self.tbvServicesInfoBook.register(UINib(nibName: "ServicesInfoBookTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesInfoBookTableViewCell")
-//        self.tbvServicesInfoBook.register(UINib(nibName: "MyServicesJoinTableViewCell", bundle: nil), forCellReuseIdentifier: "MyServicesJoinTableViewCell")
-//        self.tbvServicesInfoBook.register(UINib.init(nibName: "HeaderServicesInfoBook", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderServicesInfoBook")
+        self.tbvServicesInfoBook.register(UINib(nibName: "ServicesInfoBookTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesInfoBookTableViewCell")
         
-        self.tbvServicesInfoBook.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
-        self.tbvServicesInfoBook.register(UINib(nibName: "AuctionServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServicesTableViewCell")
-        self.tbvServicesInfoBook.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
+//        self.tbvServicesInfoBook.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
+//        self.tbvServicesInfoBook.register(UINib(nibName: "AuctionServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServicesTableViewCell")
+//        self.tbvServicesInfoBook.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
 
         self.tbvServicesInfoBook.delegate = self
         self.tbvServicesInfoBook.dataSource = self
-//        self.tbvServicesInfoBook.separatorColor = UIColor.clear
-//        self.tbvServicesInfoBook.separatorInset = UIEdgeInsets.zero
+        self.tbvServicesInfoBook.separatorColor = UIColor.clear
+        self.tbvServicesInfoBook.separatorInset = UIEdgeInsets.zero
         self.tbvServicesInfoBook.estimatedRowHeight = 300
         self.tbvServicesInfoBook.rowHeight = UITableView.automaticDimension
         
@@ -86,29 +84,33 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
         return 60
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.5
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
-            return cell
-        }else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
-            return cell
-        }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
-            return cell
-        }
-        
 //        if indexPath.section == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
 //            return cell
 //        }else if indexPath.section == 1 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
 //            return cell
-//        }else {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+//        }else{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
 //            return cell
 //        }
+        
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+            return cell
+        }else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+            return cell
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

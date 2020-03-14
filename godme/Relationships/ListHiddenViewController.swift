@@ -10,12 +10,22 @@ import UIKit
 
 class ListHiddenViewController: BaseViewController {
 
+    @IBOutlet weak var vTop: UIView!
     @IBOutlet weak var tbvListHidden: UITableView!
+    @IBOutlet weak var tfInputName: UITextField!
+    @IBOutlet weak var lbFilterJob: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
         self.setupTableView()
+    }
+    
+    func setupUI(){
+        self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
+        
+        self.tfInputName = Settings.ShareInstance.setupTextField(textField: self.tfInputName, isLeftView: true)
     }
 
     func setupTableView(){
