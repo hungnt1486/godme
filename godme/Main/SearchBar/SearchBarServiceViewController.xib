@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSR-fq-FBj" customClass="CollapseTableView" customModule="godme" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="S1F-5f-Oa9"/>
@@ -29,12 +29,12 @@
             </subviews>
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fSR-fq-FBj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8cz-Xs-6wV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fSR-fq-FBj" secondAttribute="bottom" id="W9c-mj-Dgq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fSR-fq-FBj" secondAttribute="trailing" id="fH2-cF-mjR"/>
-                <constraint firstItem="fSR-fq-FBj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="n9T-Km-MC9"/>
+                <constraint firstItem="fSR-fq-FBj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8cz-Xs-6wV"/>
+                <constraint firstAttribute="bottom" secondItem="fSR-fq-FBj" secondAttribute="bottom" id="W9c-mj-Dgq"/>
+                <constraint firstAttribute="trailing" secondItem="fSR-fq-FBj" secondAttribute="trailing" id="fH2-cF-mjR"/>
+                <constraint firstItem="fSR-fq-FBj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n9T-Km-MC9"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <viewLayoutGuide key="safeArea" id="Q6V-9I-z0G"/>
             <point key="canvasLocation" x="139" y="125"/>
         </view>
     </objects>

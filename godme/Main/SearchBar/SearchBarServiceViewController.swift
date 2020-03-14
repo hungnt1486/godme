@@ -14,6 +14,7 @@ class SearchBarServiceViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tabBarController?.tabBar.isHidden = true
         self.setupTableView()
         
         self.tbvServices.didTapSectionHeaderView = { (sectionIndex, isOpen) in
@@ -91,7 +92,7 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

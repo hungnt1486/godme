@@ -23,7 +23,7 @@ class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        imageView.image = .withRenderingMode(.alwaysTemplate)
+        imageView.image = UIImage.init(named: "ic_arrow_down-1")?.withRenderingMode(.alwaysOriginal)//.withRenderingMode(.alwaysTemplate)
 //        imageView.tintColor = .white
         self.contentView.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
     }

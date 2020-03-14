@@ -42,24 +42,19 @@ class SearchBarDetailViewController: BaseViewController {
     
     func setupUI(){
         self.navigationController?.navigationBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationItem.title = Settings.ShareInstance.translate(key: "info_user")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.vTop.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.vTop.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height)//self.view.bounds
+        options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.vTop.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!)
     }
     
     func configPageView() {
         self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
         
-        options = ViewPagerOptions(viewPagerWithFrame: CGRect.init(x: self.view.bounds.origin.x, y: self.vTop.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height))
+        options = ViewPagerOptions(viewPagerWithFrame: CGRect.init(x: self.view.bounds.origin.x, y: self.vTop.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!))
         options.tabViewHeight = 50.0
         options.tabType = ViewPagerTabType.imageWithText
         options.tabViewImageSize = CGSize(width: 20, height: 20)

@@ -35,16 +35,16 @@ extension CollapseSectionHeader {
     public func updateViewForOpenState(animated: Bool) {
         let duration = animated ? imageAnimationDuration : 0
         UIView.animate(withDuration: duration) {
-//            self.indicatorImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
-            self.indicatorImageView.image = UIImage.init(named: "ic_minus")
+            self.indicatorImageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+//            self.indicatorImageView.image = UIImage.init(named: "ic_minus")
         }
     }
     
     public func updateViewForCloseState(animated: Bool) {
         let duration = animated ? imageAnimationDuration : 0
         UIView.animate(withDuration: duration) {
-//            self.indicatorImageView.transform = CGAffineTransform(rotationAngle: CGFloat(2 * Double.pi))
-            self.indicatorImageView.image = UIImage.init(named: "ic_plus")
+            self.indicatorImageView.transform = CGAffineTransform(rotationAngle: CGFloat(2 * Double.pi))
+//            self.indicatorImageView.image = UIImage.init(named: "ic_plus")
         }
     }
 }
