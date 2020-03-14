@@ -9,22 +9,63 @@
 import UIKit
 
 class CreateNotificationViewController: BaseViewController {
-
+    @IBOutlet weak var imgAddNew: UIImageView!
+    @IBOutlet weak var tfInputTitle: UITextField!
+    @IBOutlet weak var tvInputContent: UITextView!
+    @IBOutlet weak var imgRelationships: UIImageView!
+    @IBOutlet weak var lbRelationShips: UILabel!
+    @IBOutlet weak var imgRelationShipsExpand: UIImageView!
+    @IBOutlet weak var lbRelationShipsExpand: UILabel!
+    @IBOutlet weak var btConfirm: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
+        self.configButtonBack()
+    }
+    
+    func setupUI(){
+        self.navigationItem.title = "Thông báo"
+        self.btConfirm = Settings.ShareInstance.setupButton(button: self.btConfirm)
+        self.tfInputTitle = Settings.ShareInstance.setupTextField(textField: self.tfInputTitle, isLeftView: true)
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchImgRelationShips))
+        self.imgRelationships.isUserInteractionEnabled = true
+        self.imgRelationships.addGestureRecognizer(tapGesture)
+        
+        self.lbRelationShips.isUserInteractionEnabled = true
+        self.lbRelationShips.addGestureRecognizer(tapGesture)
+        
+        let tapGestureExpand = UITapGestureRecognizer.init(target: self, action: #selector(touchImgRelationShipsExpand))
+        self.imgRelationShipsExpand.isUserInteractionEnabled = true
+        self.imgRelationShipsExpand.addGestureRecognizer(tapGestureExpand)
+        
+        self.lbRelationShipsExpand.isUserInteractionEnabled = true
+        self.lbRelationShipsExpand.addGestureRecognizer(tapGestureExpand)
+    }
+    
+    @objc func touchImgRelationShips(){
+        let img = UIImage(named: "ic_checked")
+        if img == self.imgRelationships.image {
+            self.imgRelationships.image = UIImage(named: "ic_uncheck")
+        }else{
+            self.imgRelationships.image = UIImage(named: "ic_checked")
+        }
+    }
+    
+    @objc func touchImgRelationShipsExpand(){
+        let img = UIImage(named: "ic_checked")
+        if img == self.imgRelationShipsExpand.image {
+            self.imgRelationShipsExpand.image = UIImage(named: "ic_uncheck")
+        }else{
+            self.imgRelationShipsExpand.image = UIImage(named: "ic_checked")
+        }
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func touchConfirm(_ sender: Any) {
+        
     }
-    */
 
 }
