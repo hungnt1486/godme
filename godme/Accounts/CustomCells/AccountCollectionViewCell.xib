@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AccountCollectionViewCell" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLp-Q7-G3V">
+                        <rect key="frame" x="5" y="5" width="140" height="140"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ví tài chính" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqC-mY-PeK">
+                                <rect key="frame" x="10" y="115" width="120" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="xqm-3q-R7j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_wallet" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-wD-DNV">
+                                <rect key="frame" x="30" y="15" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="6zz-10-Je5"/>
+                                    <constraint firstAttribute="height" constant="80" id="mkU-W9-P6a"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1k2-wD-DNV" firstAttribute="top" secondItem="zLp-Q7-G3V" secondAttribute="top" constant="15" id="D0a-Ih-H0N"/>
+                            <constraint firstItem="1k2-wD-DNV" firstAttribute="centerX" secondItem="zLp-Q7-G3V" secondAttribute="centerX" id="EKc-su-igb"/>
+                            <constraint firstItem="TqC-mY-PeK" firstAttribute="top" secondItem="1k2-wD-DNV" secondAttribute="bottom" constant="20" id="Jah-2Q-MZs"/>
+                            <constraint firstAttribute="trailing" secondItem="TqC-mY-PeK" secondAttribute="trailing" constant="10" id="tnw-pu-RCS"/>
+                            <constraint firstItem="TqC-mY-PeK" firstAttribute="leading" secondItem="zLp-Q7-G3V" secondAttribute="leading" constant="10" id="xZY-Ok-RzK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zLp-Q7-G3V" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="23c-p2-kb2"/>
+                <constraint firstAttribute="bottom" secondItem="zLp-Q7-G3V" secondAttribute="bottom" constant="5" id="E3u-N1-b1o"/>
+                <constraint firstItem="zLp-Q7-G3V" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="YIQ-jp-4Ib"/>
+                <constraint firstItem="zLp-Q7-G3V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="l3j-Zh-D1Q"/>
+                <constraint firstAttribute="trailing" secondItem="zLp-Q7-G3V" secondAttribute="trailing" constant="5" id="rDj-NF-lS3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="100" height="109"/>
+            <connections>
+                <outlet property="icon" destination="1k2-wD-DNV" id="SOD-HZ-d2S"/>
+                <outlet property="lbTitle" destination="TqC-mY-PeK" id="jy4-ak-26z"/>
+                <outlet property="viewShadow" destination="zLp-Q7-G3V" id="W2m-Lu-K71"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="37.165178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_wallet" width="170.66667175292969" height="170.66667175292969"/>
+    </resources>
+</document>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Localize_Swift
 
 enum typeCellFinance: Int {
     case Title = 0
@@ -32,7 +31,7 @@ class FinanceViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "wallet_finance".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "wallet_finance")
     }
     
     func setupUI(){
@@ -68,25 +67,25 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         case .Button1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FinanceOrangesButtonTableViewCell") as! FinanceOrangesButtonTableViewCell
-            cell.btOranges.setTitle("input_godcoin".localized(), for: .normal)
+            cell.btOranges.setTitle(Settings.ShareInstance.translate(key: "input_godcoin"), for: .normal)
             cell.btOranges.tag = indexPath.row
             cell.delegate = self
             return cell
         case .Button2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FinanceBlueButtonTableViewCell") as! FinanceBlueButtonTableViewCell
-            cell.btBlue.setTitle("withdraw".localized(), for: .normal)
+            cell.btBlue.setTitle(Settings.ShareInstance.translate(key: "withdraw"), for: .normal)
             cell.btBlue.tag = indexPath.row
             cell.delegate = self
             return cell
         case .Button3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FinanceOrangesButtonTableViewCell") as! FinanceOrangesButtonTableViewCell
-            cell.btOranges.setTitle("find_history".localized(), for: .normal)
+            cell.btOranges.setTitle(Settings.ShareInstance.translate(key: "find_history"), for: .normal)
             cell.btOranges.tag = indexPath.row
             cell.delegate = self
             return cell
         case .Button4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FinanceBlueButtonTableViewCell") as! FinanceBlueButtonTableViewCell
-            cell.btBlue.setTitle("follow_table".localized(), for: .normal)
+            cell.btBlue.setTitle(Settings.ShareInstance.translate(key: "follow_table"), for: .normal)
             cell.btBlue.tag = indexPath.row
             cell.delegate = self
             return cell

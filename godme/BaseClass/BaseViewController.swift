@@ -113,15 +113,17 @@ class BaseViewController: UIViewController {
     }
         
         
-        func logoutSuccess() -> Void {
-            UserDefaults.standard.removeObject(forKey: information_login)
-            UserDefaults.standard.synchronize()
-            
-            self.tabbarController.selectedIndex = 0
-            let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            let nav = UINavigationController(rootViewController: login)
-            delegateApp.window?.rootViewController = nav
-            delegateApp.window?.makeKeyAndVisible()
-        }
+    func logoutSuccess() -> Void {
+        UserDefaults.standard.removeObject(forKey: information_login)
+        UserDefaults.standard.synchronize()
+        
+        self.tabbarController.selectedIndex = 0
+        let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
+//        self.navigationItem.hidesBackButton = true
+        login.status = "logout"
+        let nav = UINavigationController(rootViewController: login)
+        delegateApp.window?.rootViewController = nav
+        delegateApp.window?.makeKeyAndVisible()
+    }
     
 }

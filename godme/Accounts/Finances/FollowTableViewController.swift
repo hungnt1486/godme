@@ -16,11 +16,12 @@ class FollowTableViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupTableView()
+        self.configButtonBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "follow_table".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "follow_table")
     }
     
     func setupTableView(){

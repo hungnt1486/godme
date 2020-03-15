@@ -195,6 +195,8 @@
 		41AD16D724141A55001E132E /* MyServicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD16D524141A55001E132E /* MyServicesTableViewCell.xib */; };
 		41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD16D82414210A001E132E /* MyServicesJoinTableViewCell.swift */; };
 		41AD16DB2414210A001E132E /* MyServicesJoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD16D92414210A001E132E /* MyServicesJoinTableViewCell.xib */; };
+		41ADEABC241DD83B002C95FA /* AccountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEABA241DD83A002C95FA /* AccountCollectionViewCell.xib */; };
+		41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEABB241DD83A002C95FA /* AccountCollectionViewCell.swift */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -412,6 +414,8 @@
 		41AD16D524141A55001E132E /* MyServicesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyServicesTableViewCell.xib; sourceTree = "<group>"; };
 		41AD16D82414210A001E132E /* MyServicesJoinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyServicesJoinTableViewCell.swift; sourceTree = "<group>"; };
 		41AD16D92414210A001E132E /* MyServicesJoinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyServicesJoinTableViewCell.xib; sourceTree = "<group>"; };
+		41ADEABA241DD83A002C95FA /* AccountCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCollectionViewCell.xib; sourceTree = "<group>"; };
+		41ADEABB241DD83A002C95FA /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -764,6 +768,8 @@
 			isa = PBXGroup;
 			children = (
 				4121FA4424133B2B00AF26D3 /* Finances */,
+				41ADEABB241DD83A002C95FA /* AccountCollectionViewCell.swift */,
+				41ADEABA241DD83A002C95FA /* AccountCollectionViewCell.xib */,
 				41286B782411DEF40021157C /* AvatarTableViewCell.swift */,
 				41286B772411DEF30021157C /* AvatarTableViewCell.xib */,
 				41286B732411DC7E0021157C /* FeatureTableViewCell.swift */,
@@ -1067,6 +1073,7 @@
 				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
 				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
 				4150DA76241B15B600F8A7E4 /* Roboto-Thin.ttf in Resources */,
+				41ADEABC241DD83B002C95FA /* AccountCollectionViewCell.xib in Resources */,
 				4150DA7F241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib in Resources */,
 				411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */,
 				4150DA73241B15B600F8A7E4 /* Roboto-Italic.ttf in Resources */,
@@ -1208,7 +1215,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1226,7 +1232,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1283,6 +1288,7 @@
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
 				411329972416888C0089DD18 /* BasicServicesTableViewCell.swift in Sources */,
 				41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */,
+				41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */,
 				415500382419B2D2006B189E /* SearchBarDetailViewController.swift in Sources */,
 				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,

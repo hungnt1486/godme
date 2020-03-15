@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Localize_Swift
 
 enum typeCellWithDraw: Int{
     case Label1 = 0
@@ -27,11 +26,12 @@ class WithdrawViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupTableView()
+        self.configButtonBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "withdraw".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "withdraw")
     }
     
     func setupTableView(){
@@ -62,39 +62,39 @@ extension WithdrawViewController: UITableViewDelegate, UITableViewDataSource{
         case .Label1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDraw1TableViewCell") as! WithDraw1TableViewCell
             cell.tfInput.tag = indexPath.row
-            cell.lbTitle.text = "withdraw_money".localized()
-            cell.tfInput.placeholder = "withdraw_money".localized()
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "withdraw_money")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "withdraw_money")
             cell.delegate = self
             return cell
         case .Label2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDraw1TableViewCell") as! WithDraw1TableViewCell
             cell.tfInput.tag = indexPath.row
-            cell.lbTitle.text = "bank_name".localized()
-            cell.tfInput.placeholder = "bank_name".localized()
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "bank_name")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "bank_name")
             cell.delegate = self
             return cell
         case .Label3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDraw1TableViewCell") as! WithDraw1TableViewCell
             cell.tfInput.tag = indexPath.row
-            cell.lbTitle.text = "branch".localized()
-            cell.tfInput.placeholder = "branch".localized()
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "branch")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "branch")
             cell.delegate = self
             return cell
         case .Label4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDraw1TableViewCell") as! WithDraw1TableViewCell
             cell.tfInput.tag = indexPath.row
-            cell.lbTitle.text = "account_name".localized()
-            cell.tfInput.placeholder = "account_name".localized()
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "account_name")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "account_name")
             cell.delegate = self
             return cell
         case .Label5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDrawLabelTableViewCell") as! WithDrawLabelTableViewCell
-            cell.lbTitle.text = "same_account".localized()
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "same_account")
             return cell
         case .Button6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDrawButtonTableViewCell") as! WithDrawButtonTableViewCell
             cell.btConfirm.tag = indexPath.row
-            cell.btConfirm.setTitle("confirm".localized(), for: .normal)
+            cell.btConfirm.setTitle(Settings.ShareInstance.translate(key: "confirm"), for: .normal)
             cell.delegate = self
             return cell
         }

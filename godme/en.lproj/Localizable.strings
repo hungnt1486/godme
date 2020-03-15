@@ -24,9 +24,9 @@
 "create_event" = "Create event";
 "security_term" = "Term security";
 "use_term" = "Term use";
-"support_report" = "Hỗ trợ/Báo lỗi";
+"support_report" = "Help";
 "contact" = "Liên hệ";
-"collaboration" = "Hợp tác";
+"collaboration" = "Collaboration";
 "logout" = "Đăng xuất";
 // finance page
 "input_godcoin" = "Nạp Godcoin";

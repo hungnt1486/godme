@@ -23,11 +23,12 @@ class InputGodcoinViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupTableView()
+        self.configButtonBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "input_godcoin".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "input_godcoin")
     }
     
     func setupTableView(){

@@ -10,8 +10,8 @@ import UIKit
 
 protocol FeatureTableViewCellProtocol {
 //    func eventGetTextWithType(_ string: String, type: typeCellPost, index: Int)
-    func didOne(type: typeCellAccounts, index: Int)
-    func didTwo(type: typeCellAccounts, index: Int)
+//    func didOne(type: typeCellAccounts, index: Int)
+//    func didTwo(type: typeCellAccounts, index: Int)
 }
 
 class FeatureTableViewCell: UITableViewCell {
@@ -37,11 +37,11 @@ class FeatureTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchOne(_ sender: Any) {
-        delegate?.didOne(type: typeCellAccounts(rawValue: self.btOne.tag)!, index: self.btOne.tag)
+//        delegate?.didOne(type: typeCellAccounts(rawValue: self.btOne.tag)!, index: self.btOne.tag)
     }
     
     @IBAction func touchTwo(_ sender: Any) {
-        delegate?.didTwo(type: typeCellAccounts(rawValue: self.btTwo.tag)!, index: self.btTwo.tag)
+//        delegate?.didTwo(type: typeCellAccounts(rawValue: self.btTwo.tag)!, index: self.btTwo.tag)
     }
     
 }

@@ -22,11 +22,12 @@ class HistoryViewController: BaseViewController {
             self.setupUI()
         }
         self.setupTableView()
+        self.configButtonBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "find_history".localized()
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "find_history")
     }
     
     func setupUI(){

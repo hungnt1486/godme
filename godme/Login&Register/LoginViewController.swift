@@ -15,12 +15,20 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var btForgotPassword: UIButton!
     @IBOutlet weak var btLogin: UIButton!
     @IBOutlet weak var lbRegister: UILabel!
+    var status = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupUI()
         self.configButtonBack()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if status == "logout" {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem()
+        }
     }
     
     func setupUI(){
