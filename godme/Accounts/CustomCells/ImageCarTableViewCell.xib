@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="KGk-i7-Jjw" customClass="ImageCarTableViewCell" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="32x-0d-wwA">
+                        <rect key="frame" x="10" y="37.5" width="300" height="80"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_upload_default" translatesAutoresizingMaskIntoConstraints="NO" id="DOM-Zf-drg">
+                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="80"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pq8-cT-J6J">
+                                <rect key="frame" x="103.5" y="0.0" width="93" height="80"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-kO-agc">
+                                <rect key="frame" x="206.5" y="0.0" width="93.5" height="80"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DOM-Zf-drg" firstAttribute="height" secondItem="Pq8-cT-J6J" secondAttribute="height" id="1sg-pq-nDE"/>
+                            <constraint firstItem="Pq8-cT-J6J" firstAttribute="height" secondItem="h3Y-kO-agc" secondAttribute="height" id="CRr-oy-Cn1"/>
+                            <constraint firstItem="Pq8-cT-J6J" firstAttribute="width" secondItem="h3Y-kO-agc" secondAttribute="width" id="P4T-el-che"/>
+                            <constraint firstItem="DOM-Zf-drg" firstAttribute="width" secondItem="Pq8-cT-J6J" secondAttribute="width" id="YCt-mQ-Rrp"/>
+                            <constraint firstAttribute="height" constant="80" id="wD3-X3-Yec"/>
+                        </constraints>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HÌNH ẢNH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd5-Tq-AfS">
+                        <rect key="frame" x="10" y="15" width="60" height="14.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hd5-Tq-AfS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4dn-Gp-iSB"/>
+                    <constraint firstItem="hd5-Tq-AfS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="7w3-Uh-pIS"/>
+                    <constraint firstItem="32x-0d-wwA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="CR8-pd-VTu"/>
+                    <constraint firstItem="32x-0d-wwA" firstAttribute="top" secondItem="hd5-Tq-AfS" secondAttribute="bottom" constant="8" id="Ji1-uU-ygA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="32x-0d-wwA" secondAttribute="bottom" constant="5" id="Pkd-c7-hrC"/>
+                    <constraint firstAttribute="trailing" secondItem="32x-0d-wwA" secondAttribute="trailing" constant="10" id="Wto-vm-psi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageOne" destination="DOM-Zf-drg" id="2sJ-XH-Q8s"/>
+                <outlet property="imageThree" destination="h3Y-kO-agc" id="MGt-fa-PtX"/>
+                <outlet property="imageTwo" destination="Pq8-cT-J6J" id="T2N-7K-TPO"/>
+                <outlet property="lbTitle" destination="hd5-Tq-AfS" id="8qh-S9-1FP"/>
+            </connections>
+            <point key="canvasLocation" x="100.00000000000001" y="88.058035714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_upload_default" width="21.5" height="14.5"/>
+    </resources>
+</document>

@@ -25,15 +25,15 @@
                     <rect key="frame" x="10" y="0.0" width="394" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCI-wo-28o">
-                            <rect key="frame" x="10" y="5" width="284" height="40"/>
+                            <rect key="frame" x="10" y="5" width="214" height="40"/>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKb-eo-OOY">
-                            <rect key="frame" x="304" y="5" width="80" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKb-eo-OOY">
+                            <rect key="frame" x="234" y="5" width="150" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="80" id="0pu-pf-yRN"/>
+                                <constraint firstAttribute="width" constant="150" id="0pu-pf-yRN"/>
                                 <constraint firstAttribute="height" constant="40" id="hhz-54-zHT"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>

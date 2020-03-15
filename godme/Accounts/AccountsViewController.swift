@@ -27,18 +27,19 @@ class AccountsViewController: BaseViewController {
                                 ["title":Settings.ShareInstance.translate(key: "support_report"), "icon" : "ic_help"]]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupUI()
+        self.setupCollectionView()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupUI()
-        self.setupCollectionView()
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "account")
     }
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = false
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "account")
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
         
@@ -87,31 +88,27 @@ extension AccountsViewController: UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            self.tabBarController?.tabBar.isHidden = true
             switch indexPath.row {
             case 0:
                 let finance = FinanceViewController()
                 self.navigationController?.pushViewController(finance, animated: true)
                 break
             case 1:
-//                let car = CarsViewController.init(nibName: "CarsViewController", bundle: nil)
-//                car.hidesBottomBarWhenPushed = true
-//                delegate?.eventPush(typeCellHome.Car)
+                let service = CreateServiceViewController()
+                self.navigationController?.pushViewController(service, animated: true)
                 break
             case 2:
-//                let realestate = RealestateViewController.init(nibName: "RealestateViewController", bundle: nil)
-//                HomeViewController.ShareInstance.pushTo(VC: realestate)
-//                delegate?.eventPush(typeCellHome.Realeste)
+                let auction = CreateAuctionViewController()
+                self.navigationController?.pushViewController(auction, animated: true)
                 break
             case 3:
-//                delegate?.eventPush(typeCellHome.Beauty)
-//                let beauty = BeautyViewController.init(nibName: "BeautyViewController", bundle: nil)
-//                HomeViewController.ShareInstance.pushTo(VC: beauty)
+                let event = CreateEventViewController()
+                self.navigationController?.pushViewController(event, animated: true)
                 break
             case 4:
-//                delegate?.eventPush(typeCellHome.AirPlane)
-//                delegate?.eventPush(typeCellHome.Tour)
-//                let tour = ToursViewController.init(nibName: "ToursViewController", bundle: nil)
-//                HomeViewController.ShareInstance.pushTo(VC: tour)
+                let collaborate = CreateCollaborateViewController()
+                self.navigationController?.pushViewController(collaborate, animated: true)
                 break
             case 5:
 

@@ -20,12 +20,15 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="ck3-4Z-hVw"/>
                         </constraints>
-                        <state key="normal" title="Hoàn Thành"/>
+                        <state key="normal" title="Hoàn Thành">
+                            <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
                         <connections>
                             <action selector="touchComplete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DeJ-ei-hzw"/>
                         </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="kIa-R7-Y7W" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" id="0CY-gL-FPi"/>
                     <constraint firstItem="kIa-R7-Y7W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="aMY-bv-wiB"/>
@@ -33,6 +36,7 @@
                     <constraint firstAttribute="bottom" secondItem="kIa-R7-Y7W" secondAttribute="bottom" constant="5" id="ieD-NV-THO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="btComplete" destination="kIa-R7-Y7W" id="EDd-LQ-EPU"/>
             </connections>

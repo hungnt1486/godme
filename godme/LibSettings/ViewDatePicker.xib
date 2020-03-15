@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ViewDatePicker" customModule="pCare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-dX-OkL">
+                    <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                    <subviews>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Wg-KF-9lg">
+                            <rect key="frame" x="0.0" y="44" width="375" height="216"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="216" id="iSx-VL-eqP"/>
+                            </constraints>
+                            <date key="date" timeIntervalSinceReferenceDate="563816105.39254701">
+                                <!--2018-11-13 15:35:05 +0000-->
+                            </date>
+                        </datePicker>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N09-4F-Amc">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="fBq-0t-sNy"/>
+                            </constraints>
+                            <items>
+                                <barButtonItem title="Huỷ" id="2Qa-UL-hEs">
+                                    <connections>
+                                        <action selector="touchCancel:" destination="iN0-l3-epB" id="2da-Nn-VfU"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="AHl-hu-iix"/>
+                                <barButtonItem title="Chọn" id="3hj-OL-hdI">
+                                    <connections>
+                                        <action selector="touchDone:" destination="iN0-l3-epB" id="pNA-0M-BBe"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="N09-4F-Amc" firstAttribute="leading" secondItem="ScW-dX-OkL" secondAttribute="leading" id="1sz-aB-ciz"/>
+                        <constraint firstAttribute="trailing" secondItem="4Wg-KF-9lg" secondAttribute="trailing" id="PVf-Ni-tja"/>
+                        <constraint firstItem="N09-4F-Amc" firstAttribute="top" secondItem="ScW-dX-OkL" secondAttribute="top" id="czq-f2-LJq"/>
+                        <constraint firstItem="4Wg-KF-9lg" firstAttribute="top" secondItem="N09-4F-Amc" secondAttribute="bottom" id="eqH-Cz-uDu"/>
+                        <constraint firstAttribute="height" constant="260" id="gQS-Ga-hUc"/>
+                        <constraint firstAttribute="bottom" secondItem="4Wg-KF-9lg" secondAttribute="bottom" id="nOe-j2-tx6"/>
+                        <constraint firstAttribute="trailing" secondItem="N09-4F-Amc" secondAttribute="trailing" id="zC6-Xi-0xH"/>
+                        <constraint firstItem="4Wg-KF-9lg" firstAttribute="leading" secondItem="ScW-dX-OkL" secondAttribute="leading" id="zQz-Fz-Qrk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ScW-dX-OkL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Ivt-hg-8J7"/>
+                <constraint firstItem="ScW-dX-OkL" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="fum-Lx-L0z"/>
+                <constraint firstItem="ScW-dX-OkL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="y6e-wc-1cT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btCancel" destination="2Qa-UL-hEs" id="Nyu-UD-PeR"/>
+                <outlet property="btDone" destination="3hj-OL-hdI" id="zyA-JU-pfO"/>
+                <outlet property="datePicker" destination="4Wg-KF-9lg" id="aWe-IR-qPb"/>
+                <outlet property="vPopup" destination="ScW-dX-OkL" id="qUw-F3-KT2"/>
+            </connections>
+            <point key="canvasLocation" x="181.59999999999999" y="125.4872563718141"/>
+        </view>
+    </objects>
+</document>
