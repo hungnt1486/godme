@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vvM-Ve-yrI" firstAttribute="leading" secondItem="gwE-Hg-aUk" secondAttribute="leading" constant="10" id="0aZ-qx-H8W"/>
                             <constraint firstAttribute="trailing" secondItem="vvM-Ve-yrI" secondAttribute="trailing" constant="10" id="1PY-od-QTT"/>
@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1jF-oL-r96" secondAttribute="trailing" constant="20" id="BI5-Gb-Es0"/>
                             <constraint firstItem="QMD-et-C9q" firstAttribute="leading" secondItem="9CH-ty-fyR" secondAttribute="leading" constant="10" id="FJk-85-iXR"/>
@@ -100,6 +100,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="9CH-ty-fyR" secondAttribute="bottom" id="9Ye-5r-LPy"/>
                     <constraint firstItem="gwE-Hg-aUk" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" constant="-10" id="F37-Tn-Y6D"/>
@@ -111,6 +112,7 @@
                     <constraint firstItem="9CH-ty-fyR" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" constant="-10" id="lwu-2T-VaA"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="btShow1" destination="pIB-dJ-xd9" id="8jN-8h-Ilv"/>
                 <outlet property="btShow2" destination="pva-Fs-Ha9" id="chr-PW-3dd"/>

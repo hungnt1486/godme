@@ -45,6 +45,7 @@ class RegisterViewController: BaseViewController {
     }
     
     func setupUI(){
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "register")
         self.navigationController?.navigationBar.isHidden = false
         self.view.backgroundColor = UIColor.FlatColor.Gray.BGColor
     }
@@ -100,7 +101,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .Country:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Quốc  "
+            cell.tfText.placeholder = "Quốc gia"
             return cell
            case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell

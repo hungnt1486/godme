@@ -24,6 +24,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="wQ0-Be-5Dj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="AQd-ny-nRT"/>
                     <constraint firstItem="wQ0-Be-5Dj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VFI-a6-fAO"/>
@@ -31,6 +32,7 @@
                     <constraint firstAttribute="trailing" secondItem="wQ0-Be-5Dj" secondAttribute="trailing" constant="10" id="j7n-1l-VJY"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="tfText" destination="wQ0-Be-5Dj" id="NtN-1a-iDo"/>
             </connections>

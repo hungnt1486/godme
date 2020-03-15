@@ -42,9 +42,19 @@ class LoginViewController: BaseViewController {
         
         self.btLogin.backgroundColor = UIColor.FlatColor.Oranges.BGColor
         self.btLogin = Settings.ShareInstance.setupButton(button: self.btLogin)
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(touchRegister))
+        self.lbRegister.isUserInteractionEnabled = true
+        self.lbRegister.addGestureRecognizer(tap)
     }
     
     @IBAction func touchForgotPassword(_ sender: Any) {
+        
+    }
+    
+    @objc func touchRegister(){
+        let register = RegisterViewController()
+        self.navigationController?.pushViewController(register, animated: true)
     }
     
     @IBAction func touchLogin(_ sender: Any) {
