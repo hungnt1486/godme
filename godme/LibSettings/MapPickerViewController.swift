@@ -101,6 +101,7 @@ class MapPickerViewController: BaseViewController, GMSMapViewDelegate, LocateOnT
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.configButtonBack()
         view.addSubview(mapView)
         mapView.addSubview(pinView)
         mapView.layer.insertSublayer(ellipsisLayer, below: pinView.layer)

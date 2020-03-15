@@ -45,7 +45,7 @@ class CreateCollaborateViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "create_auction")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "collaboration")
     }
     
     func setupUI(){

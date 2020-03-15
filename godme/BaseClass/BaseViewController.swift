@@ -108,6 +108,7 @@ class BaseViewController: UIViewController {
         let navMaps = UINavigationController.init(rootViewController: maps)
         
         tabbarController.setViewControllers([navAccounts, navServicesManage, navMain, navRelationship, navMaps], animated: true)
+        tabbarController.selectedIndex = 2
         delegateApp.window?.rootViewController = tabbarController
         delegateApp.window?.makeKeyAndVisible()
     }

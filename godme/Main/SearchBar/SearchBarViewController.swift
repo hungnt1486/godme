@@ -20,21 +20,24 @@ class SearchBarViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        self.configButtonBack()
         self.setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "find_job")
     }
     
     func setupUI(){
-        self.tfJob = Settings.ShareInstance.setupTextField(textField: self.tfJob, isLeftView: true)
-        self.tfLocation = Settings.ShareInstance.setupTextField(textField: self.tfLocation, isLeftView: true)
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchSearch))
-        self.imgSearch.isUserInteractionEnabled = true
-        self.imgSearch.addGestureRecognizer(tapGesture)
         self.tabBarController?.tabBar.isHidden = true
+        
+        let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_filter")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(touchRight))
+        self.navigationItem.rightBarButtonItem = right
+    }
+    
+    @objc func touchRight(){
+        
     }
     
     func setupTableView(){
@@ -48,15 +51,6 @@ class SearchBarViewController: BaseViewController {
         self.tbvSearchBar.rowHeight = UITableView.automaticDimension
     }
     
-    @objc func touchSearch(){
-        print("search")
-    }
-
-    @IBAction func touchCancel(_ sender: Any) {
-        self.navigationItem.hidesBackButton = true
-        self.navigationController?.popViewController(animated: true)
-        
-    }
     
 }
 

@@ -15,13 +15,15 @@
 "account" = "Tài khoản";
 "manager_service" = "Quản lý dịch vụ";
 "relationships" = "Các mối quan hệ";
+"map" = "Bản đồ";
+"find_job" = "Tìm kiếm ngành nghề";
 
 "info_user" = "Thông tin người dùng";
 
 "wallet_finance" = "Ví tài chính";
 "create_services" = "Tạo dịch vụ";
 "create_auction" = "Tạo đấu giá";
-"create_event" = "Tạo event";
+"create_event" = "Tạo sự kiện";
 "security_term" = "Qui định bảo mật";
 "use_term" = "Thoả thuận sử dụng";
 "support_report" = "Trợ giúp";

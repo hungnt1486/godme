@@ -223,6 +223,8 @@
 		41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAEF241E4BA5002C95FA /* StartEndTimeTableViewCell.xib */; };
 		41ADEAF5241E505D002C95FA /* CreateCollaborateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF3241E505C002C95FA /* CreateCollaborateViewController.xib */; };
 		41ADEAF6241E505D002C95FA /* CreateCollaborateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */; };
+		41ADEAF8241E7D8D002C95FA /* VMapLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */; };
+		41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -468,6 +470,8 @@
 		41ADEAEF241E4BA5002C95FA /* StartEndTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartEndTimeTableViewCell.xib; sourceTree = "<group>"; };
 		41ADEAF3241E505C002C95FA /* CreateCollaborateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateCollaborateViewController.xib; sourceTree = "<group>"; };
 		41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCollaborateViewController.swift; sourceTree = "<group>"; };
+		41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMapLeft.swift; sourceTree = "<group>"; };
+		41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMapLeft.xib; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -896,6 +900,8 @@
 				4155002724190CF2006B189E /* VSearchBar.xib */,
 				41550032241941E7006B189E /* VImageStars.swift */,
 				41550034241941EF006B189E /* VImageStars.xib */,
+				41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */,
+				41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1262,6 +1268,7 @@
 				41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */,
 				41286AF8240F732D0021157C /* RegisterViewController.xib in Resources */,
 				4150DA6C241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf in Resources */,
+				41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */,
 				4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */,
 				415500392419B2D2006B189E /* SearchBarDetailViewController.xib in Resources */,
 				41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */,
@@ -1456,6 +1463,7 @@
 				4113299C24168A090089DD18 /* BasicServiceViewController.swift in Sources */,
 				4155003C2419B666006B189E /* SearchBarRelationShipViewController.swift in Sources */,
 				41ADEAD4241E0885002C95FA /* DateTableViewCell.swift in Sources */,
+				41ADEAF8241E7D8D002C95FA /* VMapLeft.swift in Sources */,
 				41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */,
 				411329AE24168F670089DD18 /* EventsTableViewCell.swift in Sources */,
 				41ADEAD1241E075B002C95FA /* AddressPostCarTableViewCell.swift in Sources */,

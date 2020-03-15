@@ -27,8 +27,13 @@ class RelationshipsViewController: BaseViewController {
         self.configPageView()
     }
     
-    func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = Settings.ShareInstance.translate(key: "relationships")
+    }
+    
+    func setupUI(){
+        
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
         

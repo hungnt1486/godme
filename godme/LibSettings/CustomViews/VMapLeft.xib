@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VMapLeft" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ayc-KC-lgK">
+                    <rect key="frame" x="30" y="0.0" width="70" height="250"/>
+                    <subviews>
+                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r4S-Af-di0">
+                            <rect key="frame" x="6" y="112" width="67" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </slider>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTu-MM-5W0">
+                    <rect key="frame" x="0.0" y="260" width="100" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hQR-B3-RKK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                    <state key="normal" title="Dịch vụ">
+                        <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="touchService:" destination="iN0-l3-epB" eventType="touchUpInside" id="hgc-qW-fTl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-QC-j5b">
+                    <rect key="frame" x="0.0" y="360" width="100" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="95x-XI-MeZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                    <state key="normal" title="Sự kiện">
+                        <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="touchEvent:" destination="iN0-l3-epB" eventType="touchUpInside" id="97M-cL-oxs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLJ-P4-hMR">
+                    <rect key="frame" x="0.0" y="310" width="100" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6a4-OU-6f0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                    <state key="normal" title="Đấu giá">
+                        <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="touchAuction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ekg-NX-wYc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="O8U-QC-j5b" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2dX-N7-vqf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UTu-MM-5W0" secondAttribute="trailing" id="Cnj-QE-JI7"/>
+                <constraint firstItem="OLJ-P4-hMR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="O5l-uw-yfH"/>
+                <constraint firstItem="Ayc-KC-lgK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="SRP-zL-8by"/>
+                <constraint firstItem="OLJ-P4-hMR" firstAttribute="top" secondItem="UTu-MM-5W0" secondAttribute="bottom" constant="10" id="Sje-Bq-l21"/>
+                <constraint firstItem="UTu-MM-5W0" firstAttribute="top" secondItem="Ayc-KC-lgK" secondAttribute="bottom" constant="10" id="Xga-1Q-R1L"/>
+                <constraint firstItem="UTu-MM-5W0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZwK-08-Pk3"/>
+                <constraint firstItem="O8U-QC-j5b" firstAttribute="top" secondItem="OLJ-P4-hMR" secondAttribute="bottom" constant="10" id="hOP-MQ-kbg"/>
+                <constraint firstAttribute="bottom" secondItem="O8U-QC-j5b" secondAttribute="bottom" id="iC1-k8-NzZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O8U-QC-j5b" secondAttribute="trailing" id="k90-Js-q13"/>
+                <constraint firstItem="Ayc-KC-lgK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ll3-Qj-bCt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OLJ-P4-hMR" secondAttribute="trailing" id="ogf-kT-nOz"/>
+                <constraint firstItem="Ayc-KC-lgK" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="xTw-Cf-CNE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btAuction" destination="OLJ-P4-hMR" id="BTh-iQ-xGe"/>
+                <outlet property="btEvent" destination="O8U-QC-j5b" id="Pob-oA-Y4o"/>
+                <outlet property="btService" destination="UTu-MM-5W0" id="07j-P1-5W2"/>
+                <outlet property="vSlider" destination="Ayc-KC-lgK" id="R5L-L1-3pb"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="136.95652173913044"/>
+        </view>
+    </objects>
+</document>
