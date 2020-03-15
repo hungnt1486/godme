@@ -69,7 +69,8 @@ class MainViewController: BaseViewController {
     }
     
     @objc func touchRight(){
-        
+        let notification = NotificationsViewController()
+        self.navigationController?.pushViewController(notification, animated: true)
     }
     
     func setupTableView(){
@@ -99,7 +100,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 7
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -111,8 +112,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             header.lbTitle.text = "Dịch vụ cơ bản"
         }else if section == 1 {
             header.lbTitle.text = "Đấu giá dịch vụ"
-        }else{
+        }else if section == 2{
             header.lbTitle.text = "Sự kiện"
+        }else if section == 3{
+            header.lbTitle.text = "Hợp tác"
+        }else if section == 4{
+            header.lbTitle.text = "Godme Charity"
+        }else if section == 5{
+            header.lbTitle.text = "Sản phẩm liên kết"
+        }else if section == 6{
+            header.lbTitle.text = "Blogs"
         }
         return header
     }

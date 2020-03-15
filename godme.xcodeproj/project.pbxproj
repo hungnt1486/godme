@@ -225,6 +225,8 @@
 		41ADEAF6241E505D002C95FA /* CreateCollaborateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */; };
 		41ADEAF8241E7D8D002C95FA /* VMapLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */; };
 		41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */; };
+		41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EE6241E8B410031D066 /* NotificationsViewController.swift */; };
+		41F15EE9241E8B410031D066 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F15EE7241E8B410031D066 /* NotificationsViewController.xib */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -472,6 +474,8 @@
 		41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCollaborateViewController.swift; sourceTree = "<group>"; };
 		41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMapLeft.swift; sourceTree = "<group>"; };
 		41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMapLeft.xib; sourceTree = "<group>"; };
+		41F15EE6241E8B410031D066 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		41F15EE7241E8B410031D066 /* NotificationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -996,6 +1000,15 @@
 			path = Collaborate;
 			sourceTree = "<group>";
 		};
+		41F15EE5241E8B230031D066 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				41F15EE6241E8B410031D066 /* NotificationsViewController.swift */,
+				41F15EE7241E8B410031D066 /* NotificationsViewController.xib */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		7AA1AF2143F2BE6B4393CC57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1051,7 @@
 				41286ADC240F3EE60021157C /* Models */,
 				41286AE6240F3EE70021157C /* Services */,
 				41286AD1240EAA3D0021157C /* Introduce */,
+				41F15EE5241E8B230031D066 /* Notifications */,
 				E6500C722408BAB1001E023D /* Assets.xcassets */,
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
 				41132992241684450089DD18 /* Localizable.strings */,
@@ -1266,6 +1280,7 @@
 				4150DA6A241B15B600F8A7E4 /* Roboto-Regular.ttf in Resources */,
 				410E67EA2414311C00FA2F54 /* HeaderServicesInfoBook.xib in Resources */,
 				41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */,
+				41F15EE9241E8B410031D066 /* NotificationsViewController.xib in Resources */,
 				41286AF8240F732D0021157C /* RegisterViewController.xib in Resources */,
 				4150DA6C241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf in Resources */,
 				41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */,
@@ -1436,6 +1451,7 @@
 				41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */,
 				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
+				41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,

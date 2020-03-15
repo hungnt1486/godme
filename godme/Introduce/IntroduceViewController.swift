@@ -29,12 +29,12 @@ class IntroduceViewController: UIViewController {
         ["title": "Tự tạo ra dịch vụ từ giá trị bản thân",
          "description": "Quản trị kiến thức và khả năng của bạn để tạo các dịch vụ chia sẽ giúp gia tăng mối quan hệ và tài chính.",
          "imageView": "ic_intro_4"],
+        ["title": "Sản phẩm liên kết - Godme tạo một kho sản phẩm chất",
+         "description": "Người dùng vừa có thể cung cấp sản phẩm vừa trở thành CTV liên kết bán hàng.",
+         "imageView": "ic_intro_6"],
         ["title": "Đóng góp xã hội cho quỹ từ thiện Godme",
          "description": "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.",
-         "imageView": "ic_intro_5"],
-        ["title": "Đóng góp xã hội cho quỹ từ thiện Godme",
-         "description": "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.",
-         "imageView": "ic_intro_6"]
+         "imageView": "ic_intro_5"]
     ]
 
     override func viewDidLoad() {
