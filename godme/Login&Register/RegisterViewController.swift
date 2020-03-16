@@ -161,26 +161,38 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quốc gia"
             cell.btShow.tag = indexPath.row
-            cell.arrString = arrayCountry
+            if cell.arrString.count == 0 {
+                cell.arrString = arrayCountry
+                cell.setupTypeDropdown()
+            }
             cell.delegate = self
             return cell
            case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Thành phố"
             cell.delegate = self
-            cell.arrString = arrayProvince
+            if cell.arrString.count == 0 {
+                cell.arrString = arrayProvince
+                cell.setupTypeDropdown()
+            }
             return cell
            case .District:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quận/Huyện"
             cell.delegate = self
-            cell.arrString = arrayDistrict
+            if cell.arrString.count == 0 {
+                cell.arrString = arrayDistrict
+                cell.setupTypeDropdown()
+            }
             return cell
            case .Ward:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Phường/Xã"
             cell.delegate = self
-            cell.arrString = arrayWard
+            if cell.arrString.count == 0 {
+                cell.arrString = arrayWard
+                cell.setupTypeDropdown()
+            }
             return cell
            case .Address:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell

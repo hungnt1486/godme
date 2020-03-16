@@ -365,6 +365,11 @@ class Settings: NSObject {
         return json ?? JSON()
     }
     
+    func getUDIDString() -> String {
+        let udid = UIDevice.current.identifierForVendor?.uuidString
+        return udid ?? ""
+    }
+    
     func loadProvince()-> [ProvinceArrModel] {
         let json = self.loadFileJson(name: "province")
         let data = ProvinceModel.init(json: json)

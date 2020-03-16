@@ -16,19 +16,19 @@ class UserManager{
         return Static._shareUserManager
     }
     
-    func loginUser(Phone: String, Password: String, completion: @escaping (SingleResult<UserLoginReturnModel>) -> Void) {
-        var paramsHeader = [String: Any]()
+    func loginUser(username: String, password: String, completion: @escaping (SingleResult<UserLoginReturnModel>) -> Void) {
+//        var paramsHeader = [String: Any]()
         var paramsBody = [String: Any]()
-        paramsBody["Password"] = Password
-        paramsBody["Phone"] = Phone
-        paramsBody["OS"] = "ios"
-        paramsBody["Version"] = Settings.ShareInstance.getVersionApp()
-//        paramsBody["Udid"] = Settings.ShareInstance.getUDIDString()
-//        paramsBody["DeviceToken"] = Settings.ShareInstance.deviceToken
-//        paramsHeader["ActionName"] = ActionUser.UsersLogin
-//        paramsHeader["ServiceCode"] = CodeService.User
-        paramsHeader["Parameter"] = paramsBody
-        Alamofire.request(Url.Domain, method: .post, parameters: paramsHeader, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+        var paramsBodySub = [String: Any]()
+        paramsBody["username"] = username
+        paramsBody["password"] = password
+        paramsBodySub["os"] = "ios"
+        paramsBodySub["osVersion"] = Settings.ShareInstance.getVersionApp()
+        paramsBodySub["uuid"] = Settings.ShareInstance.getUDIDString()
+        paramsBodySub["fcmToken"] = "gwgwihgwiug"//Settings.ShareInstance.device
+        paramsBodySub["name"] = "iPhone"
+        paramsBody["device"] = paramsBodySub
+        Alamofire.request("http://45.117.169.99:8888/godme-service/api/v1/auth/login", method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             print(response)
             completion(SingleResult<UserLoginReturnModel>.handleResponse(response))
         }

@@ -52,13 +52,44 @@ class LoginViewController: BaseViewController {
         
     }
     
+    func touchLogin(){
+        UserManager.shareUserManager().loginUser(username: self.tfUserName.text!, password: self.tfPassword.text!) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                print("data = \(data)")
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+//        UserManager.shareUserManager().loginUser(Phone: tfPhone.text!, Password: tfPassword.text!) { (response) in
+//            switch response{
+//            case .success(let data):
+//                self.stopProgressUploadAndGetInfor()
+//                data.Udid = Singleton.shared.getUDIDString()
+//                Singleton.shared.setDictUser(data: data)
+//                self.loginSuccess()
+//
+//                break
+//            case .failure(let error):
+//                self.stopProgressUploadAndGetInfor()
+//                Singleton.shared.showAlertView(message: error, vc: self)
+//                break
+//            }
+//        }
+    }
+    
     @objc func touchRegister(){
         let register = RegisterViewController()
         self.navigationController?.pushViewController(register, animated: true)
     }
     
     @IBAction func touchLogin(_ sender: Any) {
-        
-        self.loginSuccess()
+        self.touchLogin()
+//        self.loginSuccess()
     }
 }

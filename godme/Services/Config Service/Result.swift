@@ -22,7 +22,7 @@ enum SingleResult<C: BaseModel> {
         
         let json = JSON(value)
         let error = C(json: json)
-        let result = C(json: json["Data"])!
+        let result = C(json: json["result"])!
         
         if error?.ResultCode == .Error {
             return SingleResult.failure(message: error?.MessageInfo ?? "")
@@ -44,7 +44,7 @@ enum ListResult<C: BaseModel> {
         let json = JSON(value)
         let error = C(json: json)
         var result = [C]()
-        if let items = json["Data"].array {
+        if let items = json["result"].array {
             for data in items {
                 result.append(C(json: data)!)
             }
@@ -69,7 +69,7 @@ enum OneResult<C: BaseModel> {
         
         let json = JSON(value)
         let error = C(json: json)
-        let result = json["Data"].intValue
+        let result = json["result"].intValue
         
         if error?.ResultCode == .Error {
             return OneResult.failure(message: error?.MessageInfo ?? "")
@@ -89,7 +89,7 @@ enum OneBoolResult<C: BaseModel> {
         
         let json = JSON(value)
         let error = C(json: json)
-        let result = json["Data"].boolValue
+        let result = json["result"].boolValue
         
         if error?.ResultCode == .Error {
             return OneBoolResult.failure(message: error?.MessageInfo ?? "")
@@ -109,7 +109,7 @@ enum OneResultString<C: BaseModel> {
         
         let json = JSON(value)
         let error = C(json: json)
-        let result = json["Data"].stringValue
+        let result = json["result"].stringValue
         
         if error?.ResultCode == .Error {
             return OneResultString.failure(message: error?.MessageInfo ?? "")

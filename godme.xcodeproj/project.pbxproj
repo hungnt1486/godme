@@ -251,6 +251,7 @@
 		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B0241F397E00D206A1 /* UserManager.swift */; };
+		E6B490B3241F724000D206A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B2241F724000D206A1 /* UserModel.swift */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -505,6 +506,7 @@
 		E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6B490B0241F397E00D206A1 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		E6B490B2241F724000D206A1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F57D862410EAA8005FC9C2 /* godme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = godme.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -674,6 +676,7 @@
 			children = (
 				41286ADD240F3EE60021157C /* Defines.swift */,
 				41286ADE240F3EE60021157C /* BaseModel.swift */,
+				E6B490B2241F724000D206A1 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1477,6 +1480,7 @@
 				4150DA7A241B15E800F8A7E4 /* VImageStarsOranges.swift in Sources */,
 				41ADEAF6241E505D002C95FA /* CreateCollaborateViewController.swift in Sources */,
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
+				E6B490B3241F724000D206A1 /* UserModel.swift in Sources */,
 				411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */,
 				41AD16C82413FC31001E132E /* ViewPagerTab.swift in Sources */,
 				4113299C24168A090089DD18 /* BasicServiceViewController.swift in Sources */,
