@@ -86,52 +86,66 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .FullName:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Họ và tên"
+            cell.delegate = self
             return cell
            case .Password:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Mật khẩu"
+            cell.delegate = self
             return cell
            case .PasswordConfirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Xác nhận mật khẩu"
+            cell.delegate = self
             return cell
            case .Email:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Email"
+            cell.delegate = self
             return cell
            case .Country:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quốc gia"
+            cell.delegate = self
+            cell.btShow.tag = indexPath.row
             return cell
            case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Thành phố"
+            cell.delegate = self
+            
             return cell
            case .District:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quận/Huyện"
+            cell.delegate = self
             return cell
            case .Ward:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Phường/Xã"
+            cell.delegate = self
             return cell
            case .Address:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Địa chỉ"
+            cell.delegate = self
             return cell
            case .Job:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TwiceComboboxTableViewCell") as! TwiceComboboxTableViewCell
             cell.tfText1.placeholder = "Ngành nghề"
             cell.tfText2.placeholder = "Học vấn"
+            cell.delegate = self
             return cell
            case .Gender:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TwiceComboboxTableViewCell") as! TwiceComboboxTableViewCell
             cell.tfText1.placeholder = "Độ tuổi"
             cell.tfText2.placeholder = "Giới tính"
+            cell.delegate = self
             return cell
            case .Refferal:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Mã giới thiệu"
+            cell.delegate = self
             return cell
            case .RefferalDefault:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell") as! ContentTableViewCell
@@ -139,6 +153,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .Complete:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
+//            cell.delegate = self
             return cell
         }
     }
@@ -147,4 +162,26 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+extension RegisterViewController: InputTextTableViewCellProtocol{
+    func getTextInput(_ string: String) {
+        print("string = \(string)")
+    }
+}
+
+extension RegisterViewController: ComboboxTableViewCellProtocol{
+    func didTouch(str: String, type: typeCellRegister) {
+        print("str = \(str), type = \(type)")
+    }
+}
+
+extension RegisterViewController: TwiceComboboxTableViewCellProtocol{
+    func didTouch1() {
+        
+    }
+    
+    func didTouch2() {
+        
+    }
 }
