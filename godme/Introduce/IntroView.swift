@@ -40,6 +40,11 @@ class IntroView: UIView {
         self.frame = CGRect(x: ((frameView.size.width)*CGFloat(index)), y: frameView.origin.y, width: frameView.size.width, height: frameView.size.height)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.setupUI()
+    }
+    
     func setupUI(){
         self.vTwo.roundCorners(corners: [.topLeft, .topRight], radius: 50.0)
         self.btStart = Settings.ShareInstance.setupButton(button: self.btStart)
