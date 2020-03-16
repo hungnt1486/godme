@@ -364,6 +364,30 @@ class Settings: NSObject {
 //        print(json)
         return json ?? JSON()
     }
+    
+    func loadProvince()-> [ProvinceArrModel] {
+        let json = self.loadFileJson(name: "province")
+        let data = ProvinceModel.init(json: json)
+        return data!.ProvinceArr!
+    }
+    
+    func loadCountry()-> [CountryArrModel] {
+        let json = self.loadFileJson(name: "country")
+        let data = CountryModel.init(json: json)
+        return data!.CountryArr!
+    }
+    
+    func loadDistrict()-> [DistrictArrModel] {
+        let json = self.loadFileJson(name: "district")
+        let data = DistrictModel.init(json: json)
+        return data!.DistrictArr!
+    }
+    
+    func loadWard()-> [WardArrModel] {
+        let json = self.loadFileJson(name: "ward")
+        let data = WardModel.init(json: json)
+        return data!.WardArr!
+    }
 }
 
 class customButton: UIButton {

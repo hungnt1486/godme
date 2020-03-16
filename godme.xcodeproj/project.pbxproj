@@ -250,6 +250,7 @@
 		E66F6922241B7F0000A0EC99 /* ProvinceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66F6921241B7EFF00A0EC99 /* ProvinceModel.swift */; };
 		E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */; };
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
+		E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B0241F397E00D206A1 /* UserManager.swift */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -503,6 +504,7 @@
 		E66F6921241B7EFF00A0EC99 /* ProvinceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvinceModel.swift; sourceTree = "<group>"; };
 		E67BA75D2419F3F60014D803 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		E6B490B0241F397E00D206A1 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F57D862410EAA8005FC9C2 /* godme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = godme.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -722,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				41286AE8240F3EE70021157C /* Result.swift */,
+				E6B490B0241F397E00D206A1 /* UserManager.swift */,
 			);
 			path = "Config Service";
 			sourceTree = "<group>";
@@ -1482,6 +1485,7 @@
 				41ADEAF8241E7D8D002C95FA /* VMapLeft.swift in Sources */,
 				41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */,
 				411329AE24168F670089DD18 /* EventsTableViewCell.swift in Sources */,
+				E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */,
 				41ADEAD1241E075B002C95FA /* AddressPostCarTableViewCell.swift in Sources */,
 				411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */,
 				41ADEAD9241E08F6002C95FA /* CreateServiceViewController.swift in Sources */,

@@ -34,6 +34,11 @@ class RegisterViewController: BaseViewController {
 
     @IBOutlet weak var tbvRegister: UITableView!
     
+    var arrayCountry: [String] = []
+    var arrayProvince: [String] = []
+    var arrayDistrict: [String] = []
+    var arrayWard: [String] = []
+    
     var listTypeCell : [typeCellRegister] = [.RealText, .FullName, .Password, .PasswordConfirm, .Email, .Country, .City, .District, .Ward, .Address, .Job, .Gender, .Refferal, .RefferalDefault, .Complete]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +53,11 @@ class RegisterViewController: BaseViewController {
         self.navigationItem.title = Settings.ShareInstance.translate(key: "register")
         self.navigationController?.navigationBar.isHidden = false
         self.view.backgroundColor = UIColor.FlatColor.Gray.BGColor
+        
+        self.arrayCountry = self.loadCountry()
+        self.arrayProvince = self.loadProvince()
+        self.arrayDistrict = self.loadDistrict()
+        self.arrayWard = self.loadWard()
     }
     
     func setupTableView(){
@@ -65,6 +75,50 @@ class RegisterViewController: BaseViewController {
         
         self.tbvRegister.rowHeight = UITableView.automaticDimension
         self.tbvRegister.estimatedRowHeight = 300
+    }
+    
+    func loadCountry()->[String]{
+        var arrString: [String] = []
+        let arrCountry = Settings.ShareInstance.loadCountry()
+        if arrCountry.count > 0 {
+            for item in arrCountry {
+                arrString.append(item.name ?? "")
+            }
+        }
+        return arrString
+    }
+    
+    func loadProvince()->[String]{
+        var arrString: [String] = []
+        let arrCountry = Settings.ShareInstance.loadProvince()
+        if arrCountry.count > 0 {
+            for item in arrCountry {
+                arrString.append(item.name ?? "")
+            }
+        }
+        return arrString
+    }
+    
+    func loadDistrict()->[String]{
+        var arrString: [String] = []
+        let arrCountry = Settings.ShareInstance.loadDistrict()
+        if arrCountry.count > 0 {
+            for item in arrCountry {
+                arrString.append(item.name ?? "")
+            }
+        }
+        return arrString
+    }
+    
+    func loadWard()->[String]{
+        var arrString: [String] = []
+        let arrCountry = Settings.ShareInstance.loadWard()
+        if arrCountry.count > 0 {
+            for item in arrCountry {
+                arrString.append(item.name ?? "")
+            }
+        }
+        return arrString
     }
     
 }
@@ -106,24 +160,27 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .Country:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quốc gia"
-            cell.delegate = self
             cell.btShow.tag = indexPath.row
+            cell.arrString = arrayCountry
+            cell.delegate = self
             return cell
            case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Thành phố"
             cell.delegate = self
-            
+            cell.arrString = arrayProvince
             return cell
            case .District:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quận/Huyện"
             cell.delegate = self
+            cell.arrString = arrayDistrict
             return cell
            case .Ward:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Phường/Xã"
             cell.delegate = self
+            cell.arrString = arrayWard
             return cell
            case .Address:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell

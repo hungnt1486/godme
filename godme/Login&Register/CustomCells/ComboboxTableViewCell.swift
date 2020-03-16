@@ -18,6 +18,7 @@ class ComboboxTableViewCell: UITableViewCell {
 
     
     var TypeDropdown = DropDown()
+    var arrString:[String] = []
     
     @IBOutlet weak var tfText: UITextField!
     @IBOutlet weak var btShow: UIButton!
@@ -41,7 +42,7 @@ class ComboboxTableViewCell: UITableViewCell {
 //            for item in arr {
 //                arrString.append(item.Name!)
 //            }
-        let typeDataSource = ["guu", "uyttg"]//arrString
+        let typeDataSource = arrString
         TypeDropdown.dataSource = typeDataSource
         TypeDropdown.selectionAction = { [unowned self] (index, item) in
             self.tfText.text = item
