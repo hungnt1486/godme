@@ -10,7 +10,7 @@ import Foundation
 
 enum CodeApi: Int {
     case Success = 1
-    case Error = 0
+    case Error = -2
 }
 
 

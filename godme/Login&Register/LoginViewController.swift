@@ -34,10 +34,10 @@ class LoginViewController: BaseViewController {
     func setupUI(){
         self.navigationController?.navigationBar.isHidden = false
         self.view.backgroundColor = UIColor.FlatColor.Gray.BGColor
-        self.tfUserName = Settings.ShareInstance.setupTextField(textField: self.tfUserName)
+        self.tfUserName = Settings.ShareInstance.setupTextField(textField: self.tfUserName, isLeftView: true)
         self.tfUserName.ShadowTextField()
         
-        self.tfPassword = Settings.ShareInstance.setupTextField(textField: self.tfPassword)
+        self.tfPassword = Settings.ShareInstance.setupTextField(textField: self.tfPassword, isLeftView: true)
         self.tfPassword.ShadowTextField()
         
         self.btLogin.backgroundColor = UIColor.FlatColor.Oranges.BGColor
@@ -59,6 +59,7 @@ class LoginViewController: BaseViewController {
             case .success(let data):
                 self.hideProgressHub()
                 print("data = \(data)")
+                self.loginSuccess()
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -89,6 +90,7 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func touchLogin(_ sender: Any) {
+        self.showProgressHub()
         self.touchLogin()
 //        self.loginSuccess()
     }

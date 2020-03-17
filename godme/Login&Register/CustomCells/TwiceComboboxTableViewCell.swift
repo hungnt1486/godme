@@ -42,6 +42,8 @@ class TwiceComboboxTableViewCell: UITableViewCell {
         self.tfText2 = Settings.ShareInstance.setupTextField(textField: self.tfText2)
         self.tfText1.ShadowTextField()
         self.tfText2.ShadowTextField()
+        self.tfText1.isUserInteractionEnabled = false
+        self.tfText2.isUserInteractionEnabled = false
     }
     
     func setupTypeDropdown(){

@@ -28,7 +28,7 @@ class UserManager{
         paramsBodySub["fcmToken"] = "gwgwihgwiug"//Settings.ShareInstance.device
         paramsBodySub["name"] = "iPhone"
         paramsBody["device"] = paramsBodySub
-        Alamofire.request("http://45.117.169.99:8888/godme-service/api/v1/auth/login", method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+        Alamofire.request(URLs.login, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             print(response)
             completion(SingleResult<UserLoginReturnModel>.handleResponse(response))
         }

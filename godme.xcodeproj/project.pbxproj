@@ -227,6 +227,7 @@
 		41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */; };
 		41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EE6241E8B410031D066 /* NotificationsViewController.swift */; };
 		41F15EE9241E8B410031D066 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F15EE7241E8B410031D066 /* NotificationsViewController.xib */; };
+		41F15EEB241FCB490031D066 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEA241FCB490031D066 /* URLs.swift */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -478,6 +479,7 @@
 		41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMapLeft.xib; sourceTree = "<group>"; };
 		41F15EE6241E8B410031D066 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		41F15EE7241E8B410031D066 /* NotificationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
+		41F15EEA241FCB490031D066 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 		41286AE7240F3EE70021157C /* Config Service */ = {
 			isa = PBXGroup;
 			children = (
+				41F15EEA241FCB490031D066 /* URLs.swift */,
 				41286AE8240F3EE70021157C /* Result.swift */,
 				E6B490B0241F397E00D206A1 /* UserManager.swift */,
 			);
@@ -1405,6 +1408,7 @@
 				E66F6909241B407000A0EC99 /* ListHiddenViewController.swift in Sources */,
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
 				41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */,
+				41F15EEB241FCB490031D066 /* URLs.swift in Sources */,
 				41AD16C02413A8DF001E132E /* FollowMonthTableViewCell.swift in Sources */,
 				4155004C2419BECB006B189E /* SearchBarServiceViewController.swift in Sources */,
 				411329B22416932F0089DD18 /* DetailBasicServiceViewController.swift in Sources */,

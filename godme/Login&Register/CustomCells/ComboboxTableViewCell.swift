@@ -34,6 +34,7 @@ class ComboboxTableViewCell: UITableViewCell {
     func setupUI(){
         self.tfText = Settings.ShareInstance.setupTextField(textField: self.tfText)
         self.tfText.ShadowTextField()
+        self.tfText.isUserInteractionEnabled = false
     }
     
     func setupTypeDropdown(){
