@@ -228,6 +228,8 @@
 		41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EE6241E8B410031D066 /* NotificationsViewController.swift */; };
 		41F15EE9241E8B410031D066 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F15EE7241E8B410031D066 /* NotificationsViewController.xib */; };
 		41F15EEB241FCB490031D066 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEA241FCB490031D066 /* URLs.swift */; };
+		41F15EED2421A4520031D066 /* RelationShipsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEC2421A4520031D066 /* RelationShipsManager.swift */; };
+		41F15EEF2421A9220031D066 /* ManageServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEE2421A9220031D066 /* ManageServicesManager.swift */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -480,6 +482,8 @@
 		41F15EE6241E8B410031D066 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		41F15EE7241E8B410031D066 /* NotificationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
 		41F15EEA241FCB490031D066 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		41F15EEC2421A4520031D066 /* RelationShipsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationShipsManager.swift; sourceTree = "<group>"; };
+		41F15EEE2421A9220031D066 /* ManageServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageServicesManager.swift; sourceTree = "<group>"; };
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
@@ -731,6 +735,8 @@
 				41F15EEA241FCB490031D066 /* URLs.swift */,
 				41286AE8240F3EE70021157C /* Result.swift */,
 				E6B490B0241F397E00D206A1 /* UserManager.swift */,
+				41F15EEC2421A4520031D066 /* RelationShipsManager.swift */,
+				41F15EEE2421A9220031D066 /* ManageServicesManager.swift */,
 			);
 			path = "Config Service";
 			sourceTree = "<group>";
@@ -1434,7 +1440,9 @@
 				41AD16D624141A55001E132E /* MyServicesTableViewCell.swift in Sources */,
 				4150DA82241CEC0100F8A7E4 /* CreateNotificationViewController.swift in Sources */,
 				411329AB24168F5D0089DD18 /* EventsViewController.swift in Sources */,
+				41F15EED2421A4520031D066 /* RelationShipsManager.swift in Sources */,
 				41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */,
+				41F15EEF2421A9220031D066 /* ManageServicesManager.swift in Sources */,
 				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,
 				41286B15241151210021157C /* AccountsViewController.swift in Sources */,
 				41ADEAED241E4AD6002C95FA /* CreateEventViewController.swift in Sources */,

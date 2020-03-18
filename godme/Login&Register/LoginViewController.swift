@@ -59,6 +59,7 @@ class LoginViewController: BaseViewController {
             case .success(let data):
                 self.hideProgressHub()
                 print("data = \(data)")
+                BaseViewController.accessToken = data.access_token!
                 self.loginSuccess()
                 break
             case .failure(let message):

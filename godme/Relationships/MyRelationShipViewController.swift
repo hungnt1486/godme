@@ -22,6 +22,12 @@ class MyRelationShipViewController: BaseViewController {
         self.setupTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showProgressHub()
+        self.getListRelationShip()
+    }
+    
     func setupUI(){
         self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
         
@@ -37,6 +43,22 @@ class MyRelationShipViewController: BaseViewController {
         self.tbvMyRelationShip.separatorInset = UIEdgeInsets.zero
         self.tbvMyRelationShip.estimatedRowHeight = 300
         self.tbvMyRelationShip.rowHeight = UITableView.automaticDimension
+    }
+    
+    func getListRelationShip(){
+        RelationShipsManager.shareRelationShipsManager().getListRelationShip { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                print("data = \(data)")
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
 
 }

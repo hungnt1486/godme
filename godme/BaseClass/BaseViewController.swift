@@ -49,7 +49,7 @@ class BaseViewController: UIViewController {
     }
     
     func configToken() {
-        BaseViewController.headers = ["TokenLogin": BaseViewController.accessToken, "Accept": "application/json"]
+        BaseViewController.headers = ["X-Auth-Token": BaseViewController.accessToken, "Accept": "application/json"]
 //        BaseViewController.deviceToken = "gewgewg"
     }
     
