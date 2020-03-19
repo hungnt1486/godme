@@ -33,4 +33,33 @@ class UserManager{
             completion(SingleResult<UserLoginReturnModel>.handleResponse(response))
         }
     }
+    
+    func changePassword(model: changePasswordParams, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["username"] = model.username
+        paramsBody["password"] = model.password
+        paramsBody["newPassword"] = model.newPassword
+        Alamofire.request(URLs.changePassword, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print("changePassword = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func forgotPassword(model: forgotPasswordParams, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["username"] = model.username
+        paramsBody["codeOTP"] = model.codeOTP
+        paramsBody["newPassword"] = model.newPassword
+        Alamofire.request(URLs.forgotPassword, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print("forgotPassword = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func logout(completion: @escaping(SingleResult<BaseModel>) -> Void){
+        Alamofire.request(URLs.forgotPassword, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print("logout = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
 }

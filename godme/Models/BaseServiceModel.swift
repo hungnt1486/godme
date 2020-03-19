@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class BaseService: BaseModel {
+class BaseServiceModel: BaseModel {
     
     var dateTime1: String?
     var dateTime2: String?
@@ -35,7 +35,7 @@ class BaseService: BaseModel {
     var modifiedOn: Int32?
     var createdByUserId: Int?
     var isRelationshipWithSeller: Bool?
-    var userInfo: userInfo?
+    var userInfo: userInfoModel?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -63,11 +63,13 @@ class BaseService: BaseModel {
         modifiedOn = json["modifiedOn"].int32Value
         createdByUserId = json["createdByUserId"].intValue
         isRelationshipWithSeller = json["isRelationshipWithSeller"].boolValue
+        userInfo = userInfoModel(json: json["userInfo"])
     }
     
 }
 
-class userInfo: BaseModel {
+
+class userInfoModel: BaseModel {
     var id: Int?
     var userCategory: String?
     var fullName: String?
@@ -103,6 +105,7 @@ struct AddNewBaseServiceParams {
     var language: Int?
     var amount: String?
     var images: String?
-    
 }
+
+
 

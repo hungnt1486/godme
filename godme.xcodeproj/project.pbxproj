@@ -106,6 +106,8 @@
 		41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B742411DC7E0021157C /* FeatureTableViewCell.xib */; };
 		41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B772411DEF30021157C /* AvatarTableViewCell.xib */; };
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
+		4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374B2423CAF70079C587 /* AuctionServiceModel.swift */; };
+		4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374D2423D58D0079C587 /* RelationShipsModel.swift */; };
 		4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA51241B15B600F8A7E4 /* Resources.swift */; };
 		4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */; };
 		4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */; };
@@ -361,6 +363,8 @@
 		41286B742411DC7E0021157C /* FeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTableViewCell.xib; sourceTree = "<group>"; };
 		41286B772411DEF30021157C /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		4139374B2423CAF70079C587 /* AuctionServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionServiceModel.swift; sourceTree = "<group>"; };
+		4139374D2423D58D0079C587 /* RelationShipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationShipsModel.swift; sourceTree = "<group>"; };
 		4150DA51241B15B600F8A7E4 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = godme/LibSettings/Resources/Resources.swift; sourceTree = SOURCE_ROOT; };
 		4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -686,6 +690,8 @@
 				41286ADE240F3EE60021157C /* BaseModel.swift */,
 				E6B490B2241F724000D206A1 /* UserModel.swift */,
 				E6F024A42423737900A75EA1 /* BaseServiceModel.swift */,
+				4139374B2423CAF70079C587 /* AuctionServiceModel.swift */,
+				4139374D2423D58D0079C587 /* RelationShipsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1475,6 +1481,7 @@
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
+				4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
@@ -1511,6 +1518,7 @@
 				41ADEAD9241E08F6002C95FA /* CreateServiceViewController.swift in Sources */,
 				41AD16B82413A734001E132E /* FollowTableViewController.swift in Sources */,
 				41550052241A662B006B189E /* CollapseTableView.swift in Sources */,
+				4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */,
 				41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */,
 				41AD16D12413FDC6001E132E /* ServicesInfoBookedViewController.swift in Sources */,
 				4121FA4724133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift in Sources */,

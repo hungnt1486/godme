@@ -16,11 +16,11 @@ class RelationShipsManager{
         return Static._shareRelationShipsManager
     }
     
-    func getListRelationShip(completion: @escaping(ListResult<BaseModel>) -> Void){
+    func getListRelationShip(completion: @escaping(ListResult<RelationShipsModel>) -> Void){
         
         Alamofire.request(URLs.getRelationShip, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
-            completion(ListResult<BaseModel>.handleResponse(response))
+            completion(ListResult<RelationShipsModel>.handleResponse(response))
         }
     }
     

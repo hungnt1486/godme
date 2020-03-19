@@ -91,17 +91,14 @@ class UserLoginReturnModel: BaseModel{
     }
 }
 
-//class Permissions: BaseModel{
-//
-//}
+struct changePasswordParams {
+    var username: String?
+    var password: String?
+    var newPassword: String?
+}
 
-//"result": {
-//    "access_token": "cvgnroh1qd9i507fndb4mhtv6le51l5l",
-//    "permissions": [
-//        "ROLE_ALLOW_ACCESS_SYSTEM",
-//        "ROLE_USER"
-//    ],
-//    "fullName": "test006",
-//    "userName": "0909301378",
-//    "userId": 55
-//}
+struct forgotPasswordParams {
+    var username: String?
+    var codeOTP: String?
+    var newPassword: String?
+}

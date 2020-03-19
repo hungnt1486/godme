@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MyRelationShipViewController: BaseViewController {
 
@@ -14,6 +15,8 @@ class MyRelationShipViewController: BaseViewController {
     @IBOutlet weak var tfInputName: UITextField!
     @IBOutlet weak var lbFilterJob: UILabel!
     @IBOutlet weak var tbvMyRelationShip: UITableView!
+    
+    var listMyRelationShip: [RelationShipsModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +54,11 @@ class MyRelationShipViewController: BaseViewController {
                 
             case .success(let data):
                 self.hideProgressHub()
-                print("data = \(data)")
+                
+                for model in data {
+                    self.listMyRelationShip.append(model)
+                }
+                self.tbvMyRelationShip.reloadData()
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -65,12 +72,22 @@ class MyRelationShipViewController: BaseViewController {
 
 extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return listMyRelationShip.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRelationShipTableViewCell") as! MyRelationShipTableViewCell
         cell.delegate = self
+        let model = listMyRelationShip[indexPath.row]
+        cell.imgAvatar.sd_setImage(with: URL.init(string: model.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            if error == nil {
+                cell.imgAvatar.image = image
+            }
+        }
+        cell.lbTitle.text = model.fullName
+        cell.lbEmail.text = model.email
+        cell.lbPhone.text = model.phoneNumber
+        cell.lbCity.text = model.address
         return cell
     }
     
