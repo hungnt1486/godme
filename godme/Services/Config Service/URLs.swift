@@ -17,6 +17,7 @@ struct URLs {
         static let getRelationshipExpand = "api/mobile/user/getRelationshipExtend"
         static let getListHiden = "api/mobile/user/getListHiden"
         static let getListBaseService = "api/mobile/service/basic/getListService"
+        static let createBaseService = "api/mobile/service/basic/save"
     }
     
     static var login: String{
@@ -33,6 +34,9 @@ struct URLs {
     }
     static var getListBaseService: String{
         return String(format: "%@%@", linkServer, Routes.getListBaseService)
+    }
+    static var createBaseService: String{
+        return String(format: "%@%@", linkServer, Routes.createBaseService)
     }
 //    //method post
 //    static var register: String{

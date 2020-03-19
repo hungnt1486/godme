@@ -255,6 +255,7 @@
 		E67BA7602419F3F70014D803 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */; };
 		E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B0241F397E00D206A1 /* UserManager.swift */; };
 		E6B490B3241F724000D206A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B2241F724000D206A1 /* UserModel.swift */; };
+		E6F024A52423737900A75EA1 /* BaseServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F024A42423737900A75EA1 /* BaseServiceModel.swift */; };
 		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -513,6 +514,7 @@
 		E67BA75E2419F3F60014D803 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		E6B490B0241F397E00D206A1 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E6B490B2241F724000D206A1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E6F024A42423737900A75EA1 /* BaseServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceModel.swift; sourceTree = "<group>"; };
 		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F57D862410EAA8005FC9C2 /* godme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = godme.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -683,6 +685,7 @@
 				41286ADD240F3EE60021157C /* Defines.swift */,
 				41286ADE240F3EE60021157C /* BaseModel.swift */,
 				E6B490B2241F724000D206A1 /* UserModel.swift */,
+				E6F024A42423737900A75EA1 /* BaseServiceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1429,6 +1432,7 @@
 				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
 				E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */,
 				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
+				E6F024A52423737900A75EA1 /* BaseServiceModel.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				E66F6905241B405C00A0EC99 /* MyRelationShipExpandViewController.swift in Sources */,
 				41ADEADC241E326A002C95FA /* MapPickerViewController.swift in Sources */,
