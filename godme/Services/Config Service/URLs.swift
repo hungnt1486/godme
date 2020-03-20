@@ -34,6 +34,9 @@ struct URLs {
         static let addUserToMultiGroupRelationShip = "api/mobile/groupRelationship/addUserToGroups"
         static let searchGroupRelationShip = "api/mobile/groupRelationship/search"
         static let sendEmailRelationShip = "api/mobile/groupRelationship/sendMailSupport"
+        static let getListEventService = "api/mobile/service/event/getListService"
+        static let createEventService = "api/mobile/service/event/save"
+        
     }
     
     //// user
@@ -110,4 +113,13 @@ struct URLs {
     static var createAuctionService: String{
         return String(format: "%@%@", linkServer, Routes.createAuctionService)
     }
+    
+    /// event service
+    static var getListEventService: String{
+        return String(format: "%@%@", linkServer, Routes.getListEventService)
+    }
+    static var createEventService: String{
+        return String(format: "%@%@", linkServer, Routes.createEventService)
+    }
+    
 }

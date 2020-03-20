@@ -84,4 +84,31 @@ class ManageServicesManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func getListEventService(type: String, completion: @escaping(ListResult<EventModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["serviceType"] = type
+        Alamofire.request(URLs.getListEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print(response)
+            completion(ListResult<EventModel>.handleResponse(response))
+        }
+    }
+    
+    func createEventService(model: AddNewAuctionServiceParams, completion:@escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["title"] = model.title
+        paramsBody["startTime"] = model.startTime
+        paramsBody["endTime"] = model.endTime
+        paramsBody["description"] = model.description
+        paramsBody["address"] = model.address
+        paramsBody["latitude"] = model.latitude
+        paramsBody["longitude"] = model.longitude
+        paramsBody["language"] = model.language
+        paramsBody["amount"] = model.amount
+        paramsBody["images"] = model.images
+        Alamofire.request(URLs.createEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("createEventService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
 }

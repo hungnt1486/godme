@@ -232,6 +232,7 @@
 		41F15EEB241FCB490031D066 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEA241FCB490031D066 /* URLs.swift */; };
 		41F15EED2421A4520031D066 /* RelationShipsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEC2421A4520031D066 /* RelationShipsManager.swift */; };
 		41F15EEF2421A9220031D066 /* ManageServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEE2421A9220031D066 /* ManageServicesManager.swift */; };
+		E60FA99824246BEB00A45AFF /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60FA99724246BEB00A45AFF /* EventModel.swift */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -492,6 +493,7 @@
 		9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_godme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DF2C7B64644ED917B2AC4B /* Pods-godme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.debug.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.debug.xcconfig"; sourceTree = "<group>"; };
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
+		E60FA99724246BEB00A45AFF /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		E6500C692408BAAF001E023D /* godme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = godme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6500C6C2408BAAF001E023D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6500C722408BAB1001E023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -692,6 +694,7 @@
 				E6F024A42423737900A75EA1 /* BaseServiceModel.swift */,
 				4139374B2423CAF70079C587 /* AuctionServiceModel.swift */,
 				4139374D2423D58D0079C587 /* RelationShipsModel.swift */,
+				E60FA99724246BEB00A45AFF /* EventModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1468,6 +1471,7 @@
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
 				411329972416888C0089DD18 /* BasicServicesTableViewCell.swift in Sources */,
 				41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */,
+				E60FA99824246BEB00A45AFF /* EventModel.swift in Sources */,
 				41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */,
 				415500382419B2D2006B189E /* SearchBarDetailViewController.swift in Sources */,
 				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
