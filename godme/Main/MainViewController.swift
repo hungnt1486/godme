@@ -18,6 +18,7 @@ class MainViewController: BaseViewController {
     var listAuction:[AuctionServiceModel] = []
     var listEvents: [EventModel] = []
     var listCollaboration: [CollaborationModel] = []
+    var walletCharity: WalletCharityModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,6 +132,22 @@ class MainViewController: BaseViewController {
                     self.listCollaboration.append(model)
                 }
                 self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getAmountCharity(){
+        WalletManager.shareWalletManager().getAmountCharity {[unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                self.walletCharity = data
                 break
             case .failure(let message):
                 self.hideProgressHub()

@@ -38,6 +38,7 @@ struct URLs {
         static let createEventService = "api/mobile/service/event/save"
         static let getListCollaborationService = "api/mobile/service/cooperation/getListService"
         static let createCollaborationService = "api/mobile/service/cooperation/save"
+        static let getAmountCharity = "api/mobile/wallet/getAmountCharity"
     }
     
     //// user
@@ -129,6 +130,11 @@ struct URLs {
     }
     static var createCollaborationService: String{
         return String(format: "%@%@", linkServer, Routes.createCollaborationService)
+    }
+    
+    // wallet
+    static var getAmountCharity: String{
+        return String(format: "%@%@", linkServer, Routes.getAmountCharity)
     }
     
 }

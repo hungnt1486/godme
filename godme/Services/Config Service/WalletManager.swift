@@ -16,5 +16,10 @@ class WalletManager{
         return Static._shareWalletManager
     }
     
-    
+    func getAmountCharity(completion:@escaping(SingleResult<WalletCharityModel>) -> Void){
+        Alamofire.request(URLs.getAmountCharity, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getAmountCharity = \(response)")
+            completion(SingleResult<WalletCharityModel>.handleResponse(response))
+        }
+    }
 }
