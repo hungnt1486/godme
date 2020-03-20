@@ -46,6 +46,9 @@ class LoginViewController: BaseViewController {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(touchRegister))
         self.lbRegister.isUserInteractionEnabled = true
         self.lbRegister.addGestureRecognizer(tap)
+        
+        self.tfUserName.text = "+84admin"
+        self.tfPassword.text = "1234567890"
     }
     
     @IBAction func touchForgotPassword(_ sender: Any) {

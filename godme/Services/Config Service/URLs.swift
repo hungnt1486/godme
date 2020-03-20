@@ -24,6 +24,16 @@ struct URLs {
         static let searchBaseService = "api/mobile/service/basic/search"
         static let createAuctionService = "api/mobile/service/auction/save"
         static let getListAuctionService = "api/mobile/service/auction/getListService"
+        static let searchRelationShips = "api/mobile/relationship/search"
+        static let showRelationShip = "api/mobile/user/showRelationship"
+        static let hideRelationShip = "api/mobile/user/hideRelationship"
+        static let agreeConnect = "api/mobile/notification/agreeConnect"
+        static let connectToUser = "api/mobile/notification/connectToUser"
+        static let addGroupRelationShip = "api/mobile/groupRelationship/save"
+        static let updateGroupRelationShip = "api/mobile/groupRelationship/update"
+        static let addUserToMultiGroupRelationShip = "api/mobile/groupRelationship/addUserToGroups"
+        static let searchGroupRelationShip = "api/mobile/groupRelationship/search"
+        static let sendEmailRelationShip = "api/mobile/groupRelationship/sendMailSupport"
     }
     
     //// user
@@ -49,6 +59,36 @@ struct URLs {
     }
     static var getListHiden: String{
         return String(format: "%@%@", linkServer, Routes.getListHiden)
+    }
+    static var searchRelationShips: String{
+        return String(format: "%@%@", linkServer, Routes.searchRelationShips)
+    }
+    static var showRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.showRelationShip)
+    }
+    static var hideRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.hideRelationShip)
+    }
+    static var agreeConnect: String{
+        return String(format: "%@%@", linkServer, Routes.agreeConnect)
+    }
+    static var connectToUser: String{
+        return String(format: "%@%@", linkServer, Routes.connectToUser)
+    }
+    static var addGroupRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.addGroupRelationShip)
+    }
+    static var updateGroupRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.updateGroupRelationShip)
+    }
+    static var addUserToMultiGroupRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.addUserToMultiGroupRelationShip)
+    }
+    static var searchGroupRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.searchGroupRelationShip)
+    }
+    static var sendEmailRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.sendEmailRelationShip)
     }
     
     /// base service

@@ -23,12 +23,12 @@ class MyRelationShipViewController: BaseViewController {
         // Do any additional setup after loading the view.
         self.setupUI()
         self.setupTableView()
+        self.getListRelationShip()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showProgressHub()
-        self.getListRelationShip()
     }
     
     func setupUI(){
@@ -85,9 +85,9 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
             }
         }
         cell.lbTitle.text = model.fullName
-        cell.lbEmail.text = model.email
-        cell.lbPhone.text = model.phoneNumber
-        cell.lbCity.text = model.address
+        cell.lbEmail.text = "Email: \(model.email ?? "")"
+        cell.lbPhone.text = "Số điện thoại: \(model.phoneNumber ?? "")"
+        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
         return cell
     }
     

@@ -86,6 +86,7 @@ class userInfoModel: BaseModel {
         career = json["career"].stringValue
         totalStar = json["totalStar"].floatValue
         address = json["address"].stringValue
+        avatar = json["avatar"].stringValue
     }
 }
 

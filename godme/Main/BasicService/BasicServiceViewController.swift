@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BasicServiceViewController: BaseViewController {
 
     @IBOutlet weak var tbvBasicService: UITableView!
+    var listBaseService: [BaseServiceModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,10 +20,17 @@ class BasicServiceViewController: BaseViewController {
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
+        
+        self.showProgressHub()
+        self.getListBaseService()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "basic_service")
     }
     
     func setupUI(){
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "basic_service")
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -34,15 +43,43 @@ class BasicServiceViewController: BaseViewController {
         self.tbvBasicService.estimatedRowHeight = 300
         self.tbvBasicService.rowHeight = UITableView.automaticDimension
     }
+    
+    func getListBaseService(){
+        ManageServicesManager.shareManageServicesManager().getListBaseService { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBaseService.append(model)
+                }
+                self.tbvBasicService.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 }
 
 extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return listBaseService.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
+        let model = listBaseService[indexPath.row]
+        cell.lbTitle.text = model.title
+        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            if error == nil {
+                cell.imgAvatar.image = image
+            }
+        }
+        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbName.text = model.userInfo?.userCategory
         return cell
     }
     

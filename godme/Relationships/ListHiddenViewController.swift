@@ -14,12 +14,14 @@ class ListHiddenViewController: BaseViewController {
     @IBOutlet weak var tbvListHidden: UITableView!
     @IBOutlet weak var tfInputName: UITextField!
     @IBOutlet weak var lbFilterJob: UILabel!
+    var listHidden: [RelationShipsModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupUI()
         self.setupTableView()
+        self.getListHidden()
     }
     
     func setupUI(){
@@ -38,17 +40,48 @@ class ListHiddenViewController: BaseViewController {
         self.tbvListHidden.estimatedRowHeight = 300
         self.tbvListHidden.rowHeight = UITableView.automaticDimension
     }
+    
+    func getListHidden(){
+        RelationShipsManager.shareRelationShipsManager().getListHiden { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                
+                for model in data {
+                    self.listHidden.append(model)
+                }
+                self.tbvListHidden.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 
 }
 
 extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return listHidden.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRelationShipTableViewCell") as! MyRelationShipTableViewCell
         cell.delegate = self
+        
+        let model = listHidden[indexPath.row]
+        cell.imgAvatar.sd_setImage(with: URL.init(string: model.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            if error == nil {
+                cell.imgAvatar.image = image
+            }
+        }
+        cell.lbEmail.text = "Email: \(model.email ?? "")"
+        cell.lbPhone.text = "Số điện thoại: \(model.phoneNumber ?? "")"
+        cell.lbTitle.text = model.fullName
+        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
         return cell
     }
     
