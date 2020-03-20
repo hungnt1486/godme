@@ -234,6 +234,8 @@
 		41F15EEF2421A9220031D066 /* ManageServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEE2421A9220031D066 /* ManageServicesManager.swift */; };
 		E60FA99824246BEB00A45AFF /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60FA99724246BEB00A45AFF /* EventModel.swift */; };
 		E60FA9A72424A8F400A45AFF /* CollaborationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60FA9A62424A8F400A45AFF /* CollaborationModel.swift */; };
+		E60FA9A92424AE8F00A45AFF /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60FA9A82424AE8F00A45AFF /* WalletModel.swift */; };
+		E60FA9AB2424AFAB00A45AFF /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60FA9AA2424AFAA00A45AFF /* WalletManager.swift */; };
 		E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6500C6C2408BAAF001E023D /* AppDelegate.swift */; };
 		E6500C732408BAB1001E023D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C722408BAB1001E023D /* Assets.xcassets */; };
 		E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6500C752408BAB1001E023D /* Preview Assets.xcassets */; };
@@ -496,6 +498,8 @@
 		D556178472D70B6AC451A847 /* Pods-godme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-godme.release.xcconfig"; path = "Target Support Files/Pods-godme/Pods-godme.release.xcconfig"; sourceTree = "<group>"; };
 		E60FA99724246BEB00A45AFF /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		E60FA9A62424A8F400A45AFF /* CollaborationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaborationModel.swift; sourceTree = "<group>"; };
+		E60FA9A82424AE8F00A45AFF /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
+		E60FA9AA2424AFAA00A45AFF /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		E6500C692408BAAF001E023D /* godme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = godme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6500C6C2408BAAF001E023D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6500C722408BAB1001E023D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -698,6 +702,7 @@
 				4139374D2423D58D0079C587 /* RelationShipsModel.swift */,
 				E60FA99724246BEB00A45AFF /* EventModel.swift */,
 				E60FA9A62424A8F400A45AFF /* CollaborationModel.swift */,
+				E60FA9A82424AE8F00A45AFF /* WalletModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -752,6 +757,7 @@
 				E6B490B0241F397E00D206A1 /* UserManager.swift */,
 				41F15EEC2421A4520031D066 /* RelationShipsManager.swift */,
 				41F15EEE2421A9220031D066 /* ManageServicesManager.swift */,
+				E60FA9AA2424AFAA00A45AFF /* WalletManager.swift */,
 			);
 			path = "Config Service";
 			sourceTree = "<group>";
@@ -1444,6 +1450,7 @@
 				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
 				E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */,
 				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
+				E60FA9AB2424AFAB00A45AFF /* WalletManager.swift in Sources */,
 				E6F024A52423737900A75EA1 /* BaseServiceModel.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				E66F6905241B405C00A0EC99 /* MyRelationShipExpandViewController.swift in Sources */,
@@ -1489,6 +1496,7 @@
 				41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
 				4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */,
+				E60FA9A92424AE8F00A45AFF /* WalletModel.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
