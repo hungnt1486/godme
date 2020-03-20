@@ -15,6 +15,9 @@ class MainViewController: BaseViewController {
     var vSearchBar: VSearchBar!
     
     var listBaseService: [BaseServiceModel] = []
+    var listAuction:[AuctionServiceModel] = []
+    var listEvents: [EventModel] = []
+    var listCollaboration: [CollaborationModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,8 @@ class MainViewController: BaseViewController {
         self.setupTableView()
         self.showProgressHub()
         self.getListBaseService()
+        self.getListAuctionService()
+        self.getListEventService()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +72,63 @@ class MainViewController: BaseViewController {
                 self.hideProgressHub()
                 for model in data {
                     self.listBaseService.append(model)
+                }
+                self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListAuctionService(){
+        ManageServicesManager.shareManageServicesManager().getListAuctionService { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listAuction.append(model)
+                }
+                self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListEventService(type: String = ""){
+        ManageServicesManager.shareManageServicesManager().getListEventService(type: type) { [unowned self](response) in
+            switch response {
+
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listEvents.append(model)
+                }
+                self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListCollaborationService(type: String = "", content: String = ""){
+        ManageServicesManager.shareManageServicesManager().getListCollaborationService(type: type, content: content) { [unowned self](response) in
+            switch response {
+
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listCollaboration.append(model)
                 }
                 self.tbvMain.reloadData()
                 break

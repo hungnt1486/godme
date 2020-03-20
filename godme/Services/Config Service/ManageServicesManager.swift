@@ -111,4 +111,26 @@ class ManageServicesManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func getListCollaborationService(type: String, content: String, completion: @escaping(ListResult<CollaborationModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["serviceType"] = type
+        paramsBody["content"] = content
+        Alamofire.request(URLs.getListCollaborationService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListCollaborationService = \(response)")
+            completion(ListResult<CollaborationModel>.handleResponse(response))
+        }
+    }
+    
+    func createCollaborationService(model: AddNewCollaborationParams, completion:@escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["title"] = model.title
+        paramsBody["description"] = model.description
+        paramsBody["content"] = model.content
+        Alamofire.request(URLs.createCollaborationService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("createCollaborationService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
 }
