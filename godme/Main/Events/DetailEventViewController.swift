@@ -19,6 +19,7 @@ class DetailEventViewController: BaseViewController {
 
     @IBOutlet weak var tbvDetailBasicService: UITableView!
     var listTypeCell: [typeCellDetailEvent] = [.Avatar, .Address, .Detail, .Book]
+    var modelDetail: EventModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 

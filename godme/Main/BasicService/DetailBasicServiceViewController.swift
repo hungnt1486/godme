@@ -19,6 +19,7 @@ class DetailBasicServiceViewController: BaseViewController {
 
     @IBOutlet weak var tbvDetailBasicService: UITableView!
     var listTypeCell: [typeCellDetailBasic] = [.Avatar, .Address, .Detail, .Book]
+    var modelDetail: BaseServiceModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -80,7 +80,9 @@ extension AuctionServiceViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let model = listAuction[indexPath.row]
         let detail = DetailAuctionViewController()
+        detail.modelDetail = model
         self.navigationController?.pushViewController(detail, animated: true)
     }
     

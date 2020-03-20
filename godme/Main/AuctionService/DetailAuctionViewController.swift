@@ -20,6 +20,7 @@ class DetailAuctionViewController: BaseViewController {
 
     @IBOutlet weak var tbvDetailAuction: UITableView!
     var listTypeCell: [typeCellDetailAuction] = [.Avatar, .Auction, .Address, .Detail]
+    var modelDetail: AuctionServiceModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 

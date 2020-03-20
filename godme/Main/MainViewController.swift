@@ -13,12 +13,17 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var tbvMain: UITableView!
     var stretchyHeaderView: HeaderMain?
     var vSearchBar: VSearchBar!
+    
+    var listBaseService: [BaseServiceModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupUI()
         self.setupTableView()
+        self.showProgressHub()
+        self.getListBaseService()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +56,25 @@ class MainViewController: BaseViewController {
             vSearchBar.tag = 5
             vSearchBar.configVSearchBar(frameView: CGRect.init(x: (UIScreen.main.bounds.width - 200)/2, y: 0, width: 200, height: 50))
             self.navigationController?.navigationBar.addSubview(vSearchBar)
+        }
+    }
+    
+    func getListBaseService(){
+        ManageServicesManager.shareManageServicesManager().getListBaseService { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBaseService.append(model)
+                }
+                self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
         }
     }
     
@@ -143,6 +167,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
             cell.delegate = self
+            cell.listBaseService = self.listBaseService
+            cell.collectionView.reloadData()
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Main1TableViewCell") as! Main1TableViewCell

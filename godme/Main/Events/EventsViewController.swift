@@ -11,6 +11,7 @@ import UIKit
 class EventsViewController: BaseViewController {
 
     @IBOutlet weak var tbvEvents: UITableView!
+    var listEvents: [EventModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +19,8 @@ class EventsViewController: BaseViewController {
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
+        self.showProgressHub()
+        self.getListEventService()
     }
     
     func setupUI(){
@@ -34,21 +37,51 @@ class EventsViewController: BaseViewController {
         self.tbvEvents.estimatedRowHeight = 300
         self.tbvEvents.rowHeight = UITableView.automaticDimension
     }
+    
+    func getListEventService(type: String = ""){
+        ManageServicesManager.shareManageServicesManager().getListEventService(type: type) { [unowned self](response) in
+            switch response {
+
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listEvents.append(model)
+                }
+                self.tbvEvents.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 }
 
 extension EventsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return listEvents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
+        let model = listEvents[indexPath.row]
+        cell.lbTitle.text = model.title
+        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            if error == nil {
+                cell.imgAvatar.image = image
+            }
+        }
+        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbName.text = model.userInfo?.userCategory
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let model = listEvents[indexPath.row]
         let detail = DetailEventViewController()
+        detail.modelDetail = model
         self.navigationController?.pushViewController(detail, animated: true)
     }
     

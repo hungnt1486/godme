@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol MainTableViewCellProtocol {
     func didCell(index: Int)
@@ -18,6 +19,9 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var flowLayout = UICollectionViewFlowLayout()
     var delegate: MainTableViewCellProtocol?
+    
+    var listBaseService: [BaseServiceModel] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -54,36 +58,37 @@ class MainTableViewCell: UITableViewCell {
 
 extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 10
-        }
+        return listBaseService.count
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //        if indexPath.section == 0 {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell",
+                                                      for: indexPath) as! MainCollectionViewCell
         
-        func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return 1
+        let model = listBaseService[indexPath.row]
+        cell.lbName.text = model.title
+        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            if error == nil {
+                cell.imgAvatar.image = image
+            }
         }
+        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbTitleDetail.text = model.userInfo?.userCategory
+        return cell
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            //        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell",
-                                                          for: indexPath) as! MainCollectionViewCell
-//            let modelAds = arrBanner[indexPath.row]
-//            cell.imgAds.sd_setImage(with: URL.init(string: modelAds.Photos ?? ""), placeholderImage: UIImage.init(named: "ic_ads_default"), options: .lowPriority) { (img, error, nil, url) in
-//                if error == nil {
-//                    cell.imgAds.image = img
-//                }
-//            }
-    //        let dict = arr[indexPath.row] as NSDictionary
-    //        cell.icon.image = UIImage.init(named: dict.object(forKey: "icon") as! String)
-    //        cell.lbTitle.text = dict.object(forKey: "title") as? String
-            return cell
-            
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //            delegate?.didEvent(index: indexPath.row)
-            delegate?.didCell(index: indexPath.row)
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        delegate?.didCell(index: indexPath.row)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
 //            if isLoadMore! {
 //                if indexPath.row == arrBanner.count - 3 {
 //                    currentPage! = currentPage! + 1
@@ -91,5 +96,5 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
 //                    delegate?.didLoadMore(currentPage: currentPage!)
 //                }
 //            }
-        }
+    }
 }
