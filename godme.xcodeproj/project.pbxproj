@@ -108,6 +108,16 @@
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
 		4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374B2423CAF70079C587 /* AuctionServiceModel.swift */; };
 		4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374D2423D58D0079C587 /* RelationShipsModel.swift */; };
+		413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4139374F2425C6130079C587 /* Main3TableViewCell.xib */; };
+		413937582425C6140079C587 /* Main3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937502425C6130079C587 /* Main3CollectionViewCell.swift */; };
+		413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937512425C6140079C587 /* Main4CollectionViewCell.swift */; };
+		4139375A2425C6140079C587 /* Main4TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937522425C6140079C587 /* Main4TableViewCell.swift */; };
+		4139375B2425C6140079C587 /* Main4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937532425C6140079C587 /* Main4CollectionViewCell.xib */; };
+		4139375C2425C6140079C587 /* Main3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937542425C6140079C587 /* Main3TableViewCell.swift */; };
+		4139375D2425C6140079C587 /* Main4TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937552425C6140079C587 /* Main4TableViewCell.xib */; };
+		4139375E2425C6140079C587 /* Main3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937562425C6140079C587 /* Main3CollectionViewCell.xib */; };
+		413937602425E64C0079C587 /* VSearchMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139375F2425E64C0079C587 /* VSearchMain.swift */; };
+		413937622425E65A0079C587 /* VSearchMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937612425E65A0079C587 /* VSearchMain.xib */; };
 		4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA51241B15B600F8A7E4 /* Resources.swift */; };
 		4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */; };
 		4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */; };
@@ -369,6 +379,16 @@
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		4139374B2423CAF70079C587 /* AuctionServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionServiceModel.swift; sourceTree = "<group>"; };
 		4139374D2423D58D0079C587 /* RelationShipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationShipsModel.swift; sourceTree = "<group>"; };
+		4139374F2425C6130079C587 /* Main3TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3TableViewCell.xib; sourceTree = "<group>"; };
+		413937502425C6130079C587 /* Main3CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main3CollectionViewCell.swift; sourceTree = "<group>"; };
+		413937512425C6140079C587 /* Main4CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main4CollectionViewCell.swift; sourceTree = "<group>"; };
+		413937522425C6140079C587 /* Main4TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main4TableViewCell.swift; sourceTree = "<group>"; };
+		413937532425C6140079C587 /* Main4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4CollectionViewCell.xib; sourceTree = "<group>"; };
+		413937542425C6140079C587 /* Main3TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main3TableViewCell.swift; sourceTree = "<group>"; };
+		413937552425C6140079C587 /* Main4TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4TableViewCell.xib; sourceTree = "<group>"; };
+		413937562425C6140079C587 /* Main3CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3CollectionViewCell.xib; sourceTree = "<group>"; };
+		4139375F2425E64C0079C587 /* VSearchMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSearchMain.swift; sourceTree = "<group>"; };
+		413937612425E65A0079C587 /* VSearchMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VSearchMain.xib; sourceTree = "<group>"; };
 		4150DA51241B15B600F8A7E4 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = godme/LibSettings/Resources/Resources.swift; sourceTree = SOURCE_ROOT; };
 		4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -595,6 +615,14 @@
 				41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */,
 				4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */,
 				4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */,
+				413937502425C6130079C587 /* Main3CollectionViewCell.swift */,
+				413937562425C6140079C587 /* Main3CollectionViewCell.xib */,
+				413937542425C6140079C587 /* Main3TableViewCell.swift */,
+				4139374F2425C6130079C587 /* Main3TableViewCell.xib */,
+				413937512425C6140079C587 /* Main4CollectionViewCell.swift */,
+				413937532425C6140079C587 /* Main4CollectionViewCell.xib */,
+				413937522425C6140079C587 /* Main4TableViewCell.swift */,
+				413937552425C6140079C587 /* Main4TableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -942,6 +970,8 @@
 				41550034241941EF006B189E /* VImageStars.xib */,
 				41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */,
 				41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */,
+				4139375F2425E64C0079C587 /* VSearchMain.swift */,
+				413937612425E65A0079C587 /* VSearchMain.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1225,6 +1255,7 @@
 				E66F691D241B792F00A0EC99 /* district.json in Resources */,
 				411329812414E3F70089DD18 /* MainCollectionViewCell.xib in Resources */,
 				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
+				4139375D2425C6140079C587 /* Main4TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
 				41AD16B92413A734001E132E /* FollowTableViewController.xib in Resources */,
 				411329D3241722330089DD18 /* InfoAuctionTableViewCell.xib in Resources */,
@@ -1237,10 +1268,12 @@
 				E66F691A241B792F00A0EC99 /* socials.json in Resources */,
 				4155003D2419B666006B189E /* SearchBarRelationShipViewController.xib in Resources */,
 				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
+				4139375E2425C6140079C587 /* Main3CollectionViewCell.xib in Resources */,
 				41ADEAE2241E354E002C95FA /* ViewDatePicker.xib in Resources */,
 				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
 				4150DA76241B15B600F8A7E4 /* Roboto-Thin.ttf in Resources */,
 				41ADEABC241DD83B002C95FA /* AccountCollectionViewCell.xib in Resources */,
+				4139375B2425C6140079C587 /* Main4CollectionViewCell.xib in Resources */,
 				4150DA7F241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib in Resources */,
 				41ADEAEC241E4AD6002C95FA /* CreateEventViewController.xib in Resources */,
 				41ADEACC241E0685002C95FA /* DescriptionCarTableViewCell.xib in Resources */,
@@ -1260,6 +1293,7 @@
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
 				4150DA70241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf in Resources */,
 				4150DA69241B15B600F8A7E4 /* RobotoCondensed-Light.ttf in Resources */,
+				413937622425E65A0079C587 /* VSearchMain.xib in Resources */,
 				4155002824190CF2006B189E /* VSearchBar.xib in Resources */,
 				411329C624171C3A0089DD18 /* DetailEventViewController.xib in Resources */,
 				411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */,
@@ -1268,6 +1302,7 @@
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
+				413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */,
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
 				4155002D24193B5F006B189E /* SearchBarViewController.xib in Resources */,
 				41286B20241151850021157C /* RelationshipsViewController.xib in Resources */,
@@ -1474,6 +1509,7 @@
 				410E67E92414311C00FA2F54 /* HeaderServicesInfoBook.swift in Sources */,
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
+				413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */,
 				411329BE2416A6160089DD18 /* InfoDetailTableViewCell.swift in Sources */,
 				41ADEAC1241E0210002C95FA /* ImageCarTableViewCell.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
@@ -1502,6 +1538,7 @@
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
 				411329D2241722330089DD18 /* InfoAuctionTableViewCell.swift in Sources */,
+				413937602425E64C0079C587 /* VSearchMain.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
 				E60FA9A72424A8F400A45AFF /* CollaborationModel.swift in Sources */,
 				415500222417F1D8006B189E /* ConfirmBasicServiceTableViewCell.swift in Sources */,
@@ -1509,6 +1546,7 @@
 				41286B00240F75530021157C /* ComboboxTableViewCell.swift in Sources */,
 				4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */,
 				411329CA24171CAA0089DD18 /* DetailAuctionViewController.swift in Sources */,
+				4139375C2425C6140079C587 /* Main3TableViewCell.swift in Sources */,
 				411329BA2416A3380089DD18 /* TimeAddressTableViewCell.swift in Sources */,
 				41AD16B424139CCF001E132E /* HistoryViewController.swift in Sources */,
 				411329C724171C3A0089DD18 /* DetailEventViewController.swift in Sources */,
@@ -1531,6 +1569,7 @@
 				E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */,
 				41ADEAD1241E075B002C95FA /* AddressPostCarTableViewCell.swift in Sources */,
 				411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */,
+				4139375A2425C6140079C587 /* Main4TableViewCell.swift in Sources */,
 				41ADEAD9241E08F6002C95FA /* CreateServiceViewController.swift in Sources */,
 				41AD16B82413A734001E132E /* FollowTableViewController.swift in Sources */,
 				41550052241A662B006B189E /* CollapseTableView.swift in Sources */,
@@ -1557,6 +1596,7 @@
 				41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */,
 				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,
 				4113298424154E710089DD18 /* Main1CollectionViewCell.swift in Sources */,
+				413937582425C6140079C587 /* Main3CollectionViewCell.swift in Sources */,
 				E6500C822408BB0F001E023D /* MainViewController.swift in Sources */,
 				41286AEA240F3EE70021157C /* BaseModel.swift in Sources */,
 				41286B24241151A90021157C /* MapsViewController.swift in Sources */,

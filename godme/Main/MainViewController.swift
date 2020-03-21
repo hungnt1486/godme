@@ -18,7 +18,9 @@ class MainViewController: BaseViewController {
     var listAuction:[AuctionServiceModel] = []
     var listEvents: [EventModel] = []
     var listCollaboration: [CollaborationModel] = []
+    var listBlogs: [BlogModel] = []
     var walletCharity: WalletCharityModel?
+    var headerMain: HeaderMain?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class MainViewController: BaseViewController {
         self.getListBaseService()
         self.getListAuctionService()
         self.getListEventService()
+        self.getListCollaborationService()
+        self.getListBlogs()
+        self.getAmountCharity()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,6 +153,27 @@ class MainViewController: BaseViewController {
             case .success(let data):
                 self.hideProgressHub()
                 self.walletCharity = data
+                self.headerMain?.lbTotalMoney.text = self.walletCharity?.totalAmountGodmeCharity
+                self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListBlogs(){
+        ManageServicesManager.shareManageServicesManager().getListBlogsService { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBlogs.append(model)
+                }
+                self.tbvMain.reloadData()
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -180,6 +206,8 @@ class MainViewController: BaseViewController {
         self.tbvMain.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "MainTableViewCell")
         self.tbvMain.register(UINib(nibName: "Main1TableViewCell", bundle: nil), forCellReuseIdentifier: "Main1TableViewCell")
         self.tbvMain.register(UINib(nibName: "Main2TableViewCell", bundle: nil), forCellReuseIdentifier: "Main2TableViewCell")
+        self.tbvMain.register(UINib(nibName: "Main3TableViewCell", bundle: nil), forCellReuseIdentifier: "Main3TableViewCell")
+        self.tbvMain.register(UINib(nibName: "Main4TableViewCell", bundle: nil), forCellReuseIdentifier: "Main4TableViewCell")
         self.tbvMain.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
 
         self.tbvMain.delegate = self
@@ -189,9 +217,10 @@ class MainViewController: BaseViewController {
         self.tbvMain.estimatedRowHeight = 300
         self.tbvMain.rowHeight = UITableView.automaticDimension
         
-        let nibViews = Bundle.main.loadNibNamed("HeaderMain", owner: self, options: nil)
+        headerMain = Bundle.main.loadNibNamed("HeaderMain", owner: self, options: nil)![0] as? HeaderMain
 
-        self.stretchyHeaderView = nibViews![0] as? HeaderMain
+        
+        self.stretchyHeaderView = headerMain//headerMain![0] as? HeaderMain
         self.tbvMain.addSubview(self.stretchyHeaderView!)
     }
     
@@ -252,10 +281,38 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Main1TableViewCell") as! Main1TableViewCell
             cell.delegate = self
+            cell.listAuction = self.listAuction
+            cell.collectionView.reloadData()
             return cell
-        }else{
+        }else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
             cell.delegate = self
+            cell.listEvents = self.listEvents
+            cell.collectionView.reloadData()
+            return cell
+        }
+        else if indexPath.section == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main3TableViewCell") as! Main3TableViewCell
+            cell.delegate = self
+            cell.listCollaboration = self.listCollaboration
+            cell.collectionView.reloadData()
+            return cell
+        }
+        else if indexPath.section == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
+            cell.delegate = self
+            return cell
+        }
+        else if indexPath.section == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
+            cell.delegate = self
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main4TableViewCell") as! Main4TableViewCell
+            cell.delegate = self
+            cell.listBlogs = self.listBlogs
+            cell.collectionView.reloadData()
             return cell
         }
     }
@@ -294,6 +351,22 @@ extension MainViewController: Main1TableViewCellProtocol{
 extension MainViewController: Main2TableViewCellProtocol{
     func didCellMain2(index: Int) {
         print("index2 = ", index)
+        let detailEvent = DetailEventViewController()
+        self.navigationController?.pushViewController(detailEvent, animated: true)
+    }
+}
+
+extension MainViewController: Main3TableViewCellProtocol{
+    func didCellMain3(index: Int) {
+        print("index3 = ", index)
+        let detailEvent = DetailEventViewController()
+        self.navigationController?.pushViewController(detailEvent, animated: true)
+    }
+}
+
+extension MainViewController: Main4TableViewCellProtocol{
+    func didCellMain4(index: Int) {
+        print("index4 = ", index)
         let detailEvent = DetailEventViewController()
         self.navigationController?.pushViewController(detailEvent, animated: true)
     }

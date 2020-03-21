@@ -133,4 +133,14 @@ class ManageServicesManager{
         }
     }
     
+    func getListBlogsService(limit: Int = 10, sort: [[String: String]] = [["field" : "createdOn"], ["order" : "desc"]], completion:@escaping(ListResult<BlogModel>)->Void){
+        var paramsBody = [String: Any]()
+        paramsBody["limit"] = limit
+        paramsBody["sort"] = sort
+        Alamofire.request(URLs.getListBlogs, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListBlogsService = \(response)")
+            completion(ListResult<BlogModel>.handleResponse(response))
+        }
+    }
+    
 }

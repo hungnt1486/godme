@@ -15,6 +15,8 @@ class SearchBarViewController: BaseViewController {
     @IBOutlet weak var btCancel: UIButton!
     @IBOutlet weak var imgSearch: UIImageView!
     @IBOutlet weak var tbvSearchBar: UITableView!
+    
+    var vSearchMain: VSearchMain!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +39,17 @@ class SearchBarViewController: BaseViewController {
     }
     
     @objc func touchRight(){
+        DispatchQueue.main.async {
+            if self.vSearchMain == nil {
+                self.vSearchMain = VSearchMain.instanceFromNib()
+                self.vSearchMain.tag = 10
+                self.view.addSubview(self.vSearchMain)
+                self.vSearchMain.delegate = self
+                UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
+                    self.vSearchMain.configVSearchMain(frameView: self.view.frame)
+                }, completion: nil)
+            }
+        }
         
     }
     
@@ -69,6 +82,18 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
         let detail = SearchBarDetailViewController()
         self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(detail, animated: true)
+    }
+}
+
+extension SearchBarViewController: VSearchMainProtocol{
+    func didSearch(_ value: [String : String]) {
+        print("value = \(value)")
+        vSearchMain.viewWithTag(10)?.removeFromSuperview()
+        vSearchMain = nil
+    }
+    func didCancel() {
+        vSearchMain.viewWithTag(10)?.removeFromSuperview()
+        vSearchMain = nil
     }
     
     

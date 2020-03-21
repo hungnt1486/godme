@@ -12,6 +12,9 @@ import DropDown
 @objc protocol ComboboxTableViewCellProtocol {
     @objc optional
     func didTouch(str: String, type: typeCellRegister)
+    
+    @objc optional
+    func didTouchSearchMain(str: String, type: typeCellSearchMain)
 }
 
 class ComboboxTableViewCell: UITableViewCell {
@@ -48,6 +51,7 @@ class ComboboxTableViewCell: UITableViewCell {
         TypeDropdown.selectionAction = { [unowned self] (index, item) in
             self.tfText.text = item
             self.delegate?.didTouch?(str: item, type: typeCellRegister(rawValue: self.btShow.tag)!)
+            self.delegate?.didTouchSearchMain?(str: item, type: typeCellSearchMain(rawValue: self.btShow.tag)!)
 //            self.btChooseType.tag = index
 //                self.delegate?.eventGetTextTypeCar(item, index: index)
 //                self.delegate?.eventGetTextWithType?(item, type: typeCellPost(rawValue: self.lbTypeCar.tag)!, index: index)

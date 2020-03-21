@@ -170,6 +170,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Thành phố"
+            cell.btShow.tag = indexPath.row
             cell.delegate = self
             if cell.arrString.count == 0 {
                 cell.arrString = arrayProvince
@@ -179,6 +180,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .District:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Quận/Huyện"
+            cell.btShow.tag = indexPath.row
             cell.delegate = self
             if cell.arrString.count == 0 {
                 cell.arrString = arrayDistrict
@@ -188,6 +190,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .Ward:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Phường/Xã"
+            cell.btShow.tag = indexPath.row
             cell.delegate = self
             if cell.arrString.count == 0 {
                 cell.arrString = arrayWard

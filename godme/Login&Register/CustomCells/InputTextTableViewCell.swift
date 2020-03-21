@@ -26,6 +26,7 @@ class InputTextTableViewCell: UITableViewCell {
     func setupUI(){
         self.tfText = Settings.ShareInstance.setupTextField(textField: self.tfText)
         self.tfText.ShadowTextField()
+        self.tfText.addTarget(self, action: #selector(tfTextDidChange(_:)), for: .editingChanged)
     }
     
     @objc func tfTextDidChange(_ textField: UITextField){

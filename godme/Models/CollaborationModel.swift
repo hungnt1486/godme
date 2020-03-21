@@ -52,6 +52,29 @@ struct AddNewCollaborationParams{
     var content: String?
 }
 
-//"title": "Khoa Hoc Anh Van",
-//"description": "lich day anh van",
-//"content": "khóa học cho học sinh tiểu học"
+class BlogModel: BaseModel {
+    var title: String?
+    var image: String?
+    var tags: String?
+    var description: String?
+    var content: String?
+    var id: Int?
+    var createdOn: Int32?
+    var createdBy: String?
+    var modifiedOn: Int32?
+    var createdByUserId: Int?
+    
+    required init?(json: JSON) {
+        super.init(json: json)
+        title = json["title"].stringValue
+        image = json["image"].stringValue
+        tags = json["tags"].stringValue
+        description = json["description"].stringValue
+        content = json["content"].stringValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].int32Value
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].int32Value
+        createdByUserId = json["createdByUserId"].intValue
+    }
+}
