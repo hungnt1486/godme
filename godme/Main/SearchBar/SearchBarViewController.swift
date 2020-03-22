@@ -17,13 +17,17 @@ class SearchBarViewController: BaseViewController {
     @IBOutlet weak var tbvSearchBar: UITableView!
     
     var vSearchMain: VSearchMain!
+    var listSearchMain: [UserRegisterReturnModel] = []
+    var arrayJobs: [[String: String]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
         self.configButtonBack()
         self.setupTableView()
+        self.getListJobs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +49,54 @@ class SearchBarViewController: BaseViewController {
                 self.vSearchMain.tag = 10
                 self.view.addSubview(self.vSearchMain)
                 self.vSearchMain.delegate = self
+                self.vSearchMain.arrayJobs = self.arrayJobs
                 UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
                     self.vSearchMain.configVSearchMain(frameView: self.view.frame)
                 }, completion: nil)
             }
         }
         
+    }
+    
+    func getListJobs(){
+        UserManager.shareUserManager().getListJobs {[unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                if data.count > 0 {
+                    for item in data {
+                        self.arrayJobs.append(["name":item.name ?? "", "code": "\(item.id ?? 0)"])
+                    }
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearch(model: userSearchParams){
+        UserManager.shareUserManager().getListSearch(model: model) {[unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                print("data = \(data)")
+                self.listSearchMain.removeAll()
+                for model in data {
+                    self.listSearchMain.append(model)
+                }
+                self.tbvSearchBar.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func setupTableView(){
@@ -69,7 +115,7 @@ class SearchBarViewController: BaseViewController {
 
 extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return listSearchMain.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,11 +132,19 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension SearchBarViewController: VSearchMainProtocol{
-    func didSearch(_ value: [String : String]) {
-        print("value = \(value)")
+    func didSearch(_ value: userSearchParams) {
+        self.showProgressHub()
+        self.getListSearch(model: value)
         vSearchMain.viewWithTag(10)?.removeFromSuperview()
         vSearchMain = nil
     }
+//    func didSearch(_ value: [String : String]) {
+//        print("value = \(value)")
+////        let model = userSearchParams()
+////        model.
+//        vSearchMain.viewWithTag(10)?.removeFromSuperview()
+//        vSearchMain = nil
+//    }
     func didCancel() {
         vSearchMain.viewWithTag(10)?.removeFromSuperview()
         vSearchMain = nil

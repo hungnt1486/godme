@@ -62,4 +62,29 @@ class UserManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func getListSearch(model: userSearchParams, completion:@escaping(ListResult<UserRegisterReturnModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["keyword"] = model.keyword
+        paramsBody["fullName"] = model.fullName
+        paramsBody["gender"] = model.gender
+        paramsBody["nationCode"] = model.nationCode
+        paramsBody["education"] = model.education
+        paramsBody["career"] = model.career
+        paramsBody["provinceCode"] = model.provinceCode
+        paramsBody["districtCode"] = model.districtCode
+        paramsBody["wardCode"] = model.wardCode
+        
+        Alamofire.request(URLs.getListSearch, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("logout = \(response)")
+            completion(ListResult<UserRegisterReturnModel>.handleResponse(response))
+        }
+    }
+    
+    func getListJobs(completion: @escaping(ListResult<JobModel>) -> Void){
+        Alamofire.request(URLs.getListJob, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListJobs = \(response)")
+            completion(ListResult<JobModel>.handleResponse(response))
+        }
+    }
 }

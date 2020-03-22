@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol VSearchMainProtocol {
-    func didSearch(_ value: [String: String])
+    func didSearch(_ value: userSearchParams)
     func didCancel()
 }
 
@@ -29,9 +29,16 @@ class VSearchMain: UIView {
     @IBOutlet weak var btCancel: UIButton!
     @IBOutlet weak var tbvSearch: UITableView!
     
-    var arrayProvince: [String] = []
-    var arrayDistrict: [String] = []
-    var arrayWard: [String] = []
+    var arrayProvince: [[String: String]] = []
+    var arrayDistrict: [[String: String]] = []
+    var arrayWard: [[String: String]] = []
+    var arrayEducation: [[String: String]] = []
+    var arrayJobs: [[String: String]] = []
+    var arrayGender: [[String: String]] = []
+    var arrTemp: [GenderModel] = []
+    
+    var cellDistrict: ComboboxTableViewCell!
+    var cellWard: ComboboxTableViewCell!
     
     var strFullName, strGender, strEducation, strJob, strCity, strDistrict, strWard: String?
     
@@ -47,8 +54,16 @@ class VSearchMain: UIView {
     
     func setupUI(){
         self.arrayProvince = self.loadProvince()
-        self.arrayDistrict = self.loadDistrict()
-        self.arrayWard = self.loadWard()
+        self.arrayEducation = self.loadEduction()
+        self.arrTemp = Settings.ShareInstance.Gender()
+        if  self.arrTemp.count > 0 {
+            for item in self.arrTemp {
+                self.arrayGender.append(["name":item.Name ?? "", "code": "\(item.Id ?? "")"])
+            }
+        }
+//        self.arrayDistrict = self.loadDistrict()
+//        self.arrayWard = self.loadWard()
+//        self.arrayEducation = self.loade
     }
     
     func setupTableView(){
@@ -73,48 +88,73 @@ class VSearchMain: UIView {
     }
     
     @IBAction func touchSearch(_ sender: Any) {
-        delegate?.didSearch(["fullName" : self.strFullName ?? "", "gender": self.strGender ?? "", "education": self.strEducation ?? "", "job" : strJob ?? "", "city": strCity ?? "", "district": strDistrict ?? "", "ward": strWard ?? ""])
+        var model = userSearchParams()
+        model.nationCode = "VN"
+        model.keyword = self.strFullName
+        model.fullName = self.strFullName
+        model.gender = self.strGender
+        model.education = self.strEducation
+        model.career = self.strJob
+        model.provinceCode = self.strCity
+        model.districtCode = self.strDistrict
+        model.wardCode = self.strWard
+        delegate?.didSearch(model)
     }
     
-    func loadCountry()->[String]{
-        var arrString: [String] = []
-        let arrCountry = Settings.ShareInstance.loadCountry()
-        if arrCountry.count > 0 {
-            for item in arrCountry {
-                arrString.append(item.name ?? "")
-            }
-        }
-        return arrString
-    }
+//    func loadCountry()->[String]{
+//        var arrString: [String] = []
+//        let arrCountry = Settings.ShareInstance.loadCountry()
+//        if arrCountry.count > 0 {
+//            for item in arrCountry {
+//                arrString.append(item.name ?? "")
+//            }
+//        }
+//        return arrString
+//    }
     
-    func loadProvince()->[String]{
-        var arrString: [String] = []
+    func loadProvince()->[[String:String]]{
+        var arrString: [[String:String]] = []
         let arrCountry = Settings.ShareInstance.loadProvince()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(item.name ?? "")
+                arrString.append(["name":item.name ?? "", "code": "\(item.code ?? "")"])
             }
         }
         return arrString
     }
     
-    func loadDistrict()->[String]{
-        var arrString: [String] = []
+    func loadDistrict(parentCode: String)->[[String:String]]{
+        var arrString: [[String:String]] = []
         let arrCountry = Settings.ShareInstance.loadDistrict()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(item.name ?? "")
+                if parentCode == item.parent_code {
+                    arrString.append(["name":item.name ?? "", "code": "\(item.code ?? "")"])
+                }
             }
         }
         return arrString
     }
     
-    func loadWard()->[String]{
-        var arrString: [String] = []
+    func loadWard(parentCode: String)->[[String: String]]{
+        var arrString: [[String: String]] = []
         let arrCountry = Settings.ShareInstance.loadWard()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(item.name ?? "")
+                if parentCode == item.parent_code {
+                    arrString.append(["name":item.name ?? "", "code": "\(item.code ?? "")"])
+                }
+            }
+        }
+        return arrString
+    }
+    
+    func loadEduction() ->[[String: String]]{
+        var arrString: [[String: String]] = []
+        let arrCountry = Settings.ShareInstance.loadEducation()
+        if arrCountry.count > 0 {
+            for item in arrCountry {
+                arrString.append(["name":item.label ?? "", "code": "\(item.code ?? "")"])
             }
         }
         return arrString
@@ -138,48 +178,56 @@ extension VSearchMain: UITableViewDelegate, UITableViewDataSource {
         case .Gender:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.btShow.tag = indexPath.row
+            cell.tfText.placeholder = "Giới tính"
             cell.delegate = self
+            if cell.arr.count == 0 {
+                cell.arr = self.arrayGender
+                cell.setupTypeDropdown()
+            }
             return cell
         case .Education:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
+            cell.tfText.placeholder = "Học vấn"
             cell.btShow.tag = indexPath.row
             cell.delegate = self
+            if cell.arr.count == 0 {
+                cell.arr = self.arrayEducation
+                cell.setupTypeDropdown()
+            }
             return cell
         case .Job:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.btShow.tag = indexPath.row
+            cell.tfText.placeholder = "Nghề nghiệp"
             cell.delegate = self
+            if cell.arr.count == 0 {
+                cell.arr = self.arrayJobs
+                cell.setupTypeDropdown()
+            }
             return cell
         case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.tfText.placeholder = "Thành phố"
             cell.btShow.tag = indexPath.row
             cell.delegate = self
-            if cell.arrString.count == 0 {
-                cell.arrString = arrayProvince
+            if cell.arr.count == 0 {
+                cell.arr = arrayProvince
                 cell.setupTypeDropdown()
             }
             return cell
         case .District:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Quận/Huyện"
-            cell.btShow.tag = indexPath.row
-            cell.delegate = self
-            if cell.arrString.count == 0 {
-                cell.arrString = arrayDistrict
-                cell.setupTypeDropdown()
-            }
-            return cell
+            cellDistrict = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as? ComboboxTableViewCell
+            cellDistrict.tfText.placeholder = "Quận/Huyện"
+            cellDistrict.btShow.tag = indexPath.row
+            cellDistrict.delegate = self
+            
+            return cellDistrict
         case .Ward:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Phường/Xã"
-            cell.btShow.tag = indexPath.row
-            cell.delegate = self
-            if cell.arrString.count == 0 {
-                cell.arrString = arrayWard
-                cell.setupTypeDropdown()
-            }
-            return cell
+            cellWard = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as? ComboboxTableViewCell
+            cellWard.tfText.placeholder = "Phường/Xã"
+            cellWard.btShow.tag = indexPath.row
+            cellWard.delegate = self
+            return cellWard
         }
     }
 }
@@ -191,28 +239,57 @@ extension VSearchMain: InputTextTableViewCellProtocol{
 }
 
 extension VSearchMain: ComboboxTableViewCellProtocol{
-    func didTouchSearchMain(str: String, type: typeCellSearchMain) {
+    func didTouchSearchMain(str: String, type: typeCellSearchMain, index: Int) {
         switch type {
             
         case .InputText:
             break
         case .Gender:
-            self.strWard = str
+            let code = self.arrayGender[index]["code"]
+            self.strGender = code
             break
         case .Education:
-            self.strWard = str
+            let code = self.arrayEducation[index]["code"]
+            self.strEducation = code
             break
         case .Job:
-            self.strWard = str
+            let code = self.arrayJobs[index]["code"]
+            self.strJob = code
             break
         case .City:
-            self.strCity = str
+            let parentCode = self.arrayProvince[index]["code"]
+            self.arrayDistrict = self.loadDistrict(parentCode: parentCode ?? "")
+            if self.strCity != parentCode {
+                self.strCity = parentCode
+                cellDistrict.tfText.text = ""
+                cellWard.tfText.text = ""
+            }
+            if cellDistrict.arr.count > 0 {
+                cellDistrict.arr.removeAll()
+                cellDistrict.arrString.removeAll()
+            }
+            cellDistrict.arr = arrayDistrict
+            cellDistrict.setupTypeDropdown()
             break
         case .District:
-            self.strDistrict = str
+            let parentCode = self.arrayDistrict[index]["code"]
+            DispatchQueue.main.async {
+                self.arrayWard = self.loadWard(parentCode: parentCode ?? "")
+                if self.strDistrict != parentCode {
+                    self.strDistrict = parentCode
+                    self.cellWard.tfText.text = ""
+                }
+                if self.cellWard.arr.count > 0 {
+                    self.cellWard.arr.removeAll()
+                    self.cellWard.arrString.removeAll()
+                }
+                self.cellWard.arr = self.arrayWard
+                self.cellWard.setupTypeDropdown()
+            }
             break
         case .Ward:
-            self.strWard = str
+            let code = self.arrayWard[index]["code"]
+            self.strJob = code
             break
         }
     }

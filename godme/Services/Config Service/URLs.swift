@@ -40,6 +40,8 @@ struct URLs {
         static let createCollaborationService = "api/mobile/service/cooperation/save"
         static let getAmountCharity = "api/mobile/wallet/getAmountCharity"
         static let getListBlogs = "api/web/article/search"
+        static let getListSearch = "api/mobile/user/search"
+        static let getListJob = "api/mobile/career/search"
     }
     
     //// user
@@ -54,6 +56,13 @@ struct URLs {
     }
     static var logout: String{
         return String(format: "%@%@", linkServer, Routes.logout)
+    }
+    
+    static var getListSearch: String{
+        return String(format: "%@%@", linkServer, Routes.getListSearch)
+    }
+    static var getListJob: String{
+        return String(format: "%@%@", linkServer, Routes.getListJob)
     }
     
     /// relationship

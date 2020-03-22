@@ -32,7 +32,7 @@ class ProvinceArrModel: BaseModel {
     var slug: String?
     var type : String?
     var name_with_type: String?
-    var code: Int?
+    var code: String?
     var parent_code: String?
     
     required init?(json: JSON) {
@@ -44,7 +44,7 @@ class ProvinceArrModel: BaseModel {
         slug = json["slug"].stringValue
         type = json["type"].stringValue
         name_with_type = json["name_with_type"].stringValue
-        code = json["code"].intValue
+        code = json["code"].stringValue
         parent_code = json["parent_code"].stringValue
     }
 }
@@ -113,8 +113,8 @@ class DistrictArrModel: BaseModel {
     var name_with_type: String?
     var path: String?
     var path_with_type: String?
-    var parent_code : Int?
-    var code: Int?
+    var parent_code : String?
+    var code: String?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -126,8 +126,8 @@ class DistrictArrModel: BaseModel {
         name_with_type = json["name_with_type"].stringValue
         path = json["path"].stringValue
         path_with_type = json["path_with_type"].stringValue
-        parent_code = json["parent_code"].intValue
-        code = json["code"].intValue
+        parent_code = json["parent_code"].stringValue
+        code = json["code"].stringValue
         slug = json["slug"].stringValue
     }
 }
@@ -160,8 +160,8 @@ class WardArrModel: BaseModel {
     var name_with_type: String?
     var path: String?
     var path_with_type: String?
-    var parent_code : Int?
-    var code: Int?
+    var parent_code : String?
+    var code: String?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -173,8 +173,8 @@ class WardArrModel: BaseModel {
         name_with_type = json["name_with_type"].stringValue
         path = json["path"].stringValue
         path_with_type = json["path_with_type"].stringValue
-        parent_code = json["parent_code"].intValue
-        code = json["code"].intValue
+        parent_code = json["parent_code"].stringValue
+        code = json["code"].stringValue
         slug = json["slug"].stringValue
     }
 }

@@ -40,6 +40,7 @@ class UserRegisterReturnModel: BaseModel {
     var createdBy: String?
     var modifiedOn: String?
     var createdByUserId: String?
+    var totalStar: Int?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -73,6 +74,7 @@ class UserRegisterReturnModel: BaseModel {
         createdBy = json["createdBy"].stringValue
         modifiedOn = json["modifiedOn"].stringValue
         createdByUserId = json["createdByUserId"].stringValue
+        totalStar = json["totalStar"].intValue
     }
 }
 
@@ -91,6 +93,40 @@ class UserLoginReturnModel: BaseModel{
     }
 }
 
+class JobModel: BaseModel {
+    var name: String?
+    var code: String?
+    var id: Int?
+    var createdOn: Int32?
+    var createdBy: String?
+    var modifiedOn: Int32?
+    var createdByUserId: Int?
+    required init?(json: JSON) {
+        super.init(json: json)
+        name = json["name"].stringValue
+        code = json["code"].stringValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].int32Value
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].int32Value
+        createdByUserId = json["createdByUserId"].intValue
+        
+    }
+}
+
+class GenderModel: BaseModel {
+    var Id: String?
+    var Name: String?
+    required init?(json: JSON) {
+        super.init(json: json)
+        guard json.error == nil else {
+            return
+        }
+        Id = json["Id"].stringValue
+        Name = json["Name"].stringValue
+    }
+}
+
 struct changePasswordParams {
     var username: String?
     var password: String?
@@ -101,4 +137,18 @@ struct forgotPasswordParams {
     var username: String?
     var codeOTP: String?
     var newPassword: String?
+}
+
+struct userSearchParams {
+    var keyword: String?
+    var fullName: String?
+    var gender: String?
+    var nationCode: String?
+    var education: String?
+    var career: String?
+    var provinceCode: String?
+    var districtCode: String?
+    var wardCode: String?
+    var page: Int?
+    var pageSize: Int?
 }

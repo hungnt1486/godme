@@ -393,6 +393,38 @@ class Settings: NSObject {
         let data = WardModel.init(json: json)
         return data!.WardArr!
     }
+    
+    func loadEducation() -> [EducationArrModel]{
+        let json = self.loadFileJson(name: "educations")
+        let data = EducationModel.init(json: json)
+        return data!.EducationArr!
+    }
+    
+    func Gender()->[GenderModel]{
+        let jsonSex = "[{\"Name\":\"Nữ\",\"Id\":NU}, {\"Name\":\"Nam\",\"Id\":NAM}]"
+        let json = JSON.init(jsonSex)
+        var arrGender: [GenderModel] = []
+        for i in 0..<3 {
+            switch i {
+            case 0:
+                let sexModel = GenderModel.init(json: json)
+                sexModel?.Id = "NU"
+                sexModel?.Name = "Nữ"
+                arrGender.append(sexModel!)
+                break
+            case 1:
+                let sexModel = GenderModel.init(json: json)
+                sexModel?.Id = "NAM"
+                sexModel?.Name = "Nam"
+                arrGender.append(sexModel!)
+                break
+            default:
+                break
+            }
+        }
+        return arrGender
+    }
+     
 }
 
 class customButton: UIButton {

@@ -243,8 +243,8 @@ extension RegisterViewController: InputTextTableViewCellProtocol{
 }
 
 extension RegisterViewController: ComboboxTableViewCellProtocol{
-    func didTouch(str: String, type: typeCellRegister) {
-        print("str = \(str), type = \(type)")
+    func didTouch(str: String, type: typeCellRegister, index: Int) {
+        print("str = \(str), type = \(type), index = \(index)")
     }
 }
 
