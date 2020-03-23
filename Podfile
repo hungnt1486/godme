@@ -26,6 +26,7 @@ pod 'GooglePlaces'
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'GSKStretchyHeaderView'
+pod 'AWSS3'
 #pod 'CollapseTableView'
 
 end

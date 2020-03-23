@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import GoogleMaps
 import GooglePlaces
+import AWSS3
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,8 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         FirebaseApp.configure()
+        // init AWS
+        self.initializeS3()
         self.checkLogin()
         return true
+    }
+    
+    func initializeS3() {
+        let poolId = "AKIAT4P2FWA5FP5WODNQ" // 3-1
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USWest1, identityPoolId: poolId)//3-2
+        let configuration = AWSServiceConfiguration(region: .USWest1, credentialsProvider: credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+        
     }
     
     func checkLogin() -> Void {

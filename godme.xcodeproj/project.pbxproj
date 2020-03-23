@@ -118,6 +118,7 @@
 		4139375E2425C6140079C587 /* Main3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937562425C6140079C587 /* Main3CollectionViewCell.xib */; };
 		413937602425E64C0079C587 /* VSearchMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139375F2425E64C0079C587 /* VSearchMain.swift */; };
 		413937622425E65A0079C587 /* VSearchMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937612425E65A0079C587 /* VSearchMain.xib */; };
+		413937642428A1570079C587 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937632428A1570079C587 /* AWSS3Manager.swift */; };
 		4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA51241B15B600F8A7E4 /* Resources.swift */; };
 		4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */; };
 		4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */; };
@@ -389,6 +390,7 @@
 		413937562425C6140079C587 /* Main3CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3CollectionViewCell.xib; sourceTree = "<group>"; };
 		4139375F2425E64C0079C587 /* VSearchMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSearchMain.swift; sourceTree = "<group>"; };
 		413937612425E65A0079C587 /* VSearchMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VSearchMain.xib; sourceTree = "<group>"; };
+		413937632428A1570079C587 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
 		4150DA51241B15B600F8A7E4 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = godme/LibSettings/Resources/Resources.swift; sourceTree = SOURCE_ROOT; };
 		4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 				41AD16C22413FC30001E132E /* Page View */,
 				41286AE2240F3EE70021157C /* Extensions */,
 				41286AE5240F3EE70021157C /* Settings.swift */,
+				413937632428A1570079C587 /* AWSS3Manager.swift */,
 			);
 			path = LibSettings;
 			sourceTree = "<group>";
@@ -1425,6 +1428,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
@@ -1442,6 +1447,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
@@ -1526,6 +1533,7 @@
 				41AD16C72413FC31001E132E /* ViewPagerTabView.swift in Sources */,
 				41ADEAF0241E4BA5002C95FA /* StartEndTimeTableViewCell.swift in Sources */,
 				41286B0C24106C760021157C /* ContentTableViewCell.swift in Sources */,
+				413937642428A1570079C587 /* AWSS3Manager.swift in Sources */,
 				41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */,
 				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
