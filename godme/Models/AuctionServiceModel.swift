@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 
 class AuctionServiceModel: BaseModel {
-    var startTime: Int32?
-    var endTime: Int32?
+    var startTime: Double?
+    var endTime: Double?
     var priceStep: String?
     var status: String?
     var title: String?
@@ -34,8 +34,8 @@ class AuctionServiceModel: BaseModel {
     
     required init?(json: JSON) {
         super.init(json: json)
-        startTime = json["startTime"].int32Value
-        endTime = json["endTime"].int32Value
+        startTime = json["startTime"].doubleValue
+        endTime = json["endTime"].doubleValue
         priceStep = json["priceStep"].stringValue
         status = json["status"].stringValue
         title = json["title"].stringValue

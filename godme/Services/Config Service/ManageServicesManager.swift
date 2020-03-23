@@ -143,4 +143,17 @@ class ManageServicesManager{
         }
     }
     
+    func confirmBookBaseService(model: AddNewConfirmBasicServiceParams, completion: @escaping(SingleResult<BaseModel>)-> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["serviceId"] = model.serviceId
+        paramsBody["sellerId"] = model.sellerId
+        paramsBody["buyerId"] = model.buyerId
+        paramsBody["amount"] = model.amount
+        paramsBody["dateTime"] = model.dateTime
+        Alamofire.request(URLs.confirmBookBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListBlogsService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
 }

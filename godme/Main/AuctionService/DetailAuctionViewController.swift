@@ -31,6 +31,7 @@ class DetailAuctionViewController: BaseViewController {
     }
     
     func setupUI(){
+        self.navigationItem.title = modelDetail?.title
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -98,16 +99,50 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                     cell.crollViewImage()
                     cell.configCrollView()
                 }
+                
+                let images = modelDetail?.images
+                let arrImgage = images?.split(separator: ",")
+                var arrImg: [String] = []
+                if let arrImgage = arrImgage {
+                    for item in arrImgage {
+                        arrImg.append(String(item))
+                    }
+                }
+                cell.arrImageBanner = arrImg
+                cell.delegate = self
+                if cell.arrImageBanner.count > 0 {
+                    cell.crollViewImage()
+                    cell.configCrollView()
+                }
+                cell.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_avatar"), options: .lowPriority) { (image, error, nil, link) in
+                    if error == nil {
+                        cell.imgAvatar.image = image
+                    }
+                }
+                cell.lbFullName.text = modelDetail?.userInfo?.fullName
+                cell.lbJob.text = modelDetail?.title
+                cell.lbCoin.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)//(modelDetail?.amount ?? "0") + " Godcoin"
+                
                 return cell
             case .Auction:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoAuctionTableViewCell") as! InfoAuctionTableViewCell
                 cell.delegate = self
+                cell.lbWiner.text = modelDetail?.currentWinner
+                cell.lbStepMoney.text = modelDetail?.priceStep ?? "0" + " Godcoin"
+                cell.lbPrice.text = modelDetail?.amountOriginal ?? "0" + " Godcoin"
+                cell.lbNumber.text = "\(modelDetail?.totalOrder ?? 0)"
                 return cell
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
+                cell.contraintHeightV1.constant = 0
+                 cell.lbAddress.text = modelDetail?.address
+                cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
+//                 cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0)
+                 cell.lbLanguages.text = modelDetail?.language
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
+                cell.lbDetail.text = modelDetail?.description
                 return cell
             }
         }else{

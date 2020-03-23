@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 enum typeCellDetailBasic: Int {
     case Avatar = 0
@@ -30,6 +31,7 @@ class DetailBasicServiceViewController: BaseViewController {
     }
     
     func setupUI(){
+        self.navigationItem.title = modelDetail?.title
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -92,18 +94,41 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
                 
             case .Avatar:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as! ImageDetailTableViewCell
-                cell.arrImageBanner = ["ic_logo"]
+                let images = modelDetail?.images
+                let arrImgage = images?.split(separator: ",")
+                var arrImg: [String] = []
+                if let arrImgage = arrImgage {
+                    for item in arrImgage {
+                        arrImg.append(String(item))
+                    }
+                }
+                cell.arrImageBanner = arrImg
                 cell.delegate = self
                 if cell.arrImageBanner.count > 0 {
                     cell.crollViewImage()
                     cell.configCrollView()
                 }
+                cell.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_avatar"), options: .lowPriority) { (image, error, nil, link) in
+                    if error == nil {
+                        cell.imgAvatar.image = image
+                    }
+                }
+                cell.lbFullName.text = modelDetail?.userInfo?.fullName
+                cell.lbJob.text = modelDetail?.title
+                cell.lbCoin.text = (modelDetail?.amount ?? "0") + " Godcoin"
                 return cell
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
+//                let date = NSDate.init(timeIntervalSinceNow: modelDetail?.dateTime1 ?? 0.0)
+//                print("date = \(date)")
+                cell.lbAddress.text = modelDetail?.address
+                cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0)
+                cell.lbLanguages.text = modelDetail?.language
+                cell.lbNumberBooked.text = "Tổng số người đặt: \(modelDetail?.totalOrder ?? 0)"
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
+                cell.lbDetail.text = modelDetail?.description
                 return cell
             case .Book:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
@@ -127,7 +152,9 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
 
 extension DetailBasicServiceViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
+        
         let confirm = ConfirmBasicServiceViewController()
+        confirm.modelDetail = modelDetail
         self.navigationController?.pushViewController(confirm, animated: true)
     }
 }

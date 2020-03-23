@@ -10,6 +10,11 @@ import UIKit
 
 class TimeAddressTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var lbAddress: UILabel!
+    @IBOutlet weak var lbLanguages: UILabel!
+    @IBOutlet weak var lbNumberBooked: UILabel!
+    @IBOutlet weak var contraintHeightV1: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

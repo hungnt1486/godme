@@ -10,6 +10,8 @@ import UIKit
 
 class InfoDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbDetail: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

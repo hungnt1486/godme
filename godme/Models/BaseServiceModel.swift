@@ -11,13 +11,13 @@ import SwiftyJSON
 
 class BaseServiceModel: BaseModel {
     
-    var dateTime1: String?
-    var dateTime2: String?
-    var dateTime3: String?
-    var dateTime4: String?
-    var dateTime5: String?
-    var dateTime6: String?
-    var dateTime7: String?
+    var dateTime1: Double?
+    var dateTime2: Double?
+    var dateTime3: Double?
+    var dateTime4: Double?
+    var dateTime5: Double?
+    var dateTime6: Double?
+    var dateTime7: Double?
     var status: String?
     var title: String?
     var address: String?
@@ -39,13 +39,13 @@ class BaseServiceModel: BaseModel {
     
     required init?(json: JSON) {
         super.init(json: json)
-        dateTime1 = json["dateTime1"].stringValue
-        dateTime2 = json["dateTime2"].stringValue
-        dateTime3 = json["dateTime3"].stringValue
-        dateTime4 = json["dateTime4"].stringValue
-        dateTime5 = json["dateTime5"].stringValue
-        dateTime6 = json["dateTime6"].stringValue
-        dateTime7 = json["dateTime7"].stringValue
+        dateTime1 = json["dateTime1"].doubleValue
+        dateTime2 = json["dateTime2"].doubleValue
+        dateTime3 = json["dateTime3"].doubleValue
+        dateTime4 = json["dateTime4"].doubleValue
+        dateTime5 = json["dateTime5"].doubleValue
+        dateTime6 = json["dateTime6"].doubleValue
+        dateTime7 = json["dateTime7"].doubleValue
         status = json["status"].stringValue
         title = json["title"].stringValue
         address = json["address"].stringValue
@@ -106,6 +106,14 @@ struct AddNewBaseServiceParams {
     var language: Int?
     var amount: String?
     var images: String?
+}
+
+struct AddNewConfirmBasicServiceParams {
+    var serviceId: Int?
+    var sellerId: Int?
+    var buyerId: Int?
+    var amount: String?
+    var dateTime: String?
 }
 
 

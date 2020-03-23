@@ -18,6 +18,7 @@ class ConfirmBasicServiceViewController: BaseViewController {
 
     @IBOutlet weak var tbvConfirmBasicService: UITableView!
     let listTypeCell:[typeCellConfirm] = [.Basic, .ConfirmContent, .ConfirmButton]
+    var modelDetail: BaseServiceModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,6 +53,15 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
             
         case .Basic:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
+            cell.lbTitle.text = modelDetail?.title
+            cell.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(modelDetail?.userInfo?.address ?? "")"
+            cell.lbName.text = modelDetail?.userInfo?.userCategory
+            cell.lbCoin.text = "\(modelDetail?.amount ?? "0") Godcoin"
             return cell
         case .ConfirmContent:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmBasicServiceTableViewCell") as! ConfirmBasicServiceTableViewCell
@@ -67,7 +77,26 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
 
 extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đặt dịch vụ?", vc: self) { (str) in
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đặt dịch vụ?", vc: self) { [unowned self](str) in
+            var model = AddNewConfirmBasicServiceParams()
+            model.amount = self.modelDetail?.amount
+            model.buyerId = self.modelDetail?.userInfo?.id
+            model.sellerId = self.modelDetail?.createdByUserId
+            model.serviceId = self.modelDetail?.id
+            model.dateTime = "7987583275823"
+            ManageServicesManager.shareManageServicesManager().confirmBookBaseService(model: model) { [unowned self] (response) in
+                switch response {
+                    
+                case .success(let data):
+                    self.hideProgressHub()
+                    print("data = \(data)")
+                    break
+                case .failure(let message):
+                    self.hideProgressHub()
+                    Settings.ShareInstance.showAlertView(message: message, vc: self)
+                    break
+                }
+            }
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

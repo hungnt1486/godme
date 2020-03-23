@@ -42,6 +42,7 @@ struct URLs {
         static let getListBlogs = "api/web/article/search"
         static let getListSearch = "api/mobile/user/search"
         static let getListJob = "api/mobile/career/search"
+        static let confirmBookBaseService = "api/mobile/order/basic/save"
     }
     
     //// user
@@ -116,6 +117,9 @@ struct URLs {
     
     static var searchBaseService: String{
         return String(format: "%@%@", linkServer, Routes.searchBaseService)
+    }
+    static var confirmBookBaseService: String{
+        return String(format: "%@%@", linkServer, Routes.confirmBookBaseService)
     }
     
     /// auction service

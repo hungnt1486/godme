@@ -317,41 +317,54 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 0 {
-            let detail = DetailBasicServiceViewController()
-            self.navigationController?.pushViewController(detail, animated: true)
-        }else if indexPath.section == 1 {
-            let detailAuction = DetailAuctionViewController()
-            self.navigationController?.pushViewController(detailAuction, animated: true)
-        }else{
-            let detailEvent = DetailEventViewController()
-            self.navigationController?.pushViewController(detailEvent, animated: true)
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        if indexPath.section == 0 {
+//            let model = listBaseService[indexPath.row]
+//            let detail = DetailBasicServiceViewController()
+//            detail.modelDetail = model
+//            self.navigationController?.pushViewController(detail, animated: true)
+//        }else if indexPath.section == 1 {
+//            let model = listAuction[indexPath.row]
+//            let detailAuction = DetailAuctionViewController()
+//            detailAuction.modelDetail = model
+//            self.navigationController?.pushViewController(detailAuction, animated: true)
+//        }else{
+//            let model = listEvents[indexPath.row]
+//            let detailEvent = DetailEventViewController()
+//            detailEvent.modelDetail = model
+//            self.navigationController?.pushViewController(detailEvent, animated: true)
+//        }
+//    }
 }
 
 extension MainViewController: MainTableViewCellProtocol{
     func didCell(index: Int) {
-        print("index = ", index)
+        let model = listBaseService[index]
         let detail = DetailBasicServiceViewController()
+        detail.modelDetail = model
         self.navigationController?.pushViewController(detail, animated: true)
+               
+//        print("index = ", index)
+//        let detail = DetailBasicServiceViewController()
+//        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
 
 extension MainViewController: Main1TableViewCellProtocol{
     func didCellMain1(index: Int) {
-        print("index1 = ", index)
+        let model = listAuction[index]
         let detailAuction = DetailAuctionViewController()
+        detailAuction.modelDetail = model
         self.navigationController?.pushViewController(detailAuction, animated: true)
     }
 }
 
 extension MainViewController: Main2TableViewCellProtocol{
     func didCellMain2(index: Int) {
-        print("index2 = ", index)
+        let model = listEvents[index]
         let detailEvent = DetailEventViewController()
+        detailEvent.modelDetail = model
         self.navigationController?.pushViewController(detailEvent, animated: true)
     }
 }

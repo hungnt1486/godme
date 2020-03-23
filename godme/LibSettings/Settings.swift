@@ -424,6 +424,23 @@ class Settings: NSObject {
         }
         return arrGender
     }
+    
+    func convertTimeIntervalToDateTime(timeInterval: Double)-> String{
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+//        dateFormatter.locale = Locale.current
+//        let dateConvert = dateFormatter.date(from: strDate)
+//        return dateConvert ?? Date()
+        if timeInterval == 0 {
+            return ""
+        }
+        let date = NSDate.init(timeIntervalSinceNow: timeInterval)
+        let formatDate = DateFormatter.init()
+        formatDate.dateFormat = "MM-dd HH:mm"
+        formatDate.locale = Locale.current
+        let dateConvert = formatDate.string(from: date as Date)
+        return dateConvert
+    }
      
 }
 

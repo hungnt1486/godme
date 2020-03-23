@@ -32,7 +32,7 @@ class ImageDetailTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+//        self.setupUI()
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchShowMore))
         self.imgShowMore.isUserInteractionEnabled = true
         self.imgShowMore.addGestureRecognizer(tapGesture)
@@ -42,6 +42,11 @@ class ImageDetailTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    func setupUI(){
+        self.imgAvatar.layer.cornerRadius = self.imgAvatar.frame.height/2
+        self.imgAvatar.clipsToBounds = true
     }
     
     @objc func touchShowMore(){
