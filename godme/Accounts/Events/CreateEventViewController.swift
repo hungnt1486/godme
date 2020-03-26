@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum typeCellCreateEvent: Int {
+@objc enum typeCellCreateEvent: Int {
     case Image = 0
     case Title = 1
     case Time = 2
@@ -30,6 +30,11 @@ class CreateEventViewController: BaseViewController {
     var cellAddres: AddressPostCarTableViewCell!
     var vDatePicker: ViewDatePicker!
     var cellDate: StartEndTimeTableViewCell!
+    
+    var eventModel = EventServiceParamsModel()
+    var linkImg1: String = ""
+    var linkImg2: String = ""
+    var linkImg3: String = ""
     
     var listTypeCell: [typeCellCreateEvent] = [.Image, .Title, .Time, .Position, .Description, .Language, .Fee, .CreateEvent]
     
@@ -95,6 +100,94 @@ class CreateEventViewController: BaseViewController {
         //        }
         self.present(alertControl, animated: true, completion: nil)
     }
+    
+    func addNewService(){
+        let group = DispatchGroup()
+        if cellImage.imageOne.image != nil {
+            AWSS3Manager.shared.uploadImage(image: cellImage.imageOne.image!, progress: nil) { [unowned self] (fileURL, error) in
+                group.enter()
+                if error == nil {
+                    self.linkImg1 = fileURL as! String
+                }else{
+                    Settings.ShareInstance.showAlertView(message: error?.localizedDescription ?? "", vc: self)
+                    group.leave()
+                    return
+                }
+                group.leave()
+            }
+        }
+        
+        if cellImage.imageTwo.image != nil {
+            group.enter()
+            AWSS3Manager.shared.uploadImage(image: cellImage.imageTwo.image!, progress: nil) { [unowned self] (fileURL, error) in
+                
+                if error == nil {
+                    self.linkImg2 = fileURL as! String
+                }else{
+                    Settings.ShareInstance.showAlertView(message: error?.localizedDescription ?? "", vc: self)
+                    group.leave()
+                    return
+                }
+                group.leave()
+            }
+        }
+        if cellImage.imageThree.image != nil {
+            group.enter()
+            AWSS3Manager.shared.uploadImage(image: cellImage.imageThree.image!, progress: nil) { [unowned self] (fileURL, error) in
+                
+                if error == nil {
+                    self.linkImg3 = fileURL as! String
+                }else{
+                    Settings.ShareInstance.showAlertView(message: error?.localizedDescription ?? "", vc: self)
+                    group.leave()
+                    return
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: DispatchQueue.global(qos: .background)) {
+            var linkImgs = ""
+            if self.linkImg1.count > 0 && self.linkImg2.count > 0 && self.linkImg3.count > 0 {
+                linkImgs = "\(self.linkImg1),\(self.linkImg2),\(self.linkImg3)"
+            }else if self.linkImg1.count > 0 && self.linkImg2.count > 0 {
+                linkImgs = "\(self.linkImg1),\(self.linkImg2)"
+            }else if self.linkImg1.count > 0 {
+                linkImgs = "\(self.linkImg1)"
+            }
+            var model = AddNewAuctionServiceParams()
+            model.startTime = self.eventModel.startTime
+            model.endTime = self.eventModel.endTime
+            model.amount = self.eventModel.amount
+            model.address = "ghewiughgu guiwge"//self.basicModel.address
+            model.latitude = self.eventModel.latitude
+            model.longitude = self.eventModel.longitude
+            model.description = self.eventModel.description
+            model.language = self.eventModel.language
+            model.images = linkImgs
+            model.title = self.eventModel.title
+            self.createNewService(model: model)
+        }
+        
+    }
+    
+    func createNewService(model: AddNewAuctionServiceParams){
+        ManageServicesManager.shareManageServicesManager().createEventService(model: model) { [unowned self](response) in
+            switch response {
+
+            case .success( _):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 
 }
 
@@ -115,12 +208,16 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Tiêu đề"
             cell.tfInput.placeholder = "Tiêu đề của dịch vụ"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .Time:
             cellDate = tableView.dequeueReusableCell(withIdentifier: "StartEndTimeTableViewCell") as? StartEndTimeTableViewCell
             cellDate.delegate = self
             cellDate.lbTitle.text = "Thời gian"
+            cellDate.lbStartTime.tag = 1
             cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+            cellDate.lbEndTime.tag = 2
             cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
             return cellDate
             
@@ -133,19 +230,25 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.text = "Mô tả"
+            cell.delegate = self
             return cell
         case .Language:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Ngôn ngữ"
             cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .Fee:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Phí tham dự"
             cell.tfInput.placeholder = "Nhập phí tham dự"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .CreateEvent:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
+            cell.delegate = self
             cell.btComplete.setTitle("Tạo dịch vụ", for: .normal)
             return cell
         
@@ -207,8 +310,8 @@ extension CreateEventViewController: AddressPostCarTableViewCellProtocol{
         let map = MapPickerViewController()
         map.onDismissCallback = {[weak self](location) in
             self?.cellAddres.updateAddress(to: location)
-//            self?.postModel.Lat = location?.coordinate.latitude ?? 0.0
-//            self?.postModel.Lng = location?.coordinate.longitude ?? 0.0
+            self?.eventModel.latitude = location?.coordinate.latitude ?? 0.0
+            self?.eventModel.longitude = location?.coordinate.longitude ?? 0.0
         }
         self.navigationController?.pushViewController(map, animated: true)
     }
@@ -224,6 +327,17 @@ extension CreateEventViewController: ViewDatePickerProtocol {
         print("tap done")
         let df = DateFormatter.init()
         df.dateFormat = "dd/MM/yyyy"
+        self.eventModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+        if cellDate.indexLabel == 1 {
+            cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)
+            self.eventModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+        }else{
+            cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)
+            self.eventModel.endTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+        }
+        
+        vDatePicker.viewWithTag(11)?.removeFromSuperview()
+        vDatePicker = nil
 //        postModel.dateExpire = df.string(from: vDatePicker.datePicker.date)
 //        vDatePicker.viewWithTag(11)?.removeFromSuperview()
 //        vDatePicker = nil
@@ -245,7 +359,8 @@ extension CreateEventViewController: ViewDatePickerProtocol {
 }
 
 extension CreateEventViewController: StartEndTimeTableViewCellProtocol{
-    func didStartTime() {
+    func didStartTime(index: Int) {
+        cellDate.indexLabel = index
         self.view.endEditing(true)
         if vDatePicker == nil {
             vDatePicker = ViewDatePicker.instanceFromNib()
@@ -255,7 +370,8 @@ extension CreateEventViewController: StartEndTimeTableViewCellProtocol{
         }
     }
     
-    func didEndTime() {
+    func didEndTime(index: Int) {
+        cellDate.indexLabel = index
          self.view.endEditing(true)
          if vDatePicker == nil {
              vDatePicker = ViewDatePicker.instanceFromNib()
@@ -264,21 +380,44 @@ extension CreateEventViewController: StartEndTimeTableViewCellProtocol{
              vDatePicker.delegate = self
          }
     }
-    
-    
-    
-    
-//    func getDateText(_ str: String) {
-//
-//    }
-//
-//    func showDatePicker() {
-//        self.view.endEditing(true)
-//        if vDatePicker == nil {
-//            vDatePicker = ViewDatePicker.instanceFromNib()
-//            vDatePicker.tag = 11
-//            self.view.addSubview(vDatePicker)
-//            vDatePicker.delegate = self
-//        }
-//    }
+}
+
+extension CreateEventViewController: TitleTableViewCellProtocol{
+    func getTextEventService(_ str: String, type: typeCellCreateEvent) {
+        switch type {
+            
+        case .Image:
+            break
+        case .Title:
+            self.eventModel.title = str
+            break
+        case .Time:
+            break
+        case .Position:
+            break
+        case .Description:
+            break
+        case .Language:
+            self.eventModel.language = str
+            break
+        case .Fee:
+            self.eventModel.amount = str
+            break
+        case .CreateEvent:
+            break
+        }
+    }
+}
+
+extension CreateEventViewController: DescriptionCarTableViewCellProtocol{
+    func getDescriptionText(_ string: String) {
+        self.eventModel.description = string
+    }
+}
+
+extension CreateEventViewController: CompleteTableViewCellProtocol{
+    func didComplete() {
+        self.showProgressHub()
+        self.addNewService()
+    }
 }

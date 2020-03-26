@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum typeCellCreateCollaborate: Int {
+@objc enum typeCellCreateCollaborate: Int {
     case Image = 0
     case Title = 1
     case FullName = 2
@@ -116,21 +116,29 @@ extension CreateCollaborateViewController: UITableViewDelegate, UITableViewDataS
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Tiêu đề"
             cell.tfInput.placeholder = "Tiêu đề của hợp tác"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .FullName:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Họ và tên"
             cell.tfInput.placeholder = "Nhập họ và tên"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .Email:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Email"
             cell.tfInput.placeholder = "Nhập email"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .PhoneNumber:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Số điện thoại"
             cell.tfInput.placeholder = "Nhập số điện thoại"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
@@ -140,10 +148,13 @@ extension CreateCollaborateViewController: UITableViewDelegate, UITableViewDataS
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Mong muốn hợp tác"
             cell.tfInput.placeholder = "Nhập mong muốn hợp tác"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
             return cell
         case .CreateCollaborate:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.btComplete.setTitle("Gửi thông tin", for: .normal)
+            cell.delegate = self
             return cell
         }
     }
@@ -221,11 +232,12 @@ extension CreateCollaborateViewController: ViewDatePickerProtocol {
         let df = DateFormatter.init()
         df.dateFormat = "dd/MM/yyyy"
 //        postModel.dateExpire = df.string(from: vDatePicker.datePicker.date)
-//        vDatePicker.viewWithTag(11)?.removeFromSuperview()
-//        vDatePicker = nil
+        
         cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date))
 //        cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)
 //        cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)
+        vDatePicker.viewWithTag(11)?.removeFromSuperview()
+        vDatePicker = nil
     }
     
     func tapCancel() {
@@ -253,5 +265,35 @@ extension CreateCollaborateViewController: DateTableViewCellProtocol{
             self.view.addSubview(vDatePicker)
             vDatePicker.delegate = self
         }
+    }
+}
+
+extension CreateCollaborateViewController: TitleTableViewCellProtocol{
+    func getTextCollaborationService(_ str: String, type: typeCellCreateCollaborate) {
+        switch type {
+            
+        case .Image:
+            break
+        case .Title:
+            break
+        case .FullName:
+            break
+        case .Email:
+            break
+        case .PhoneNumber:
+            break
+        case .Description:
+            break
+        case .CollaborateExpect:
+            break
+        case .CreateCollaborate:
+            break
+        }
+    }
+}
+
+extension CreateCollaborateViewController: CompleteTableViewCellProtocol{
+    func didComplete() {
+        
     }
 }

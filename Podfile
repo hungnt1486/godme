@@ -7,7 +7,7 @@ target 'godme' do
 
   # Pods for godme
 
-pod 'Alamofire'
+pod 'Alamofire', '~> 4.9.0'
 pod 'Toaster'
 pod 'SwiftyJSON'
 pod 'IQKeyboardManagerSwift'

@@ -21,10 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        FirebaseApp.configure()
         // google map
-        GMSServices.provideAPIKey("AIzaSyD5ez9nRucb2cwrjnraxAw49GnEujn32uA")
-        GMSPlacesClient.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
+        GMSServices.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk")
+        GMSPlacesClient.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk")
+        print("key = \(GMSServices.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk"))")
+        
+//        GMSServices.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
+//        GMSPlacesClient.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
     
         // keyborad Manager
         IQKeyboardManager.shared.enable = true
@@ -32,7 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.clear
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        FirebaseApp.configure()
+        if GMSServices.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk") {
+            print("good provided keys correctly")
+        }
+        else {
+            print("key didn't provided")
+        }
+
         // init AWS
         self.initializeS3()
         self.checkLogin()
@@ -40,10 +50,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initializeS3() {
-        let poolId = "AKIAT4P2FWA5FP5WODNQ" // 3-1
-        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USWest1, identityPoolId: poolId)//3-2
-        let configuration = AWSServiceConfiguration(region: .USWest1, credentialsProvider: credentialsProvider)
+        let poolId = "ap-southeast-1:67a74c76-8eed-4494-9133-70839255dbcb" // 3-1
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .APSoutheast1, identityPoolId: poolId)//3-2
+        let configuration = AWSServiceConfiguration(region: .APSoutheast1, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+        // Initialize the Amazon Cognito credentials provider
+
+//        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.APSoutheast1,
+//           identityPoolId:"ap-southeast-1:67a74c76-8eed-4494-9133-70839255dbcb")
+//
+//        let configuration = AWSServiceConfiguration(region:.APSoutheast1, credentialsProvider:credentialsProvider)
+//
+//        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
         
         
     }

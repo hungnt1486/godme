@@ -22,7 +22,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-iA-y7P">
-                        <rect key="frame" x="20" y="37.5" width="290" height="100"/>
+                        <rect key="frame" x="20" y="37.5" width="280" height="100"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="edC-0r-XwP"/>
@@ -37,7 +37,7 @@
                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="G7L-Ge-625" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Aff-26-9o9"/>
-                    <constraint firstAttribute="trailing" secondItem="vbi-iA-y7P" secondAttribute="trailing" constant="10" id="GZx-CR-B7h"/>
+                    <constraint firstAttribute="trailing" secondItem="vbi-iA-y7P" secondAttribute="trailing" constant="20" id="GZx-CR-B7h"/>
                     <constraint firstItem="G7L-Ge-625" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Zvq-b2-2NN"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vbi-iA-y7P" secondAttribute="bottom" constant="5" id="gjo-gl-cDX"/>
                     <constraint firstItem="vbi-iA-y7P" firstAttribute="top" secondItem="G7L-Ge-625" secondAttribute="bottom" constant="8" id="hXn-aJ-q5q"/>

@@ -90,20 +90,65 @@ class userInfoModel: BaseModel {
     }
 }
 
+class BasicServiceModel {
+    var title = ""
+    var dateTime1 = 0.0
+    var dateTime2 = 0.0
+    var dateTime3 = 0.0
+    var dateTime4 = 0.0
+    var dateTime5 = 0.0
+    var dateTime6 = 0.0
+    var dateTime7 = 0.0
+    var address = ""
+    var latitude = 0.0
+    var longitude = 0.0
+    var description = ""
+    var language = ""
+    var amount = ""
+    var images = ""
+}
+
+class EventServiceParamsModel{
+    var title = ""
+    var startTime = 0.0
+    var endTime = 0.0
+    var address = ""
+    var latitude = 0.0
+    var longitude = 0.0
+    var description = ""
+    var language = ""
+    var amount = ""
+    var images = ""
+}
+
+class AuctionServiceParamsModel{
+    var title = ""
+    var startTime = 0.0
+    var endTime = 0.0
+    var address = ""
+    var latitude = 0.0
+    var longitude = 0.0
+    var description = ""
+    var language = ""
+    var amount = ""
+    var images = ""
+    var priceStep = ""
+}
+
 struct AddNewBaseServiceParams {
     var title: String?
-    var dateTime1: String?
-    var dateTime2: String?
-    var dateTime3: String?
-    var dateTime4: String?
-    var dateTime5: String?
-    var dateTime6: String?
-    var dateTime7: String?
+    var dateTime1: Double?
+    var dateTime2: Double?
+    var dateTime3: Double?
+    var dateTime4: Double?
+    var dateTime5: Double?
+    var dateTime6: Double?
+    var dateTime7: Double?
     var address: String?
     var latitude: Double?
     var longitude: Double?
     var description: String?
-    var language: Int?
+    var language: String?
     var amount: String?
     var images: String?
 }

@@ -29,7 +29,9 @@ class DateTableViewCell: UITableViewCell {
         let gesture = UITapGestureRecognizer.init(target: self, action: #selector(touchAddress))
         self.lbTypeCar.addGestureRecognizer(gesture)
         self.lbTypeCar.isUserInteractionEnabled = true
-        self.setupUI()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
     }
     
     func setupUI(){

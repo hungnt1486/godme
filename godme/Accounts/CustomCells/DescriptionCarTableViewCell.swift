@@ -23,12 +23,19 @@ class DescriptionCarTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         textView.delegate = self
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupUI(){
+        self.textView = Settings.ShareInstance.setupBTTextView(v: self.textView)
     }
     
 }

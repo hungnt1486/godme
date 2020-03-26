@@ -9,8 +9,8 @@
 import UIKit
 
 protocol StartEndTimeTableViewCellProtocol {
-    func didStartTime()
-    func didEndTime()
+    func didStartTime(index: Int)
+    func didEndTime(index: Int)
 }
 
 class StartEndTimeTableViewCell: UITableViewCell {
@@ -19,10 +19,13 @@ class StartEndTimeTableViewCell: UITableViewCell {
     @IBOutlet weak var lbStartTime: UILabel!
     @IBOutlet weak var lbEndTime: UILabel!
     var delegate: StartEndTimeTableViewCellProtocol?
+    var indexLabel = 0
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.setupUI()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
     }
     
     func setupUI(){
@@ -39,11 +42,21 @@ class StartEndTimeTableViewCell: UITableViewCell {
     }
     
     @objc func touchStartTime(){
-        delegate?.didStartTime()
+        delegate?.didStartTime(index: self.lbStartTime.tag)
     }
     
     @objc func touchEndTime(){
-        delegate?.didEndTime()
+        delegate?.didEndTime(index: self.lbEndTime.tag)
+    }
+    
+    func updateDate(str: String, index: Int){
+        print("index = \(index)")
+        if index == 1 {
+            self.lbStartTime.text = str
+        }else{
+            self.lbEndTime.text = str
+        }
+//        self.lbTypeCar.text = str
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

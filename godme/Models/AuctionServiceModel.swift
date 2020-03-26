@@ -61,8 +61,8 @@ class AuctionServiceModel: BaseModel {
 struct AddNewAuctionServiceParams {
     
     var title: String?
-    var startTime: String?
-    var endTime: String?
+    var startTime: Double?
+    var endTime: Double?
     var description: String?
     var address: String?
     var latitude: Double?

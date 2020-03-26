@@ -119,6 +119,9 @@
 		413937602425E64C0079C587 /* VSearchMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139375F2425E64C0079C587 /* VSearchMain.swift */; };
 		413937622425E65A0079C587 /* VSearchMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937612425E65A0079C587 /* VSearchMain.xib */; };
 		413937642428A1570079C587 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937632428A1570079C587 /* AWSS3Manager.swift */; };
+		413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937A5242B65020079C587 /* Title1TableViewCell.xib */; };
+		413937A8242B65020079C587 /* Title1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937A6242B65020079C587 /* Title1TableViewCell.swift */; };
+		413937AA242C5E070079C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 413937A9242C5E060079C587 /* GoogleService-Info.plist */; };
 		4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA51241B15B600F8A7E4 /* Resources.swift */; };
 		4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */; };
 		4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */; };
@@ -273,7 +276,6 @@
 		E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B0241F397E00D206A1 /* UserManager.swift */; };
 		E6B490B3241F724000D206A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B490B2241F724000D206A1 /* UserModel.swift */; };
 		E6F024A52423737900A75EA1 /* BaseServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F024A42423737900A75EA1 /* BaseServiceModel.swift */; };
-		E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -391,6 +393,9 @@
 		4139375F2425E64C0079C587 /* VSearchMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSearchMain.swift; sourceTree = "<group>"; };
 		413937612425E65A0079C587 /* VSearchMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VSearchMain.xib; sourceTree = "<group>"; };
 		413937632428A1570079C587 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
+		413937A5242B65020079C587 /* Title1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Title1TableViewCell.xib; sourceTree = "<group>"; };
+		413937A6242B65020079C587 /* Title1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title1TableViewCell.swift; sourceTree = "<group>"; };
+		413937A9242C5E060079C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4150DA51241B15B600F8A7E4 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = godme/LibSettings/Resources/Resources.swift; sourceTree = SOURCE_ROOT; };
 		4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -549,7 +554,6 @@
 		E6B490B0241F397E00D206A1 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E6B490B2241F724000D206A1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E6F024A42423737900A75EA1 /* BaseServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceModel.swift; sourceTree = "<group>"; };
-		E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6F57D862410EAA8005FC9C2 /* godme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = godme.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -919,6 +923,8 @@
 				41286B742411DC7E0021157C /* FeatureTableViewCell.xib */,
 				41ADEAC2241E03B7002C95FA /* TitleTableViewCell.swift */,
 				41ADEAC3241E03B7002C95FA /* TitleTableViewCell.xib */,
+				413937A6242B65020079C587 /* Title1TableViewCell.swift */,
+				413937A5242B65020079C587 /* Title1TableViewCell.xib */,
 				41ADEAC6241E04C4002C95FA /* TimeTableViewCell.swift */,
 				41ADEAC7241E04C5002C95FA /* TimeTableViewCell.xib */,
 				41ADEAEE241E4BA5002C95FA /* StartEndTimeTableViewCell.swift */,
@@ -1125,7 +1131,7 @@
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
 				41132992241684450089DD18 /* Localizable.strings */,
 				E6500C7A2408BAB1001E023D /* Info.plist */,
-				E6F57D842410E7F4005FC9C2 /* GoogleService-Info.plist */,
+				413937A9242C5E060079C587 /* GoogleService-Info.plist */,
 				E6500C742408BAB1001E023D /* Preview Content */,
 			);
 			path = godme;
@@ -1184,8 +1190,8 @@
 				E6500C652408BAAF001E023D /* Sources */,
 				E6500C662408BAAF001E023D /* Frameworks */,
 				E6500C672408BAAF001E023D /* Resources */,
-				B1EEE7E62967D9FDCEDCA9DB /* [CP] Embed Pods Frameworks */,
-				0E95286FE3D1E599B87405C3 /* [CP] Copy Pods Resources */,
+				2CD8EC46A6C1DB77EB5225DB /* [CP] Embed Pods Frameworks */,
+				E5A077552EE32E116C9B9B34 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1330,6 +1336,7 @@
 				41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */,
 				41ADEAF5241E505D002C95FA /* CreateCollaborateViewController.xib in Resources */,
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
+				413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */,
 				41ADEAD0241E075B002C95FA /* AddressPostCarTableViewCell.xib in Resources */,
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
 				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
@@ -1359,9 +1366,9 @@
 				4150DA6C241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf in Resources */,
 				41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */,
 				4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */,
+				413937AA242C5E070079C587 /* GoogleService-Info.plist in Resources */,
 				415500392419B2D2006B189E /* SearchBarDetailViewController.xib in Resources */,
 				41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */,
-				E6F57D852410E7F5005FC9C2 /* GoogleService-Info.plist in Resources */,
 				41ADEAC9241E04C5002C95FA /* TimeTableViewCell.xib in Resources */,
 				41ADEADA241E08F6002C95FA /* CreateServiceViewController.xib in Resources */,
 				411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */,
@@ -1373,7 +1380,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E95286FE3D1E599B87405C3 /* [CP] Copy Pods Resources */ = {
+		2CD8EC46A6C1DB77EB5225DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1381,20 +1388,46 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		80337E18F924D3A90090A476 /* [CP] Check Pods Manifest.lock */ = {
@@ -1419,7 +1452,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B1EEE7E62967D9FDCEDCA9DB /* [CP] Embed Pods Frameworks */ = {
+		E5A077552EE32E116C9B9B34 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1427,44 +1460,20 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
-				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1492,6 +1501,7 @@
 				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
 				E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */,
 				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
+				413937A8242B65020079C587 /* Title1TableViewCell.swift in Sources */,
 				E60FA9AB2424AFAB00A45AFF /* WalletManager.swift in Sources */,
 				E6F024A52423737900A75EA1 /* BaseServiceModel.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
@@ -1765,7 +1775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hung.godme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hung.godme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1787,7 +1797,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hung.godme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hung.godme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

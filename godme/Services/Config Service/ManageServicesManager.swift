@@ -151,7 +151,7 @@ class ManageServicesManager{
         paramsBody["amount"] = model.amount
         paramsBody["dateTime"] = model.dateTime
         Alamofire.request(URLs.confirmBookBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
-            print("getListBlogsService = \(response)")
+            print("confirmBookBaseService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }

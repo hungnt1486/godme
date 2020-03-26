@@ -21,7 +21,7 @@ class MapPickerViewController: BaseViewController, GMSMapViewDelegate, LocateOnT
         let locationCoordinate = CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
         let camera = GMSCameraPosition.camera(withTarget: locationCoordinate, zoom: 15)
         let v = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-        if #available(iOS 12.0, *) {
+        if #available(iOS 13.0, *) {
             if self.traitCollection.userInterfaceStyle == .dark {
                 do {
                     // Set the map style by passing the URL of the local file.

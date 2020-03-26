@@ -31,7 +31,9 @@ class AddressPostCarTableViewCell: UITableViewCell {
         let gesture = UITapGestureRecognizer.init(target: self, action: #selector(touchAddress))
         self.lbTypeCar.addGestureRecognizer(gesture)
         self.lbTypeCar.isUserInteractionEnabled = true
-        self.lbTypeCar = Settings.ShareInstance.setupBTLabelView(v: self.lbTypeCar)
+        DispatchQueue.main.async {
+            self.lbTypeCar = Settings.ShareInstance.setupBTLabelView(v: self.lbTypeCar)
+        }
     }
     
     @objc func touchAddress(){

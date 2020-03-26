@@ -7,10 +7,14 @@
 //
 
 import UIKit
+protocol CompleteTableViewCellProtocol {
+    func didComplete()
+}
 
 class CompleteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var btComplete: UIButton!
+    var delegate: CompleteTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +30,6 @@ class CompleteTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchComplete(_ sender: Any) {
-        
+        delegate?.didComplete()
     }
 }

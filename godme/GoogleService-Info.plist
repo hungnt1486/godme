@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>690698974418-05ni0ohnbkghgpvj9lhdosu0eev1sf9n.apps.googleusercontent.com</string>
+	<string>690698974418-ljuu4v8ej9f1p313gu9slcqm2k7649re.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.690698974418-05ni0ohnbkghgpvj9lhdosu0eev1sf9n</string>
+	<string>com.googleusercontent.apps.690698974418-ljuu4v8ej9f1p313gu9slcqm2k7649re</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAlPjrkIQU80VM5JlRKKi_gZrY2k8Nn_us</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>hung.godme</string>
+	<string>com.hung.godme</string>
 	<key>PROJECT_ID</key>
 	<string>godme123-382cd</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:690698974418:ios:f27c0e085bdc1be0b9290b</string>
+	<string>1:690698974418:ios:3fe2da97519d5a20b9290b</string>
 	<key>DATABASE_URL</key>
 	<string>https://godme123-382cd.firebaseio.com</string>
 </dict>

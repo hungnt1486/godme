@@ -195,11 +195,24 @@ class Settings: NSObject {
     
     func setupBTView(v: UITextField) -> UITextField {
         let layer = CALayer.init()
-        if #available(iOS 12.0, *) {
-            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height + 5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
+        if #available(iOS 13.0, *) {
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height - 0.5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
         } else {
             // Fallback on earlier versions
-            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height + 5, width: (v as AnyObject).size.width, height: 0.5)
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height - 0.5, width: (v as AnyObject).size.width, height: 0.5)
+        }
+        layer.backgroundColor = UIColor.lightGray.cgColor
+        (v as AnyObject).layer.addSublayer(layer)
+        return v
+    }
+    
+    func setupBTTextView(v: UITextView) -> UITextView {
+        let layer = CALayer.init()
+        if #available(iOS 13.0, *) {
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height - 0.5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
+        } else {
+            // Fallback on earlier versions
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height - 0.5, width: (v as AnyObject).size.width, height: 0.5)
         }
         layer.backgroundColor = UIColor.lightGray.cgColor
         (v as AnyObject).layer.addSublayer(layer)
@@ -221,11 +234,11 @@ class Settings: NSObject {
     
     func setupBTLabelView(v: UILabel) -> UILabel {
         let layer = CALayer.init()
-        if #available(iOS 12.0, *) {
-            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height + 5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
+        if #available(iOS 13.0, *) {
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height - 0.5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
         } else {
             // Fallback on earlier versions
-            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height + 5, width: (v as AnyObject).size.width, height: 0.5)
+            layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height - 0.5, width: (v as AnyObject).size.width, height: 0.5)
         }
         layer.backgroundColor = UIColor.lightGray.cgColor
         (v as AnyObject).layer.addSublayer(layer)
@@ -234,7 +247,7 @@ class Settings: NSObject {
     
     func setupBTButtonView(v: UIButton) -> UIButton {
         let layer = CALayer.init()
-        if #available(iOS 12.0, *) {
+        if #available(iOS 13.0, *) {
             layer.frame = CGRect.init(x: 0, y: (v as AnyObject).frame.size.height + 5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
         } else {
             // Fallback on earlier versions
@@ -440,6 +453,10 @@ class Settings: NSObject {
         formatDate.locale = Locale.current
         let dateConvert = formatDate.string(from: date as Date)
         return dateConvert
+    }
+    
+    func convertDateToTimeInterval(date: Date) -> Double{
+        return date.timeIntervalSinceReferenceDate
     }
      
 }
