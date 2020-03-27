@@ -224,17 +224,17 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
             let model = listBaseService[indexPath.row]
-            let detail = DetailBasicServiceViewController()
+            let detail = MyServiceDetailViewController()
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }else if indexPath.section == 1 {
             let model = listAuction[indexPath.row]
-            let detail = DetailAuctionViewController()
+            let detail = MyAuctionServiceDetailViewController()
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }else {
             let model = listEvents[indexPath.row]
-            let detail = DetailEventViewController()
+            let detail = MyEventServiceDetailViewController()
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }

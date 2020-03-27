@@ -8,12 +8,11 @@
 
 import UIKit
 
-protocol MyBaseService1DetailTableViewCellProtocol {
-    func didConfirm(_ index: Int)
-    func didCancel(_ index: Int)
+protocol MyBaseService2DetailTableViewCellProtocol {
+    func didDone(_ index: Int)
 }
 
-class MyBaseService1DetailTableViewCell: UITableViewCell {
+class MyBaseService2DetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbStatus: UILabel!
@@ -21,8 +20,7 @@ class MyBaseService1DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var vSub: UIView!
     @IBOutlet weak var btConfirm: UIButton!
-    @IBOutlet weak var btCancel: UIButton!
-    var delegate: MyBaseService1DetailTableViewCellProtocol?
+    var delegate: MyBaseService2DetailTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -43,9 +41,6 @@ class MyBaseService1DetailTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchConfirm(_ sender: Any) {
-        delegate?.didConfirm(self.btConfirm.tag)
-    }
-    @IBAction func touchCancel(_ sender: Any) {
-        delegate?.didCancel(self.btCancel.tag)
+        delegate?.didDone(self.btConfirm.tag)
     }
 }

@@ -54,12 +54,15 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
         case .Basic:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
             cell.lbTitle.text = modelDetail?.title
-            cell.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            let images = modelDetail?.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
                 if error == nil {
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbCity.text = "Địa chỉ: \(modelDetail?.userInfo?.address ?? "")"
+            cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
             cell.lbName.text = modelDetail?.userInfo?.userCategory
             cell.lbCoin.text = "\(modelDetail?.amount ?? "0") Godcoin"
             return cell

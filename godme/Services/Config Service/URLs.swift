@@ -23,6 +23,7 @@ struct URLs {
         static let createBaseService = "api/mobile/service/basic/save"
         static let searchBaseService = "api/mobile/service/basic/search"
         static let searchOrderBaseService = "api/mobile/order/basic/search"
+        static let confirmOrderBaseService = "api/mobile/order/basic/update"
         static let createAuctionService = "api/mobile/service/auction/save"
         static let searchAuctionService = "api/mobile/service/auction/search"
         static let searchOrderAuctionService = "api/mobile/order/auction/search"
@@ -129,6 +130,9 @@ struct URLs {
     }
     static var searchOrderBaseService: String{
         return String(format: "%@%@", linkServer, Routes.searchOrderBaseService)
+    }
+    static var confirmOrderBaseService:String{
+        return String(format: "%@%@", linkServer, Routes.confirmOrderBaseService)
     }
     
     /// auction service

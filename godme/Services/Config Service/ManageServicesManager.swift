@@ -60,6 +60,15 @@ class ManageServicesManager{
         }
     }
     
+    func getDetailBaseService(id: Int, completion: @escaping(SingleResult<BaseServiceModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        Alamofire.request(URLs.searchBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getDetailBaseService = \(response)")
+            completion(SingleResult<BaseServiceModel>.handleResponse(response))
+        }
+    }
+    
     func searchOrderBaseService(buyerId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceInfoBookedModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["buyerId"] = buyerId
@@ -69,6 +78,26 @@ class ManageServicesManager{
         Alamofire.request(URLs.searchOrderBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("searchOrderBaseService = \(response)")
             completion(ListResult<BaseServiceInfoBookedModel>.handleResponse(response))
+        }
+    }
+    
+    func getListOrderBaseService(sellerId: Int, serviceId: Int, completion: @escaping(ListResult<BaseServiceInfoBookedModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["sellerId"] = sellerId
+        paramsBody["serviceId"] = serviceId
+        Alamofire.request(URLs.searchOrderBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListOrderBaseService = \(response)")
+            completion(ListResult<BaseServiceInfoBookedModel>.handleResponse(response))
+        }
+    }
+    
+    func confirmOrderBaseService(id: Int, status: String, completion:@escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        paramsBody["status"] = status
+        Alamofire.request(URLs.confirmOrderBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("confirmOrderBaseService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
     
@@ -122,6 +151,16 @@ class ManageServicesManager{
         }
     }
     
+    func getListOrderAuctionService(sellerId: Int, serviceId: Int, completion: @escaping(ListResult<AuctionServiceInfoBookedModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["sellerId"] = sellerId
+        paramsBody["serviceId"] = serviceId
+        Alamofire.request(URLs.searchOrderAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListOrderAuctionService = \(response)")
+            completion(ListResult<AuctionServiceInfoBookedModel>.handleResponse(response))
+        }
+    }
+    
     func getListEventService(type: String, completion: @escaping(ListResult<EventModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["serviceType"] = type
@@ -151,6 +190,16 @@ class ManageServicesManager{
         paramsBody["pageSize"] = pageSize
         Alamofire.request(URLs.searchOrderEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("searchOrderEventService = \(response)")
+            completion(ListResult<EventServiceInfoBookedModel>.handleResponse(response))
+        }
+    }
+    
+    func getListOrderEventService(sellerId: Int, serviceId: Int, completion: @escaping(ListResult<EventServiceInfoBookedModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["sellerId"] = sellerId
+        paramsBody["serviceId"] = serviceId
+        Alamofire.request(URLs.searchOrderEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListOrderEventService = \(response)")
             completion(ListResult<EventServiceInfoBookedModel>.handleResponse(response))
         }
     }

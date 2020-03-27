@@ -267,10 +267,10 @@ class Settings: NSObject {
     func setupTopV(v: UIView) -> UIView {
         let layer = CALayer.init()
         if #available(iOS 13.0, *) {
-            layer.frame = CGRect.init(x: 0, y: 0.5, width: ((v as AnyObject).frame?.width)!, height: (v as AnyObject).frame.size.height - 0.5)
+            layer.frame = CGRect.init(x: 0, y: 0.5, width: ((v as AnyObject).frame?.width)!, height: 0.5)
         } else {
             // Fallback on earlier versions
-            layer.frame = CGRect.init(x: 0, y: 0.5, width: (v as AnyObject).size.width, height: (v as AnyObject).frame.size.height - 0.5)
+            layer.frame = CGRect.init(x: 0, y: 0.5, width: (v as AnyObject).size.width, height: 0.5)
         }
         layer.backgroundColor = UIColor.lightGray.cgColor
         (v as AnyObject).layer.addSublayer(layer)
