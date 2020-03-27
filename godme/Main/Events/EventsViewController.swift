@@ -23,8 +23,12 @@ class EventsViewController: BaseViewController {
         self.getListEventService()
     }
     
-    func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = Settings.ShareInstance.translate(key: "events")
+    }
+    
+    func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -67,12 +71,15 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
         let model = listEvents[indexPath.row]
         cell.lbTitle.text = model.title
-        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        let images = model.images
+        let arrImgage = images?.split(separator: ",")
+        let linkImg = arrImgage?[0]
+        cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
         cell.lbName.text = model.userInfo?.userCategory
         return cell
     }

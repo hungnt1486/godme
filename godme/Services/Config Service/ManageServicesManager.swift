@@ -48,14 +48,27 @@ class ManageServicesManager{
         }
     }
     
-    func searchBaseService(title: String, page: Int, pageSize: Int, completion: @escaping(ListResult<BaseModel>) -> Void){
+    func searchBaseService(createdByUserId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceModel>) -> Void){
         var paramsBody = [String: Any]()
-        paramsBody["title"] = title
+        paramsBody["createdByUserId"] = createdByUserId
+        paramsBody["sorts"] = sorts
         paramsBody["page"] = page
         paramsBody["pageSize"] = pageSize
-        Alamofire.request(URLs.createBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+        Alamofire.request(URLs.searchBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("searchBaseService = \(response)")
-            completion(ListResult<BaseModel>.handleResponse(response))
+            completion(ListResult<BaseServiceModel>.handleResponse(response))
+        }
+    }
+    
+    func searchOrderBaseService(buyerId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceInfoBookedModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["buyerId"] = buyerId
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchOrderBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("searchOrderBaseService = \(response)")
+            completion(ListResult<BaseServiceInfoBookedModel>.handleResponse(response))
         }
     }
     
@@ -85,12 +98,60 @@ class ManageServicesManager{
         }
     }
     
+    func searchAuctionService(createdByUserId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<AuctionServiceModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["createdByUserId"] = createdByUserId
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("searchAuctionService = \(response)")
+            completion(ListResult<AuctionServiceModel>.handleResponse(response))
+        }
+    }
+    
+    func searchOrderAuctionService(buyerId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<AuctionServiceInfoBookedModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["buyerId"] = buyerId
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchOrderAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("searchOrderAuctionService = \(response)")
+            completion(ListResult<AuctionServiceInfoBookedModel>.handleResponse(response))
+        }
+    }
+    
     func getListEventService(type: String, completion: @escaping(ListResult<EventModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["serviceType"] = type
         Alamofire.request(URLs.getListEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(ListResult<EventModel>.handleResponse(response))
+        }
+    }
+    
+    func searchEventService(createdByUserId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<EventModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["createdByUserId"] = createdByUserId
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("searchEventService = \(response)")
+            completion(ListResult<EventModel>.handleResponse(response))
+        }
+    }
+    
+    func searchOrderEventService(buyerId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<EventServiceInfoBookedModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["buyerId"] = buyerId
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchOrderEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("searchOrderEventService = \(response)")
+            completion(ListResult<EventServiceInfoBookedModel>.handleResponse(response))
         }
     }
     

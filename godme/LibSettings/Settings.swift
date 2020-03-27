@@ -61,11 +61,43 @@ class Settings: NSObject {
 //        return model
 //    }
     
+    func getDictUser()-> UserLogin{
+        var model = UserLogin()
+        let dict = UserDefaults.standard.object(forKey: information_login) as! NSDictionary
+        model.userId = dict.object(forKey: "userId") as? Int
+        model.userName = dict.object(forKey: "userName") as! NSString as String
+        model.access_token = dict.object(forKey: "access_token") as! NSString as String
+        model.fullName = dict.object(forKey: "fullName") as! NSString as String
+        model.permissions = dict.object(forKey: "permissions") as? [String]
+        return model
+    }
+    
     func formatCurrency(Value: String) -> String{
         let format = NumberFormatter()
         format.numberStyle = .currency
         format.currencyCode = "VND"
         return format.string(from: NSNumber.init(value: Int(Value)!))!
+    }
+    
+    func setDictUser(data: UserLoginReturnModel){
+        let dict = ["fullName": data.fullName ?? "",
+                    "userName": data.userName ?? "",
+                    "userId": data.userId ?? 0,
+                    "access_token": data.access_token ?? "",
+        "permissions": data.permissions ?? []] as [String: Any]
+        
+        UserDefaults.standard.set(dict, forKey: information_login)
+        UserDefaults.standard.synchronize()
+        BaseViewController.accessToken = data.access_token!
+//        "result": {
+//        "access_token": "toj0ndbtu3brpvt68imv4gdj82dfe1eq",
+//        "permissions": [
+//            "ROLE_ADMIN",
+//            "ROLE_ALLOW_ACCESS_SYSTEM"
+//        ],
+//        "fullName": "Tai",
+//        "userName": "+84admin",
+//        "userId": 2
     }
     
 //    func setDictUser(data: RegisterModel, password: String = "", rememberMe: Bool = false) -> Void {
@@ -226,6 +258,19 @@ class Settings: NSObject {
         } else {
             // Fallback on earlier versions
             layer.frame = CGRect.init(x: 0, y: (v as AnyObject).size.height - 0.5, width: (v as AnyObject).size.width, height: 0.5)
+        }
+        layer.backgroundColor = UIColor.lightGray.cgColor
+        (v as AnyObject).layer.addSublayer(layer)
+        return v
+    }
+    
+    func setupTopV(v: UIView) -> UIView {
+        let layer = CALayer.init()
+        if #available(iOS 13.0, *) {
+            layer.frame = CGRect.init(x: 0, y: 0.5, width: ((v as AnyObject).frame?.width)!, height: (v as AnyObject).frame.size.height - 0.5)
+        } else {
+            // Fallback on earlier versions
+            layer.frame = CGRect.init(x: 0, y: 0.5, width: (v as AnyObject).size.width, height: (v as AnyObject).frame.size.height - 0.5)
         }
         layer.backgroundColor = UIColor.lightGray.cgColor
         (v as AnyObject).layer.addSublayer(layer)
@@ -449,7 +494,7 @@ class Settings: NSObject {
         }
         let date = NSDate.init(timeIntervalSinceNow: timeInterval)
         let formatDate = DateFormatter.init()
-        formatDate.dateFormat = "MM-dd HH:mm"
+        formatDate.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"//"yyyy-MM-dd HH:mm"
         formatDate.locale = Locale.current
         let dateConvert = formatDate.string(from: date as Date)
         return dateConvert

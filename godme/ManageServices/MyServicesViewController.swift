@@ -11,6 +11,10 @@ import UIKit
 class MyServicesViewController: BaseViewController {
 
     @IBOutlet weak var tbvMyServices: CollapseTableView!
+    var listBaseService: [BaseServiceModel] = []
+    var listAuction:[AuctionServiceModel] = []
+    var listEvents: [EventModel] = []
+    var modelUser = Settings.ShareInstance.getDictUser()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +27,10 @@ class MyServicesViewController: BaseViewController {
         reloadTableView { [unowned self] in
             self.tbvMyServices.openSection(0, animated: true)
         }
+        self.showProgressHub()
+        self.getListSearchBaseService()
+        self.getListSearchAuctionService()
+        self.getListSearchEventService()
     }
     
     func setupTableView(){
@@ -54,29 +62,79 @@ class MyServicesViewController: BaseViewController {
         self.tbvMyServices.reloadData()
         CATransaction.commit()
     }
+    
+    func getListSearchBaseService(){
+        ManageServicesManager.shareManageServicesManager().searchBaseService(createdByUserId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBaseService.append(model)
+                }
+                self.tbvMyServices.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearchAuctionService(){
+        ManageServicesManager.shareManageServicesManager().searchAuctionService(createdByUserId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listAuction.append(model)
+                }
+                self.tbvMyServices.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearchEventService(){
+        ManageServicesManager.shareManageServicesManager().searchEventService(createdByUserId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listEvents.append(model)
+                }
+                self.tbvMyServices.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 }
 
 extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 10
+            return self.listBaseService.count
+        }else if section == 1 {
+            return self.listAuction.count
+        }else{
+            return self.listEvents.count
         }
-        return 10
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if section == 0{
-//            return UIView()
-//        }else{
-//            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderMyServices") as! HeaderMyServices
-//            header.backgroundColor = UIColor.FlatColor.Gray.BGColor
-//            return header
-//        }
-//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as! SectionHeaderView
@@ -102,12 +160,54 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
+            let model = listBaseService[indexPath.row]
+            cell.lbTitle.text = model.title
+            let images = model.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
+            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
+            let model = listAuction[indexPath.row]
+            cell.lbTitle.text = model.title
+            let images = model.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
+            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
+            let model = listEvents[indexPath.row]
+            cell.lbTitle.text = model.title
+            let images = model.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
+            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }
         
@@ -122,6 +222,22 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            let model = listBaseService[indexPath.row]
+            let detail = DetailBasicServiceViewController()
+            detail.modelDetail = model
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else if indexPath.section == 1 {
+            let model = listAuction[indexPath.row]
+            let detail = DetailAuctionViewController()
+            detail.modelDetail = model
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else {
+            let model = listEvents[indexPath.row]
+            let detail = DetailEventViewController()
+            detail.modelDetail = model
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
     }
     
     

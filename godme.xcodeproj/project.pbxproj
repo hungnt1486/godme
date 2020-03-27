@@ -122,6 +122,10 @@
 		413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937A5242B65020079C587 /* Title1TableViewCell.xib */; };
 		413937A8242B65020079C587 /* Title1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937A6242B65020079C587 /* Title1TableViewCell.swift */; };
 		413937AA242C5E070079C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 413937A9242C5E060079C587 /* GoogleService-Info.plist */; };
+		413937AD242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937AB242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift */; };
+		413937AE242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937AC242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib */; };
+		413937B1242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937AF242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib */; };
+		413937B2242DD3890079C587 /* MyBaseService1DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937B0242DD3890079C587 /* MyBaseService1DetailTableViewCell.swift */; };
 		4150DA65241B15B600F8A7E4 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150DA51241B15B600F8A7E4 /* Resources.swift */; };
 		4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */; };
 		4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */; };
@@ -396,6 +400,10 @@
 		413937A5242B65020079C587 /* Title1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Title1TableViewCell.xib; sourceTree = "<group>"; };
 		413937A6242B65020079C587 /* Title1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title1TableViewCell.swift; sourceTree = "<group>"; };
 		413937A9242C5E060079C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		413937AB242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBaseServiceDetailTableViewCell.swift; sourceTree = "<group>"; };
+		413937AC242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBaseServiceDetailTableViewCell.xib; sourceTree = "<group>"; };
+		413937AF242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBaseService1DetailTableViewCell.xib; sourceTree = "<group>"; };
+		413937B0242DD3890079C587 /* MyBaseService1DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBaseService1DetailTableViewCell.swift; sourceTree = "<group>"; };
 		4150DA51241B15B600F8A7E4 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = godme/LibSettings/Resources/Resources.swift; sourceTree = SOURCE_ROOT; };
 		4150DA53241B15B600F8A7E4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		4150DA54241B15B600F8A7E4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -1035,6 +1043,10 @@
 				410E67E12414286700FA2F54 /* HeaderMyServices.xib */,
 				410E67E324142B9F00FA2F54 /* ServicesInfoBookTableViewCell.swift */,
 				410E67E424142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib */,
+				413937AB242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift */,
+				413937AC242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib */,
+				413937B0242DD3890079C587 /* MyBaseService1DetailTableViewCell.swift */,
+				413937AF242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1268,6 +1280,7 @@
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
 				41AD16B92413A734001E132E /* FollowTableViewController.xib in Resources */,
 				411329D3241722330089DD18 /* InfoAuctionTableViewCell.xib in Resources */,
+				413937B1242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib in Resources */,
 				41AD16B1241399BF001E132E /* HistoryLabelTableViewCell.xib in Resources */,
 				4150DA68241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf in Resources */,
 				4150DA75241B15B600F8A7E4 /* Roboto-Bold.ttf in Resources */,
@@ -1334,6 +1347,7 @@
 				41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */,
 				41AD16CE2413FD9E001E132E /* MyServicesViewController.xib in Resources */,
 				41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */,
+				413937AE242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib in Resources */,
 				41ADEAF5241E505D002C95FA /* CreateCollaborateViewController.xib in Resources */,
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
 				413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */,
@@ -1498,6 +1512,7 @@
 				4155003124194164006B189E /* SearchBarTableViewCell.swift in Sources */,
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
 				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
+				413937B2242DD3890079C587 /* MyBaseService1DetailTableViewCell.swift in Sources */,
 				E67BA75F2419F3F70014D803 /* SectionHeaderView.swift in Sources */,
 				E66F690E241B41F500A0EC99 /* MyRelationShipTableViewCell.swift in Sources */,
 				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
@@ -1540,6 +1555,7 @@
 				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
 				410E67FA24149E4F00FA2F54 /* Main1TableViewCell.swift in Sources */,
+				413937AD242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift in Sources */,
 				41AD16C72413FC31001E132E /* ViewPagerTabView.swift in Sources */,
 				41ADEAF0241E4BA5002C95FA /* StartEndTimeTableViewCell.swift in Sources */,
 				41286B0C24106C760021157C /* ContentTableViewCell.swift in Sources */,

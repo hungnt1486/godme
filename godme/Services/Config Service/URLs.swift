@@ -22,7 +22,10 @@ struct URLs {
         static let getListBaseService = "api/mobile/service/basic/getListService"
         static let createBaseService = "api/mobile/service/basic/save"
         static let searchBaseService = "api/mobile/service/basic/search"
+        static let searchOrderBaseService = "api/mobile/order/basic/search"
         static let createAuctionService = "api/mobile/service/auction/save"
+        static let searchAuctionService = "api/mobile/service/auction/search"
+        static let searchOrderAuctionService = "api/mobile/order/auction/search"
         static let getListAuctionService = "api/mobile/service/auction/getListService"
         static let searchRelationShips = "api/mobile/relationship/search"
         static let showRelationShip = "api/mobile/user/showRelationship"
@@ -36,6 +39,8 @@ struct URLs {
         static let sendEmailRelationShip = "api/mobile/groupRelationship/sendMailSupport"
         static let getListEventService = "api/mobile/service/event/getListService"
         static let createEventService = "api/mobile/service/event/save"
+        static let searchEventService = "api/mobile/service/event/search"
+        static let searchOrderEventService = "api/mobile/order/event/search"
         static let getListCollaborationService = "api/mobile/service/cooperation/getListService"
         static let createCollaborationService = "api/mobile/service/cooperation/save"
         static let getAmountCharity = "api/mobile/wallet/getAmountCharity"
@@ -43,6 +48,7 @@ struct URLs {
         static let getListSearch = "api/mobile/user/search"
         static let getListJob = "api/mobile/career/search"
         static let confirmBookBaseService = "api/mobile/order/basic/save"
+        
     }
     
     //// user
@@ -121,6 +127,9 @@ struct URLs {
     static var confirmBookBaseService: String{
         return String(format: "%@%@", linkServer, Routes.confirmBookBaseService)
     }
+    static var searchOrderBaseService: String{
+        return String(format: "%@%@", linkServer, Routes.searchOrderBaseService)
+    }
     
     /// auction service
     static var getListAuctionService: String{
@@ -128,6 +137,12 @@ struct URLs {
     }
     static var createAuctionService: String{
         return String(format: "%@%@", linkServer, Routes.createAuctionService)
+    }
+    static var searchAuctionService: String{
+        return String(format: "%@%@", linkServer, Routes.searchAuctionService)
+    }
+    static var searchOrderAuctionService: String{
+        return String(format: "%@%@", linkServer, Routes.searchOrderAuctionService)
     }
     
     /// event service
@@ -137,8 +152,14 @@ struct URLs {
     static var createEventService: String{
         return String(format: "%@%@", linkServer, Routes.createEventService)
     }
+    static var searchEventService: String{
+        return String(format: "%@%@", linkServer, Routes.searchEventService)
+    }
+    static var searchOrderEventService: String{
+        return String(format: "%@%@", linkServer, Routes.searchOrderEventService)
+    }
     
-    //// event collaboration
+    ////  collaboration service
     static var getListCollaborationService: String{
         return String(format: "%@%@", linkServer, Routes.getListCollaborationService)
     }

@@ -73,12 +73,15 @@ extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
         let model = listBaseService[indexPath.row]
         cell.lbTitle.text = model.title
-        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        let images = model.images
+        let arrImgage = images?.split(separator: ",")
+        let linkImg = arrImgage?[0]
+        cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
         cell.lbName.text = model.userInfo?.userCategory
         return cell
     }

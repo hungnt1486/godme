@@ -71,13 +71,16 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
                                                       for: indexPath) as! MainCollectionViewCell
         
         let model = listBaseService[indexPath.row]
+        let images = model.images
+        let arrImgage = images?.split(separator: ",")
         cell.lbName.text = model.title
-        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        let linkImg = arrImgage?[0]
+        cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
         cell.lbTitleDetail.text = model.userInfo?.userCategory
         return cell
         

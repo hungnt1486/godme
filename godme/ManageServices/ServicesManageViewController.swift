@@ -26,9 +26,13 @@ class ServicesManageViewController: BaseViewController {
         self.configPageView()
     }
     
-    func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = Settings.ShareInstance.translate(key: "manager_service")
-        
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func setupUI(){
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
     }

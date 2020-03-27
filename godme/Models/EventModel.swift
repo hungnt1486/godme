@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 
 class EventModel: BaseModel{
-    var startTime: Int32?
-    var endTime: Int32?
+    var startTime: Double?
+    var endTime: Double?
     var status: String?
     var title: String?
     var address: String?
@@ -34,8 +34,8 @@ class EventModel: BaseModel{
     
     required init?(json: JSON) {
         super.init(json: json)
-        startTime = json["startTime"].int32Value
-        endTime = json["endTime"].int32Value
+        startTime = json["startTime"].doubleValue
+        endTime = json["endTime"].doubleValue
         status = json["status"].stringValue
         title = json["title"].stringValue
         address = json["address"].stringValue
@@ -55,5 +55,43 @@ class EventModel: BaseModel{
         modifiedOn = json["modifiedOn"].int32Value
         userInfo = userInfoModel.init(json: json["userInfo"])
         isRelationshipWithSeller = json["isRelationshipWithSeller"].boolValue
+    }
+}
+
+class EventServiceInfoBookedModel: BaseModel {
+    var status: String?
+    var serviceId: Int?
+    var dateTime: Double?
+    var sellerId: Int?
+    var buyerId: Int?
+    var amount: String?
+    var serviceTitle: String?
+    var isRated: Bool?
+    var affiliateUserId: String?
+    var id: Int?
+    var createdOn: Double?
+    var createdBy: String?
+    var modifiedOn: Double?
+    var createdByUserId: Int?
+    var buyerInfo: buyerInfoModel?
+    var sellerInfo: sellerInfoModel?
+    required init?(json: JSON) {
+        super.init(json: json)
+        status = json["status"].stringValue
+        serviceId = json["serviceId"].intValue
+        dateTime = json["dateTime"].doubleValue
+        sellerId = json["sellerId"].intValue
+        buyerId = json["buyerId"].intValue
+        amount = json["amount"].stringValue
+        serviceTitle = json["serviceTitle"].stringValue
+        isRated = json["isRated"].boolValue
+        affiliateUserId = json["affiliateUserId"].stringValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].doubleValue
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        createdByUserId = json["createdByUserId"].intValue
+        buyerInfo = buyerInfoModel.init(json: json["buyerInfo"])
+        sellerInfo = sellerInfoModel.init(json: json["sellerInfo"])
     }
 }

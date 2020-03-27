@@ -58,6 +58,44 @@ class AuctionServiceModel: BaseModel {
     }
 }
 
+class AuctionServiceInfoBookedModel: BaseModel {
+    var status: String?
+    var serviceId: Int?
+    var dateTime: Double?
+    var sellerId: Int?
+    var buyerId: Int?
+    var amount: String?
+    var serviceTitle: String?
+    var isRated: Bool?
+    var affiliateUserId: String?
+    var id: Int?
+    var createdOn: Double?
+    var createdBy: String?
+    var modifiedOn: Double?
+    var createdByUserId: Int?
+    var buyerInfo: buyerInfoModel?
+    var sellerInfo: sellerInfoModel?
+    required init?(json: JSON) {
+        super.init(json: json)
+        status = json["status"].stringValue
+        serviceId = json["serviceId"].intValue
+        dateTime = json["dateTime"].doubleValue
+        sellerId = json["sellerId"].intValue
+        buyerId = json["buyerId"].intValue
+        amount = json["amount"].stringValue
+        serviceTitle = json["serviceTitle"].stringValue
+        isRated = json["isRated"].boolValue
+        affiliateUserId = json["affiliateUserId"].stringValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].doubleValue
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        createdByUserId = json["createdByUserId"].intValue
+        buyerInfo = buyerInfoModel.init(json: json["buyerInfo"])
+        sellerInfo = sellerInfoModel.init(json: json["sellerInfo"])
+    }
+}
+
 struct AddNewAuctionServiceParams {
     
     var title: String?

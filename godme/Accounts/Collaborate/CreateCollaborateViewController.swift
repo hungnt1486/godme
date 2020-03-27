@@ -31,6 +31,11 @@ class CreateCollaborateViewController: BaseViewController {
     var vDatePicker: ViewDatePicker!
     var cellDate: DateTableViewCell!
     
+    var auctionModel = AuctionServiceParamsModel()
+    var linkImg1: String = ""
+    var linkImg2: String = ""
+    var linkImg3: String = ""
+    
     var listTypeCell: [typeCellCreateCollaborate] = [.Image, .Title, .FullName, .Email, .PhoneNumber, .Description, .CollaborateExpect, .CreateCollaborate]
     
     override func viewDidLoad() {
@@ -94,6 +99,95 @@ class CreateCollaborateViewController: BaseViewController {
         //            popoverController.sourceRect = self.icAvatar.bounds
         //        }
         self.present(alertControl, animated: true, completion: nil)
+    }
+    
+    func addNewService(){
+        let group = DispatchGroup()
+        if cellImage.imageOne.image != nil {
+            AWSS3Manager.shared.uploadImage(image: cellImage.imageOne.image!, progress: nil) { [unowned self] (fileURL, error) in
+                group.enter()
+                if error == nil {
+                    self.linkImg1 = fileURL as! String
+                }else{
+                    Settings.ShareInstance.showAlertView(message: error?.localizedDescription ?? "", vc: self)
+                    group.leave()
+                    return
+                }
+                group.leave()
+            }
+        }
+        
+        if cellImage.imageTwo.image != nil {
+            group.enter()
+            AWSS3Manager.shared.uploadImage(image: cellImage.imageTwo.image!, progress: nil) { [unowned self] (fileURL, error) in
+                
+                if error == nil {
+                    self.linkImg2 = fileURL as! String
+                }else{
+                    Settings.ShareInstance.showAlertView(message: error?.localizedDescription ?? "", vc: self)
+                    group.leave()
+                    return
+                }
+                group.leave()
+            }
+        }
+        if cellImage.imageThree.image != nil {
+            group.enter()
+            AWSS3Manager.shared.uploadImage(image: cellImage.imageThree.image!, progress: nil) { [unowned self] (fileURL, error) in
+                
+                if error == nil {
+                    self.linkImg3 = fileURL as! String
+                }else{
+                    Settings.ShareInstance.showAlertView(message: error?.localizedDescription ?? "", vc: self)
+                    group.leave()
+                    return
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: DispatchQueue.global(qos: .background)) {
+            var linkImgs = ""
+            if self.linkImg1.count > 0 && self.linkImg2.count > 0 && self.linkImg3.count > 0 {
+                linkImgs = "\(self.linkImg1),\(self.linkImg2),\(self.linkImg3)"
+            }else if self.linkImg1.count > 0 && self.linkImg2.count > 0 {
+                linkImgs = "\(self.linkImg1),\(self.linkImg2)"
+            }else if self.linkImg1.count > 0 {
+                linkImgs = "\(self.linkImg1)"
+            }
+            var model = AddNewAuctionServiceParams()
+            model.startTime = self.auctionModel.startTime
+            model.endTime = self.auctionModel.endTime
+            model.amount = self.auctionModel.amount
+            model.address = "ghewiughgu guiwge"//self.basicModel.address
+            model.latitude = self.auctionModel.latitude
+            model.longitude = self.auctionModel.longitude
+            model.description = self.auctionModel.description
+            model.language = self.auctionModel.language
+            model.images = linkImgs
+            model.title = self.auctionModel.title
+            model.priceStep = self.auctionModel.priceStep
+            self.createNewService(model: model)
+        }
+        
+    }
+    
+    func createNewService(model: AddNewAuctionServiceParams){
+        ManageServicesManager.shareManageServicesManager().createAuctionService(model: model) { [unowned self](response) in
+            switch response {
+
+            case .success( _):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
 
 }

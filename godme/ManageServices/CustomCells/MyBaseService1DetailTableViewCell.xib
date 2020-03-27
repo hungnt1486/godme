@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MyBaseService1DetailTableViewCell" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkK-hl-WH2">
+                        <rect key="frame" x="10" y="10" width="300" height="140"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Dạy an toàn thông tin mạng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-wm-IoX">
+                                <rect key="frame" x="10" y="10" width="280" height="18"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Trạng thái: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-mY-Ke0">
+                                <rect key="frame" x="10" y="43" width="280" height="16"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày đặt dịch vụ: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noa-Gj-uoh">
+                                <rect key="frame" x="10" y="69" width="280" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU4-KK-DJ1">
+                                <rect key="frame" x="10" y="95" width="280" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuT-56-xtb">
+                                        <rect key="frame" x="10" y="5" width="130" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rm8-8t-WwN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <state key="normal" title="Xét duyệt">
+                                            <color key="titleColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchConfirm:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="riz-VU-oUc"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJc-Pt-xAs">
+                                        <rect key="frame" x="139.5" y="5" width="1" height="35"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="oCH-mX-NH5"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0an-eg-FvU">
+                                        <rect key="frame" x="140" y="5" width="130" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="gLT-v7-Rea"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <state key="normal" title="Từ chối">
+                                            <color key="titleColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchCancel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M3D-yA-y7S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="VuT-56-xtb" secondAttribute="bottom" constant="5" id="1c4-e2-Sd8"/>
+                                    <constraint firstItem="LJc-Pt-xAs" firstAttribute="centerX" secondItem="GU4-KK-DJ1" secondAttribute="centerX" id="22S-C6-HvL"/>
+                                    <constraint firstItem="0an-eg-FvU" firstAttribute="height" secondItem="GU4-KK-DJ1" secondAttribute="height" multiplier="0.75" id="32s-ZE-99n"/>
+                                    <constraint firstItem="VuT-56-xtb" firstAttribute="top" secondItem="GU4-KK-DJ1" secondAttribute="top" constant="5" id="446-3v-lVC"/>
+                                    <constraint firstItem="0an-eg-FvU" firstAttribute="width" secondItem="GU4-KK-DJ1" secondAttribute="width" multiplier="1/2" constant="-10" id="7Wl-LH-DcC"/>
+                                    <constraint firstAttribute="height" constant="40" id="9vr-wA-jGp"/>
+                                    <constraint firstItem="0an-eg-FvU" firstAttribute="top" secondItem="GU4-KK-DJ1" secondAttribute="top" constant="5" id="KZ8-60-SK0"/>
+                                    <constraint firstAttribute="bottom" secondItem="LJc-Pt-xAs" secondAttribute="bottom" id="N6z-2g-Toj"/>
+                                    <constraint firstAttribute="bottom" secondItem="0an-eg-FvU" secondAttribute="bottom" constant="5" id="OmJ-v5-D9T"/>
+                                    <constraint firstItem="VuT-56-xtb" firstAttribute="width" secondItem="GU4-KK-DJ1" secondAttribute="width" multiplier="1/2" constant="-10" id="T56-BF-dnm"/>
+                                    <constraint firstItem="VuT-56-xtb" firstAttribute="leading" secondItem="GU4-KK-DJ1" secondAttribute="leading" constant="10" id="b5D-pp-Heg"/>
+                                    <constraint firstItem="LJc-Pt-xAs" firstAttribute="top" secondItem="GU4-KK-DJ1" secondAttribute="top" constant="5" id="jEv-WB-9DT"/>
+                                    <constraint firstAttribute="trailing" secondItem="0an-eg-FvU" secondAttribute="trailing" constant="10" id="t1r-Yb-Faa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Qed-wm-IoX" firstAttribute="leading" secondItem="EkK-hl-WH2" secondAttribute="leading" constant="10" id="2hg-OX-D9E"/>
+                            <constraint firstItem="GU4-KK-DJ1" firstAttribute="leading" secondItem="EkK-hl-WH2" secondAttribute="leading" constant="10" id="4tS-Ve-ILO"/>
+                            <constraint firstAttribute="trailing" secondItem="fGE-mY-Ke0" secondAttribute="trailing" constant="10" id="6KO-Y2-PW5"/>
+                            <constraint firstItem="fGE-mY-Ke0" firstAttribute="top" secondItem="Qed-wm-IoX" secondAttribute="bottom" constant="15" id="C1e-Qm-nWA"/>
+                            <constraint firstItem="noa-Gj-uoh" firstAttribute="top" secondItem="fGE-mY-Ke0" secondAttribute="bottom" constant="10" id="LGB-rS-kLn"/>
+                            <constraint firstAttribute="trailing" secondItem="GU4-KK-DJ1" secondAttribute="trailing" constant="10" id="UOL-9H-QHT"/>
+                            <constraint firstItem="GU4-KK-DJ1" firstAttribute="top" secondItem="noa-Gj-uoh" secondAttribute="bottom" constant="5" id="XBy-UD-7xm"/>
+                            <constraint firstItem="fGE-mY-Ke0" firstAttribute="leading" secondItem="EkK-hl-WH2" secondAttribute="leading" constant="10" id="bHs-LP-Lrm"/>
+                            <constraint firstItem="Qed-wm-IoX" firstAttribute="top" secondItem="EkK-hl-WH2" secondAttribute="top" constant="10" id="cS8-iB-m56"/>
+                            <constraint firstAttribute="trailing" secondItem="noa-Gj-uoh" secondAttribute="trailing" constant="10" id="kIc-nJ-jdV"/>
+                            <constraint firstItem="noa-Gj-uoh" firstAttribute="leading" secondItem="EkK-hl-WH2" secondAttribute="leading" constant="10" id="rYL-8R-25c"/>
+                            <constraint firstAttribute="trailing" secondItem="Qed-wm-IoX" secondAttribute="trailing" constant="10" id="vzR-o9-QBJ"/>
+                            <constraint firstAttribute="bottom" secondItem="GU4-KK-DJ1" secondAttribute="bottom" constant="5" id="xb4-pP-oIO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EkK-hl-WH2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="1qa-kz-O0c"/>
+                    <constraint firstAttribute="bottom" secondItem="EkK-hl-WH2" secondAttribute="bottom" constant="10" id="Evq-NY-hDp"/>
+                    <constraint firstItem="EkK-hl-WH2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Z4z-Cb-WPL"/>
+                    <constraint firstAttribute="trailing" secondItem="EkK-hl-WH2" secondAttribute="trailing" constant="10" id="mHs-L0-xuT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btCancel" destination="0an-eg-FvU" id="1MJ-R9-Gua"/>
+                <outlet property="btConfirm" destination="VuT-56-xtb" id="voH-Vj-Zbs"/>
+                <outlet property="lbStatus" destination="fGE-mY-Ke0" id="MYC-mZ-F8I"/>
+                <outlet property="lbTime" destination="noa-Gj-uoh" id="vKw-de-Il2"/>
+                <outlet property="lbTitle" destination="Qed-wm-IoX" id="dQa-QD-Tqd"/>
+                <outlet property="vContent" destination="EkK-hl-WH2" id="ah7-w3-4ts"/>
+                <outlet property="vSub" destination="GU4-KK-DJ1" id="X5B-QE-Xxh"/>
+            </connections>
+            <point key="canvasLocation" x="57.971014492753625" y="130.58035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -11,6 +11,12 @@ import UIKit
 class ServicesInfoBookedViewController: BaseViewController {
 
     @IBOutlet weak var tbvServicesInfoBook: CollapseTableView!
+    
+    var listBaseService: [BaseServiceInfoBookedModel] = []
+    var listAuction:[AuctionServiceInfoBookedModel] = []
+    var listEvents: [EventServiceInfoBookedModel] = []
+    var modelUser = Settings.ShareInstance.getDictUser()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +29,11 @@ class ServicesInfoBookedViewController: BaseViewController {
         reloadTableView { [unowned self] in
             self.tbvServicesInfoBook.openSection(0, animated: true)
         }
+        
+        self.showProgressHub()
+        self.getListSearchOrderBaseService()
+        self.getListSearchOrderAuctionService()
+        self.getListSearchOrderEventService()
     }
     
     func setupTableView(){
@@ -51,16 +62,74 @@ class ServicesInfoBookedViewController: BaseViewController {
         self.tbvServicesInfoBook.reloadData()
         CATransaction.commit()
     }
+    
+    func getListSearchOrderBaseService(){
+        ManageServicesManager.shareManageServicesManager().searchOrderBaseService(buyerId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBaseService.append(model)
+                }
+                self.tbvServicesInfoBook.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearchOrderAuctionService(){
+        ManageServicesManager.shareManageServicesManager().searchOrderAuctionService(buyerId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listAuction.append(model)
+                }
+                self.tbvServicesInfoBook.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearchOrderEventService(){
+        ManageServicesManager.shareManageServicesManager().searchOrderEventService(buyerId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listEvents.append(model)
+                }
+                self.tbvServicesInfoBook.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
 }
 
 extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 10
+            return listBaseService.count
         }else if section == 1 {
-            return 5
+            return listAuction.count
         }else{
-            return 10
+            return listEvents.count
         }
     }
     
@@ -90,25 +159,29 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if indexPath.section == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
-//            return cell
-//        }else if indexPath.section == 1 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
-//            return cell
-//        }else{
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
-//            return cell
-//        }
-        
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+            let model = listBaseService[indexPath.row]
+            cell.lbTitle.text = model.serviceTitle ?? ""
+            cell.lbCoinResult.text = "\(model.amount ?? "0") Godcoin"
+            cell.lbStatusResult.text = model.status ?? ""
+            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime ?? 0.0)
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+            let model = listAuction[indexPath.row]
+            cell.lbTitle.text = model.serviceTitle ?? ""
+            cell.lbCoinResult.text = "\(model.amount ?? "0") Godcoin"
+            cell.lbStatusResult.text = model.status ?? ""
+            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime ?? 0.0)
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
+            let model = listEvents[indexPath.row]
+            cell.lbTitle.text = model.serviceTitle ?? ""
+            cell.lbCoinResult.text = "\(model.amount ?? "0") Godcoin"
+            cell.lbStatusResult.text = model.status ?? ""
+            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime ?? 0.0)
             return cell
         }
     }

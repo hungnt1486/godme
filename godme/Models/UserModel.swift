@@ -82,6 +82,7 @@ class UserLoginReturnModel: BaseModel{
     var access_token: String?
     var fullName: String?
     var userId: Int?
+    var userName: String?
     var permissions: [String]?
     
     required init?(json: JSON) {
@@ -89,8 +90,17 @@ class UserLoginReturnModel: BaseModel{
         access_token = json["access_token"].stringValue
         fullName = json["fullName"].stringValue
         userId = json["userId"].intValue
+        userName = json["userName"].stringValue
         permissions = json["permissions"].arrayObject as? [String]
     }
+}
+
+struct UserLogin {
+    var access_token: String?
+       var fullName: String?
+       var userId: Int?
+       var userName: String?
+       var permissions: [String]?
 }
 
 class JobModel: BaseModel {

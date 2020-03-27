@@ -24,8 +24,12 @@ class AuctionServiceViewController: BaseViewController {
         self.getListAuctionService()
     }
     
-    func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = Settings.ShareInstance.translate(key: "auction_service")
+    }
+    
+    func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -67,13 +71,16 @@ extension AuctionServiceViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
         let model = listAuction[indexPath.row]
+        let images = model.images
+        let arrImgage = images?.split(separator: ",")
+        let linkImg = arrImgage?[0]
         cell.lbTitle.text = model.title
-        cell.imgAvatar.sd_setImage(with: URL.init(string: model.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
         cell.lbName.text = model.userInfo?.userCategory
         return cell
     }

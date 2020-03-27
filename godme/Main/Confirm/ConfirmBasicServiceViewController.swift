@@ -78,12 +78,17 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
 extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
         Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đặt dịch vụ?", vc: self) { [unowned self](str) in
+            let currentDate = Date()
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            
             var model = AddNewConfirmBasicServiceParams()
             model.amount = self.modelDetail?.amount
             model.buyerId = self.modelDetail?.userInfo?.id
             model.sellerId = self.modelDetail?.createdByUserId
             model.serviceId = self.modelDetail?.id
-            model.dateTime = "7987583275823"
+            model.dateTime = Settings.ShareInstance.convertDateToTimeInterval(date: formatter.date(from: formatter.string(from: currentDate)) ?? Date())
             ManageServicesManager.shareManageServicesManager().confirmBookBaseService(model: model) { [unowned self] (response) in
                 switch response {
                     
