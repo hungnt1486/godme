@@ -10,6 +10,10 @@ import UIKit
 
 class SearchBarServiceViewController: BaseViewController {
     @IBOutlet weak var tbvServices: CollapseTableView!
+    var modelDetail: UserRegisterReturnModel?
+    var listBaseService: [BaseServiceModel] = []
+    var listAuction:[AuctionServiceModel] = []
+    var listEvents: [EventModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,10 @@ class SearchBarServiceViewController: BaseViewController {
         reloadTableView { [unowned self] in
             self.tbvServices.openSection(0, animated: true)
         }
+        self.showProgressHub()
+        self.getListSearchBaseService()
+        self.getListSearchAuctionService()
+        self.getListSearchEventService()
     }
     
     func setupTableView(){
@@ -49,12 +57,75 @@ class SearchBarServiceViewController: BaseViewController {
         self.tbvServices.reloadData()
         CATransaction.commit()
     }
+    
+    func getListSearchBaseService(){
+        ManageServicesManager.shareManageServicesManager().searchBaseService(createdByUserId: modelDetail?.id ?? 0, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBaseService.append(model)
+                }
+                self.tbvServices.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearchAuctionService(){
+        ManageServicesManager.shareManageServicesManager().searchAuctionService(createdByUserId: modelDetail?.id ?? 0, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listAuction.append(model)
+                }
+                self.tbvServices.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListSearchEventService(){
+        ManageServicesManager.shareManageServicesManager().searchEventService(createdByUserId: modelDetail?.id ?? 0, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listEvents.append(model)
+                }
+                self.tbvServices.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 
 }
 
 extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        if section == 0 {
+            return self.listBaseService.count
+        }else if section == 1 {
+            return self.listAuction.count
+        }else{
+            return self.listEvents.count
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,12 +135,54 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
+            let model = listBaseService[indexPath.row]
+            cell.lbTitle.text = model.title
+            let images = model.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
+            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
+            let model = listAuction[indexPath.row]
+            cell.lbTitle.text = model.title
+            let images = model.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
+            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
+            let model = listEvents[indexPath.row]
+            cell.lbTitle.text = model.title
+            let images = model.images
+            let arrImgage = images?.split(separator: ",")
+            let linkImg = arrImgage?[0]
+            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                if error == nil {
+                    cell.imgAvatar.image = image
+                }
+            }
+            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
+            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }
         
@@ -97,6 +210,22 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            let model = listBaseService[indexPath.row]
+            let detail = DetailBasicServiceViewController()
+            detail.modelDetail = model
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else if indexPath.section == 1 {
+            let model = listAuction[indexPath.row]
+            let detail = DetailAuctionViewController()
+            detail.modelDetail = model
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else {
+            let model = listEvents[indexPath.row]
+            let detail = DetailEventViewController()
+            detail.modelDetail = model
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
     }
     
     

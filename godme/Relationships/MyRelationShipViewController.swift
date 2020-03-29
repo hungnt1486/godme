@@ -171,7 +171,12 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
         cell.lbCoin.text = "\(model.totalBenefited ?? 0) Godcoin"
         cell.lbTitle.text = model.fullName
         cell.lbEmail.text = model.email
-        cell.lbPhone.text = model.phoneNumber
+        cell.imgPhone.isHidden = true
+        cell.lbPhone.text = ""
+        if let phone = model.phoneNumber, phone.count > 0 {
+            cell.lbPhone.text = phone
+            cell.imgPhone.isHidden = false
+        }
         cell.lbCity.text = model.address
         cell.setupUI()
         return cell

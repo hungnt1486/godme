@@ -193,6 +193,7 @@
             <connections>
                 <outlet property="imgAvatar" destination="KlF-D4-X3y" id="2Ut-dR-C8e"/>
                 <outlet property="imgMore" destination="6iG-U3-6rT" id="60y-1q-516"/>
+                <outlet property="imgPhone" destination="Fs8-Sj-VPe" id="hJZ-ub-WNE"/>
                 <outlet property="lbCity" destination="gcC-yG-9dV" id="ezC-Dt-RpM"/>
                 <outlet property="lbCoin" destination="Ysl-cM-Qgu" id="anx-Iy-Ole"/>
                 <outlet property="lbEmail" destination="KBg-gk-a66" id="oGc-UB-NPC"/>

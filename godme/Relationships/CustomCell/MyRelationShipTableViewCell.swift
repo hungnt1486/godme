@@ -25,6 +25,7 @@ class MyRelationShipTableViewCell: UITableViewCell {
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var imgMore: UIImageView!
+    @IBOutlet weak var imgPhone: UIImageView!
     var vImgStars: VImageStars!
     var delegate: MyRelationShipTableViewCellProtocol?
     var indexStar: Float = 0.0

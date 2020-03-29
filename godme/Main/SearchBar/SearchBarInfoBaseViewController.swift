@@ -11,6 +11,7 @@ import UIKit
 class SearchBarInfoBaseViewController: BaseViewController {
 
     @IBOutlet weak var tbvBaseInfo: UITableView!
+    var modelDetail: UserRegisterReturnModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +21,7 @@ class SearchBarInfoBaseViewController: BaseViewController {
     
     func setupTableView(){
         self.tbvBaseInfo.register(UINib(nibName: "SearchBarBaseInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchBarBaseInfoTableViewCell")
-        self.tbvBaseInfo.register(UINib(nibName: "SearchBarBaseInfor2TableViewCell", bundle: nil), forCellReuseIdentifier: "SearchBarBaseInfor2TableViewCell")
+//        self.tbvBaseInfo.register(UINib(nibName: "SearchBarBaseInfor2TableViewCell", bundle: nil), forCellReuseIdentifier: "SearchBarBaseInfor2TableViewCell")
 
         self.tbvBaseInfo.delegate = self
         self.tbvBaseInfo.dataSource = self
@@ -34,27 +35,29 @@ class SearchBarInfoBaseViewController: BaseViewController {
 
 extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
-        return 20
+        return 1
+//        if section == 0 {
+//            return 1
+//        }
+//        return 20
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+//        if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfoTableViewCell") as! SearchBarBaseInfoTableViewCell
             cell.delegate = self
+        cell.lbContent.text = self.modelDetail?.userInfo ?? ""
             return cell
-        }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfor2TableViewCell") as! SearchBarBaseInfor2TableViewCell
-            cell.imgMore.tag = indexPath.row
-            cell.delegate = self
-            return cell
-        }
+//        }else{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfor2TableViewCell") as! SearchBarBaseInfor2TableViewCell
+//            cell.imgMore.tag = indexPath.row
+//            cell.delegate = self
+//            return cell
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -68,10 +71,10 @@ extension SearchBarInfoBaseViewController: SearchBarBaseInfoTableViewCellProtoco
     }
 }
 
-extension SearchBarInfoBaseViewController: SearchBarBaseInfor2TableViewCellProtocol{
-    func didMore(index: Int) {
-        Settings.ShareInstance.showAlertView(message: "more + index = \(index)" , vc: self)
-    }
-    
-    
-}
+//extension SearchBarInfoBaseViewController: SearchBarBaseInfor2TableViewCellProtocol{
+//    func didMore(index: Int) {
+//        Settings.ShareInstance.showAlertView(message: "more + index = \(index)" , vc: self)
+//    }
+//
+//
+//}

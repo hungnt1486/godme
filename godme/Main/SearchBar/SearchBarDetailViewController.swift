@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchBarDetailViewController: BaseViewController {
     
@@ -27,28 +28,89 @@ class SearchBarDetailViewController: BaseViewController {
     @IBOutlet weak var lbJob: UILabel!
     @IBOutlet weak var lbDegree: UILabel!
     @IBOutlet weak var lbCity: UILabel!
+    var vImgStars: VImageStarsOranges!
+    @IBOutlet weak var vImgStar: UIView!
+    @IBOutlet weak var btConnect: UIButton!
+    @IBOutlet weak var lbSlogan: UILabel!
+    @IBOutlet weak var constraintHeightLabelSlogan: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightButtonConnect: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightViewTop: NSLayoutConstraint!
+    var modelDetail: UserRegisterReturnModel?
+    var searchBarInfo = SearchBarInfoBaseViewController()
+    var searchBarMyRelationShip = SearchBarRelationShipViewController()
+    var searchBarService = SearchBarServiceViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setupUI()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
         self.configButtonBack()
         self.configPageView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "info_user")
     }
     
     func setupUI(){
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "info_user")
+        
+        if self.modelDetail?.isConnected == 1 {
+//            self.constraintHeightViewTop.constant = 250 - 40 - 40
+            self.btConnect.isHidden = true
+            self.constraintHeightLabelSlogan.constant = 0
+            self.constraintHeightButtonConnect.constant = 0
+        }
+        
+        self.btConnect = Settings.ShareInstance.setupButton(button: self.btConnect)
+        self.btConnect.setBorder()
+        
+        self.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            if error == nil {
+                self.imgAvatar.image = image
+            }
+        }
+        
+        vImgStars = VImageStarsOranges.instanceFromNib()
+        
+        self.vImgStar.addSubview(vImgStars)
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
+            self.vImgStars.configVImageStarsOranges(frameView: self.vImgStar.frame, index: self.modelDetail?.totalStar ?? 0.0)
+        }, completion: nil)
+        
+        self.lbFullName.text = modelDetail?.fullName ?? ""
+        self.lbSchool.text = Settings.ShareInstance.convertDOB(str: modelDetail?.dob ?? "")
+        self.lbJob.text = modelDetail?.address ?? ""
+        let career = modelDetail?.career
+        let arrCareer = career?.split(separator: ",")
+        var strCareer = ""
+        for item in arrCareer! {
+            for item1 in BaseViewController.arrayJobs {
+                if Int(item) == Int(item1["code"] ?? "0") {
+                    if strCareer.count == 0 {
+                        strCareer = strCareer + item1["name"]!
+                    }else {
+                        strCareer = strCareer + ", " + item1["name"]!
+                    }
+                }
+            }
+        }
+        self.lbDegree.text = strCareer
+        self.lbCity.text = modelDetail?.email ?? ""
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.vTop.bounds.height, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!)
+        if modelDetail?.isConnected == 1 {
+            self.constraintHeightViewTop.constant = 180
+        }else{
+            self.constraintHeightViewTop.constant = 250
+        }
+        options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.constraintHeightViewTop.constant, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!)
     }
     
     func configPageView() {
@@ -91,7 +153,27 @@ class SearchBarDetailViewController: BaseViewController {
         self.view.addSubview(viewPager.view)
         viewPager.didMove(toParent: self)
     }
-
+    
+    func connectToUser(toUserId: Int){
+        RelationShipsManager.shareRelationShipsManager().connectToUserRelationShip(toUserId: toUserId) { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Gửi yêu cầu kết nối thành công", vc: self)
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    @IBAction func touchConnect(_ sender: Any) {
+        self.showProgressHub()
+        self.connectToUser(toUserId: self.modelDetail?.id ?? 0)
+    }
+    
 }
 
 extension SearchBarDetailViewController: ViewPagerControllerDataSource {
@@ -102,11 +184,14 @@ extension SearchBarDetailViewController: ViewPagerControllerDataSource {
     
     func viewControllerAtPosition(position:Int) -> UIViewController {
         if position == 0 {
-            return SearchBarRelationShipViewController()
+            searchBarMyRelationShip.modelDetail = self.modelDetail
+            return searchBarMyRelationShip
         } else if position == 1 {
-            return SearchBarInfoBaseViewController()
+            searchBarInfo.modelDetail = self.modelDetail
+            return searchBarInfo
         }else {
-            return SearchBarServiceViewController()
+            searchBarService.modelDetail = self.modelDetail
+            return searchBarService
         }
     }
     

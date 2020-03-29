@@ -39,7 +39,7 @@ class UserRegisterReturnModel: BaseModel {
     var createdOn: String?
     var createdBy: String?
     var modifiedOn: String?
-    var createdByUserId: String?
+    var createdByUserId: Int?
     var totalStar: Float?
     var isConnected: Int?
     
@@ -74,7 +74,7 @@ class UserRegisterReturnModel: BaseModel {
         createdOn = json["createdOn"].stringValue
         createdBy = json["createdBy"].stringValue
         modifiedOn = json["modifiedOn"].stringValue
-        createdByUserId = json["createdByUserId"].stringValue
+        createdByUserId = json["createdByUserId"].intValue
         totalStar = json["totalStar"].floatValue
         isConnected = json["isConnected"].intValue
     }

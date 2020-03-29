@@ -161,7 +161,13 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
         cell.indexStar = model.totalStar ?? 0.0
         cell.lbCoin.text = "\(model.totalBenefited ?? 0) Godcoin"
         cell.lbEmail.text = model.email
-        cell.lbPhone.text = model.phoneNumber
+        cell.imgPhone.isHidden = true
+        cell.lbPhone.text = ""
+        if let phone = model.phoneNumber, phone.count > 0 {
+            cell.lbPhone.text = phone
+            cell.imgPhone.isHidden = false
+        }
+        
         cell.lbTitle.text = model.fullName
         cell.lbCity.text = model.address
         cell.setupUI()

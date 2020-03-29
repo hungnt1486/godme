@@ -212,7 +212,9 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let model = listSearchMain[indexPath.row]
         let detail = SearchBarDetailViewController()
+        detail.modelDetail = model
         self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(detail, animated: true)
     }
