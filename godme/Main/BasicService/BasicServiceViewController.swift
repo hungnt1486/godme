@@ -75,14 +75,18 @@ extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource
         cell.lbTitle.text = model.title
         let images = model.images
         let arrImgage = images?.split(separator: ",")
-        let linkImg = arrImgage?[0]
-        cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        var linkImg = ""
+        if arrImgage!.count > 0 {
+            linkImg = String(arrImgage?[0] ?? "")
+        }
+        cell.imgAvatar.sd_setImage(with: URL.init(string: linkImg), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+        cell.lbCity.text = model.address
         cell.lbName.text = model.userInfo?.userCategory
+        cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
         return cell
     }
     

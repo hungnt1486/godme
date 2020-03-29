@@ -38,39 +38,31 @@ class RelationShipsModel: BaseModel {
     }
 }
 
-//class RelationShipExpand: BaseModel {
-//    var id: Int?
-//    var userCategory: String?
-//    var fullName: String?
-//    var avatar: String?
-//    var career: String?
-//    var totalStar: Float?
-//    var phoneNumber: String?
-//    var email: String?
-//    var totalBenefited: Int?
-//    var address: String?
-//
-//    required init?(json: JSON) {
-//        super.init(json: json)
-//        id = json["id"].intValue
-//        userCategory = json["userCategory"].stringValue
-//        fullName = json["fullName"].stringValue
-//        avatar = json["avatar"].stringValue
-//        career = json["career"].stringValue
-//        totalStar = json["totalStar"].floatValue
-//        phoneNumber = json["phoneNumber"].stringValue
-//        email = json["email"].stringValue
-//        totalBenefited = json["totalBenefited"].intValue
-//        address = json["address"].stringValue
-//    }
-//    "id": 18,
-//    "userCategory": "SIGNUP_USER",
-//    "fullName": "Be Mong",
-//    "avatar": "https://s3.ap-northeast-1.amazonaws.com/godme2019/images%2F1577292740132_gettyimages-911983386-1573497756.jpg",
-//    "career": "30",
-//    "totalStar": 0,
-//    "phoneNumber": "+84376147579",
-//    "email": "Saothuytinh15071@gmail.com",
-//    "totalBenefited": 0,
-//    "address": "A, Phường 02, Quận Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
-//}
+class GroupRelationShipModel: BaseModel {
+    var name: String?
+    var status: String?
+    var userIds: String?
+    var id: Int?
+    var createdOn: Double?
+    var createdBy: String?
+    var modifiedOn: Double?
+    var createdByUserId: Int?
+    var listUserInfo: [userInfoModel]?
+    required init?(json: JSON) {
+        super.init(json: json)
+        name = json["name"].stringValue
+        status = json["status"].stringValue
+        userIds = json["userIds"].stringValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].doubleValue
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        createdByUserId = json["createdByUserId"].intValue
+        if let userInfo = json["listUserInfo"].array {
+            listUserInfo = [userInfoModel]()
+            for item in userInfo {
+                listUserInfo?.append(userInfoModel.init(json: item)!)
+            }
+        }
+    }
+}

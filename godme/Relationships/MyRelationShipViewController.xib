@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRelationShipViewController" customModule="godme" customModuleProvider="target">
             <connections>
+                <outlet property="btFind" destination="dZB-03-roB" id="KzT-CL-9Zo"/>
                 <outlet property="lbFilterJob" destination="sRu-qe-4uS" id="fy6-nE-b5d"/>
                 <outlet property="tbvMyRelationShip" destination="gtN-mQ-9Q1" id="GYm-ZY-jK6"/>
                 <outlet property="tfInputName" destination="6jK-tC-zHX" id="XKH-Bt-Bfv"/>
@@ -54,6 +55,20 @@
                                 <constraint firstAttribute="height" constant="15" id="EgH-96-58G"/>
                             </constraints>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtY-Qt-m9E">
+                            <rect key="frame" x="299" y="65" width="100" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="4OJ-Tu-M1W"/>
+                                <constraint firstAttribute="width" constant="100" id="lID-SS-oDb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="Tìm kiếm">
+                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="touchFind:" destination="-1" eventType="touchUpInside" id="LPg-nV-yWf"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -63,8 +78,10 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="OxO-sT-C9w"/>
                         <constraint firstItem="6jK-tC-zHX" firstAttribute="top" secondItem="U7H-g3-PSI" secondAttribute="top" constant="10" id="Rcv-Sp-w9G"/>
                         <constraint firstAttribute="trailing" secondItem="6jK-tC-zHX" secondAttribute="trailing" constant="20" id="VbC-8R-eXt"/>
+                        <constraint firstAttribute="trailing" secondItem="qtY-Qt-m9E" secondAttribute="trailing" constant="15" id="W7n-Vr-1Sb"/>
                         <constraint firstItem="sRu-qe-4uS" firstAttribute="top" secondItem="6jK-tC-zHX" secondAttribute="bottom" constant="20" id="aMu-rM-TfH"/>
                         <constraint firstItem="7bb-zh-DoH" firstAttribute="leading" secondItem="sRu-qe-4uS" secondAttribute="trailing" constant="10" id="dOK-an-HfG"/>
+                        <constraint firstItem="qtY-Qt-m9E" firstAttribute="centerY" secondItem="sRu-qe-4uS" secondAttribute="centerY" id="dZB-03-roB"/>
                         <constraint firstItem="7bb-zh-DoH" firstAttribute="centerY" secondItem="sRu-qe-4uS" secondAttribute="centerY" id="oqG-zn-UQt"/>
                     </constraints>
                 </view>

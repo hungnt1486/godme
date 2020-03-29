@@ -257,6 +257,10 @@
 		41EACD19242E5378003A6962 /* MyEventServicesDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD17242E5377003A6962 /* MyEventServicesDetailTableViewCell.swift */; };
 		41EACD1C242E53AE003A6962 /* MyEventServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD1A242E53AE003A6962 /* MyEventServiceDetailViewController.swift */; };
 		41EACD1D242E53AE003A6962 /* MyEventServiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD1B242E53AE003A6962 /* MyEventServiceDetailViewController.xib */; };
+		41EACD20242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD1E242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift */; };
+		41EACD21242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */; };
+		41EACD24242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD22242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.swift */; };
+		41EACD25242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */; };
 		41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EE6241E8B410031D066 /* NotificationsViewController.swift */; };
 		41F15EE9241E8B410031D066 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F15EE7241E8B410031D066 /* NotificationsViewController.xib */; };
 		41F15EEB241FCB490031D066 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEA241FCB490031D066 /* URLs.swift */; };
@@ -547,6 +551,10 @@
 		41EACD17242E5377003A6962 /* MyEventServicesDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventServicesDetailTableViewCell.swift; sourceTree = "<group>"; };
 		41EACD1A242E53AE003A6962 /* MyEventServiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventServiceDetailViewController.swift; sourceTree = "<group>"; };
 		41EACD1B242E53AE003A6962 /* MyEventServiceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEventServiceDetailViewController.xib; sourceTree = "<group>"; };
+		41EACD1E242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupRelationShipExpandViewController.swift; sourceTree = "<group>"; };
+		41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupRelationShipExpandViewController.xib; sourceTree = "<group>"; };
+		41EACD22242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupRelationShipTableViewCell.swift; sourceTree = "<group>"; };
+		41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupRelationShipTableViewCell.xib; sourceTree = "<group>"; };
 		41F15EE6241E8B410031D066 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		41F15EE7241E8B410031D066 /* NotificationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
 		41F15EEA241FCB490031D066 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
@@ -907,6 +915,8 @@
 				E66F6908241B407000A0EC99 /* ListHiddenViewController.xib */,
 				4150DA80241CEC0100F8A7E4 /* CreateNotificationViewController.swift */,
 				4150DA81241CEC0100F8A7E4 /* CreateNotificationViewController.xib */,
+				41EACD1E242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift */,
+				41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */,
 			);
 			path = Relationships;
 			sourceTree = "<group>";
@@ -1198,6 +1208,8 @@
 			children = (
 				E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */,
 				E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */,
+				41EACD22242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.swift */,
+				41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -1304,6 +1316,7 @@
 				E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
 				4150DA72241B15B600F8A7E4 /* Roboto-LightItalic.ttf in Resources */,
+				41EACD25242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.xib in Resources */,
 				41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */,
 				41550056241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib in Resources */,
 				411329B32416932F0089DD18 /* DetailBasicServiceViewController.xib in Resources */,
@@ -1423,6 +1436,7 @@
 				41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */,
 				4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */,
 				413937AA242C5E070079C587 /* GoogleService-Info.plist in Resources */,
+				41EACD21242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib in Resources */,
 				415500392419B2D2006B189E /* SearchBarDetailViewController.xib in Resources */,
 				41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */,
 				41ADEAC9241E04C5002C95FA /* TimeTableViewCell.xib in Resources */,
@@ -1583,6 +1597,7 @@
 				41286B1A2411514B0021157C /* ServicesManageViewController.swift in Sources */,
 				41ADEAC8241E04C5002C95FA /* TimeTableViewCell.swift in Sources */,
 				410E67E92414311C00FA2F54 /* HeaderServicesInfoBook.swift in Sources */,
+				41EACD20242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift in Sources */,
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
 				413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */,
@@ -1593,6 +1608,7 @@
 				410E67EC2414958400FA2F54 /* HeaderMain.swift in Sources */,
 				41286AED240F3EE70021157C /* Extension+Color.swift in Sources */,
 				411329972416888C0089DD18 /* BasicServicesTableViewCell.swift in Sources */,
+				41EACD24242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.swift in Sources */,
 				41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */,
 				E60FA99824246BEB00A45AFF /* EventModel.swift in Sources */,
 				41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */,
@@ -1842,7 +1858,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hung.godme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1865,7 +1881,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

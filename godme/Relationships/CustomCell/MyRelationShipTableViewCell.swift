@@ -27,6 +27,7 @@ class MyRelationShipTableViewCell: UITableViewCell {
     @IBOutlet weak var imgMore: UIImageView!
     var vImgStars: VImageStars!
     var delegate: MyRelationShipTableViewCellProtocol?
+    var indexStar: Float = 0.0
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -54,7 +55,7 @@ class MyRelationShipTableViewCell: UITableViewCell {
         
         self.vImgStar.addSubview(vImgStars)
         UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
-            self.vImgStars.configVImageStars(frameView: self.vImgStar.frame, index: 4)
+            self.vImgStars.configVImageStars(frameView: self.vImgStar.frame, index: self.indexStar)
         }, completion: nil)
     }
     

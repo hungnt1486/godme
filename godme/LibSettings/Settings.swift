@@ -492,7 +492,7 @@ class Settings: NSObject {
         if timeInterval == 0 {
             return ""
         }
-        let date = NSDate.init(timeIntervalSinceNow: timeInterval)
+        let date = NSDate.init(timeIntervalSince1970: timeInterval/1000)
         let formatDate = DateFormatter.init()
         formatDate.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"//"yyyy-MM-dd HH:mm"
         formatDate.locale = Locale.current
@@ -501,7 +501,7 @@ class Settings: NSObject {
     }
     
     func convertDateToTimeInterval(date: Date) -> Double{
-        return date.timeIntervalSinceReferenceDate
+        return date.timeIntervalSince1970*1000
     }
      
 }

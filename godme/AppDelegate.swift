@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
+        
         // google map
-        GMSServices.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk")
-        GMSPlacesClient.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk")
-        print("key = \(GMSServices.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk"))")
+//        GMSServices.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
+        
+//        print("key = \(GMSServices.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA"))")
         
 //        GMSServices.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
 //        GMSPlacesClient.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
@@ -36,13 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.clear
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        if GMSServices.provideAPIKey("AIzaSyBNTBDGqnGA7RYQ0-Ct08Lp3pD47mOHlHk") {
-            print("good provided keys correctly")
-        }
-        else {
-            print("key didn't provided")
-        }
-
+//        if GMSServices.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA") {
+//            print("good provided keys correctly")
+//        }
+//        else {
+//            print("key didn't provided")
+//        }
+        GMSServices.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
+        GMSPlacesClient.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
+//        FirebaseApp.configure()
         // init AWS
         self.initializeS3()
         self.checkLogin()

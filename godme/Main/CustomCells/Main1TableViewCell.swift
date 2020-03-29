@@ -77,9 +77,9 @@ extension Main1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+        cell.lbCity.text = model.address
         cell.lbTitleDetail.text = model.userInfo?.userCategory
-        
+        cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
         return cell
         
     }

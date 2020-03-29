@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 class MapsViewController: BaseViewController {
 
@@ -24,12 +25,19 @@ class MapsViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        self.setupUI()
+        self.setupUI()
 //
 //        if self.map == nil {
 //            self.configMapView(lat: BaseViewController.Lat, lng: BaseViewController.Lng)
 //            self.addMarkerUser()
 //        }
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "Map")
         
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
@@ -41,11 +49,6 @@ class MapsViewController: BaseViewController {
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "Map")
     }
     
     func setupUI(){

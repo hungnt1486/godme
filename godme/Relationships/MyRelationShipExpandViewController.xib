@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRelationShipExpandViewController" customModule="godme" customModuleProvider="target">
             <connections>
+                <outlet property="btFind" destination="n3t-pv-Ifv" id="xCd-sQ-sMh"/>
                 <outlet property="lbFilterJob" destination="TvI-bf-aOW" id="JKv-wk-kxm"/>
                 <outlet property="tbvMyRelationShipExpand" destination="3lB-4v-Tfa" id="UB5-jK-Cik"/>
                 <outlet property="tfInputName" destination="5VI-VK-G1O" id="vEQ-EM-qNf"/>
@@ -62,11 +63,27 @@
                                 <constraint firstAttribute="width" constant="15" id="tkP-T3-goa"/>
                             </constraints>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3t-pv-Ifv">
+                            <rect key="frame" x="299" y="65" width="100" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="0RX-H7-Zqb"/>
+                                <constraint firstAttribute="width" constant="100" id="pm9-Y5-032"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="Tìm kiếm">
+                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="touchFind:" destination="-1" eventType="touchUpInside" id="Rqb-Ql-2Zk"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="5VI-VK-G1O" secondAttribute="trailing" constant="20" id="6rk-YI-liU"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="9B4-Md-RWY"/>
+                        <constraint firstItem="n3t-pv-Ifv" firstAttribute="centerY" secondItem="TvI-bf-aOW" secondAttribute="centerY" id="DgW-3b-oMl"/>
+                        <constraint firstAttribute="trailing" secondItem="n3t-pv-Ifv" secondAttribute="trailing" constant="15" id="GbJ-pR-lzu"/>
                         <constraint firstItem="TvI-bf-aOW" firstAttribute="top" secondItem="5VI-VK-G1O" secondAttribute="bottom" constant="20" id="Rqh-Xt-prx"/>
                         <constraint firstItem="TvI-bf-aOW" firstAttribute="leading" secondItem="v5F-Ok-ga4" secondAttribute="leading" constant="20" id="S9L-0j-PyZ"/>
                         <constraint firstAttribute="height" constant="100" id="a6V-f6-uve"/>
@@ -88,7 +105,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3lB-4v-Tfa" secondAttribute="bottom" id="qgL-b3-fzx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
+            <point key="canvasLocation" x="-201" y="125"/>
         </view>
     </objects>
     <resources>

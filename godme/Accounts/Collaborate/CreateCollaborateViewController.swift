@@ -27,11 +27,8 @@ class CreateCollaborateViewController: BaseViewController {
     var strImgBase64: String = ""
     var imagePicker = UIImagePickerController()
     var index: Int = 0
-    var cellAddres: AddressPostCarTableViewCell!
-    var vDatePicker: ViewDatePicker!
-    var cellDate: DateTableViewCell!
     
-    var auctionModel = AuctionServiceParamsModel()
+    var collaborationModel = CollaborationServiceParamsModel()
     var linkImg1: String = ""
     var linkImg2: String = ""
     var linkImg3: String = ""
@@ -60,10 +57,8 @@ class CreateCollaborateViewController: BaseViewController {
     func setupTableView(){
         self.tbvCreateCollaborate.register(UINib(nibName: "ImageCarTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageCarTableViewCell")
         self.tbvCreateCollaborate.register(UINib(nibName: "DescriptionCarTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCarTableViewCell")
-        self.tbvCreateCollaborate.register(UINib(nibName: "AddressPostCarTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressPostCarTableViewCell")
 
         self.tbvCreateCollaborate.register(UINib.init(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
-        self.tbvCreateCollaborate.register(UINib.init(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTableViewCell")
         self.tbvCreateCollaborate.register(UINib.init(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
         self.tbvCreateCollaborate.delegate = self
         self.tbvCreateCollaborate.dataSource = self
@@ -104,8 +99,8 @@ class CreateCollaborateViewController: BaseViewController {
     func addNewService(){
         let group = DispatchGroup()
         if cellImage.imageOne.image != nil {
+            group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imageOne.image!, progress: nil) { [unowned self] (fileURL, error) in
-                group.enter()
                 if error == nil {
                     self.linkImg1 = fileURL as! String
                 }else{
@@ -120,7 +115,6 @@ class CreateCollaborateViewController: BaseViewController {
         if cellImage.imageTwo.image != nil {
             group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imageTwo.image!, progress: nil) { [unowned self] (fileURL, error) in
-                
                 if error == nil {
                     self.linkImg2 = fileURL as! String
                 }else{
@@ -134,7 +128,6 @@ class CreateCollaborateViewController: BaseViewController {
         if cellImage.imageThree.image != nil {
             group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imageThree.image!, progress: nil) { [unowned self] (fileURL, error) in
-                
                 if error == nil {
                     self.linkImg3 = fileURL as! String
                 }else{
@@ -155,25 +148,34 @@ class CreateCollaborateViewController: BaseViewController {
             }else if self.linkImg1.count > 0 {
                 linkImgs = "\(self.linkImg1)"
             }
-            var model = AddNewAuctionServiceParams()
-            model.startTime = self.auctionModel.startTime
-            model.endTime = self.auctionModel.endTime
-            model.amount = self.auctionModel.amount
-            model.address = "ghewiughgu guiwge"//self.basicModel.address
-            model.latitude = self.auctionModel.latitude
-            model.longitude = self.auctionModel.longitude
-            model.description = self.auctionModel.description
-            model.language = self.auctionModel.language
-            model.images = linkImgs
-            model.title = self.auctionModel.title
-            model.priceStep = self.auctionModel.priceStep
-            self.createNewService(model: model)
+            
+            if self.collaborationModel.title.count == 0 ||
+                self.collaborationModel.description.count == 0 ||
+                self.collaborationModel.content.count == 0 ||
+                self.collaborationModel.fullName.count == 0 ||
+                self.collaborationModel.email.count == 0 ||
+                self.collaborationModel.phoneNumber.count == 0 ||
+                linkImgs.count == 0 {
+                DispatchQueue.main.async {
+                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                }
+            }else {
+                var model = AddNewCollaborationParams()
+                model.title = self.collaborationModel.title
+                model.description = self.collaborationModel.description
+                model.content = self.collaborationModel.content
+                model.fullName = self.collaborationModel.fullName
+                model.email = self.collaborationModel.email
+                model.phoneNumber = self.collaborationModel.phoneNumber
+                model.images = linkImgs
+                self.createNewService(model: model)
+            }
         }
         
     }
     
-    func createNewService(model: AddNewAuctionServiceParams){
-        ManageServicesManager.shareManageServicesManager().createAuctionService(model: model) { [unowned self](response) in
+    func createNewService(model: AddNewCollaborationParams){
+        ManageServicesManager.shareManageServicesManager().createCollaborationService(model: model) { [unowned self](response) in
             switch response {
 
             case .success( _):
@@ -200,7 +202,6 @@ extension CreateCollaborateViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let typeCell = listTypeCell[indexPath.row]
-//        [.Image, .Title, .FullName, .Email, .PhoneNumber, .Description, .CollaborateExpect, .CreateCollaborate]
         switch typeCell {
         case .Image:
             cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
@@ -237,6 +238,7 @@ extension CreateCollaborateViewController: UITableViewDelegate, UITableViewDataS
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.text = "Mô tả"
+            cell.delegate = self
             return cell
         case .CollaborateExpect:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
@@ -250,20 +252,6 @@ extension CreateCollaborateViewController: UITableViewDelegate, UITableViewDataS
             cell.btComplete.setTitle("Gửi thông tin", for: .normal)
             cell.delegate = self
             return cell
-        }
-    }
-    
-    
-}
-
-extension CreateCollaborateViewController: HeaderSubMainProtocol{
-    func didMore(index: Int) {
-        self.view.endEditing(true)
-        if vDatePicker == nil {
-            vDatePicker = ViewDatePicker.instanceFromNib()
-            vDatePicker.tag = 11
-            self.view.addSubview(vDatePicker)
-            vDatePicker.delegate = self
         }
     }
     
@@ -303,65 +291,6 @@ extension CreateCollaborateViewController: UIImagePickerControllerDelegate, UINa
     }
 }
 
-extension CreateCollaborateViewController: AddressPostCarTableViewCellProtocol{
-    func getAddress() {
-        let map = MapPickerViewController()
-        map.onDismissCallback = {[weak self](location) in
-            self?.cellAddres.updateAddress(to: location)
-//            self?.postModel.Lat = location?.coordinate.latitude ?? 0.0
-//            self?.postModel.Lng = location?.coordinate.longitude ?? 0.0
-        }
-        self.navigationController?.pushViewController(map, animated: true)
-    }
-    
-    func getText(_ str: String) {
-        print("address = ", str)
-//        postModel.workPlace = str
-    }
-}
-
-extension CreateCollaborateViewController: ViewDatePickerProtocol {
-    func tapDone() {
-        print("tap done")
-        let df = DateFormatter.init()
-        df.dateFormat = "dd/MM/yyyy"
-//        postModel.dateExpire = df.string(from: vDatePicker.datePicker.date)
-        
-        cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date))
-//        cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)
-//        cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)
-        vDatePicker.viewWithTag(11)?.removeFromSuperview()
-        vDatePicker = nil
-    }
-    
-    func tapCancel() {
-        print("tap cancel")
-        vDatePicker.viewWithTag(11)?.removeFromSuperview()
-        vDatePicker = nil
-    }
-    
-    func tapGesture() {
-        vDatePicker.viewWithTag(11)?.removeFromSuperview()
-        vDatePicker = nil
-    }
-}
-
-extension CreateCollaborateViewController: DateTableViewCellProtocol{
-    func getDateText(_ str: String) {
-        
-    }
-    
-    func showDatePicker() {
-        self.view.endEditing(true)
-        if vDatePicker == nil {
-            vDatePicker = ViewDatePicker.instanceFromNib()
-            vDatePicker.tag = 11
-            self.view.addSubview(vDatePicker)
-            vDatePicker.delegate = self
-        }
-    }
-}
-
 extension CreateCollaborateViewController: TitleTableViewCellProtocol{
     func getTextCollaborationService(_ str: String, type: typeCellCreateCollaborate) {
         switch type {
@@ -369,16 +298,21 @@ extension CreateCollaborateViewController: TitleTableViewCellProtocol{
         case .Image:
             break
         case .Title:
+            self.collaborationModel.title = str
             break
         case .FullName:
+            self.collaborationModel.fullName = str
             break
         case .Email:
+            self.collaborationModel.email = str
             break
         case .PhoneNumber:
+            self.collaborationModel.phoneNumber = str
             break
         case .Description:
             break
         case .CollaborateExpect:
+            self.collaborationModel.content = str
             break
         case .CreateCollaborate:
             break
@@ -386,8 +320,15 @@ extension CreateCollaborateViewController: TitleTableViewCellProtocol{
     }
 }
 
+extension CreateCollaborateViewController: DescriptionCarTableViewCellProtocol{
+    func getDescriptionText(_ string: String) {
+        self.collaborationModel.description = string
+    }
+}
+
 extension CreateCollaborateViewController: CompleteTableViewCellProtocol{
     func didComplete() {
-        
+        self.showProgressHub()
+        self.addNewService()
     }
 }

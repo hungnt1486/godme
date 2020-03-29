@@ -25,6 +25,8 @@ class BaseViewController: UIViewController {
     
     public static var deviceToken = String()
     
+    public static var arrayJobs: [[String: String]] = []
+    
     public static var headers: HTTPHeaders = [:]
     
     public static var Lat = Double()
@@ -73,6 +75,26 @@ class BaseViewController: UIViewController {
     
     @objc func touchBack(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func getListJobsMain(){
+        UserManager.shareUserManager().getListJobs {[unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                if data.count > 0 {
+                    for item in data {
+                        BaseViewController.arrayJobs.append(["name":item.name ?? "", "code": "\(item.id ?? 0)"])
+                    }
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func loginSuccess() -> Void {

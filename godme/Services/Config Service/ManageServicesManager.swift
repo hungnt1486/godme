@@ -216,6 +216,7 @@ class ManageServicesManager{
         paramsBody["language"] = model.language
         paramsBody["amount"] = model.amount
         paramsBody["images"] = model.images
+        paramsBody["maxOrder"] = model.maxOrder
         Alamofire.request(URLs.createEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("createEventService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
@@ -237,6 +238,10 @@ class ManageServicesManager{
         paramsBody["title"] = model.title
         paramsBody["description"] = model.description
         paramsBody["content"] = model.content
+        paramsBody["fullName"] = model.fullName
+        paramsBody["email"] = model.email
+        paramsBody["phoneNumber"] = model.phoneNumber
+        paramsBody["images"] = model.images
         Alamofire.request(URLs.createCollaborationService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("createCollaborationService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))

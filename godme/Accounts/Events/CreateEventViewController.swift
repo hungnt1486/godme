@@ -13,10 +13,11 @@ import UIKit
     case Title = 1
     case Time = 2
     case Position = 3
-    case Description = 4
-    case Language = 5
-    case Fee = 6
-    case CreateEvent = 7
+    case MaxOrder = 4
+    case Description = 5
+    case Language = 6
+    case Fee = 7
+    case CreateEvent = 8
 }
 
 class CreateEventViewController: BaseViewController {
@@ -36,7 +37,7 @@ class CreateEventViewController: BaseViewController {
     var linkImg2: String = ""
     var linkImg3: String = ""
     
-    var listTypeCell: [typeCellCreateEvent] = [.Image, .Title, .Time, .Position, .Description, .Language, .Fee, .CreateEvent]
+    var listTypeCell: [typeCellCreateEvent] = [.Image, .Title, .Time, .Position, .MaxOrder, .Description, .Language, .Fee, .CreateEvent]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,8 +105,8 @@ class CreateEventViewController: BaseViewController {
     func addNewService(){
         let group = DispatchGroup()
         if cellImage.imageOne.image != nil {
+            group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imageOne.image!, progress: nil) { [unowned self] (fileURL, error) in
-                group.enter()
                 if error == nil {
                     self.linkImg1 = fileURL as! String
                 }else{
@@ -146,27 +147,43 @@ class CreateEventViewController: BaseViewController {
             }
         }
         
-        group.notify(queue: DispatchQueue.global(qos: .background)) {
+        group.notify(queue: DispatchQueue.main) {
             var linkImgs = ""
             if self.linkImg1.count > 0 && self.linkImg2.count > 0 && self.linkImg3.count > 0 {
                 linkImgs = "\(self.linkImg1),\(self.linkImg2),\(self.linkImg3)"
             }else if self.linkImg1.count > 0 && self.linkImg2.count > 0 {
                 linkImgs = "\(self.linkImg1),\(self.linkImg2)"
-            }else if self.linkImg1.count > 0 {
+            }else {
                 linkImgs = "\(self.linkImg1)"
             }
-            var model = AddNewAuctionServiceParams()
-            model.startTime = self.eventModel.startTime
-            model.endTime = self.eventModel.endTime
-            model.amount = self.eventModel.amount
-            model.address = "ghewiughgu guiwge"//self.basicModel.address
-            model.latitude = self.eventModel.latitude
-            model.longitude = self.eventModel.longitude
-            model.description = self.eventModel.description
-            model.language = self.eventModel.language
-            model.images = linkImgs
-            model.title = self.eventModel.title
-            self.createNewService(model: model)
+            if self.eventModel.startTime == 0.0 ||
+                self.eventModel.endTime == 0.0 ||
+                self.eventModel.amount.count == 0 ||
+                self.eventModel.address.count == 0 ||
+                self.eventModel.description.count == 0 ||
+                self.eventModel.language.count == 0 ||
+                self.eventModel.title.count == 0 ||
+                self.eventModel.maxOrder.count == 0 {
+                DispatchQueue.main.sync {
+                    print(linkImgs)
+                    self.hideProgressHub()
+                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                }
+            }else{
+                var model = AddNewAuctionServiceParams()
+                model.startTime = self.eventModel.startTime
+                model.endTime = self.eventModel.endTime
+                model.amount = self.eventModel.amount
+                model.address = self.eventModel.address
+                model.latitude = self.eventModel.latitude
+                model.longitude = self.eventModel.longitude
+                model.description = self.eventModel.description
+                model.language = self.eventModel.language
+                model.images = linkImgs
+                model.title = self.eventModel.title
+                model.maxOrder = self.eventModel.maxOrder
+                self.createNewService(model: model)
+            }
         }
         
     }
@@ -227,6 +244,13 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cellAddres.lbTypeCar.text = "Chọn địa điểm"
             cellAddres.delegate = self
             return cellAddres
+        case .MaxOrder:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+            cell.lbTitle.text = "Số người tối đa"
+            cell.tfInput.placeholder = "Nhập số người tối đa"
+            cell.tfInput.tag = indexPath.row
+            cell.delegate = self
+            return cell
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.text = "Mô tả"
@@ -318,6 +342,7 @@ extension CreateEventViewController: AddressPostCarTableViewCellProtocol{
     
     func getText(_ str: String) {
         print("address = ", str)
+        self.eventModel.address = str
 //        postModel.workPlace = str
     }
 }
@@ -326,8 +351,7 @@ extension CreateEventViewController: ViewDatePickerProtocol {
     func tapDone() {
         print("tap done")
         let df = DateFormatter.init()
-        df.dateFormat = "dd/MM/yyyy"
-        self.eventModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+        df.dateFormat = "HH:MM:ss dd/MM/yyyy"
         if cellDate.indexLabel == 1 {
             cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)
             self.eventModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
@@ -404,6 +428,9 @@ extension CreateEventViewController: TitleTableViewCellProtocol{
             self.eventModel.amount = str
             break
         case .CreateEvent:
+            break
+        case .MaxOrder:
+            self.eventModel.maxOrder = str
             break
         }
     }

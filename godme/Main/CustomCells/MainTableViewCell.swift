@@ -80,8 +80,9 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+        cell.lbCity.text = model.address
         cell.lbTitleDetail.text = model.userInfo?.userCategory
+        cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
         return cell
         
     }

@@ -16,37 +16,57 @@ class RelationShipsManager{
         return Static._shareRelationShipsManager
     }
     
-    func getListRelationShip(completion: @escaping(ListResult<RelationShipsModel>) -> Void){
-        
-        Alamofire.request(URLs.getRelationShip, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+//    func getListRelationShip(completion: @escaping(ListResult<RelationShipsModel>) -> Void){
+//
+//        Alamofire.request(URLs.getRelationShip, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+//            print(response)
+//            completion(ListResult<RelationShipsModel>.handleResponse(response))
+//        }
+//    }
+    
+    func getListRelationShipFilter(careerId: Int, fullName: String, page: Int, pageSize: Int, completion: @escaping(ListResult<RelationShipsModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["careerId"] = careerId
+        paramsBody["fullName"] = fullName
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.getRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(ListResult<RelationShipsModel>.handleResponse(response))
         }
     }
     
-    func getListRelationShipExpand(completion: @escaping(ListResult<RelationShipsModel>) -> Void){
-        
-        Alamofire.request(URLs.getRelationshipExpand, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+    func getListRelationShipExpandFilter(careerId: Int, fullName: String, page: Int, pageSize: Int, completion: @escaping(ListResult<RelationShipsModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["careerId"] = careerId
+        paramsBody["fullName"] = fullName
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.getRelationshipExpand, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(ListResult<RelationShipsModel>.handleResponse(response))
         }
     }
     
-    func getListHiden(completion: @escaping(ListResult<RelationShipsModel>) -> Void){
-        
-        Alamofire.request(URLs.getListHiden, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+    func getListHidenFilter(careerId: Int, fullName: String, page: Int, pageSize: Int, completion: @escaping(ListResult<RelationShipsModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["careerId"] = careerId
+        paramsBody["fullName"] = fullName
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.getListHiden, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(ListResult<RelationShipsModel>.handleResponse(response))
         }
     }
     
-    func searchRelationShip(keyword: String, type: String, completion:@escaping(ListResult<RelationShipsModel>) -> Void){
-        let urlRequest = URLs.searchRelationShips + "/" + keyword + "/" + type
-        Alamofire.request(urlRequest, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
-            print(response)
-            completion(ListResult<RelationShipsModel>.handleResponse(response))
-        }
-    }
+//    func searchRelationShip(keyword: String, type: String, completion:@escaping(ListResult<RelationShipsModel>) -> Void){
+//        let urlRequest = URLs.searchRelationShips + "/" + keyword + "/" + type
+//        Alamofire.request(urlRequest, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+//            print(response)
+//            completion(ListResult<RelationShipsModel>.handleResponse(response))
+//        }
+//    }
     
     func showRelationShip(childrenId: Int, completion: @escaping(SingleResult<BaseModel>) -> Void){
         var paramsBody = [String: Any]()
@@ -115,12 +135,12 @@ class RelationShipsManager{
         }
     }
     
-    func searchGroupRelationShip(id: Int, completion: @escaping(SingleResult<BaseModel>) -> Void){
+    func searchGroupRelationShip(id: Int, completion: @escaping(ListResult<GroupRelationShipModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["id"] = id
-        Alamofire.request(URLs.addGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+        Alamofire.request(URLs.searchGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
-            completion(SingleResult<BaseModel>.handleResponse(response))
+            completion(ListResult<GroupRelationShipModel>.handleResponse(response))
         }
     }
     

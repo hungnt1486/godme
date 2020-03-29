@@ -156,10 +156,20 @@ class CreateServiceViewController: BaseViewController {
             }else if self.linkImg1.count > 0 {
                 linkImgs = "\(self.linkImg1)"
             }
+            if self.basicModel.dateTime1 == 0.0 ||
+                self.basicModel.amount.count == 0 ||
+                self.basicModel.address.count == 0 ||
+                self.basicModel.description.count == 0 ||
+                self.basicModel.language.count == 0 ||
+                self.basicModel.title.count == 0 ||
+                linkImgs.count == 0 {
+                Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                return
+            }
             var model = AddNewBaseServiceParams()
             model.dateTime1 = self.basicModel.dateTime1
             model.amount = self.basicModel.amount
-            model.address = "ghewiughgu guiwge"//self.basicModel.address
+            model.address = self.basicModel.address
             model.latitude = self.basicModel.latitude
             model.longitude = self.basicModel.longitude
             model.description = self.basicModel.description

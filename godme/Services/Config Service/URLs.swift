@@ -9,7 +9,7 @@
 struct URLs {
     // for test
     static let linkServer = "http://45.117.169.99:8888/godme-service/"
-    // for live
+    // for live https://godme.org:8443
 //    static let linkServer = "http://cityf.vn/api-test/"
     private struct Routes{
         static let login = "api/v1/auth/login"

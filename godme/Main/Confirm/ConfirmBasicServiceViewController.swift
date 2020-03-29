@@ -87,7 +87,7 @@ extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
             formatter.dateFormat = "dd/MM/yyyy"
             
             var model = AddNewConfirmBasicServiceParams()
-            model.amount = self.modelDetail?.amount
+            model.amount = Int(self.modelDetail?.amount ?? "0")
             model.buyerId = self.modelDetail?.userInfo?.id
             model.sellerId = self.modelDetail?.createdByUserId
             model.serviceId = self.modelDetail?.id
@@ -98,6 +98,7 @@ extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
                 case .success(let data):
                     self.hideProgressHub()
                     print("data = \(data)")
+                    Settings.ShareInstance.showAlertView(message: data.MessageInfo, vc: self)
                     break
                 case .failure(let message):
                     self.hideProgressHub()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DropDown
 
 class MyRelationShipExpandViewController: BaseViewController {
 
@@ -14,20 +15,45 @@ class MyRelationShipExpandViewController: BaseViewController {
     @IBOutlet weak var tfInputName: UITextField!
     @IBOutlet weak var lbFilterJob: UILabel!
     @IBOutlet weak var tbvMyRelationShipExpand: UITableView!
+    @IBOutlet weak var btFind: UIButton!
     var listRelationShipExpand: [RelationShipsModel] = []
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.gray
+        
+        return refreshControl
+    }()
+    var isLoadMore: Bool = true
+    var currentPage: Int = 1
+    var pageSize: Int = 10
+    var indexJob: Int = 0
+    
+    var TypeDropdown = DropDown()
+    var arrString:[String] = []
+    var arr: [[String:String]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        self.setupTypeDropdown()
         self.setupTableView()
-        self.getListRelationShipExpand()
+        self.getListRelationShipExpandFilter()
     }
 
     func setupUI(){
         self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
         
         self.tfInputName = Settings.ShareInstance.setupTextField(textField: self.tfInputName, isLeftView: true)
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showType))
+        tapGesture.numberOfTouchesRequired = 1
+        self.lbFilterJob.isUserInteractionEnabled = true
+        self.lbFilterJob.addGestureRecognizer(tapGesture)
     }
 
     func setupTableView(){
@@ -39,15 +65,50 @@ class MyRelationShipExpandViewController: BaseViewController {
         self.tbvMyRelationShipExpand.separatorInset = UIEdgeInsets.zero
         self.tbvMyRelationShipExpand.estimatedRowHeight = 300
         self.tbvMyRelationShipExpand.rowHeight = UITableView.automaticDimension
+        self.tbvMyRelationShipExpand.addSubview(refreshControl)
     }
     
-    func getListRelationShipExpand(){
-        RelationShipsManager.shareRelationShipsManager().getListRelationShipExpand { [unowned self] (response) in
+    func setupTypeDropdown(){
+        TypeDropdown.anchorView = self.lbFilterJob
+        self.arr = BaseViewController.arrayJobs
+        TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbFilterJob.bounds.height)
+            for item in arr {
+                arrString.append(item["name"] ?? "")
+            }
+        let typeDataSource = arrString
+        TypeDropdown.dataSource = typeDataSource
+        TypeDropdown.selectionAction = { [unowned self] (index, item) in
+            self.lbFilterJob.text = item
+            let model = self.arr[index]
+            self.indexJob = Int(model["code"] ?? "0")!
+        }
+    }
+        
+    @objc func showType(){
+        TypeDropdown.show()
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        currentPage = 1
+        self.getListRelationShipExpandFilter()
+        refreshControl.endRefreshing()
+    }
+    
+    func getListRelationShipExpandFilter(){
+        RelationShipsManager.shareRelationShipsManager().getListRelationShipExpandFilter(careerId: self.indexJob, fullName: self.tfInputName.text ?? "", page: currentPage, pageSize: pageSize) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
                 
+                if self.currentPage == 1 {
+                    self.isLoadMore = true
+                    self.listRelationShipExpand.removeAll()
+                    self.listRelationShipExpand = [RelationShipsModel]()
+                }
+                if data.count < self.pageSize {
+                    self.isLoadMore = false
+                }
                 for model in data {
                     self.listRelationShipExpand.append(model)
                 }
@@ -60,7 +121,12 @@ class MyRelationShipExpandViewController: BaseViewController {
             }
         }
     }
-
+    
+    @IBAction func touchFind(_ sender: Any) {
+        self.showProgressHub()
+        self.getListRelationShipExpandFilter()
+    }
+    
 }
 
 extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDataSource{
@@ -77,6 +143,23 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
                 cell.imgAvatar.image = image
             }
         }
+        let career = model.career
+        let arrCareer = career?.split(separator: ",")
+        var strCareer = ""
+        for item in arrCareer! {
+            for item1 in BaseViewController.arrayJobs {
+                if Int(item) == Int(item1["code"] ?? "0") {
+                    if strCareer.count == 0 {
+                        strCareer = strCareer + item1["name"]!
+                    }else {
+                        strCareer = strCareer + ", " + item1["name"]!
+                    }
+                }
+            }
+        }
+        cell.lbTime.text = strCareer
+        cell.indexStar = model.totalStar ?? 0.0
+        cell.lbCoin.text = "Số tiền thụ hưởng: \(model.totalBenefited ?? 0) Godcoin"
         cell.lbEmail.text = "Email: \(model.email ?? "")"
         cell.lbPhone.text = "Số điện thoại: \(model.phoneNumber ?? "")"
         cell.lbTitle.text = model.fullName
@@ -88,6 +171,14 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isLoadMore {
+            if indexPath.row == listRelationShipExpand.count - 3 {
+                currentPage = currentPage + 1
+                self.getListRelationShipExpandFilter()
+            }
+        }
+    }
     
 }
 

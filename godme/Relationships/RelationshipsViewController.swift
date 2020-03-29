@@ -14,6 +14,7 @@ class RelationshipsViewController: BaseViewController {
         ViewPagerTab(title: "Các mối quan hệ", image: nil),
         ViewPagerTab(title: "MQH mở rộng", image: nil),
         ViewPagerTab(title: "Danh sách ẩn", image: nil),
+        ViewPagerTab(title: "Nhóm mối quan hệ", image: nil),
     ]
         
     var viewPager: ViewPagerController!
@@ -110,8 +111,10 @@ extension RelationshipsViewController: ViewPagerControllerDataSource {
             return MyRelationShipViewController()
         } else if position == 1 {
             return MyRelationShipExpandViewController()
-        }else{
+        }else if position == 2{
             return ListHiddenViewController()
+        }else{
+            return MyGroupRelationShipExpandViewController()
         }
     }
     

@@ -105,8 +105,8 @@ class CreateAuctionViewController: BaseViewController {
     func addNewService(){
         let group = DispatchGroup()
         if cellImage.imageOne.image != nil {
+            group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imageOne.image!, progress: nil) { [unowned self] (fileURL, error) in
-                group.enter()
                 if error == nil {
                     self.linkImg1 = fileURL as! String
                 }else{
@@ -156,19 +156,33 @@ class CreateAuctionViewController: BaseViewController {
             }else if self.linkImg1.count > 0 {
                 linkImgs = "\(self.linkImg1)"
             }
-            var model = AddNewAuctionServiceParams()
-            model.startTime = self.auctionModel.startTime
-            model.endTime = self.auctionModel.endTime
-            model.amount = self.auctionModel.amount
-            model.address = "ghewiughgu guiwge"//self.basicModel.address
-            model.latitude = self.auctionModel.latitude
-            model.longitude = self.auctionModel.longitude
-            model.description = self.auctionModel.description
-            model.language = self.auctionModel.language
-            model.images = linkImgs
-            model.title = self.auctionModel.title
-            model.priceStep = self.auctionModel.priceStep
-            self.createNewService(model: model)
+            if self.auctionModel.startTime == 0.0 ||
+                self.auctionModel.endTime == 0.0 ||
+                self.auctionModel.amount.count == 0 ||
+                self.auctionModel.address.count == 0 ||
+                self.auctionModel.description.count == 0 ||
+                self.auctionModel.language.count == 0 ||
+                self.auctionModel.title.count == 0 ||
+                self.auctionModel.priceStep.count == 0 ||
+                linkImgs.count == 0 {
+                DispatchQueue.main.async {
+                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                }
+            }else {
+                var model = AddNewAuctionServiceParams()
+                model.startTime = self.auctionModel.startTime
+                model.endTime = self.auctionModel.endTime
+                model.amount = self.auctionModel.amount
+                model.address = self.auctionModel.address
+                model.latitude = self.auctionModel.latitude
+                model.longitude = self.auctionModel.longitude
+                model.description = self.auctionModel.description
+                model.language = self.auctionModel.language
+                model.images = linkImgs
+                model.title = self.auctionModel.title
+                model.priceStep = self.auctionModel.priceStep
+                self.createNewService(model: model)
+            }
         }
         
     }
@@ -338,7 +352,6 @@ extension CreateAuctionViewController: ViewDatePickerProtocol {
         print("tap done")
         let df = DateFormatter.init()
         df.dateFormat = "dd/MM/yyyy"
-        self.auctionModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
         if cellDate.indexLabel == 1 {
             cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)
             self.auctionModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)

@@ -109,4 +109,5 @@ struct AddNewAuctionServiceParams {
     var amount: String?
     var priceStep: String?
     var images: String?
+    var maxOrder: String?
 }

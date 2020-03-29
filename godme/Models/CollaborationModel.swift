@@ -50,6 +50,10 @@ struct AddNewCollaborationParams{
     var title: String?
     var description: String?
     var content: String?
+    var fullName: String?
+    var email: String?
+    var phoneNumber: String?
+    var images: String?
 }
 
 class BlogModel: BaseModel {

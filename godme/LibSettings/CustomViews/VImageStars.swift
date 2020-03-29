@@ -26,12 +26,12 @@ class VImageStars: UIView {
         super.awakeFromNib()
     }
     
-    func configVImageStars(frameView: CGRect, index: Int = 1) {
+    func configVImageStars(frameView: CGRect, index: Float = 1.0) {
         self.setupUI(index: index)
         self.frame = CGRect(x: 0, y: 0, width: frameView.size.width, height: frameView.size.height)
     }
     
-    func setupUI(index: Int){
+    func setupUI(index: Float){
         switch index {
         case 1:
             self.img1.image = UIImage.init(named: "ic_star_active_gray")
@@ -59,7 +59,7 @@ class VImageStars: UIView {
             self.img5.image = UIImage.init(named: "ic_star_active_gray")
             break
         default:
-            self.img1.image = UIImage.init(named: "ic_star_active_gray")
+//            self.img1.image = UIImage.init(named: "ic_star_active_gray")
             break
         }
 //        self.vContent = Settings.ShareInstance.setupBTV(v: self.vContent)

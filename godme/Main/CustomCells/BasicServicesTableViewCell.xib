@@ -36,58 +36,85 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Dạy sửa chữa di động Dạy sửa chữa di động Dạy sửa chữa di động" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65R-5J-O7L">
-                                <rect key="frame" x="135" y="10" width="160" height="18"/>
+                                <rect key="frame" x="135" y="10" width="160" height="41"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thứ tư 8/3, 3:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-V6-23g">
-                                <rect key="frame" x="135" y="33" width="160" height="18"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_time_gray" translatesAutoresizingMaskIntoConstraints="NO" id="TRX-xR-ASD">
+                                <rect key="frame" x="135" y="56" width="16" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="2kZ-N1-wjm"/>
+                                    <constraint firstAttribute="width" constant="16" id="pOW-rB-eU2"/>
+                                    <constraint firstAttribute="height" constant="16" id="q8n-5O-mY1"/>
                                 </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_marker_gray" translatesAutoresizingMaskIntoConstraints="NO" id="D65-Wd-2re">
+                                <rect key="frame" x="135" y="79" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="Soe-lC-bxq"/>
+                                    <constraint firstAttribute="height" constant="16" id="Yeh-zX-8kY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thứ tư 8/3, 3:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-V6-23g">
+                                <rect key="frame" x="156" y="56" width="139" height="18"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hồ Chí Minh city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-yG-9dV">
-                                <rect key="frame" x="135" y="56" width="160" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hồ Chí Minh city" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-yG-9dV">
+                                <rect key="frame" x="156" y="79" width="139" height="18"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Ngành kỹ thuât" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvt-hH-5Qh">
-                                <rect key="frame" x="135" y="79" width="160" height="18"/>
+                                <rect key="frame" x="135" y="97" width="160" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="MMN-qI-LNZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600,000 godcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br7-y7-SV1">
-                                <rect key="frame" x="135" y="102" width="160" height="18"/>
+                                <rect key="frame" x="156" y="102" width="139" height="18"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_coin" translatesAutoresizingMaskIntoConstraints="NO" id="378-d9-yzZ">
+                                <rect key="frame" x="135" y="102" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="FNb-PT-k6N"/>
+                                    <constraint firstAttribute="height" constant="16" id="Rv9-zT-m20"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="D65-Wd-2re" firstAttribute="top" secondItem="gcC-yG-9dV" secondAttribute="top" id="0Ea-tg-YH3"/>
                             <constraint firstItem="gcC-yG-9dV" firstAttribute="top" secondItem="HvH-V6-23g" secondAttribute="bottom" constant="5" id="3gM-JE-ddK"/>
+                            <constraint firstItem="D65-Wd-2re" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="6HL-Dz-m8W"/>
                             <constraint firstItem="65R-5J-O7L" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="7GP-qj-PsI"/>
                             <constraint firstAttribute="trailing" secondItem="gcC-yG-9dV" secondAttribute="trailing" constant="5" id="A3C-c0-JJw"/>
+                            <constraint firstItem="TRX-xR-ASD" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="EJe-Fj-oPy"/>
                             <constraint firstItem="65R-5J-O7L" firstAttribute="top" secondItem="dct-yg-3cD" secondAttribute="top" constant="10" id="Gcy-YT-iEM"/>
-                            <constraint firstItem="Nvt-hH-5Qh" firstAttribute="top" secondItem="gcC-yG-9dV" secondAttribute="bottom" constant="5" id="M1t-ut-ZoZ"/>
-                            <constraint firstItem="HvH-V6-23g" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="NuW-3e-jr0"/>
+                            <constraint firstItem="Nvt-hH-5Qh" firstAttribute="top" secondItem="gcC-yG-9dV" secondAttribute="bottom" id="M1t-ut-ZoZ"/>
+                            <constraint firstItem="TRX-xR-ASD" firstAttribute="top" secondItem="HvH-V6-23g" secondAttribute="top" id="Ogv-Tp-qNg"/>
                             <constraint firstAttribute="trailing" secondItem="HvH-V6-23g" secondAttribute="trailing" constant="5" id="URf-Zz-TXP"/>
                             <constraint firstAttribute="trailing" secondItem="65R-5J-O7L" secondAttribute="trailing" constant="5" id="UTY-We-OJU"/>
-                            <constraint firstItem="br7-y7-SV1" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="Vui-ag-iAo"/>
                             <constraint firstAttribute="trailing" secondItem="Nvt-hH-5Qh" secondAttribute="trailing" constant="5" id="ZZG-ce-gVY"/>
                             <constraint firstItem="HvH-V6-23g" firstAttribute="top" secondItem="65R-5J-O7L" secondAttribute="bottom" constant="5" id="aWh-cw-JKz"/>
+                            <constraint firstItem="br7-y7-SV1" firstAttribute="leading" secondItem="378-d9-yzZ" secondAttribute="trailing" constant="5" id="dPn-Tl-cOj"/>
                             <constraint firstAttribute="bottom" secondItem="br7-y7-SV1" secondAttribute="bottom" constant="10" id="fpv-OA-oys"/>
                             <constraint firstItem="KlF-D4-X3y" firstAttribute="top" secondItem="dct-yg-3cD" secondAttribute="top" constant="5" id="hjj-pO-nch"/>
                             <constraint firstItem="br7-y7-SV1" firstAttribute="top" secondItem="Nvt-hH-5Qh" secondAttribute="bottom" constant="5" id="hnV-KO-Ery"/>
+                            <constraint firstItem="378-d9-yzZ" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="jJd-5c-Y7m"/>
                             <constraint firstAttribute="trailing" secondItem="br7-y7-SV1" secondAttribute="trailing" constant="5" id="nou-FA-5Az"/>
                             <constraint firstItem="KlF-D4-X3y" firstAttribute="leading" secondItem="dct-yg-3cD" secondAttribute="leading" constant="10" id="qQq-5B-URq"/>
-                            <constraint firstItem="gcC-yG-9dV" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="uy7-Ku-cIn"/>
+                            <constraint firstItem="gcC-yG-9dV" firstAttribute="leading" secondItem="D65-Wd-2re" secondAttribute="trailing" constant="5" id="sCu-Tm-ZWA"/>
+                            <constraint firstItem="378-d9-yzZ" firstAttribute="top" secondItem="br7-y7-SV1" secondAttribute="top" id="sfD-FZ-ZlQ"/>
+                            <constraint firstItem="HvH-V6-23g" firstAttribute="leading" secondItem="TRX-xR-ASD" secondAttribute="trailing" constant="5" id="xXi-3g-Go1"/>
                             <constraint firstItem="Nvt-hH-5Qh" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="y67-lc-Ok3"/>
                         </constraints>
                     </view>
@@ -114,6 +141,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_coin" width="21.333333969116211" height="21.333333969116211"/>
         <image name="ic_logo" width="341.66665649414062" height="341.33334350585938"/>
+        <image name="ic_marker_gray" width="28" height="28"/>
+        <image name="ic_time_gray" width="28" height="28"/>
     </resources>
 </document>

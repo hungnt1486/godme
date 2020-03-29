@@ -35,6 +35,7 @@ class MainViewController: BaseViewController {
         self.getListCollaborationService()
         self.getListBlogs()
         self.getAmountCharity()
+        self.getListJobsMain()
     }
     
     override func viewWillAppear(_ animated: Bool) {

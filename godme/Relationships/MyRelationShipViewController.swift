@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import DropDown
 
 class MyRelationShipViewController: BaseViewController {
 
@@ -15,26 +16,54 @@ class MyRelationShipViewController: BaseViewController {
     @IBOutlet weak var tfInputName: UITextField!
     @IBOutlet weak var lbFilterJob: UILabel!
     @IBOutlet weak var tbvMyRelationShip: UITableView!
+    @IBOutlet weak var btFind: NSLayoutConstraint!
     
     var listMyRelationShip: [RelationShipsModel] = []
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.gray
+        
+        return refreshControl
+    }()
+    var isLoadMore: Bool = true
+    var currentPage: Int = 1
+    var pageSize: Int = 10
+    var indexJob: Int = 0
+    
+    var TypeDropdown = DropDown()
+    var arrString:[String] = []
+    var arr: [[String:String]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
+        self.setupTypeDropdown()
         self.setupTableView()
-        self.getListRelationShip()
+        self.getListRelationShipFilter()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.showProgressHub()
+        
     }
     
     func setupUI(){
         self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
         
         self.tfInputName = Settings.ShareInstance.setupTextField(textField: self.tfInputName, isLeftView: true)
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showType))
+        tapGesture.numberOfTouchesRequired = 1
+        self.lbFilterJob.isUserInteractionEnabled = true
+        self.lbFilterJob.addGestureRecognizer(tapGesture)
+        
     }
     
     func setupTableView(){
@@ -46,15 +75,49 @@ class MyRelationShipViewController: BaseViewController {
         self.tbvMyRelationShip.separatorInset = UIEdgeInsets.zero
         self.tbvMyRelationShip.estimatedRowHeight = 300
         self.tbvMyRelationShip.rowHeight = UITableView.automaticDimension
+        self.tbvMyRelationShip.addSubview(refreshControl)
     }
     
-    func getListRelationShip(){
-        RelationShipsManager.shareRelationShipsManager().getListRelationShip { [unowned self] (response) in
+    func setupTypeDropdown(){
+        TypeDropdown.anchorView = self.lbFilterJob
+        self.arr = BaseViewController.arrayJobs
+        TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbFilterJob.bounds.height)
+            for item in arr {
+                arrString.append(item["name"] ?? "")
+            }
+        let typeDataSource = arrString
+        TypeDropdown.dataSource = typeDataSource
+        TypeDropdown.selectionAction = { [unowned self] (index, item) in
+            self.lbFilterJob.text = item
+            let model = self.arr[index]
+            self.indexJob = Int(model["code"] ?? "0")!
+        }
+    }
+        
+    @objc func showType(){
+        TypeDropdown.show()
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        currentPage = 1
+        self.getListRelationShipFilter()
+        refreshControl.endRefreshing()
+    }
+    
+    func getListRelationShipFilter(){
+        RelationShipsManager.shareRelationShipsManager().getListRelationShipFilter(careerId: self.indexJob, fullName: self.tfInputName.text ?? "", page: currentPage, pageSize: pageSize) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
-                
+                if self.currentPage == 1 {
+                    self.isLoadMore = true
+                    self.listMyRelationShip.removeAll()
+                    self.listMyRelationShip = [RelationShipsModel]()
+                }
+                if data.count < self.pageSize {
+                    self.isLoadMore = false
+                }
                 for model in data {
                     self.listMyRelationShip.append(model)
                 }
@@ -67,7 +130,12 @@ class MyRelationShipViewController: BaseViewController {
             }
         }
     }
-
+    
+    @IBAction func touchFind(_ sender: Any) {
+        self.showProgressHub()
+        self.getListRelationShipFilter()
+    }
+    
 }
 
 extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSource{
@@ -84,6 +152,23 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
                 cell.imgAvatar.image = image
             }
         }
+        let career = model.career
+        let arrCareer = career?.split(separator: ",")
+        var strCareer = ""
+        for item in arrCareer! {
+            for item1 in BaseViewController.arrayJobs {
+                if Int(item) == Int(item1["code"] ?? "0") {
+                    if strCareer.count == 0 {
+                        strCareer = strCareer + item1["name"]!
+                    }else {
+                        strCareer = strCareer + ", " + item1["name"]!
+                    }
+                }
+            }
+        }
+        cell.lbTime.text = strCareer
+        cell.indexStar = model.totalStar ?? 0.0
+        cell.lbCoin.text = "Số tiền thụ hưởng: \(model.totalBenefited ?? 0) Godcoin"
         cell.lbTitle.text = model.fullName
         cell.lbEmail.text = "Email: \(model.email ?? "")"
         cell.lbPhone.text = "Số điện thoại: \(model.phoneNumber ?? "")"
@@ -93,6 +178,15 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isLoadMore {
+            if indexPath.row == listMyRelationShip.count - 3 {
+                currentPage = currentPage + 1
+                self.getListRelationShipFilter()
+            }
+        }
     }
     
     

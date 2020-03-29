@@ -199,6 +199,7 @@ class EventServiceParamsModel{
     var language = ""
     var amount = ""
     var images = ""
+    var maxOrder = ""
 }
 
 class AuctionServiceParamsModel{
@@ -213,6 +214,16 @@ class AuctionServiceParamsModel{
     var amount = ""
     var images = ""
     var priceStep = ""
+}
+
+class CollaborationServiceParamsModel {
+    var title = ""
+    var description = ""
+    var content = ""
+    var fullName = ""
+    var email = ""
+    var phoneNumber = ""
+    var images = ""
 }
 
 struct AddNewBaseServiceParams {
@@ -237,7 +248,7 @@ struct AddNewConfirmBasicServiceParams {
     var serviceId: Int?
     var sellerId: Int?
     var buyerId: Int?
-    var amount: String?
+    var amount: Int?
     var dateTime: Double?
 }
 

@@ -46,26 +46,36 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_time_gray" translatesAutoresizingMaskIntoConstraints="NO" id="5hu-CA-6qg">
+                                                <rect key="frame" x="2" y="26" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="4Yf-Gh-kv1"/>
+                                                    <constraint firstAttribute="height" constant="16" id="kxs-qK-IbG"/>
+                                                </constraints>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thứ tư 8/3/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bss-1b-nxH">
-                                                <rect key="frame" x="5" y="26" width="155" height="16"/>
+                                                <rect key="frame" x="23" y="26" width="137" height="16"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hồ Chí Minh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vad-3g-0Pn">
-                                                <rect key="frame" x="5" y="46" width="155" height="16"/>
+                                                <rect key="frame" x="23" y="46" width="137" height="16"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngành đồ hoạ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJL-gp-RWm">
-                                                <rect key="frame" x="5" y="66" width="155" height="16"/>
+                                                <rect key="frame" x="5" y="62" width="155" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="eQ0-M3-x0R"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600.000.000 Godcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nag-Hn-Bbw">
-                                                <rect key="frame" x="5" y="86" width="155" height="18"/>
+                                                <rect key="frame" x="23" y="66" width="137" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="asP-qc-aMd"/>
                                                 </constraints>
@@ -73,22 +83,42 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_marker_gray" translatesAutoresizingMaskIntoConstraints="NO" id="YYh-wa-CB4">
+                                                <rect key="frame" x="2" y="46" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="9bG-CG-611"/>
+                                                    <constraint firstAttribute="height" constant="16" id="BS7-1R-LTB"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_coin" translatesAutoresizingMaskIntoConstraints="NO" id="6bk-sZ-P6J">
+                                                <rect key="frame" x="2" y="66" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="O2i-mj-kSA"/>
+                                                    <constraint firstAttribute="height" constant="16" id="uQ3-dh-Uvs"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Vad-3g-0Pn" secondAttribute="trailing" constant="5" id="05Z-hb-c2z"/>
+                                            <constraint firstItem="YYh-wa-CB4" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="2" id="22G-86-p7E"/>
                                             <constraint firstAttribute="trailing" secondItem="AW6-UL-mQT" secondAttribute="trailing" constant="5" id="9ba-UD-AbA"/>
                                             <constraint firstAttribute="height" constant="120" id="CBH-8U-JV5"/>
-                                            <constraint firstItem="Bss-1b-nxH" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="5" id="EQa-6f-GHl"/>
                                             <constraint firstItem="AW6-UL-mQT" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="5" id="IdC-jz-rMv"/>
+                                            <constraint firstItem="Bss-1b-nxH" firstAttribute="leading" secondItem="5hu-CA-6qg" secondAttribute="trailing" constant="5" id="JXU-sf-aLS"/>
                                             <constraint firstItem="AW6-UL-mQT" firstAttribute="top" secondItem="N6Y-Mc-CiH" secondAttribute="top" constant="5" id="N4s-N0-aIt"/>
-                                            <constraint firstItem="Nag-Hn-Bbw" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="5" id="OMu-B4-5xO"/>
-                                            <constraint firstItem="OJL-gp-RWm" firstAttribute="top" secondItem="Vad-3g-0Pn" secondAttribute="bottom" constant="4" id="UVG-Zo-W1L"/>
+                                            <constraint firstItem="YYh-wa-CB4" firstAttribute="top" secondItem="Vad-3g-0Pn" secondAttribute="top" id="Rlj-pv-0Wb"/>
+                                            <constraint firstItem="5hu-CA-6qg" firstAttribute="top" secondItem="Bss-1b-nxH" secondAttribute="top" id="U1V-3v-zxd"/>
+                                            <constraint firstItem="OJL-gp-RWm" firstAttribute="top" secondItem="Vad-3g-0Pn" secondAttribute="bottom" id="UVG-Zo-W1L"/>
+                                            <constraint firstItem="Vad-3g-0Pn" firstAttribute="leading" secondItem="YYh-wa-CB4" secondAttribute="trailing" constant="5" id="c6P-CV-IU7"/>
                                             <constraint firstAttribute="trailing" secondItem="Bss-1b-nxH" secondAttribute="trailing" constant="5" id="dtX-rs-1pd"/>
+                                            <constraint firstItem="Nag-Hn-Bbw" firstAttribute="leading" secondItem="6bk-sZ-P6J" secondAttribute="trailing" constant="5" id="eW9-N6-mlg"/>
+                                            <constraint firstItem="6bk-sZ-P6J" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="2" id="fva-Wb-EJm"/>
                                             <constraint firstAttribute="trailing" secondItem="Nag-Hn-Bbw" secondAttribute="trailing" constant="5" id="gCV-7q-LrW"/>
                                             <constraint firstItem="OJL-gp-RWm" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="5" id="hce-cl-xL4"/>
+                                            <constraint firstItem="5hu-CA-6qg" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="2" id="hgW-DL-g5T"/>
                                             <constraint firstItem="Nag-Hn-Bbw" firstAttribute="top" secondItem="OJL-gp-RWm" secondAttribute="bottom" constant="4" id="ias-WH-J67"/>
-                                            <constraint firstItem="Vad-3g-0Pn" firstAttribute="leading" secondItem="N6Y-Mc-CiH" secondAttribute="leading" constant="5" id="oyS-CM-eiv"/>
+                                            <constraint firstItem="6bk-sZ-P6J" firstAttribute="top" secondItem="Nag-Hn-Bbw" secondAttribute="top" id="rJ9-Q8-ymg"/>
                                             <constraint firstItem="Bss-1b-nxH" firstAttribute="top" secondItem="AW6-UL-mQT" secondAttribute="bottom" constant="3" id="tgN-a9-Vkg"/>
                                             <constraint firstAttribute="trailing" secondItem="OJL-gp-RWm" secondAttribute="trailing" constant="5" id="v0g-qe-KM9"/>
                                             <constraint firstItem="Vad-3g-0Pn" firstAttribute="top" secondItem="Bss-1b-nxH" secondAttribute="bottom" constant="4" id="vQn-Ag-VQ4"/>
@@ -138,6 +168,9 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ic_coin" width="21.333333969116211" height="21.333333969116211"/>
         <image name="ic_logo" width="341.66665649414062" height="341.33334350585938"/>
+        <image name="ic_marker_gray" width="28" height="28"/>
+        <image name="ic_time_gray" width="28" height="28"/>
     </resources>
 </document>

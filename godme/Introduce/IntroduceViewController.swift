@@ -42,6 +42,27 @@ class IntroduceViewController: UIViewController {
         DispatchQueue.main.async {
             self.setupUI()
         }
+        
+//        var date = Date(timeIntervalSince1970: 1415639000.67457)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd, MMM yyyy HH:mm:a"
+////        dateFormatter.timeStyle = .long //Set time style
+////        dateFormatter.dateStyle = .long //Set date style
+////        dateFormatter.timeZone = TimeZone.ini
+//        dateFormatter.locale = Locale(identifier: "UTC")
+//        let localDate = dateFormatter.string(from: date)
+//        print("localDate = \(localDate)")
+//
+//        let milliseconds=1578330000000
+//
+//        date = Date(timeIntervalSince1970: TimeInterval(milliseconds/1000))
+//
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+//        formatter.locale = Locale(identifier: "en_US")//NSLocale(localeIdentifier: "en_US") as Locale!
+//        print(formatter.string(from: date as Date))
+////        Date.init()
+//        print("guyg \(Date.currentTimeStamp)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,3 +176,21 @@ extension IntroduceViewController: IntroViewProtocol{
     
     
 }
+
+//extension Double {
+//    func getDateStringFromUTC() -> String {
+//        let date = Date(timeIntervalSince1970: self)
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale.current//Locale(identifier: "en_US")
+//        dateFormatter.dateStyle = .medium
+//
+//        return dateFormatter.string(from: date)
+//    }
+//}
+//
+//extension Date {
+//    static var currentTimeStamp: Int64{
+//        return Int64(Date().timeIntervalSince1970 * 1000)
+//    }
+//}
