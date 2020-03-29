@@ -40,7 +40,8 @@ class UserRegisterReturnModel: BaseModel {
     var createdBy: String?
     var modifiedOn: String?
     var createdByUserId: String?
-    var totalStar: Int?
+    var totalStar: Float?
+    var isConnected: Int?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -74,7 +75,8 @@ class UserRegisterReturnModel: BaseModel {
         createdBy = json["createdBy"].stringValue
         modifiedOn = json["modifiedOn"].stringValue
         createdByUserId = json["createdByUserId"].stringValue
-        totalStar = json["totalStar"].intValue
+        totalStar = json["totalStar"].floatValue
+        isConnected = json["isConnected"].intValue
     }
 }
 
@@ -161,4 +163,18 @@ struct userSearchParams {
     var wardCode: String?
     var page: Int?
     var pageSize: Int?
+}
+
+class userSearchParamsModel {
+    var keyword = ""
+    var fullName = ""
+    var gender = ""
+    var nationCode = ""
+    var education = ""
+    var career = ""
+    var provinceCode = ""
+    var districtCode = ""
+    var wardCode = ""
+    var page = 1
+    var pageSize = 10
 }

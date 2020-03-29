@@ -484,11 +484,6 @@ class Settings: NSObject {
     }
     
     func convertTimeIntervalToDateTime(timeInterval: Double)-> String{
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-//        dateFormatter.locale = Locale.current
-//        let dateConvert = dateFormatter.date(from: strDate)
-//        return dateConvert ?? Date()
         if timeInterval == 0 {
             return ""
         }
@@ -502,6 +497,15 @@ class Settings: NSObject {
     
     func convertDateToTimeInterval(date: Date) -> Double{
         return date.timeIntervalSince1970*1000
+    }
+    
+    func convertDOB(str: String)-> String{
+        let arr = str.split(separator: "T")
+        if arr.count > 0 {
+            let arr1 = arr[0].split(separator: "-")
+            return "\(arr1[2])-\(arr1[1])-\(arr1[0])"
+        }
+        return ""
     }
      
 }

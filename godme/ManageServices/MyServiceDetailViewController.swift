@@ -22,7 +22,7 @@ class MyServiceDetailViewController: BaseViewController {
         self.setupUI()
         self.configButtonBack()
         self.setupTableView()
-        self.getListJobs()
+//        self.getListJobs()
         self.getDetailOrderBaseService()
     }
     
@@ -181,12 +181,12 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 let arrCareer = career?.split(separator: ",")
                 var strCareer = ""
                 for item in arrCareer! {
-                    for item1 in self.arrayJobs {
-                        if Int(item) == item1.id {
+                    for item1 in BaseViewController.arrayJobs {
+                        if Int(item) == Int(item1["code"]!) {
                             if strCareer.count == 0 {
-                                strCareer = strCareer + item1.name!
+                                strCareer = strCareer + (item1["name"] ?? "")
                             }else {
-                                strCareer = strCareer + ", " + item1.name!
+                                strCareer = strCareer + ", " + (item1["name"] ?? "")
                             }
                         }
                     }

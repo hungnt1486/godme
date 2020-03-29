@@ -165,7 +165,7 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
             cell.lbTitle.text = model.serviceTitle ?? ""
             cell.lbCoinResult.text = "\(model.amount ?? "0") Godcoin"
             cell.lbStatusResult.text = model.status ?? ""
-            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime ?? 0.0)
+            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.createdOn ?? 0.0)
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
@@ -173,7 +173,7 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
             cell.lbTitle.text = model.serviceTitle ?? ""
             cell.lbCoinResult.text = "\(model.amount ?? "0") Godcoin"
             cell.lbStatusResult.text = model.status ?? ""
-            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime ?? 0.0)
+            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.createdOn ?? 0.0)
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
@@ -181,7 +181,7 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
             cell.lbTitle.text = model.serviceTitle ?? ""
             cell.lbCoinResult.text = "\(model.amount ?? "0") Godcoin"
             cell.lbStatusResult.text = model.status ?? ""
-            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime ?? 0.0)
+            cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.createdOn ?? 0.0)
             return cell
         }
     }

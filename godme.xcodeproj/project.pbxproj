@@ -261,6 +261,8 @@
 		41EACD21242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */; };
 		41EACD24242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD22242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.swift */; };
 		41EACD25242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */; };
+		41EACD2824306E1F003A6962 /* SearchBar1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD2624306E1F003A6962 /* SearchBar1TableViewCell.swift */; };
+		41EACD2924306E1F003A6962 /* SearchBar1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD2724306E1F003A6962 /* SearchBar1TableViewCell.xib */; };
 		41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EE6241E8B410031D066 /* NotificationsViewController.swift */; };
 		41F15EE9241E8B410031D066 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F15EE7241E8B410031D066 /* NotificationsViewController.xib */; };
 		41F15EEB241FCB490031D066 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F15EEA241FCB490031D066 /* URLs.swift */; };
@@ -555,6 +557,8 @@
 		41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupRelationShipExpandViewController.xib; sourceTree = "<group>"; };
 		41EACD22242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupRelationShipTableViewCell.swift; sourceTree = "<group>"; };
 		41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGroupRelationShipTableViewCell.xib; sourceTree = "<group>"; };
+		41EACD2624306E1F003A6962 /* SearchBar1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar1TableViewCell.swift; sourceTree = "<group>"; };
+		41EACD2724306E1F003A6962 /* SearchBar1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBar1TableViewCell.xib; sourceTree = "<group>"; };
 		41F15EE6241E8B410031D066 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		41F15EE7241E8B410031D066 /* NotificationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
 		41F15EEA241FCB490031D066 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
@@ -621,6 +625,8 @@
 		410E67F324149E0B00FA2F54 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				41EACD2624306E1F003A6962 /* SearchBar1TableViewCell.swift */,
+				41EACD2724306E1F003A6962 /* SearchBar1TableViewCell.xib */,
 				415500432419B9C2006B189E /* SearchBarRelationShipTableViewCell.swift */,
 				415500422419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib */,
 				4155002F24194163006B189E /* SearchBarTableViewCell.swift */,
@@ -1440,6 +1446,7 @@
 				415500392419B2D2006B189E /* SearchBarDetailViewController.xib in Resources */,
 				41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */,
 				41ADEAC9241E04C5002C95FA /* TimeTableViewCell.xib in Resources */,
+				41EACD2924306E1F003A6962 /* SearchBar1TableViewCell.xib in Resources */,
 				41ADEADA241E08F6002C95FA /* CreateServiceViewController.xib in Resources */,
 				411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */,
 				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
@@ -1664,6 +1671,7 @@
 				E6B490B1241F397F00D206A1 /* UserManager.swift in Sources */,
 				41ADEAD1241E075B002C95FA /* AddressPostCarTableViewCell.swift in Sources */,
 				411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */,
+				41EACD2824306E1F003A6962 /* SearchBar1TableViewCell.swift in Sources */,
 				41EACD15242E48A2003A6962 /* MyAuctionServicesDetailTableViewCell.swift in Sources */,
 				4139375A2425C6140079C587 /* Main4TableViewCell.swift in Sources */,
 				41ADEAD9241E08F6002C95FA /* CreateServiceViewController.swift in Sources */,

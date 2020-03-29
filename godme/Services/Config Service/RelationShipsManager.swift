@@ -100,7 +100,7 @@ class RelationShipsManager{
         var paramsBody = [String: Any]()
         paramsBody["toUserId"] = toUserId
         Alamofire.request(URLs.connectToUser, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
-            print(response)
+            print("connectToUserRelationShip = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }

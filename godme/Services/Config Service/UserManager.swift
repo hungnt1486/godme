@@ -74,9 +74,11 @@ class UserManager{
         paramsBody["provinceCode"] = model.provinceCode
         paramsBody["districtCode"] = model.districtCode
         paramsBody["wardCode"] = model.wardCode
+        paramsBody["page"] = model.page
+        paramsBody["pageSize"] = model.pageSize
         
         Alamofire.request(URLs.getListSearch, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
-            print("logout = \(response)")
+            print("getListSearch = \(response)")
             completion(ListResult<UserRegisterReturnModel>.handleResponse(response))
         }
     }

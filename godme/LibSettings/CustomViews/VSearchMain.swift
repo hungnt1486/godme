@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol VSearchMainProtocol {
-    func didSearch(_ value: userSearchParams)
+    func didSearch(_ value: userSearchParamsModel)
     func didCancel()
 }
 
@@ -88,16 +88,16 @@ class VSearchMain: UIView {
     }
     
     @IBAction func touchSearch(_ sender: Any) {
-        var model = userSearchParams()
+        let model = userSearchParamsModel()
         model.nationCode = "VN"
-        model.keyword = self.strFullName
-        model.fullName = self.strFullName
-        model.gender = self.strGender
-        model.education = self.strEducation
-        model.career = self.strJob
-        model.provinceCode = self.strCity
-        model.districtCode = self.strDistrict
-        model.wardCode = self.strWard
+        model.keyword = self.strFullName ?? ""
+        model.fullName = self.strFullName ?? ""
+        model.gender = self.strGender ?? ""
+        model.education = self.strEducation ?? ""
+        model.career = self.strJob ?? ""
+        model.provinceCode = self.strCity ?? ""
+        model.districtCode = self.strDistrict ?? ""
+        model.wardCode = self.strWard ?? ""
         delegate?.didSearch(model)
     }
     

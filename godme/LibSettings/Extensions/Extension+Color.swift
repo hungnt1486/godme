@@ -98,6 +98,14 @@ extension UITextField {
     }
 }
 
+extension UIButton {
+    func setBorder(){
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor.FlatColor.Gray.TextColor.cgColor
+        layer.masksToBounds = false
+    }
+}
+
 extension String {
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
