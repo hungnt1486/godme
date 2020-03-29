@@ -168,11 +168,12 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
         }
         cell.lbTime.text = strCareer
         cell.indexStar = model.totalStar ?? 0.0
-        cell.lbCoin.text = "Số tiền thụ hưởng: \(model.totalBenefited ?? 0) Godcoin"
+        cell.lbCoin.text = "\(model.totalBenefited ?? 0) Godcoin"
         cell.lbTitle.text = model.fullName
-        cell.lbEmail.text = "Email: \(model.email ?? "")"
-        cell.lbPhone.text = "Số điện thoại: \(model.phoneNumber ?? "")"
-        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+        cell.lbEmail.text = model.email
+        cell.lbPhone.text = model.phoneNumber
+        cell.lbCity.text = model.address
+        cell.setupUI()
         return cell
     }
     
@@ -207,8 +208,16 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
+        let action5 = UIAlertAction.init(title: "Gia hạn mối quan hệ", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
         
+        let action6 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        alertControl.addAction(action5)
         alertControl.addAction(action2)
+        alertControl.addAction(action6)
         alertControl.addAction(action3)
         alertControl.addAction(action4)
         alertControl.addAction(actionCancel)

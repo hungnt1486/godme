@@ -43,22 +43,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Le Minh Hung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65R-5J-O7L">
-                                <rect key="frame" x="135" y="5" width="125" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Lya-uJ-ayD"/>
-                                </constraints>
+                                <rect key="frame" x="135" y="5" width="125" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Giáo viên" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-V6-23g">
-                                <rect key="frame" x="135" y="30" width="160" height="18"/>
+                                <rect key="frame" x="156" y="31.5" width="139" height="18"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hồ Chí Minh, Việt Nam" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcC-yG-9dV">
-                                <rect key="frame" x="135" y="53" width="160" height="37"/>
+                                <rect key="frame" x="156" y="54.5" width="139" height="35.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -80,17 +77,33 @@
                                     <constraint firstAttribute="height" constant="20" id="gRI-ZD-ieh"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_job" translatesAutoresizingMaskIntoConstraints="NO" id="OgX-Tp-ZY6">
+                                <rect key="frame" x="135" y="31.5" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="gwq-f5-jyr"/>
+                                    <constraint firstAttribute="width" constant="16" id="l3n-2O-60P"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_marker_gray" translatesAutoresizingMaskIntoConstraints="NO" id="MLH-HI-5Kx">
+                                <rect key="frame" x="135" y="54.5" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="fgW-MS-5tH"/>
+                                    <constraint firstAttribute="width" constant="16" id="hX0-Wa-PoD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gcC-yG-9dV" firstAttribute="top" secondItem="HvH-V6-23g" secondAttribute="bottom" constant="5" id="3gM-JE-ddK"/>
+                            <constraint firstItem="OgX-Tp-ZY6" firstAttribute="top" secondItem="HvH-V6-23g" secondAttribute="top" id="401-cI-Ruo"/>
                             <constraint firstItem="6iG-U3-6rT" firstAttribute="leading" secondItem="65R-5J-O7L" secondAttribute="trailing" id="4V9-Ha-c6I"/>
+                            <constraint firstItem="gcC-yG-9dV" firstAttribute="leading" secondItem="MLH-HI-5Kx" secondAttribute="trailing" constant="5" id="5fe-fK-SOL"/>
                             <constraint firstItem="65R-5J-O7L" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="7GP-qj-PsI"/>
                             <constraint firstItem="EAz-md-s4d" firstAttribute="leading" secondItem="oe4-Zw-QHZ" secondAttribute="trailing" constant="5" id="8cE-e7-9Ik"/>
                             <constraint firstAttribute="trailing" secondItem="gcC-yG-9dV" secondAttribute="trailing" constant="5" id="A3C-c0-JJw"/>
                             <constraint firstItem="EAz-md-s4d" firstAttribute="centerY" secondItem="oe4-Zw-QHZ" secondAttribute="centerY" id="Ffq-8y-WDs"/>
-                            <constraint firstItem="HvH-V6-23g" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="NuW-3e-jr0"/>
                             <constraint firstAttribute="trailing" secondItem="EAz-md-s4d" secondAttribute="trailing" constant="10" id="ORs-H6-sYn"/>
+                            <constraint firstItem="MLH-HI-5Kx" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="OvD-mD-bYg"/>
                             <constraint firstItem="oe4-Zw-QHZ" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="TNi-5Y-nr9"/>
                             <constraint firstAttribute="trailing" secondItem="HvH-V6-23g" secondAttribute="trailing" constant="5" id="URf-Zz-TXP"/>
                             <constraint firstItem="HvH-V6-23g" firstAttribute="top" secondItem="65R-5J-O7L" secondAttribute="bottom" constant="5" id="aWh-cw-JKz"/>
@@ -98,10 +111,12 @@
                             <constraint firstItem="KlF-D4-X3y" firstAttribute="top" secondItem="dct-yg-3cD" secondAttribute="top" constant="5" id="hjj-pO-nch"/>
                             <constraint firstItem="6iG-U3-6rT" firstAttribute="top" secondItem="dct-yg-3cD" secondAttribute="top" constant="5" id="lR3-PP-Xyl"/>
                             <constraint firstItem="oe4-Zw-QHZ" firstAttribute="top" secondItem="gcC-yG-9dV" secondAttribute="bottom" constant="10" id="mcc-uh-an5"/>
+                            <constraint firstItem="HvH-V6-23g" firstAttribute="leading" secondItem="OgX-Tp-ZY6" secondAttribute="trailing" constant="5" id="onq-1W-xYI"/>
+                            <constraint firstItem="MLH-HI-5Kx" firstAttribute="top" secondItem="gcC-yG-9dV" secondAttribute="top" id="q1c-dv-Thn"/>
                             <constraint firstItem="KlF-D4-X3y" firstAttribute="leading" secondItem="dct-yg-3cD" secondAttribute="leading" constant="10" id="qQq-5B-URq"/>
                             <constraint firstAttribute="bottom" secondItem="oe4-Zw-QHZ" secondAttribute="bottom" constant="10" id="qs6-8e-5Td"/>
                             <constraint firstItem="65R-5J-O7L" firstAttribute="top" secondItem="dct-yg-3cD" secondAttribute="top" constant="5" id="ueU-jU-nOA"/>
-                            <constraint firstItem="gcC-yG-9dV" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="uy7-Ku-cIn"/>
+                            <constraint firstItem="OgX-Tp-ZY6" firstAttribute="leading" secondItem="KlF-D4-X3y" secondAttribute="trailing" constant="5" id="zN7-RZ-dc3"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -128,7 +143,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_job" width="21.333333969116211" height="21.333333969116211"/>
         <image name="ic_logo" width="341.66665649414062" height="341.33334350585938"/>
+        <image name="ic_marker_gray" width="28" height="28"/>
         <image name="ic_more" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>

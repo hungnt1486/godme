@@ -32,7 +32,7 @@ class MyRelationShipTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 //        DispatchQueue.main.async {
-        self.setupUI()
+//        self.setupUI()
 //        }
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchMore))
         self.imgMore.isUserInteractionEnabled = true
