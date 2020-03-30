@@ -115,3 +115,24 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
 }
+
+extension UITableView {
+    func setMessageTableViewEmpty(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width - 50, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.FlatColor.Gray.TextColor
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "Roboto-Medium", size: 15.0)!
+        messageLabel.sizeToFit()
+        self.separatorStyle = .none
+        
+        self.backgroundView = messageLabel;
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+    }
+}
+

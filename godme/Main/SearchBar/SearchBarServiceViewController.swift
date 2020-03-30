@@ -37,6 +37,7 @@ class SearchBarServiceViewController: BaseViewController {
         self.tbvServices.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
         self.tbvServices.register(UINib(nibName: "AuctionServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServicesTableViewCell")
         self.tbvServices.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
+        self.tbvServices.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
 
         self.tbvServices.delegate = self
         self.tbvServices.dataSource = self
@@ -120,10 +121,19 @@ class SearchBarServiceViewController: BaseViewController {
 extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            if self.listBaseService.count == 0 {
+                return 1
+            }
             return self.listBaseService.count
         }else if section == 1 {
+            if self.listAuction.count == 0 {
+                return 1
+            }
             return self.listAuction.count
         }else{
+            if self.listEvents.count == 0 {
+                return 1
+            }
             return self.listEvents.count
         }
     }
@@ -134,6 +144,10 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            if self.listBaseService.count == 0 {
+                let cell  = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
             let model = listBaseService[indexPath.row]
             cell.lbTitle.text = model.title
@@ -151,6 +165,10 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
             cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }else if indexPath.section == 1 {
+            if listAuction.count == 0 {
+                let cell  = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
             let model = listAuction[indexPath.row]
             cell.lbTitle.text = model.title
@@ -168,6 +186,10 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
             cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
             return cell
         }else{
+            if listEvents.count == 0 {
+                let cell  = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
             let model = listEvents[indexPath.row]
             cell.lbTitle.text = model.title
@@ -211,16 +233,25 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
+            if listBaseService.count == 0 {
+                return
+            }
             let model = listBaseService[indexPath.row]
             let detail = DetailBasicServiceViewController()
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }else if indexPath.section == 1 {
+            if listAuction.count == 0 {
+                return
+            }
             let model = listAuction[indexPath.row]
             let detail = DetailAuctionViewController()
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }else {
+            if listEvents.count == 0 {
+                return
+            }
             let model = listEvents[indexPath.row]
             let detail = DetailEventViewController()
             detail.modelDetail = model

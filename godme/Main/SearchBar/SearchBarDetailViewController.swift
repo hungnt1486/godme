@@ -52,12 +52,17 @@ class SearchBarDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "info_user")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "info_user") 
     }
     
     func setupUI(){
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = true
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showMore))
+        tapGesture.numberOfTouchesRequired = 1
+        self.imgMore.isUserInteractionEnabled = true
+        self.imgMore.addGestureRecognizer(tapGesture)
         
         if self.modelDetail?.isConnected == 1 {
 //            self.constraintHeightViewTop.constant = 250 - 40 - 40
@@ -111,6 +116,22 @@ class SearchBarDetailViewController: BaseViewController {
             self.constraintHeightViewTop.constant = 250
         }
         options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.constraintHeightViewTop.constant, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!)
+    }
+    
+    @objc func showMore(){
+        let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let action = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+            let help = HelpViewController()
+            self.navigationController?.pushViewController(help, animated: true)
+        }
+        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        alertControl.addAction(action)
+        alertControl.addAction(actionCancel)
+        self.navigationController?.present(alertControl, animated: true, completion: nil)
     }
     
     func configPageView() {

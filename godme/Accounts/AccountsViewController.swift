@@ -111,15 +111,8 @@ extension AccountsViewController: UICollectionViewDelegate, UICollectionViewData
                 self.navigationController?.pushViewController(collaborate, animated: true)
                 break
             case 5:
-
-
-//                delegate?.eventPush(typeCellHome.Ads)
-//                delegate?.eventPush(typeCellHome.AirPlane)
-
-
-//                delegate?.eventPush(typeCellHome.Store)
-//                let store = StoreViewController.init(nibName: "StoreViewController", bundle: nil)
-//                HomeViewController.ShareInstance.pushTo(VC: store)
+                let help = HelpViewController()
+                self.navigationController?.pushViewController(help, animated: true)
                 break
             case 6:
 

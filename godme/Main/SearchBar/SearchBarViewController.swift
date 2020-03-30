@@ -215,7 +215,7 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
         let model = listSearchMain[indexPath.row]
         let detail = SearchBarDetailViewController()
         detail.modelDetail = model
-        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(detail, animated: true)
     }
     

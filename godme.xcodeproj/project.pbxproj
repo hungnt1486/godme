@@ -20,6 +20,14 @@
 		410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67F12414998D00FA2F54 /* HeaderSubMain.xib */; };
 		410E67FA24149E4F00FA2F54 /* Main1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E67F824149E4F00FA2F54 /* Main1TableViewCell.swift */; };
 		410E67FB24149E4F00FA2F54 /* Main1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67F924149E4F00FA2F54 /* Main1TableViewCell.xib */; };
+		410F1AED2431893400841231 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F1AEB2431893400841231 /* DefaultTableViewCell.swift */; };
+		410F1AEE2431893400841231 /* DefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410F1AEC2431893400841231 /* DefaultTableViewCell.xib */; };
+		410F1AF22431B75800841231 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F1AF02431B75800841231 /* HelpViewController.swift */; };
+		410F1AF32431B75800841231 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410F1AF12431B75800841231 /* HelpViewController.xib */; };
+		410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F1AF42431C7E200841231 /* PushNotificationViewController.swift */; };
+		410F1AF72431C7E300841231 /* PushNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410F1AF52431C7E300841231 /* PushNotificationViewController.xib */; };
+		410F1AFA2431C90A00841231 /* CheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410F1AF82431C90A00841231 /* CheckBoxTableViewCell.swift */; };
+		410F1AFB2431C90A00841231 /* CheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410F1AF92431C90A00841231 /* CheckBoxTableViewCell.xib */; };
 		4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113297A2414E3DA0089DD18 /* MainTableViewCell.swift */; };
 		4113297D2414E3DA0089DD18 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4113297B2414E3DA0089DD18 /* MainTableViewCell.xib */; };
 		411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113297E2414E3F70089DD18 /* MainCollectionViewCell.swift */; };
@@ -313,6 +321,14 @@
 		410E67F12414998D00FA2F54 /* HeaderSubMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSubMain.xib; sourceTree = "<group>"; };
 		410E67F824149E4F00FA2F54 /* Main1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main1TableViewCell.swift; sourceTree = "<group>"; };
 		410E67F924149E4F00FA2F54 /* Main1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Main1TableViewCell.xib; sourceTree = "<group>"; };
+		410F1AEB2431893400841231 /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
+		410F1AEC2431893400841231 /* DefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultTableViewCell.xib; sourceTree = "<group>"; };
+		410F1AF02431B75800841231 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		410F1AF12431B75800841231 /* HelpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
+		410F1AF42431C7E200841231 /* PushNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationViewController.swift; sourceTree = "<group>"; };
+		410F1AF52431C7E300841231 /* PushNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushNotificationViewController.xib; sourceTree = "<group>"; };
+		410F1AF82431C90A00841231 /* CheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxTableViewCell.swift; sourceTree = "<group>"; };
+		410F1AF92431C90A00841231 /* CheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckBoxTableViewCell.xib; sourceTree = "<group>"; };
 		4113297A2414E3DA0089DD18 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		4113297B2414E3DA0089DD18 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		4113297E2414E3F70089DD18 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -675,8 +691,21 @@
 				413937532425C6140079C587 /* Main4CollectionViewCell.xib */,
 				413937522425C6140079C587 /* Main4TableViewCell.swift */,
 				413937552425C6140079C587 /* Main4TableViewCell.xib */,
+				410F1AEB2431893400841231 /* DefaultTableViewCell.swift */,
+				410F1AEC2431893400841231 /* DefaultTableViewCell.xib */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		410F1AEF2431B73200841231 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				410F1AF42431C7E200841231 /* PushNotificationViewController.swift */,
+				410F1AF52431C7E300841231 /* PushNotificationViewController.xib */,
+				410F1AF02431B75800841231 /* HelpViewController.swift */,
+				410F1AF12431B75800841231 /* HelpViewController.xib */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 		41132999241689E30089DD18 /* BasicService */ = {
@@ -875,6 +904,7 @@
 		41286B1224114DF70021157C /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
+				410F1AEF2431B73200841231 /* Help */,
 				41ADEAF2241E501F002C95FA /* Collaborate */,
 				41ADEAE4241E3E3B002C95FA /* Auctions */,
 				41ADEAE3241E3DDC002C95FA /* Events */,
@@ -983,6 +1013,8 @@
 				41ADEAC7241E04C5002C95FA /* TimeTableViewCell.xib */,
 				41ADEAEE241E4BA5002C95FA /* StartEndTimeTableViewCell.swift */,
 				41ADEAEF241E4BA5002C95FA /* StartEndTimeTableViewCell.xib */,
+				410F1AF82431C90A00841231 /* CheckBoxTableViewCell.swift */,
+				410F1AF92431C90A00841231 /* CheckBoxTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1308,6 +1340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E66F6906241B405C00A0EC99 /* MyRelationShipExpandViewController.xib in Resources */,
+				410F1AF32431B75800841231 /* HelpViewController.xib in Resources */,
 				41AD16D724141A55001E132E /* MyServicesTableViewCell.xib in Resources */,
 				41AD169D241358D1001E132E /* WithdrawViewController.xib in Resources */,
 				411329BB2416A3380089DD18 /* TimeAddressTableViewCell.xib in Resources */,
@@ -1318,6 +1351,7 @@
 				E66F691C241B792F00A0EC99 /* country.json in Resources */,
 				4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */,
 				4150DA74241B15B600F8A7E4 /* Roboto-BlackItalic.ttf in Resources */,
+				410F1AF72431C7E300841231 /* PushNotificationViewController.xib in Resources */,
 				E66F691F241B792F00A0EC99 /* province.json in Resources */,
 				E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
@@ -1433,6 +1467,7 @@
 				41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */,
 				E6500C832408BB0F001E023D /* MainViewController.xib in Resources */,
 				4150DA6B241B15B600F8A7E4 /* Roboto-MediumItalic.ttf in Resources */,
+				410F1AFB2431C90A00841231 /* CheckBoxTableViewCell.xib in Resources */,
 				4150DA6A241B15B600F8A7E4 /* Roboto-Regular.ttf in Resources */,
 				410E67EA2414311C00FA2F54 /* HeaderServicesInfoBook.xib in Resources */,
 				41AD16A9241359CB001E132E /* WithDrawButtonTableViewCell.xib in Resources */,
@@ -1450,6 +1485,7 @@
 				41ADEADA241E08F6002C95FA /* CreateServiceViewController.xib in Resources */,
 				411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */,
 				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
+				410F1AEE2431893400841231 /* DefaultTableViewCell.xib in Resources */,
 				4155003024194164006B189E /* SearchBarTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1573,6 +1609,7 @@
 				41550033241941E7006B189E /* VImageStars.swift in Sources */,
 				41286AE9240F3EE70021157C /* Defines.swift in Sources */,
 				41286AEF240F3EE70021157C /* Result.swift in Sources */,
+				410F1AED2431893400841231 /* DefaultTableViewCell.swift in Sources */,
 				4155003124194164006B189E /* SearchBarTableViewCell.swift in Sources */,
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
 				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
@@ -1608,6 +1645,7 @@
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
 				413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */,
+				410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */,
 				413937B5242DE7B20079C587 /* MyServiceDetailViewController.swift in Sources */,
 				411329BE2416A6160089DD18 /* InfoDetailTableViewCell.swift in Sources */,
 				41ADEAC1241E0210002C95FA /* ImageCarTableViewCell.swift in Sources */,
@@ -1620,8 +1658,10 @@
 				E60FA99824246BEB00A45AFF /* EventModel.swift in Sources */,
 				41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */,
 				415500382419B2D2006B189E /* SearchBarDetailViewController.swift in Sources */,
+				410F1AFA2431C90A00841231 /* CheckBoxTableViewCell.swift in Sources */,
 				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
+				410F1AF22431B75800841231 /* HelpViewController.swift in Sources */,
 				410E67FA24149E4F00FA2F54 /* Main1TableViewCell.swift in Sources */,
 				413937AD242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift in Sources */,
 				41AD16C72413FC31001E132E /* ViewPagerTabView.swift in Sources */,

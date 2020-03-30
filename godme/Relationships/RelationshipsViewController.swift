@@ -48,8 +48,10 @@ class RelationshipsViewController: BaseViewController {
     
     @objc func touchRight(){
         print("right")
-        let createNotification = CreateNotificationViewController()
-        self.navigationController?.pushViewController(createNotification, animated: true)
+//        let createNotification = CreateNotificationViewController()
+//        self.navigationController?.pushViewController(createNotification, animated: true)
+        let pushNotification = PushNotificationViewController()
+        self.navigationController?.pushViewController(pushNotification, animated: true)
     }
     
     override func viewWillLayoutSubviews() {

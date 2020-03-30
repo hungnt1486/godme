@@ -17,6 +17,10 @@ import UIKit
     func getTextEventService(_ str: String, type: typeCellCreateEvent)
     @objc optional
     func getTextCollaborationService(_ str: String, type: typeCellCreateCollaborate)
+    @objc optional
+    func getTextHelp(_ str: String, type: typeCellHelp)
+    @objc optional
+    func getTextPushNotification(_ str: String, type: typeCellPushNotification)
 }
 
 class TitleTableViewCell: UITableViewCell {
@@ -45,6 +49,8 @@ class TitleTableViewCell: UITableViewCell {
         delegate?.getTextAuctionService?(self.tfInput.text ?? "", type: typeCellCreateAuction(rawValue: self.tfInput.tag)!)
         delegate?.getTextEventService?(self.tfInput.text ?? "", type: typeCellCreateEvent(rawValue: self.tfInput.tag)!)
         delegate?.getTextCollaborationService?(self.tfInput.text ?? "", type: typeCellCreateCollaborate(rawValue: self.tfInput.tag)!)
+        delegate?.getTextHelp?(self.tfInput.text ?? "", type: typeCellHelp(rawValue: self.tfInput.tag)!)
+        delegate?.getTextPushNotification?(self.tfInput.text ?? "", type: typeCellPushNotification(rawValue: self.tfInput.tag)!)
     }
     
     func setupUI(){

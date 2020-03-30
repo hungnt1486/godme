@@ -33,6 +33,7 @@ class SearchBarRelationShipViewController: BaseViewController {
     
     func setupTableView(){
         self.tbvRelationShip.register(UINib(nibName: "SearchBarRelationShipTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchBarRelationShipTableViewCell")
+        self.tbvRelationShip.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
 
         self.tbvRelationShip.delegate = self
         self.tbvRelationShip.dataSource = self
@@ -73,10 +74,18 @@ class SearchBarRelationShipViewController: BaseViewController {
 
 extension SearchBarRelationShipViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if listMyRelationShip.count == 0 {
+            return 1
+        }
         return listMyRelationShip.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if listMyRelationShip.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+            cell.lbTitle.text = "Không có mối quan hệ nào."
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarRelationShipTableViewCell") as! SearchBarRelationShipTableViewCell
         let model = listMyRelationShip[indexPath.row]
         cell.imgAvatar.sd_setImage(with: URL.init(string: model.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
@@ -106,6 +115,14 @@ extension SearchBarRelationShipViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if listMyRelationShip.count == 0 {
+            return
+        }
+        let model = listMyRelationShip[indexPath.row]
+        let detail = SearchBarDetailViewController()
+        detail.modelDetail = model
+//        self.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(detail, animated: true)
     }
     
     

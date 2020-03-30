@@ -98,4 +98,16 @@ class UserManager{
             completion(ListResult<JobModel>.handleResponse(response))
         }
     }
+    
+    func createSupport(model: AddNewHelpServiceParams, completion: @escaping(SingleResult<BaseModel>)-> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["content"] = model.description
+        paramsBody["images"] = model.images
+        paramsBody["title"] = model.title
+        
+        Alamofire.request(URLs.createSupport, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("createSupport = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
 }

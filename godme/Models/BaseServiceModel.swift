@@ -252,5 +252,16 @@ struct AddNewConfirmBasicServiceParams {
     var dateTime: Double?
 }
 
+class HelpServiceParamsModel {
+    var title = ""
+    var description = ""
+    var images = ""
+}
+
+struct AddNewHelpServiceParams {
+    var title: String?
+    var description: String?
+    var images: String?
+}
 
 

@@ -49,6 +49,7 @@ struct URLs {
         static let getListSearch = "api/mobile/user/search"
         static let getListJob = "api/mobile/career/search"
         static let confirmBookBaseService = "api/mobile/order/basic/save"
+        static let createSupport = "api/public/support/save"
         
     }
     
@@ -179,6 +180,11 @@ struct URLs {
     /// blog
     static var getListBlogs: String{
         return String(format: "%@%@", linkServer, Routes.getListBlogs)
+    }
+    
+    // support (help)
+    static var createSupport: String{
+        return String(format: "%@%@", linkServer, Routes.createSupport)
     }
     
 }
