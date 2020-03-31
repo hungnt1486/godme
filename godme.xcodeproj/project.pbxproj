@@ -257,8 +257,6 @@
 		41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */; };
 		41E06085243334A300E1942D /* ViewShowListCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E06083243334A300E1942D /* ViewShowListCheckBox.xib */; };
 		41E06086243334A300E1942D /* ViewShowListCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E06084243334A300E1942D /* ViewShowListCheckBox.swift */; };
-		41E0608924339D7200E1942D /* ChooseDateTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E0608724339D7200E1942D /* ChooseDateTimeTableViewCell.swift */; };
-		41E0608A24339D7200E1942D /* ChooseDateTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E0608824339D7200E1942D /* ChooseDateTimeTableViewCell.xib */; };
 		41EACD0C242E1B00003A6962 /* MyBaseService2DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD0A242E1AFF003A6962 /* MyBaseService2DetailTableViewCell.swift */; };
 		41EACD0D242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD0B242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib */; };
 		41EACD10242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD0E242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift */; };
@@ -565,8 +563,6 @@
 		41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMapLeft.xib; sourceTree = "<group>"; };
 		41E06083243334A300E1942D /* ViewShowListCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewShowListCheckBox.xib; sourceTree = "<group>"; };
 		41E06084243334A300E1942D /* ViewShowListCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShowListCheckBox.swift; sourceTree = "<group>"; };
-		41E0608724339D7200E1942D /* ChooseDateTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDateTimeTableViewCell.swift; sourceTree = "<group>"; };
-		41E0608824339D7200E1942D /* ChooseDateTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseDateTimeTableViewCell.xib; sourceTree = "<group>"; };
 		41EACD0A242E1AFF003A6962 /* MyBaseService2DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBaseService2DetailTableViewCell.swift; sourceTree = "<group>"; };
 		41EACD0B242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBaseService2DetailTableViewCell.xib; sourceTree = "<group>"; };
 		41EACD0E242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuctionServiceDetailViewController.swift; sourceTree = "<group>"; };
@@ -701,8 +697,6 @@
 				413937552425C6140079C587 /* Main4TableViewCell.xib */,
 				410F1AEB2431893400841231 /* DefaultTableViewCell.swift */,
 				410F1AEC2431893400841231 /* DefaultTableViewCell.xib */,
-				41E0608724339D7200E1942D /* ChooseDateTimeTableViewCell.swift */,
-				41E0608824339D7200E1942D /* ChooseDateTimeTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1438,7 +1432,6 @@
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				41ADEAC0241E0210002C95FA /* ImageCarTableViewCell.xib in Resources */,
 				E66F690A241B407000A0EC99 /* ListHiddenViewController.xib in Resources */,
-				41E0608A24339D7200E1942D /* ChooseDateTimeTableViewCell.xib in Resources */,
 				41EACD0D242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib in Resources */,
 				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
 				410E67FB24149E4F00FA2F54 /* Main1TableViewCell.xib in Resources */,
@@ -1691,7 +1684,6 @@
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
 				4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */,
 				E60FA9A92424AE8F00A45AFF /* WalletModel.swift in Sources */,
-				41E0608924339D7200E1942D /* ChooseDateTimeTableViewCell.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
