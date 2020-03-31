@@ -176,6 +176,10 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let model = listRelationShipExpand[indexPath.row]
+        let searchBarDetail = SearchBarDetailViewController()
+        searchBarDetail.userId = model.id ?? 0
+        self.navigationController?.pushViewController(searchBarDetail, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

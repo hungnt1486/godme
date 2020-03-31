@@ -77,6 +77,7 @@ class userInfoModel: BaseModel {
     var career: String?
     var totalStar: Float?
     var address: String?
+    var userInfo: String?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -87,6 +88,7 @@ class userInfoModel: BaseModel {
         totalStar = json["totalStar"].floatValue
         address = json["address"].stringValue
         avatar = json["avatar"].stringValue
+        userInfo = json["userInfo"].stringValue
     }
 }
 

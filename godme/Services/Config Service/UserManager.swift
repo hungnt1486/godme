@@ -83,6 +83,16 @@ class UserManager{
         }
     }
     
+    func getSearchDetailById(id: Int, completion:@escaping(ListResult<UserRegisterReturnModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        
+        Alamofire.request(URLs.getListSearch, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getSearchDetailById = \(response)")
+            completion(ListResult<UserRegisterReturnModel>.handleResponse(response))
+        }
+    }
+    
     func getListMyRelationShip(id: Int, completion: @escaping(ListResult<UserRegisterReturnModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["userId"] = id

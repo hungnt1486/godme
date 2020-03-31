@@ -36,6 +36,7 @@ class SearchBarDetailViewController: BaseViewController {
     @IBOutlet weak var constraintHeightButtonConnect: NSLayoutConstraint!
     @IBOutlet weak var constraintHeightViewTop: NSLayoutConstraint!
     var modelDetail: UserRegisterReturnModel?
+    var userId: Int = 0
     var searchBarInfo = SearchBarInfoBaseViewController()
     var searchBarMyRelationShip = SearchBarRelationShipViewController()
     var searchBarService = SearchBarServiceViewController()
@@ -43,10 +44,14 @@ class SearchBarDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DispatchQueue.main.async {
+        self.showProgressHub()
+        self.getSearchDetailById()
+//        DispatchQueue.main.async {
             self.setupUI()
-        }
+//        }
+        
         self.configButtonBack()
+        
         self.configPageView()
     }
     
@@ -64,53 +69,21 @@ class SearchBarDetailViewController: BaseViewController {
         self.imgMore.isUserInteractionEnabled = true
         self.imgMore.addGestureRecognizer(tapGesture)
         
-        if self.modelDetail?.isConnected == 1 {
-//            self.constraintHeightViewTop.constant = 250 - 40 - 40
-            self.btConnect.isHidden = true
-            self.constraintHeightLabelSlogan.constant = 0
-            self.constraintHeightButtonConnect.constant = 0
-        }
+        
         
         self.btConnect = Settings.ShareInstance.setupButton(button: self.btConnect)
         self.btConnect.setBorder()
         
-        self.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
-            if error == nil {
-                self.imgAvatar.image = image
-            }
+        if self.modelDetail?.isConnected == 1 {
+            self.btConnect.isHidden = true
+            self.constraintHeightLabelSlogan.constant = 0
+            self.constraintHeightButtonConnect.constant = 0
         }
-        
-        vImgStars = VImageStarsOranges.instanceFromNib()
-        
-        self.vImgStar.addSubview(vImgStars)
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
-            self.vImgStars.configVImageStarsOranges(frameView: self.vImgStar.frame, index: self.modelDetail?.totalStar ?? 0.0)
-        }, completion: nil)
-        
-        self.lbFullName.text = modelDetail?.fullName ?? ""
-        self.lbSchool.text = Settings.ShareInstance.convertDOB(str: modelDetail?.dob ?? "")
-        self.lbJob.text = modelDetail?.address ?? ""
-        let career = modelDetail?.career
-        let arrCareer = career?.split(separator: ",")
-        var strCareer = ""
-        for item in arrCareer! {
-            for item1 in BaseViewController.arrayJobs {
-                if Int(item) == Int(item1["code"] ?? "0") {
-                    if strCareer.count == 0 {
-                        strCareer = strCareer + item1["name"]!
-                    }else {
-                        strCareer = strCareer + ", " + item1["name"]!
-                    }
-                }
-            }
-        }
-        self.lbDegree.text = strCareer
-        self.lbCity.text = modelDetail?.email ?? ""
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if modelDetail?.isConnected == 1 {
+        if self.modelDetail?.isConnected == 1 {
             self.constraintHeightViewTop.constant = 180
         }else{
             self.constraintHeightViewTop.constant = 250
@@ -195,6 +168,57 @@ class SearchBarDetailViewController: BaseViewController {
         self.connectToUser(toUserId: self.modelDetail?.id ?? 0)
     }
     
+    func getSearchDetailById(){
+        UserManager.shareUserManager().getSearchDetailById(id: userId) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                DispatchQueue.main.async {
+                    self.modelDetail = data[0]
+                    self.setupUI()
+                    self.imgAvatar.sd_setImage(with: URL.init(string: self.modelDetail?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+                        if error == nil {
+                            self.imgAvatar.image = image
+                        }
+                    }
+                    
+                    self.vImgStars = VImageStarsOranges.instanceFromNib()
+                    
+                    self.vImgStar.addSubview(self.vImgStars)
+                    UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
+                        self.vImgStars.configVImageStarsOranges(frameView: self.vImgStar.frame, index: self.modelDetail?.totalStar ?? 0.0)
+                    }, completion: nil)
+                    
+                    self.lbFullName.text = self.modelDetail?.fullName ?? ""
+                    self.lbSchool.text = Settings.ShareInstance.convertDOB(str: self.modelDetail?.dob ?? "")
+                    self.lbJob.text = self.modelDetail?.address ?? ""
+                    let career = self.modelDetail?.career
+                    let arrCareer = career?.split(separator: ",")
+                    var strCareer = ""
+                    for item in arrCareer! {
+                        for item1 in BaseViewController.arrayJobs {
+                            if Int(item) == Int(item1["code"] ?? "0") {
+                                if strCareer.count == 0 {
+                                    strCareer = strCareer + item1["name"]!
+                                }else {
+                                    strCareer = strCareer + ", " + item1["name"]!
+                                }
+                            }
+                        }
+                    }
+                    self.lbDegree.text = strCareer
+                    self.lbCity.text = self.modelDetail?.email ?? ""
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
 }
 
 extension SearchBarDetailViewController: ViewPagerControllerDataSource {
@@ -205,7 +229,7 @@ extension SearchBarDetailViewController: ViewPagerControllerDataSource {
     
     func viewControllerAtPosition(position:Int) -> UIViewController {
         if position == 0 {
-            searchBarMyRelationShip.modelDetail = self.modelDetail
+            searchBarMyRelationShip.userId = self.userId
             return searchBarMyRelationShip
         } else if position == 1 {
             searchBarInfo.modelDetail = self.modelDetail

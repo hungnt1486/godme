@@ -15,6 +15,7 @@ class SearchBarRelationShipViewController: BaseViewController {
     @IBOutlet weak var lbFilter: UILabel!
     @IBOutlet weak var tbvRelationShip: UITableView!
     var modelDetail: UserRegisterReturnModel?
+    var userId: Int = 0
     var listMyRelationShip: [UserRegisterReturnModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class SearchBarRelationShipViewController: BaseViewController {
         // Do any additional setup after loading the view.
         self.setupUI()
         self.setupTableView()
-        self.getListMyRelationShip(id: self.modelDetail?.id ?? 0)
+        self.getListMyRelationShip(id: userId)
     }
     
     func setupUI(){
@@ -120,7 +121,8 @@ extension SearchBarRelationShipViewController: UITableViewDelegate, UITableViewD
         }
         let model = listMyRelationShip[indexPath.row]
         let detail = SearchBarDetailViewController()
-        detail.modelDetail = model
+        detail.userId = model.id ?? 0
+//        detail.modelDetail = model
 //        self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(detail, animated: true)
     }

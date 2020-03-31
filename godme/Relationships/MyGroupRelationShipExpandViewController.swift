@@ -165,6 +165,11 @@ extension MyGroupRelationShipExpandViewController: UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let modelMain = self.listRelationShipExpand[0]
+        let model = modelMain.listUserInfo?[indexPath.row]
+        let searchBarDetail = SearchBarDetailViewController()
+        searchBarDetail.userId = model?.id ?? 0
+        self.navigationController?.pushViewController(searchBarDetail, animated: true)
     }
     
 }

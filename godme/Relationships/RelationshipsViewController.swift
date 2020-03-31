@@ -31,6 +31,7 @@ class RelationshipsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = Settings.ShareInstance.translate(key: "relationships")
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func setupUI(){
