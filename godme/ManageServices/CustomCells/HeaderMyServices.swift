@@ -16,5 +16,12 @@ class HeaderMyServices: UITableViewHeaderFooterView {
         let v = UIView()
         v.backgroundColor = UIColor.FlatColor.Gray.BGColor
         self.backgroundView = v
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
+    }
+    
+    func setupUI(){
+        self.lbTitle = Settings.ShareInstance.setupBTLabelView(v: self.lbTitle)
     }
 }

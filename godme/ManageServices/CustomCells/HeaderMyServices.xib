@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Người tham gia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haC-ar-0zI">
-                    <rect key="frame" x="30" y="5" width="354" height="40"/>
+                    <rect key="frame" x="20" y="5" width="374" height="40"/>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -28,9 +28,9 @@
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="haC-ar-0zI" secondAttribute="bottom" constant="5" id="bXU-ta-7LG"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="haC-ar-0zI" secondAttribute="trailing" constant="30" id="gVo-wb-Fbd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="haC-ar-0zI" secondAttribute="trailing" constant="20" id="gVo-wb-Fbd"/>
                 <constraint firstItem="haC-ar-0zI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="rzT-E2-SaD"/>
-                <constraint firstItem="haC-ar-0zI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="xhJ-LP-3Eq"/>
+                <constraint firstItem="haC-ar-0zI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="xhJ-LP-3Eq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -144,12 +144,33 @@ class RelationShipsManager{
         }
     }
     
+    func getSearchGroupRelationShip(completion: @escaping(ListResult<GroupRelationShipModel>) -> Void){
+        
+        Alamofire.request(URLs.searchGroupRelationShip, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getSearchGroupRelationShip = \(response)")
+            completion(ListResult<GroupRelationShipModel>.handleResponse(response))
+        }
+    }
+    
     func sendEmailRelationShip(email: String, subject: String, phoneNumber: String, completion: @escaping(SingleResult<BaseModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["email"] = email
         paramsBody["subject"] = subject
         paramsBody["phoneNumber"] = phoneNumber
         Alamofire.request(URLs.sendEmailRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print(response)
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func createPushNotification(model: AddNewPushNotificationServiceParams, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["description"] = model.description
+        paramsBody["images"] = model.images
+        paramsBody["title"] = model.title
+        paramsBody["target"] = model.target
+        paramsBody["relationship"] = model.relationship
+        Alamofire.request(URLs.createPushNotification, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(SingleResult<BaseModel>.handleResponse(response))
         }

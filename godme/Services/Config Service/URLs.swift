@@ -50,6 +50,7 @@ struct URLs {
         static let getListJob = "api/mobile/career/search"
         static let confirmBookBaseService = "api/mobile/order/basic/save"
         static let createSupport = "api/public/support/save"
+        static let createPushNotification = "api/mobile/notification/save"
         
     }
     
@@ -185,6 +186,9 @@ struct URLs {
     // support (help)
     static var createSupport: String{
         return String(format: "%@%@", linkServer, Routes.createSupport)
+    }
+    static var createPushNotification: String{
+        return String(format: "%@%@", linkServer, Routes.createPushNotification)
     }
     
 }

@@ -12,14 +12,22 @@ import UIKit
     case Image = 0
     case Title = 1
     case Description = 2
-    case CheckBox = 3
-    case Confirm = 4
 }
+
+//enum typeCellPushNotification1: Int {
+//    case CheckBox = 0
+//}
+//
+//enum typeCellPushNotification2: Int {
+//    case Confirm = 0
+//}
 
 class PushNotificationViewController: BaseViewController {
 
     @IBOutlet weak var tbvHelp: UITableView!
-    var listTypeCell: [typeCellPushNotification] = [.Image, .Title, .Description, .CheckBox, .Confirm]
+    var listTypeCell: [typeCellPushNotification] = [.Image, .Title, .Description]
+//    var listTypeCell1: [typeCellPushNotification1] = [.CheckBox]
+//    var listTypeCell2: [typeCellPushNotification2] = [.Confirm]
     
     var cellImage: ImageCarTableViewCell!
     var strImgBase64: String = ""
@@ -32,19 +40,22 @@ class PushNotificationViewController: BaseViewController {
     
     var cellCheckBox: CheckBoxTableViewCell!
     
-    var helpModel = HelpServiceParamsModel()
+    var helpModel = PushNotificationServiceParamsModel()
+    var listGroup: [GroupRelationShipModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showProgressHub()
         self.configButtonBack()
         self.setupUI()
         self.setupTableView()
+        self.getSearchGroup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "support_report")
+        self.navigationItem.title = "Thông báo đẩy"//Settings.ShareInstance.translate(key: "support_report")
     }
     
     func setupUI(){
@@ -58,6 +69,7 @@ class PushNotificationViewController: BaseViewController {
         self.tbvHelp.register(UINib.init(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
         self.tbvHelp.register(UINib.init(nibName: "CheckBoxTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckBoxTableViewCell")
         self.tbvHelp.register(UINib.init(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
+        self.tbvHelp.register(UINib.init(nibName: "HeaderMyServices", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderMyServices")
         self.tbvHelp.delegate = self
         self.tbvHelp.dataSource = self
         self.tbvHelp.allowsSelection = false
@@ -92,6 +104,26 @@ class PushNotificationViewController: BaseViewController {
         //            popoverController.sourceRect = self.icAvatar.bounds
         //        }
         self.present(alertControl, animated: true, completion: nil)
+    }
+    
+    func getSearchGroup(){
+        RelationShipsManager.shareRelationShipsManager().getSearchGroupRelationShip { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                print("data = \(data)")
+                for item in data {
+                    self.listGroup.append(item)
+                }
+                self.tbvHelp.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func addNewService(){
@@ -154,9 +186,33 @@ class PushNotificationViewController: BaseViewController {
                     Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
                 }
             }else {
-                var model = AddNewHelpServiceParams()
+                let totalRow = self.listGroup.count + 2
+                DispatchQueue.main.sync {
+                    for index in 0..<totalRow {
+                        self.cellCheckBox = self.tbvHelp.cellForRow(at: IndexPath.init(item: index, section: 1)) as? CheckBoxTableViewCell
+                        if self.cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
+                            if index == 0 {
+                                self.helpModel.target.append("relationship")
+                            }else if index == 1 {
+                                self.helpModel.target.append("open_relationship")
+                            }else {
+                                let model = self.listGroup[index - 2]
+                                let arrIds = model.userIds?.split(separator: ",")
+                                if let arr = arrIds, arr.count > 0 {
+                                    for i in arr {
+                                        self.helpModel.relationship.append(Int(String(i)) ?? 0)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+//                cellCheckBox = self.tbvHelp.cellForRow(at: IndexPath.init(item: index, section: 1)) as? CheckBoxTableViewCell
+                var model = AddNewPushNotificationServiceParams()
                 model.title = self.helpModel.title
                 model.description = self.helpModel.description
+                model.target = self.helpModel.target
+                model.relationship = self.helpModel.relationship
                 model.images = linkImgs
                 self.createNewService(model: model)
             }
@@ -164,13 +220,13 @@ class PushNotificationViewController: BaseViewController {
         
     }
     
-    func createNewService(model: AddNewHelpServiceParams){
-        UserManager.shareUserManager().createSupport(model: model) { [unowned self] (response) in
+    func createNewService(model: AddNewPushNotificationServiceParams){
+        RelationShipsManager.shareRelationShipsManager().createPushNotification(model: model) { [unowned self] (response) in
             switch response {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                Settings.ShareInstance.showAlertView(message: "Lưu thành công", vc: self) {[unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -185,43 +241,79 @@ class PushNotificationViewController: BaseViewController {
 
 extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listTypeCell.count
+        if section == 0 {
+            return listTypeCell.count
+        }else if section == 1 {
+            return listGroup.count + 2
+        }else{
+            return 1
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0 || section == 2 {
+            return UIView()
+        }
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderMyServices") as! HeaderMyServices
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type = listTypeCell[indexPath.row]
         
-        switch type {
-            
-        case .Image:
-            cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
-            cellImage.delegate = self
-            return cellImage
-        case .Title:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Tiêu đề"
-            cell.tfInput.placeholder = "Tiêu đề"
-            cell.tfInput.tag = indexPath.row
-            cell.delegate = self
-            return cell
-        case .Description:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
-            cell.lbTitle.text = "Mô tả"
-            cell.delegate = self
-            return cell
-        case .Confirm:
+        if indexPath.section == 0 {
+            switch type {
+                
+            case .Image:
+                cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
+                cellImage.delegate = self
+                return cellImage
+            case .Title:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+                cell.lbTitle.text = "Tiêu đề"
+                cell.tfInput.placeholder = "Tiêu đề"
+                cell.tfInput.tag = indexPath.row
+                cell.delegate = self
+                return cell
+            case .Description:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
+                cell.lbTitle.text = "Mô tả"
+                cell.delegate = self
+                return cell
+            }
+        }else if indexPath.section == 1 {
+            cellCheckBox = tableView.dequeueReusableCell(withIdentifier: "CheckBoxTableViewCell") as? CheckBoxTableViewCell
+            if indexPath.row == 0 {
+                cellCheckBox.lbTitle1.text = "Mối quan hệ"
+                cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
+            }else if indexPath.row == 1 {
+                cellCheckBox.lbTitle1.text = "Mối quan hệ mở rộng"
+            }else{
+                if listGroup.count > 0  {
+                    let model = listGroup[indexPath.row - 2]
+                    cellCheckBox.lbTitle1.text = model.name
+                }
+            }
+            cellCheckBox.delegate = self
+            cellCheckBox.bt1.tag = indexPath.row
+            cellCheckBox.img1.tag = indexPath.row
+            return cellCheckBox
+        }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.btComplete.setTitle("Xác nhận", for: .normal)
             cell.delegate = self
             return cell
-        case .CheckBox:
-            cellCheckBox = tableView.dequeueReusableCell(withIdentifier: "CheckBoxTableViewCell") as? CheckBoxTableViewCell
-            cellCheckBox.delegate = self
-            return cellCheckBox
         }
     }
-    
-    
 }
 
 extension PushNotificationViewController: ImageCarTableViewCellProtocol{
@@ -267,10 +359,6 @@ extension PushNotificationViewController: TitleTableViewCellProtocol{
             break
         case .Description:
             break
-        case .Confirm:
-            break
-        case .CheckBox:
-            break
         }
     }
 }
@@ -289,27 +377,40 @@ extension PushNotificationViewController: CompleteTableViewCellProtocol{
 }
 
 extension PushNotificationViewController: CheckBoxTableViewCellProtocol {
-    func didImg1() {
-        if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
-            cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
-        }else{
-            cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
-        }
-    }
     
-    func didImg2() {
-        if cellCheckBox?.img2.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
-            cellCheckBox.img2.image = UIImage.init(named: "ic_uncheck")
-        }else{
-            cellCheckBox.img2.image = UIImage.init(named: "ic_checked")
-        }
-    }
-    
-    func didImg3() {
-        if cellCheckBox?.img3.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
-            cellCheckBox.img3.image = UIImage.init(named: "ic_uncheck")
-        }else{
-            cellCheckBox.img3.image = UIImage.init(named: "ic_checked")
+    func didImg1(_ index: Int) {
+        cellCheckBox = self.tbvHelp.cellForRow(at: IndexPath.init(item: index, section: 1)) as? CheckBoxTableViewCell
+        switch index {
+        case 0 :
+//            if cellCheckBox.img1!.tag == index {
+//                if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
+//                    cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
+//                }else{
+//                    cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
+//                }
+//            }
+            
+            break
+        case 1 :
+           if cellCheckBox.img1!.tag == index {
+                if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
+                    cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
+                }else{
+                    cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
+                }
+            }
+            break
+        case 2 :
+            if cellCheckBox.img1!.tag == index {
+                if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
+                    cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
+                }else{
+                    cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
+                }
+            }
+            break
+        default:
+            break
         }
     }
     

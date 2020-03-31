@@ -264,4 +264,20 @@ struct AddNewHelpServiceParams {
     var images: String?
 }
 
+class PushNotificationServiceParamsModel {
+    var title = ""
+    var description = ""
+    var images = ""
+    var target: [String] = []
+    var relationship:[Int] = []
+}
+
+struct AddNewPushNotificationServiceParams {
+    var title: String?
+    var description: String?
+    var images: String?
+    var target: [String]?
+    var relationship: [Int]?
+}
+
 
