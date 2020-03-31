@@ -16,10 +16,12 @@ class ManageServicesManager{
         return Static._shareManageServicesManager
     }
     
-    func getListBaseService(completion: @escaping(ListResult<BaseServiceModel>) -> Void){
-        
-        Alamofire.request(URLs.getListBaseService, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
-            print(response)
+    func getListBaseService(page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.getListBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListBaseService = \(response)")
             completion(ListResult<BaseServiceModel>.handleResponse(response))
         }
     }

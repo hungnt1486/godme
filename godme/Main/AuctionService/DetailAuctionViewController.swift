@@ -160,11 +160,15 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
 extension DetailAuctionViewController: ImageDetailAuctionTableViewCellProtocol{
     func didShowMoreAuction() {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Tạo đấu giá dịch vụ của bạn", style: .default) { (action) in
+        let action2 = UIAlertAction.init(title: "Tạo đấu giá dịch vụ của bạn", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let createAuction = CreateAuctionViewController()
+            self.navigationController?.pushViewController(createAuction, animated: true)
         }
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+        let action3 = UIAlertAction.init(title: "Báo lỗi", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let help = HelpViewController()
+            self.navigationController?.pushViewController(help, animated: true)
         }
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)

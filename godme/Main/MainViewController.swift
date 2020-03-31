@@ -73,7 +73,7 @@ class MainViewController: BaseViewController {
     }
     
     func getListBaseService(){
-        ManageServicesManager.shareManageServicesManager().getListBaseService { [unowned self](response) in
+        ManageServicesManager.shareManageServicesManager().getListBaseService(page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):

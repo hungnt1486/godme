@@ -166,11 +166,15 @@ extension DetailBasicServiceViewController: BookServiceTableViewCellProtocol{
 extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
     func didShowMore() {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Tạo dịch vụ của bạn", style: .default) { (action) in
+        let action2 = UIAlertAction.init(title: "Tạo dịch vụ của bạn", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let createService = CreateServiceViewController()
+            self.navigationController?.pushViewController(createService, animated: true)
         }
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+        let action3 = UIAlertAction.init(title: "Báo lỗi", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let help = HelpViewController()
+            self.navigationController?.pushViewController(help, animated: true)
         }
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)

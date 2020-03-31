@@ -13,6 +13,20 @@ class BasicServiceViewController: BaseViewController {
 
     @IBOutlet weak var tbvBasicService: UITableView!
     var listBaseService: [BaseServiceModel] = []
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.gray
+        
+        return refreshControl
+    }()
+    var isLoadMore: Bool = true
+    var currentPage: Int = 1
+    var pageSize: Int = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,14 +56,40 @@ class BasicServiceViewController: BaseViewController {
         self.tbvBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvBasicService.estimatedRowHeight = 300
         self.tbvBasicService.rowHeight = UITableView.automaticDimension
+        self.tbvBasicService.addSubview(refreshControl)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        currentPage = 1
+//        modelUserSearch.nationCode = "VN"
+//        modelUserSearch.provinceCode = ""
+//        modelUserSearch.districtCode = ""
+//        modelUserSearch.wardCode = ""
+//        modelUserSearch.fullName = ""
+//        modelUserSearch.education = ""
+//        modelUserSearch.gender = ""
+//        modelUserSearch.keyword = ""
+//        modelUserSearch.career = ""
+//        modelUserSearch.page = currentPage
+//        modelUserSearch.pageSize = pageSize
+        self.getListBaseService()
+        refreshControl.endRefreshing()
     }
     
     func getListBaseService(){
-        ManageServicesManager.shareManageServicesManager().getListBaseService { [unowned self](response) in
+        ManageServicesManager.shareManageServicesManager().getListBaseService(page: self.currentPage, pageSize: self.pageSize) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
+                if self.currentPage == 1 {
+                    self.isLoadMore = true
+                    self.listBaseService.removeAll()
+                    self.listBaseService = [BaseServiceModel]()
+                }
+                if data.count < self.pageSize {
+                    self.isLoadMore = false
+                }
                 for model in data {
                     self.listBaseService.append(model)
                 }
@@ -96,6 +136,16 @@ extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource
         let detail = DetailBasicServiceViewController()
         detail.modelDetail = model
         self.navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isLoadMore {
+            if indexPath.row == listBaseService.count - 3 {
+                currentPage = currentPage + 1
+//                modelUserSearch.page = currentPage
+                self.getListBaseService()
+            }
+        }
     }
     
     
