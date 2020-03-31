@@ -32,6 +32,10 @@ class MyRelationShipExpandViewController: BaseViewController {
     var pageSize: Int = 10
     var indexJob: Int = 0
     
+    var vCheckBox: ViewShowListCheckBox!
+    var listGroupId: [Int] = []
+    var listUserId: [Int] = []
+    
     var TypeDropdown = DropDown()
     var arrString:[String] = []
     var arr: [[String:String]] = []
@@ -125,6 +129,16 @@ class MyRelationShipExpandViewController: BaseViewController {
     @IBAction func touchFind(_ sender: Any) {
         self.showProgressHub()
         self.getListRelationShipExpandFilter()
+    }
+    
+    func setupVCheckBox(){
+        if vCheckBox == nil {
+            vCheckBox = ViewShowListCheckBox.instanceFromNib()
+            vCheckBox.tag = 10
+            self.view.window?.addSubview(vCheckBox)
+            vCheckBox.delegate = self
+            self.vCheckBox.configFrame()
+        }
     }
     
     func hiddenRelationShip(index: Int){
@@ -224,6 +238,9 @@ extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtoco
         }
         let action1 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let model = self.listRelationShipExpand[index]
+            self.listUserId.append(model.id ?? 0)
+            self.setupVCheckBox()
         }
         let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
@@ -244,4 +261,37 @@ extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtoco
         alertControl.addAction(actionCancel)
         self.navigationController?.present(alertControl, animated: true, completion: nil)
     }
+}
+
+extension MyRelationShipExpandViewController: ViewShowListCheckBoxProtocol{
+    func tapDone(_ list: [Int]) {
+        if list.count == 0 {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn nhóm quan hệ", vc: self)
+            return
+        }
+        for i in 0..<list.count {
+            let model = BaseViewController.listGroup[i]
+            self.listGroupId.append(model.id ?? 0)
+        }
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+        self.showProgressHub()
+        self.addUserToMultiGroupRelationShip(listGroupId: self.listGroupId, listUserId: self.listUserId)
+        self.listUserId.removeAll()
+        self.listGroupId.removeAll()
+    }
+    
+    func tapCancel() {
+        self.listUserId.removeAll()
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+    }
+    
+    func tapGesture() {
+        self.listUserId.removeAll()
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+    }
+    
+    
 }

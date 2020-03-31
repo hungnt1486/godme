@@ -118,6 +118,22 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func addUserToMultiGroupRelationShip(listGroupId: [Int], listUserId: [Int]){
+        RelationShipsManager.shareRelationShipsManager().addUserToMultiGroupRelationShip(listGroupId: listGroupId, listUserId: listUserId) { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Thêm mối quan hệ vào nhóm thành công", vc: self)
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
     func loginSuccess() -> Void {
         
         let accounts = AccountsViewController()

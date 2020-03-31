@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ViewShowListCheckBoxProtocol {
-    func tapDone()
+    func tapDone(_ list: [Int])
     func tapCancel()
     func tapGesture()
 }
@@ -25,6 +25,8 @@ class ViewShowListCheckBox: UIView {
     
     var strDateTime: String?
     
+    var listIndex: [Int] = []
+    
     
     var delegate: ViewShowListCheckBoxProtocol?
     
@@ -35,10 +37,10 @@ class ViewShowListCheckBox: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        DispatchQueue.main.async {
-            self.configUI()
-            self.configFrame()
-        }
+//        DispatchQueue.main.async {
+//            self.configUI()
+////            self.configFrame()
+//        }
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapGesture))
         self.addGestureRecognizer(tap)
@@ -65,11 +67,11 @@ class ViewShowListCheckBox: UIView {
         self.btCancel = Settings.ShareInstance.setupButton(button: self.btCancel)
         self.btCancel.setBorder()
         self.btDone = Settings.ShareInstance.setupButton(button: self.btDone)
-        self.btDone.setBorder()
         
-//        vPopup.layer.cornerRadius = 10.0
-//        vPopup.layer.borderWidth = 1.0
-//        vPopup.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
+        vPopup.layer.cornerRadius = 10.0
+        vPopup.layer.borderWidth = 1.0
+        vPopup.backgroundColor = UIColor.FlatColor.Gray.BGColor
+        vPopup.layer.borderColor = UIColor.FlatColor.Gray.TextColor.withAlphaComponent(0.5).cgColor
         vPopup.dropShadow()
 //
 //        viewFee.layer.borderWidth = 1.0
@@ -88,6 +90,7 @@ class ViewShowListCheckBox: UIView {
     }
     
     func configFrame() {
+        self.configUI()
         self.setupTableView()
         self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
@@ -97,7 +100,7 @@ class ViewShowListCheckBox: UIView {
     }
         
     @IBAction func touchDone(_ sender: Any) {
-        delegate?.tapDone()
+        delegate?.tapDone(self.listIndex)
     }
 }
 
@@ -132,8 +135,13 @@ extension ViewShowListCheckBox: CheckBoxTableViewCellProtocol{
         if cellCheckBox?.img1!.tag == index {
             if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
                 cellCheckBox?.img1.image = UIImage.init(named: "ic_uncheck")
+                if self.listIndex.count > 0 {
+                    self.listIndex.removeAll{$0 == index}
+                }
+                print(self.listIndex)
             }else{
                 cellCheckBox?.img1.image = UIImage.init(named: "ic_checked")
+                self.listIndex.append(index)
             }
         }
     }

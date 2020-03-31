@@ -37,6 +37,8 @@ class MyRelationShipViewController: BaseViewController {
     var TypeDropdown = DropDown()
     var arrString:[String] = []
     var arr: [[String:String]] = []
+    var listGroupId: [Int] = []
+    var listUserId: [Int] = []
     
     var vCheckBox: ViewShowListCheckBox!
     
@@ -160,20 +162,12 @@ class MyRelationShipViewController: BaseViewController {
     }
     
     func setupVCheckBox(){
-//        if vDatePicker == nil {
-//            vDatePicker = ViewDatePicker.instanceFromNib()
-//            vDatePicker.tag = 11
-//            self.view.addSubview(vDatePicker)
-//            vDatePicker.delegate = self
-//        }
         if vCheckBox == nil {
             vCheckBox = ViewShowListCheckBox.instanceFromNib()
             vCheckBox.tag = 10
             self.view.window?.addSubview(vCheckBox)
             vCheckBox.delegate = self
-            UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
-                self.vCheckBox.configFrame()
-            }, completion: nil)
+            self.vCheckBox.configFrame()
         }
     }
     
@@ -256,6 +250,7 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
         }
         let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            Settings.ShareInstance.showAlertView(message: "Coming soon", vc: self)
         }
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
@@ -266,6 +261,8 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
         
         let action6 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { [unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let model = self.listMyRelationShip[index]
+            self.listUserId.append(model.id ?? 0)
             self.setupVCheckBox()
         }
         alertControl.addAction(action5)
@@ -279,17 +276,31 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
 }
 
 extension MyRelationShipViewController: ViewShowListCheckBoxProtocol{
-    func tapDone() {
+    func tapDone(_ list: [Int]) {
+        if list.count == 0 {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn nhóm quan hệ", vc: self)
+            return
+        }
+        for i in 0..<list.count {
+            let model = BaseViewController.listGroup[i]
+            self.listGroupId.append(model.id ?? 0)
+        }
         vCheckBox.viewWithTag(10)?.removeFromSuperview()
         vCheckBox = nil
+        self.showProgressHub()
+        self.addUserToMultiGroupRelationShip(listGroupId: self.listGroupId, listUserId: self.listUserId)
+        self.listUserId.removeAll()
+        self.listGroupId.removeAll()
     }
     
     func tapCancel() {
+        self.listUserId.removeAll()
         vCheckBox.viewWithTag(10)?.removeFromSuperview()
         vCheckBox = nil
     }
     
     func tapGesture() {
+        self.listUserId.removeAll()
         vCheckBox.viewWithTag(10)?.removeFromSuperview()
         vCheckBox = nil
     }

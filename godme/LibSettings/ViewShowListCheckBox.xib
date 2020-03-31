@@ -32,7 +32,7 @@
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cfd-7p-hCk">
                             <rect key="frame" x="0.0" y="45" width="315" height="330"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="4YH-vo-NS0"/>
                                 <outlet property="delegate" destination="-1" id="YTd-QL-kQW"/>
@@ -44,13 +44,15 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxh-wH-cWz">
                                     <rect key="frame" x="10" y="5" width="137.5" height="40"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                    <state key="normal" title="Huỷ"/>
+                                    <state key="normal" title="Huỷ">
+                                        <color key="titleColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="touchCancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="ySK-Rm-nQt"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Vxh-wH-cWz" secondAttribute="trailing" constant="10" id="I3I-Bd-axi"/>
                                 <constraint firstAttribute="height" constant="50" id="LgP-iy-PLE"/>
@@ -64,14 +66,17 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ4-ch-gOy">
                                     <rect key="frame" x="10" y="5" width="137.5" height="40"/>
+                                    <color key="backgroundColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                    <state key="normal" title="Đồng ý"/>
+                                    <state key="normal" title="Đồng ý">
+                                        <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="touchDone:" destination="iN0-l3-epB" eventType="touchUpInside" id="OPD-cb-C8p"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="EZ4-ch-gOy" firstAttribute="top" secondItem="NMI-U8-ZGq" secondAttribute="top" constant="5" id="0vA-c4-O5z"/>
                                 <constraint firstAttribute="trailing" secondItem="EZ4-ch-gOy" secondAttribute="trailing" constant="10" id="B1t-MC-gbf"/>
