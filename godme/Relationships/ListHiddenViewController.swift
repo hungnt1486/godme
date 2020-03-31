@@ -127,6 +127,27 @@ class ListHiddenViewController: BaseViewController {
         self.getListHiddenFilter()
     }
     
+    func showRelationShip(index: Int){
+        let model = self.listHidden[index]
+        let childrenId = model.id ?? 0
+        RelationShipsManager.shareRelationShipsManager().showRelationShip(childrenId: childrenId) { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Hiển thị mối quan hệ thành công", vc: self) {[unowned self] (str) in
+                    self.listHidden.remove(at: index)
+                    self.tbvListHidden.reloadData()
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
 }
 
 extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
@@ -162,7 +183,12 @@ extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
         cell.indexStar = model.totalStar ?? 0.0
         cell.lbCoin.text = "\(model.totalBenefited ?? 0) Godcoin"
         cell.lbEmail.text = model.email
-        cell.lbPhone.text = model.phoneNumber
+        cell.lbPhone.text = ""
+        cell.imgPhone.isHidden = true
+        if let phone = model.phoneNumber, phone.count > 0 {
+            cell.lbPhone.text = phone
+            cell.imgPhone.isHidden = false
+        }
         cell.lbTitle.text = model.fullName
         cell.lbCity.text = model.address
         cell.setupUI()
@@ -171,6 +197,10 @@ extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let model = listHidden[indexPath.row]
+        let searchBarDetail = SearchBarDetailViewController()
+        searchBarDetail.userId = model.id ?? 0
+        self.navigationController?.pushViewController(searchBarDetail, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -187,14 +217,19 @@ extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
 extension ListHiddenViewController: MyRelationShipTableViewCellProtocol{
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Hiển thị mối quan hệ", style: .default) { (action) in
+        let action2 = UIAlertAction.init(title: "Hiển thị mối quan hệ", style: .default) {[unowned self]  (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            self.showProgressHub()
+            self.showRelationShip(index: index)
         }
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) {[unowned self]  (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let help = HelpViewController()
+            self.navigationController?.pushViewController(help, animated: true)
         }
-        let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
+        let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) {(action) in
             alertControl.dismiss(animated: true, completion: nil)
+            
         }
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)

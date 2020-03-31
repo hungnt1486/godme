@@ -255,6 +255,8 @@
 		41ADEAF6241E505D002C95FA /* CreateCollaborateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */; };
 		41ADEAF8241E7D8D002C95FA /* VMapLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */; };
 		41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */; };
+		41E06085243334A300E1942D /* ViewShowListCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E06083243334A300E1942D /* ViewShowListCheckBox.xib */; };
+		41E06086243334A300E1942D /* ViewShowListCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E06084243334A300E1942D /* ViewShowListCheckBox.swift */; };
 		41EACD0C242E1B00003A6962 /* MyBaseService2DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD0A242E1AFF003A6962 /* MyBaseService2DetailTableViewCell.swift */; };
 		41EACD0D242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41EACD0B242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib */; };
 		41EACD10242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD0E242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift */; };
@@ -559,6 +561,8 @@
 		41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCollaborateViewController.swift; sourceTree = "<group>"; };
 		41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMapLeft.swift; sourceTree = "<group>"; };
 		41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMapLeft.xib; sourceTree = "<group>"; };
+		41E06083243334A300E1942D /* ViewShowListCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewShowListCheckBox.xib; sourceTree = "<group>"; };
+		41E06084243334A300E1942D /* ViewShowListCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShowListCheckBox.swift; sourceTree = "<group>"; };
 		41EACD0A242E1AFF003A6962 /* MyBaseService2DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBaseService2DetailTableViewCell.swift; sourceTree = "<group>"; };
 		41EACD0B242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBaseService2DetailTableViewCell.xib; sourceTree = "<group>"; };
 		41EACD0E242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuctionServiceDetailViewController.swift; sourceTree = "<group>"; };
@@ -827,6 +831,8 @@
 		41286AE1240F3EE70021157C /* LibSettings */ = {
 			isa = PBXGroup;
 			children = (
+				41E06084243334A300E1942D /* ViewShowListCheckBox.swift */,
+				41E06083243334A300E1942D /* ViewShowListCheckBox.xib */,
 				41ADEADF241E354E002C95FA /* ViewDatePicker.swift */,
 				41ADEAE0241E354E002C95FA /* ViewDatePicker.xib */,
 				41ADEADD241E32CD002C95FA /* SearchResultsController.swift */,
@@ -1466,6 +1472,7 @@
 				4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */,
 				41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */,
 				E6500C832408BB0F001E023D /* MainViewController.xib in Resources */,
+				41E06085243334A300E1942D /* ViewShowListCheckBox.xib in Resources */,
 				4150DA6B241B15B600F8A7E4 /* Roboto-MediumItalic.ttf in Resources */,
 				410F1AFB2431C90A00841231 /* CheckBoxTableViewCell.xib in Resources */,
 				4150DA6A241B15B600F8A7E4 /* Roboto-Regular.ttf in Resources */,
@@ -1505,6 +1512,7 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlertViewBuilder/AlertViewBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
@@ -1525,6 +1533,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertViewBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
@@ -1715,6 +1724,7 @@
 				41EACD15242E48A2003A6962 /* MyAuctionServicesDetailTableViewCell.swift in Sources */,
 				4139375A2425C6140079C587 /* Main4TableViewCell.swift in Sources */,
 				41ADEAD9241E08F6002C95FA /* CreateServiceViewController.swift in Sources */,
+				41E06086243334A300E1942D /* ViewShowListCheckBox.swift in Sources */,
 				41AD16B82413A734001E132E /* FollowTableViewController.swift in Sources */,
 				41550052241A662B006B189E /* CollapseTableView.swift in Sources */,
 				4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */,

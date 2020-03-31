@@ -177,6 +177,8 @@ class SearchBarDetailViewController: BaseViewController {
                 DispatchQueue.main.async {
                     self.modelDetail = data[0]
                     self.setupUI()
+                    self.configPageView()
+                    self.viewDidLayoutSubviews()
                     self.imgAvatar.sd_setImage(with: URL.init(string: self.modelDetail?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
                         if error == nil {
                             self.imgAvatar.image = image

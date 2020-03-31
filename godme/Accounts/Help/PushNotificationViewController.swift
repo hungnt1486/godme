@@ -268,9 +268,9 @@ extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let type = listTypeCell[indexPath.row]
         
         if indexPath.section == 0 {
+            let type = listTypeCell[indexPath.row]
             switch type {
                 
             case .Image:
@@ -380,37 +380,15 @@ extension PushNotificationViewController: CheckBoxTableViewCellProtocol {
     
     func didImg1(_ index: Int) {
         cellCheckBox = self.tbvHelp.cellForRow(at: IndexPath.init(item: index, section: 1)) as? CheckBoxTableViewCell
-        switch index {
-        case 0 :
-//            if cellCheckBox.img1!.tag == index {
-//                if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
-//                    cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
-//                }else{
-//                    cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
-//                }
-//            }
-            
-            break
-        case 1 :
-           if cellCheckBox.img1!.tag == index {
-                if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
-                    cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
-                }else{
-                    cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
-                }
+        if index == 0 {
+            return
+        }
+        if cellCheckBox.img1!.tag == index {
+            if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
+                cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
+            }else{
+                cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
             }
-            break
-        case 2 :
-            if cellCheckBox.img1!.tag == index {
-                if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
-                    cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")
-                }else{
-                    cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
-                }
-            }
-            break
-        default:
-            break
         }
     }
     

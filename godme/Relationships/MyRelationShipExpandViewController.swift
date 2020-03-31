@@ -127,6 +127,27 @@ class MyRelationShipExpandViewController: BaseViewController {
         self.getListRelationShipExpandFilter()
     }
     
+    func hiddenRelationShip(index: Int){
+        let model = self.listRelationShipExpand[index]
+        let childrenId = model.id ?? 0
+        RelationShipsManager.shareRelationShipsManager().hideRelationShip(childrenId: childrenId) { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Ẩn mối quan hệ thành công", vc: self) {[unowned self] (str) in
+                    self.listRelationShipExpand.remove(at: index)
+                    self.tbvMyRelationShipExpand.reloadData()
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
 }
 
 extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDataSource{
@@ -196,14 +217,18 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
 extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtocol{
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { (action) in
+        let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            self.showProgressHub()
+            self.hiddenRelationShip(index: index)
         }
         let action1 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let help = HelpViewController()
+            self.navigationController?.pushViewController(help, animated: true)
         }
         let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)

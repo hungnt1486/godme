@@ -29,6 +29,8 @@ class BaseViewController: UIViewController {
     
     public static var headers: HTTPHeaders = [:]
     
+    public static var listGroup: [GroupRelationShipModel] = []
+    
     public static var Lat = Double()
     public static var Lng = Double()
     public static var Current_Lat = Double()
@@ -87,6 +89,25 @@ class BaseViewController: UIViewController {
                     for item in data {
                         BaseViewController.arrayJobs.append(["name":item.name ?? "", "code": "\(item.id ?? 0)"])
                     }
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func getListGroupRelationShip(){
+        RelationShipsManager.shareRelationShipsManager().getSearchGroupRelationShip{ [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                
+                for model in data {
+                    BaseViewController.listGroup.append(model)
                 }
                 break
             case .failure(let message):

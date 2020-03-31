@@ -38,6 +38,8 @@ class MyRelationShipViewController: BaseViewController {
     var arrString:[String] = []
     var arr: [[String:String]] = []
     
+    var vCheckBox: ViewShowListCheckBox!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -136,6 +138,45 @@ class MyRelationShipViewController: BaseViewController {
         self.getListRelationShipFilter()
     }
     
+    func hiddenRelationShip(index: Int){
+        let model = self.listMyRelationShip[index]
+        let childrenId = model.id ?? 0
+        RelationShipsManager.shareRelationShipsManager().hideRelationShip(childrenId: childrenId) { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Ẩn mối quan hệ thành công", vc: self) {[unowned self] (str) in
+                    self.listMyRelationShip.remove(at: index)
+                    self.tbvMyRelationShip.reloadData()
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func setupVCheckBox(){
+//        if vDatePicker == nil {
+//            vDatePicker = ViewDatePicker.instanceFromNib()
+//            vDatePicker.tag = 11
+//            self.view.addSubview(vDatePicker)
+//            vDatePicker.delegate = self
+//        }
+        if vCheckBox == nil {
+            vCheckBox = ViewShowListCheckBox.instanceFromNib()
+            vCheckBox.tag = 10
+            self.view.window?.addSubview(vCheckBox)
+            vCheckBox.delegate = self
+            UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
+                self.vCheckBox.configFrame()
+            }, completion: nil)
+        }
+    }
+    
 }
 
 extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSource{
@@ -205,8 +246,10 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
 extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { (action) in
+        let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { [unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            self.showProgressHub()
+            self.hiddenRelationShip(index: index)
         }
         let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
@@ -221,8 +264,9 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
             alertControl.dismiss(animated: true, completion: nil)
         }
         
-        let action6 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { (action) in
+        let action6 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { [unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            self.setupVCheckBox()
         }
         alertControl.addAction(action5)
         alertControl.addAction(action2)
@@ -231,6 +275,23 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
         alertControl.addAction(action4)
         alertControl.addAction(actionCancel)
         self.navigationController?.present(alertControl, animated: true, completion: nil)
+    }
+}
+
+extension MyRelationShipViewController: ViewShowListCheckBoxProtocol{
+    func tapDone() {
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+    }
+    
+    func tapCancel() {
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+    }
+    
+    func tapGesture() {
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
     }
     
     
