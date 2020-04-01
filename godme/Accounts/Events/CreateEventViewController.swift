@@ -351,7 +351,7 @@ extension CreateEventViewController: ViewDatePickerProtocol {
     func tapDone() {
         print("tap done")
         let df = DateFormatter.init()
-        df.dateFormat = "HH:MM:ss dd/MM/yyyy"
+        df.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"
         if cellDate.indexLabel == 1 {
             cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)
             self.eventModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)

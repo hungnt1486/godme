@@ -1,0 +1,92 @@
+//
+//  ViewDatePicker.swift
+//  pCare
+//
+//  Created by Lê Hùng on 11/13/18.
+//  Copyright © 2018 fcsdev. All rights reserved.
+//
+
+import UIKit
+
+protocol ViewDatePicker1Protocol {
+    func tapDone(_ index: Int)
+    func tapCancel()
+    func tapGesture()
+}
+
+class ViewDatePicker1: UIView {
+
+    @IBOutlet weak var vPopup: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var btCancel: UIBarButtonItem!
+    @IBOutlet weak var btDone: UIBarButtonItem!
+    
+    var strDateTime: String?
+    var indexPosition: Int?
+    
+    
+    var delegate: ViewDatePicker1Protocol?
+    
+    //MARK: - Setup
+    class func instanceFromNib() -> ViewDatePicker1 {
+        return UINib(nibName: "ViewDatePicker1", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ViewDatePicker1
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configUI()
+        configFrame()
+//        configDate()
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapGesture))
+        self.addGestureRecognizer(tap)
+    }
+    
+    func configDate() -> Void {
+        let calendar = Calendar(identifier: .gregorian)
+        let comps = DateComponents()
+        let maxDate = calendar.date(byAdding: comps, to: Date())
+        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.maximumDate = maxDate
+//        let formatter = DateFormatter.init()
+//        formatter.date(from: "yyyy-MM-dd")
+    }
+    
+    @objc func tapGesture() {
+        delegate?.tapGesture()
+    }
+    
+    func configUI() {
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        
+//        vPopup.layer.cornerRadius = 10.0
+//        vPopup.layer.borderWidth = 1.0
+//        vPopup.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
+        vPopup.dropShadow()
+//
+//        viewFee.layer.borderWidth = 1.0
+//        viewFee.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
+//        viewCode.layer.borderWidth = 1.0
+//        viewCode.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
+//
+//        btOrder.layer.cornerRadius = self.btOrder.frame.size.height/2
+//        btOrder.layer.borderWidth = 1.0
+//        btOrder.layer.borderColor = UIColor(hexString: Color.mainColor).cgColor
+//
+//        tfCode.layer.cornerRadius = tfCode.frame.size.height/2
+//        tfCode.layer.borderWidth = 1.0
+//        tfCode.layer.borderColor = UIColor.black.cgColor
+//        tfCode.layer.masksToBounds = true
+    }
+    
+    func configFrame() {
+        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+    }
+    
+    @IBAction func touchCancel(_ sender: Any) {
+        delegate?.tapCancel()
+    }
+        
+    @IBAction func touchDone(_ sender: Any) {
+        delegate?.tapDone(indexPosition ?? 0)
+    }
+}

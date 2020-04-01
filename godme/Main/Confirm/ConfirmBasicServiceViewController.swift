@@ -75,7 +75,29 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
         case .ConfirmContent:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmBasicServiceTableViewCell") as! ConfirmBasicServiceTableViewCell
             cell.lbMoney.text = "\(modelDetail?.amount ?? "0") Godcoin"
-            cell.arrString = ["\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0) )","\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0) )","\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0) )","\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0) )","\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0) )","\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0) )","\(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0) )"]
+            var arr: [String] = []
+            if ((modelDetail?.dateTime1) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0))
+            }
+            if ((modelDetail?.dateTime2) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0))
+            }
+            if ((modelDetail?.dateTime3) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0))
+            }
+            if ((modelDetail?.dateTime4) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0))
+            }
+            if ((modelDetail?.dateTime5) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0))
+            }
+            if ((modelDetail?.dateTime6) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0))
+            }
+            if ((modelDetail?.dateTime7) != 0) {
+                arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0))
+            }
+            cell.arrString = arr
             cell.setupTypeDropdown()
             cell.delegate = self
             return cell

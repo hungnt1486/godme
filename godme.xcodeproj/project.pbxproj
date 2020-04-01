@@ -114,6 +114,8 @@
 		41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B742411DC7E0021157C /* FeatureTableViewCell.xib */; };
 		41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B772411DEF30021157C /* AvatarTableViewCell.xib */; };
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
+		4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */; };
+		4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */; };
 		4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374B2423CAF70079C587 /* AuctionServiceModel.swift */; };
 		4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374D2423D58D0079C587 /* RelationShipsModel.swift */; };
 		413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4139374F2425C6130079C587 /* Main3TableViewCell.xib */; };
@@ -420,6 +422,8 @@
 		41286B742411DC7E0021157C /* FeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTableViewCell.xib; sourceTree = "<group>"; };
 		41286B772411DEF30021157C /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewDatePicker1.xib; sourceTree = "<group>"; };
+		4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDatePicker1.swift; sourceTree = "<group>"; };
 		4139374B2423CAF70079C587 /* AuctionServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionServiceModel.swift; sourceTree = "<group>"; };
 		4139374D2423D58D0079C587 /* RelationShipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationShipsModel.swift; sourceTree = "<group>"; };
 		4139374F2425C6130079C587 /* Main3TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3TableViewCell.xib; sourceTree = "<group>"; };
@@ -831,6 +835,8 @@
 		41286AE1240F3EE70021157C /* LibSettings */ = {
 			isa = PBXGroup;
 			children = (
+				4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */,
+				4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */,
 				41E06084243334A300E1942D /* ViewShowListCheckBox.swift */,
 				41E06083243334A300E1942D /* ViewShowListCheckBox.xib */,
 				41ADEADF241E354E002C95FA /* ViewDatePicker.swift */,
@@ -1451,6 +1457,7 @@
 				41ADEAF5241E505D002C95FA /* CreateCollaborateViewController.xib in Resources */,
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
 				413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */,
+				4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */,
 				41ADEAD0241E075B002C95FA /* AddressPostCarTableViewCell.xib in Resources */,
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
 				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
@@ -1653,6 +1660,7 @@
 				41EACD20242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift in Sources */,
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
+				4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */,
 				413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */,
 				410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */,
 				413937B5242DE7B20079C587 /* MyServiceDetailViewController.swift in Sources */,

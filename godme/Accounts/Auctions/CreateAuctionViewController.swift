@@ -278,8 +278,6 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
         
         }
     }
-    
-    
 }
 
 extension CreateAuctionViewController: HeaderSubMainProtocol{
@@ -292,8 +290,6 @@ extension CreateAuctionViewController: HeaderSubMainProtocol{
             vDatePicker.delegate = self
         }
     }
-    
-    
 }
 
 extension CreateAuctionViewController: ImageCarTableViewCellProtocol{
@@ -351,7 +347,7 @@ extension CreateAuctionViewController: ViewDatePickerProtocol {
     func tapDone() {
         print("tap done")
         let df = DateFormatter.init()
-        df.dateFormat = "dd/MM/yyyy"
+        df.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"
         if cellDate.indexLabel == 1 {
             cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)
             self.auctionModel.startTime = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)

@@ -30,12 +30,14 @@ class CreateServiceViewController: BaseViewController {
     var imagePicker = UIImagePickerController()
     var index: Int = 0
     var cellAddres: AddressPostCarTableViewCell!
-    var vDatePicker: ViewDatePicker!
+    var vDatePicker: ViewDatePicker1!
     var cellDate: TimeTableViewCell!
     var basicModel = BasicServiceModel()
     var linkImg1: String = ""
     var linkImg2: String = ""
     var linkImg3: String = ""
+    
+    var indexRow = 1
     
     var listTypeCell: [typeCellCreateService] = [.Image, .Title]
     var listTypeCell1: [typeCellCreateService1] = [.Position, .Description, .Language, .Fee, .CreateService]
@@ -105,8 +107,8 @@ class CreateServiceViewController: BaseViewController {
     func addNewService(){
         let group = DispatchGroup()
         if cellImage.imageOne.image != nil {
+            group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imageOne.image!, progress: nil) { [unowned self] (fileURL, error) in
-                group.enter()
                 if error == nil {
                     self.linkImg1 = fileURL as! String
                 }else{
@@ -168,6 +170,12 @@ class CreateServiceViewController: BaseViewController {
             }
             var model = AddNewBaseServiceParams()
             model.dateTime1 = self.basicModel.dateTime1
+            model.dateTime2 = self.basicModel.dateTime2
+            model.dateTime3 = self.basicModel.dateTime3
+            model.dateTime4 = self.basicModel.dateTime4
+            model.dateTime5 = self.basicModel.dateTime5
+            model.dateTime6 = self.basicModel.dateTime6
+            model.dateTime7 = self.basicModel.dateTime7
             model.amount = self.basicModel.amount
             model.address = self.basicModel.address
             model.latitude = self.basicModel.latitude
@@ -208,7 +216,7 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
         }else if section == 2 {
             return listTypeCell1.count
         }
-        return 1
+        return indexRow
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -287,7 +295,33 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
             }
         }else{
             cellDate = tableView.dequeueReusableCell(withIdentifier: "TimeTableViewCell") as? TimeTableViewCell
-            
+            cellDate.lbTime.tag = indexPath.row
+            cellDate.delegate = self
+            switch indexPath.row {
+            case 0:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime1)
+                break
+            case 1:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime2)
+                break
+            case 2:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime3)
+                break
+            case 3:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime4)
+                break
+            case 4:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime5)
+                break
+            case 5:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime6)
+                break
+            case 6:
+                cellDate.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.basicModel.dateTime7)
+                break
+            default:
+                break
+            }
             return cellDate
         }
     }
@@ -297,16 +331,12 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension CreateServiceViewController: HeaderSubMainProtocol{
     func didMore(index: Int) {
-        self.view.endEditing(true)
-        if vDatePicker == nil {
-            vDatePicker = ViewDatePicker.instanceFromNib()
-            vDatePicker.tag = 11
-            self.view.addSubview(vDatePicker)
-            vDatePicker.delegate = self
+        if indexRow < 7  {
+            indexRow = indexRow + 1
+            self.tbvCreateService.reloadSections(IndexSet.init(integer: 1), with: .none)
         }
+        
     }
-    
-    
 }
 
 extension CreateServiceViewController: ImageCarTableViewCellProtocol{
@@ -360,18 +390,38 @@ extension CreateServiceViewController: AddressPostCarTableViewCellProtocol{
     }
 }
 
-extension CreateServiceViewController: ViewDatePickerProtocol {
-    func tapDone() {
-        print("tap done")
+extension CreateServiceViewController: ViewDatePicker1Protocol {
+    func tapDone(_ index: Int) {
+        print("tap done = \(index)")
         let df = DateFormatter.init()
-        df.dateFormat = "dd/MM/yyyy"
-//        postModel.dateExpire = df.string(from: vDatePicker.datePicker.date)
-//        vDatePicker.viewWithTag(11)?.removeFromSuperview()
-//        vDatePicker = nil
-//        cellDate.updateDate(str: postModel.dateExpire)
-//        cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)
+        df.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"
+        cellDate = self.tbvCreateService.cellForRow(at: IndexPath.init(row: index, section: 1)) as? TimeTableViewCell
         cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)
-        self.basicModel.dateTime1 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)//cellDate.lbTime.text ?? ""
+        switch index {
+        case 0:
+            self.basicModel.dateTime1 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        case 1:
+            self.basicModel.dateTime2 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        case 2:
+            self.basicModel.dateTime3 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        case 3:
+            self.basicModel.dateTime4 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        case 4:
+            self.basicModel.dateTime5 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        case 5:
+            self.basicModel.dateTime6 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        case 6:
+            self.basicModel.dateTime7 = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)
+            break
+        default:
+            break
+        }
         vDatePicker.viewWithTag(11)?.removeFromSuperview()
         vDatePicker = nil
     }
@@ -418,5 +468,18 @@ extension CreateServiceViewController: Title1TableViewCellProtocol{
 extension CreateServiceViewController: DescriptionCarTableViewCellProtocol{
     func getDescriptionText(_ string: String) {
         self.basicModel.description = string
+    }
+}
+
+extension CreateServiceViewController: TimeTableViewCellProtocol{
+    func didLabel(_ index: Int) {
+        self.view.endEditing(true)
+        if vDatePicker == nil {
+            vDatePicker = ViewDatePicker1.instanceFromNib()
+            vDatePicker.indexPosition = index
+            vDatePicker.tag = 11
+            self.view.addSubview(vDatePicker)
+            vDatePicker.delegate = self
+        }
     }
 }

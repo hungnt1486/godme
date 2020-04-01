@@ -155,7 +155,10 @@ class MainViewController: BaseViewController {
             case .success(let data):
                 self.hideProgressHub()
                 self.walletCharity = data
-                self.headerMain?.lbTotalMoney.text = self.walletCharity?.totalAmountGodmeCharity
+                let total = Double(self.walletCharity?.totalAmountGodmeCharity ?? "0.0")
+                self.headerMain?.lbTotalMoney.text = "\(total! * 1000) vnd"
+                self.headerMain?.lbMoney.text = "\(Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")! * 1000) vnd"
+                self.headerMain?.lbCharity.text = "Quỹ từ thiện Godme"
                 self.tbvMain.reloadData()
                 break
             case .failure(let message):
