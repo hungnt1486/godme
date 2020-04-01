@@ -102,6 +102,15 @@ class UserManager{
         }
     }
     
+    func getMyRelationShip(id: Int, completion: @escaping(ListResult<UserRegisterReturnModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        Alamofire.request(URLs.getRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getMyRelationShip = \(response)")
+            completion(ListResult<UserRegisterReturnModel>.handleResponse(response))
+        }
+    }
+    
     func getListJobs(completion: @escaping(ListResult<JobModel>) -> Void){
         Alamofire.request(URLs.getListJob, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("getListJobs = \(response)")
@@ -117,6 +126,13 @@ class UserManager{
         
         Alamofire.request(URLs.createSupport, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("createSupport = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func createRequestPayIn(completion: @escaping(SingleResult<BaseModel>)->Void){
+        Alamofire.request(URLs.createRequestPayIn, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("createRequestPayIn = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }

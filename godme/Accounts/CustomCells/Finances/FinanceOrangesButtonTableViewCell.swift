@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FinanceOrangesButtonTableViewCellProtocol {
-    func didButtonOranges(type: typeCellFinance)
+//    func didButtonOranges(type: typeCellFinance)
 }
 
 class FinanceOrangesButtonTableViewCell: UITableViewCell {
@@ -33,7 +33,7 @@ class FinanceOrangesButtonTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchOranges(_ sender: Any) {
-        delegate?.didButtonOranges(type: typeCellFinance(rawValue: self.btOranges.tag)!)
+//        delegate?.didButtonOranges(type: typeCellFinance(rawValue: self.btOranges.tag)!)
     }
     
 }

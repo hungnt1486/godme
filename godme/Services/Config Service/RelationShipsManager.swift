@@ -175,4 +175,14 @@ class RelationShipsManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func createContinueRelation(numberOfExtension: Int, relationshipId: Int, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["numberOfExtension"] = numberOfExtension
+        paramsBody["relationshipId"] = relationshipId
+        Alamofire.request(URLs.createContinueRelation, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print(response)
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
 }

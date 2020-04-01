@@ -56,6 +56,7 @@ class PushNotificationViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Thông báo đẩy"//Settings.ShareInstance.translate(key: "support_report")
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func setupUI(){

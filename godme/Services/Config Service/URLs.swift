@@ -51,6 +51,8 @@ struct URLs {
         static let confirmBookBaseService = "api/mobile/order/basic/save"
         static let createSupport = "api/public/support/save"
         static let createPushNotification = "api/mobile/notification/save"
+        static let createContinueRelation = "api/mobile/transaction/extensionReferral"
+        static let createRequestPayIn = "api/mobile/transaction/requestPayin"
         
     }
     
@@ -73,6 +75,9 @@ struct URLs {
     }
     static var getListJob: String{
         return String(format: "%@%@", linkServer, Routes.getListJob)
+    }
+    static var createRequestPayIn: String{
+        return String(format: "%@%@", linkServer, Routes.createRequestPayIn)
     }
     
     /// relationship
@@ -114,6 +119,9 @@ struct URLs {
     }
     static var sendEmailRelationShip: String{
         return String(format: "%@%@", linkServer, Routes.sendEmailRelationShip)
+    }
+    static var createContinueRelation: String{
+        return String(format: "%@%@", linkServer, Routes.createContinueRelation)
     }
     
     /// base service

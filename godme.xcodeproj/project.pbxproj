@@ -116,6 +116,12 @@
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
 		4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */; };
 		4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */; };
+		4130D13E24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */; };
+		4130D13F24346FE100DDC9D6 /* ContinueMyRelationShipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D13D24346FE100DDC9D6 /* ContinueMyRelationShipViewController.xib */; };
+		4130D1422434714C00DDC9D6 /* NumberOfYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D1402434714C00DDC9D6 /* NumberOfYearTableViewCell.swift */; };
+		4130D1432434714C00DDC9D6 /* NumberOfYearTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D1412434714C00DDC9D6 /* NumberOfYearTableViewCell.xib */; };
+		4130D1462434889D00DDC9D6 /* MyRelationShip1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D1442434889D00DDC9D6 /* MyRelationShip1TableViewCell.swift */; };
+		4130D1472434889D00DDC9D6 /* MyRelationShip1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D1452434889D00DDC9D6 /* MyRelationShip1TableViewCell.xib */; };
 		4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374B2423CAF70079C587 /* AuctionServiceModel.swift */; };
 		4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374D2423D58D0079C587 /* RelationShipsModel.swift */; };
 		413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4139374F2425C6130079C587 /* Main3TableViewCell.xib */; };
@@ -424,6 +430,12 @@
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewDatePicker1.xib; sourceTree = "<group>"; };
 		4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDatePicker1.swift; sourceTree = "<group>"; };
+		4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueMyRelationShipViewController.swift; sourceTree = "<group>"; };
+		4130D13D24346FE100DDC9D6 /* ContinueMyRelationShipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContinueMyRelationShipViewController.xib; sourceTree = "<group>"; };
+		4130D1402434714C00DDC9D6 /* NumberOfYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfYearTableViewCell.swift; sourceTree = "<group>"; };
+		4130D1412434714C00DDC9D6 /* NumberOfYearTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumberOfYearTableViewCell.xib; sourceTree = "<group>"; };
+		4130D1442434889D00DDC9D6 /* MyRelationShip1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRelationShip1TableViewCell.swift; sourceTree = "<group>"; };
+		4130D1452434889D00DDC9D6 /* MyRelationShip1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRelationShip1TableViewCell.xib; sourceTree = "<group>"; };
 		4139374B2423CAF70079C587 /* AuctionServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionServiceModel.swift; sourceTree = "<group>"; };
 		4139374D2423D58D0079C587 /* RelationShipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationShipsModel.swift; sourceTree = "<group>"; };
 		4139374F2425C6130079C587 /* Main3TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3TableViewCell.xib; sourceTree = "<group>"; };
@@ -965,6 +977,8 @@
 				4150DA81241CEC0100F8A7E4 /* CreateNotificationViewController.xib */,
 				41EACD1E242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.swift */,
 				41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */,
+				4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */,
+				4130D13D24346FE100DDC9D6 /* ContinueMyRelationShipViewController.xib */,
 			);
 			path = Relationships;
 			sourceTree = "<group>";
@@ -1256,10 +1270,14 @@
 		E66F690B241B419200A0EC99 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				4130D1442434889D00DDC9D6 /* MyRelationShip1TableViewCell.swift */,
+				4130D1452434889D00DDC9D6 /* MyRelationShip1TableViewCell.xib */,
 				E66F690C241B41F500A0EC99 /* MyRelationShipTableViewCell.swift */,
 				E66F690D241B41F500A0EC99 /* MyRelationShipTableViewCell.xib */,
 				41EACD22242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.swift */,
 				41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */,
+				4130D1402434714C00DDC9D6 /* NumberOfYearTableViewCell.swift */,
+				4130D1412434714C00DDC9D6 /* NumberOfYearTableViewCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -1387,6 +1405,7 @@
 				4150DA68241B15B600F8A7E4 /* RobotoCondensed-Bold.ttf in Resources */,
 				4150DA75241B15B600F8A7E4 /* Roboto-Bold.ttf in Resources */,
 				41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */,
+				4130D13F24346FE100DDC9D6 /* ContinueMyRelationShipViewController.xib in Resources */,
 				41132990241684450089DD18 /* Localizable.strings in Resources */,
 				4150DA83241CEC0100F8A7E4 /* CreateNotificationViewController.xib in Resources */,
 				E66F691A241B792F00A0EC99 /* socials.json in Resources */,
@@ -1453,7 +1472,9 @@
 				41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */,
 				41AD16CE2413FD9E001E132E /* MyServicesViewController.xib in Resources */,
 				41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */,
+				4130D1472434889D00DDC9D6 /* MyRelationShip1TableViewCell.xib in Resources */,
 				413937AE242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib in Resources */,
+				4130D1432434714C00DDC9D6 /* NumberOfYearTableViewCell.xib in Resources */,
 				41ADEAF5241E505D002C95FA /* CreateCollaborateViewController.xib in Resources */,
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
 				413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */,
@@ -1677,6 +1698,7 @@
 				415500382419B2D2006B189E /* SearchBarDetailViewController.swift in Sources */,
 				410F1AFA2431C90A00841231 /* CheckBoxTableViewCell.swift in Sources */,
 				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
+				4130D1462434889D00DDC9D6 /* MyRelationShip1TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
 				410F1AF22431B75800841231 /* HelpViewController.swift in Sources */,
 				410E67FA24149E4F00FA2F54 /* Main1TableViewCell.swift in Sources */,
@@ -1689,8 +1711,10 @@
 				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */,
+				4130D13E24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift in Sources */,
 				41AD16BC2413A8D0001E132E /* FollowTableViewCell.swift in Sources */,
 				4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */,
+				4130D1422434714C00DDC9D6 /* NumberOfYearTableViewCell.swift in Sources */,
 				E60FA9A92424AE8F00A45AFF /* WalletModel.swift in Sources */,
 				411329802414E3F70089DD18 /* MainCollectionViewCell.swift in Sources */,
 				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,

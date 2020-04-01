@@ -12,12 +12,14 @@ enum cellTypeInputGodcoid: Int{
     case Label1 = 0
     case Label2 = 1
     case Label3 = 2
+    case Confirm = 3
 }
 
 class InputGodcoinViewController: BaseViewController {
 
     @IBOutlet weak var tbvInputGodcoin: UITableView!
-    var listTypeCell:[cellTypeInputGodcoid] = [.Label1, .Label2, .Label3]
+    var listTypeCell:[cellTypeInputGodcoid] = [.Label1, .Label2, .Label3, .Confirm]
+    var modelUser = Settings.ShareInstance.getDictUser()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +37,7 @@ class InputGodcoinViewController: BaseViewController {
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel1TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel1TableViewCell")
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel2TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel2TableViewCell")
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel3TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel3TableViewCell")
+        self.tbvInputGodcoin.register(UINib(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
 
         self.tbvInputGodcoin.delegate = self
         self.tbvInputGodcoin.dataSource = self
@@ -43,6 +46,22 @@ class InputGodcoinViewController: BaseViewController {
         self.tbvInputGodcoin.separatorInset = UIEdgeInsets.zero
         self.tbvInputGodcoin.estimatedRowHeight = 100
         self.tbvInputGodcoin.rowHeight = UITableView.automaticDimension
+    }
+    
+    func createRequestPayin(){
+        UserManager.shareUserManager().createRequestPayIn { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Bạn đã gửi yêu cầu thành công", vc: self)
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
 
 }
@@ -57,6 +76,7 @@ extension InputGodcoinViewController: UITableViewDataSource, UITableViewDelegate
         switch typeCell {
         case .Label1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel1TableViewCell") as! InputGodcoinLabel1TableViewCell
+            cell.lbCode.text = "NAP \(modelUser.userName ?? "")"
             return cell
         
         case .Label2:
@@ -65,8 +85,18 @@ extension InputGodcoinViewController: UITableViewDataSource, UITableViewDelegate
         case .Label3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel3TableViewCell") as! InputGodcoinLabel3TableViewCell
             return cell
+        case .Confirm:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
+            cell.delegate = self
+            cell.btComplete.setTitle("Gửi yêu cầu nạp Godcoin", for: .normal)
+            return cell
         }
     }
-    
-    
+}
+
+extension InputGodcoinViewController: CompleteTableViewCellProtocol{
+    func didComplete() {
+        self.showProgressHub()
+        self.createRequestPayin()
+    }
 }

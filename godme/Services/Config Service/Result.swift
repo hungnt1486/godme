@@ -24,11 +24,10 @@ enum SingleResult<C: BaseModel> {
         let error = C(json: json)
         let result = C(json: json["result"])!
         
-        if error?.ResultCode == .Error {
-            return SingleResult.failure(message: error?.MessageInfo ?? "")
+        if error?.ResultCode == .Success {
+            return SingleResult.success(result)
         }
-        
-        return SingleResult.success(result)
+        return SingleResult.failure(message: error?.MessageInfo ?? "")
     }
 }
 

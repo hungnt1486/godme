@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FinanceBlueButtonTableViewCellProtocol {
-    func didButtonBlue(type: typeCellFinance)
+//    func didButtonBlue(type: typeCellFinance)
 }
 
 class FinanceBlueButtonTableViewCell: UITableViewCell {
@@ -33,6 +33,6 @@ class FinanceBlueButtonTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchBlue(_ sender: Any) {
-        delegate?.didButtonBlue(type: typeCellFinance(rawValue: self.btBlue.tag)!)
+//        delegate?.didButtonBlue(type: typeCellFinance(rawValue: self.btBlue.tag)!)
     }
 }

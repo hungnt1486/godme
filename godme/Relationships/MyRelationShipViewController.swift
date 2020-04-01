@@ -71,7 +71,7 @@ class MyRelationShipViewController: BaseViewController {
     }
     
     func setupTableView(){
-        self.tbvMyRelationShip.register(UINib(nibName: "MyRelationShipTableViewCell", bundle: nil), forCellReuseIdentifier: "MyRelationShipTableViewCell")
+        self.tbvMyRelationShip.register(UINib(nibName: "MyRelationShip1TableViewCell", bundle: nil), forCellReuseIdentifier: "MyRelationShip1TableViewCell")
 
         self.tbvMyRelationShip.delegate = self
         self.tbvMyRelationShip.dataSource = self
@@ -179,7 +179,7 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyRelationShipTableViewCell") as! MyRelationShipTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyRelationShip1TableViewCell") as! MyRelationShip1TableViewCell
         cell.delegate = self
         let model = listMyRelationShip[indexPath.row]
         cell.imgAvatar.sd_setImage(with: URL.init(string: model.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
@@ -213,6 +213,7 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
             cell.imgPhone.isHidden = false
         }
         cell.lbCity.text = model.address
+        cell.lbDayLeft.text = "\(model.datesLeft ?? 0) ngày"
         cell.setupUI()
         return cell
     }
@@ -237,7 +238,7 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
     
 }
 
-extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
+extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { [unowned self] (action) in
@@ -255,8 +256,12 @@ extension MyRelationShipViewController: MyRelationShipTableViewCellProtocol{
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
-        let action5 = UIAlertAction.init(title: "Gia hạn mối quan hệ", style: .default) { (action) in
+        let action5 = UIAlertAction.init(title: "Gia hạn mối quan hệ", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let model = self.listMyRelationShip[index]
+            let continueMyRelation = ContinueMyRelationShipViewController()
+            continueMyRelation.userId = model.id ?? 0
+            self.navigationController?.pushViewController(continueMyRelation, animated: true)
         }
         
         let action6 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { [unowned self] (action) in
