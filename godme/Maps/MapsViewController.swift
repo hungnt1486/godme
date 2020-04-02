@@ -26,10 +26,13 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
     
     var isChooseBase = true, isChooseAuction = true, isChooseEvent = true
     
+    var slider = UISlider()
+    @IBOutlet weak var vSlide: UIView!
     @IBOutlet weak var btBaseService: UIButton!
     @IBOutlet weak var btAuctionService: UIButton!
     @IBOutlet weak var btEventService: UIButton!
     @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var lbKm: UILabel!
     
     // search bar
     var searchResultController: SearchResultsController!
@@ -40,7 +43,9 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
 
         // Do any additional setup after loading the view.
         self.showProgressHub()
-        self.setupUI()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
         self.getListAllService()
 //
 //        if self.map == nil {
@@ -60,12 +65,26 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
         
+        self.vSlide = Settings.ShareInstance.setupView(v: self.vSlide)
         self.btBaseService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
         self.btAuctionService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
         self.btEventService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
         
         let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_search")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight))
         self.navigationItem.rightBarButtonItem = right
+        
+//        let w = self.vSlide.frame.size.height
+        slider.minimumValue = 1.0
+        slider.maximumValue = 10.0
+        slider.tintColor = UIColor.FlatColor.Oranges.BGColor
+        slider.thumbTintColor = UIColor.FlatColor.Oranges.BGColor
+        slider.bounds.size.width = self.vSlide.frame.size.height/3*2
+        slider.center = CGPoint(x: self.vSlide.bounds.width/2, y: self.vSlide.bounds.width/2 + 70)
+        slider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
+        slider.addTarget(self, action: #selector(changeSliderValue), for: .valueChanged)
+
+        self.vSlide.addSubview(slider)
+        self.vSlide.clipsToBounds = true
         
         searchResultController = SearchResultsController()
 //        searchResultController.delegate = self
@@ -81,6 +100,10 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
         self.present(searchController, animated:true, completion: nil)
+    }
+    
+    @objc func changeSliderValue(){
+        self.lbKm.text = "\(Int(self.slider.value)) km"
     }
     
     func getListAllService(){
