@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: BaseViewController {
 
@@ -21,6 +22,10 @@ class MainViewController: BaseViewController {
     var listBlogs: [BlogModel] = []
     var walletCharity: WalletCharityModel?
     var headerMain: HeaderMain?
+    
+    var locationManagerHome = CLLocationManager()
+    var latt: Double = 0.0
+    var longt: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +47,16 @@ class MainViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupSearchBar()
+        self.setupLocation()
+        BaseViewController.Current_Lat = 0.0
+        locationManagerHome.startUpdatingLocation()
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.locationManagerHome.stopUpdatingLocation()
         if vSearchBar != nil {
             vSearchBar.viewWithTag(5)?.removeFromSuperview()
             vSearchBar = nil
@@ -60,6 +69,12 @@ class MainViewController: BaseViewController {
             vSearchBar.viewWithTag(5)?.removeFromSuperview()
             vSearchBar = nil
         }
+    }
+    
+    func setupLocation(){
+        locationManagerHome.delegate = self
+        locationManagerHome.requestWhenInUseAuthorization()
+        locationManagerHome.requestLocation()
     }
     
     func setupSearchBar(){
@@ -412,6 +427,45 @@ extension MainViewController: VSearchBarProtocol{
         let searchBar = SearchBarViewController()
         self.navigationController?.pushViewController(searchBar, animated: true)
     }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+            print("lat = , long =  \(lat),\(long)")
+            latt = lat
+            longt = long
+            DispatchQueue.main.async {
+
+               // self.getListBannerTransaction()
+                BaseViewController.Current_Lat = self.latt
+                BaseViewController.Current_Lng = self.longt
+               // self.getListBannerTransaction(Skip: self.currentPage*self.pageSize, Take: self.pageSize)
+            }
+            
+            locationManagerHome.stopUpdatingLocation()
+            locationManagerHome.delegate = nil
+            return
+        } else {
+            print("No coordinates")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+       
+    }
     
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        print("ge")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("status = \(status.rawValue)")
+        // = 4 allow get location
+        
+        if status.rawValue > 0 {
+            
+        }
+    }
     
 }

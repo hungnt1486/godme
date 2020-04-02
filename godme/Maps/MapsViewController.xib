@@ -6,9 +6,17 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapsViewController" customModule="godme" customModuleProvider="target">
             <connections>
+                <outlet property="btAuctionService" destination="Mis-Zt-Hbk" id="fGu-yZ-3G4"/>
+                <outlet property="btBaseService" destination="dhh-xm-SW7" id="5Yb-Mh-ltp"/>
+                <outlet property="btEventService" destination="407-vj-hWy" id="GNS-66-UoE"/>
                 <outlet property="mapView" destination="G1o-Yz-z49" id="tPD-sh-hVL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,20 +26,91 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1o-Yz-z49">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1o-Yz-z49">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5VG-um-Hsn">
+                    <rect key="frame" x="0.0" y="224" width="100" height="448"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhh-xm-SW7">
+                            <rect key="frame" x="0.0" y="278" width="100" height="40"/>
+                            <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="OP3-bx-nch"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="Dịch vụ">
+                                <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="touchBaseService:" destination="-1" eventType="touchUpInside" id="ozX-ql-f8Y"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mis-Zt-Hbk">
+                            <rect key="frame" x="0.0" y="323" width="100" height="40"/>
+                            <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="aHg-pH-by4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="Đấu giá">
+                                <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="touchAuctionService:" destination="-1" eventType="touchUpInside" id="NIS-qh-gTN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="407-vj-hWy">
+                            <rect key="frame" x="0.0" y="368" width="100" height="40"/>
+                            <color key="backgroundColor" red="0.0" green="0.20392156859999999" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="wep-xc-hTX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="Sự kiện">
+                                <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="touchEventService:" destination="-1" eventType="touchUpInside" id="3a8-Cg-hLH"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-Cc-Zwr">
+                            <rect key="frame" x="30" y="30" width="70" height="228"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dhh-xm-SW7" firstAttribute="top" secondItem="CV4-Cc-Zwr" secondAttribute="bottom" constant="20" id="0IX-LB-5VA"/>
+                        <constraint firstItem="CV4-Cc-Zwr" firstAttribute="top" secondItem="5VG-um-Hsn" secondAttribute="top" constant="30" id="0Jz-UF-76s"/>
+                        <constraint firstAttribute="bottom" secondItem="407-vj-hWy" secondAttribute="bottom" constant="40" id="2aJ-88-0dp"/>
+                        <constraint firstItem="dhh-xm-SW7" firstAttribute="leading" secondItem="5VG-um-Hsn" secondAttribute="leading" id="5Pv-bw-eft"/>
+                        <constraint firstItem="CV4-Cc-Zwr" firstAttribute="leading" secondItem="5VG-um-Hsn" secondAttribute="leading" constant="30" id="DKI-y2-iYh"/>
+                        <constraint firstItem="Mis-Zt-Hbk" firstAttribute="top" secondItem="dhh-xm-SW7" secondAttribute="bottom" constant="5" id="MC5-TZ-NdQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Mis-Zt-Hbk" secondAttribute="trailing" id="OmY-gs-APM"/>
+                        <constraint firstItem="Mis-Zt-Hbk" firstAttribute="leading" secondItem="5VG-um-Hsn" secondAttribute="leading" id="Qu7-qe-ebu"/>
+                        <constraint firstAttribute="trailing" secondItem="407-vj-hWy" secondAttribute="trailing" id="ZXo-UB-6cm"/>
+                        <constraint firstItem="407-vj-hWy" firstAttribute="leading" secondItem="5VG-um-Hsn" secondAttribute="leading" id="dZz-pM-PXx"/>
+                        <constraint firstAttribute="trailing" secondItem="CV4-Cc-Zwr" secondAttribute="trailing" id="kkW-Jb-4bl"/>
+                        <constraint firstItem="407-vj-hWy" firstAttribute="top" secondItem="Mis-Zt-Hbk" secondAttribute="bottom" constant="5" id="qBN-xC-GoG"/>
+                        <constraint firstAttribute="width" constant="100" id="tms-lE-TZa"/>
+                        <constraint firstAttribute="trailing" secondItem="dhh-xm-SW7" secondAttribute="trailing" id="w1o-J1-krg"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="G1o-Yz-z49" secondAttribute="trailing" id="4VC-lG-OnQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="G1o-Yz-z49" secondAttribute="bottom" id="72C-xU-rEW"/>
+                <constraint firstItem="5VG-um-Hsn" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/2" id="ZSU-F1-Ldo"/>
                 <constraint firstItem="G1o-Yz-z49" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="c5x-JK-lZ9"/>
+                <constraint firstItem="5VG-um-Hsn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ncH-c0-UbC"/>
+                <constraint firstItem="5VG-um-Hsn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pbW-7z-LcT"/>
                 <constraint firstItem="G1o-Yz-z49" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sMJ-JF-aJd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="55" y="137"/>
+            <point key="canvasLocation" x="53.623188405797109" y="136.60714285714286"/>
         </view>
     </objects>
 </document>

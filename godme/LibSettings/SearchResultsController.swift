@@ -50,7 +50,7 @@ class SearchResultsController: UITableViewController {
         // 1
         self.dismiss(animated: true, completion: nil)
         // 2
-        let urlpath = "https://maps.googleapis.com/maps/api/geocode/json?address=\(self.searchResults[indexPath.row])&sensor=false&key=AIzaSyD5WOaYPyOqMPEYeXq1lnk7peo-NdRHDnE".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlpath = "https://maps.googleapis.com/maps/api/geocode/json?address=\(self.searchResults[indexPath.row])&sensor=false&key=AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         let url = URL(string: urlpath!)
          print(url!)

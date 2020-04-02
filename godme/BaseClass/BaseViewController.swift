@@ -63,11 +63,11 @@ class BaseViewController: UIViewController {
     }
     
     func showProgressHub() -> Void {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view.window ?? UIWindow(), animated: true)
     }
     
     func hideProgressHub() -> Void {
-        MBProgressHUD.hide(for: self.view, animated: true)
+        MBProgressHUD.hide(for: self.view.window ?? UIWindow(), animated: true)
     }
     
     func configButtonBack() {

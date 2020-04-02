@@ -47,11 +47,11 @@ class MapPickerViewController: BaseViewController, GMSMapViewDelegate, LocateOnT
     
     lazy var pinView: UIImageView = { [unowned self] in
         let v = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        v.image = UIImage.init(named: "map_pin")
+        v.image = UIImage.init(named: "ic_marker_user")
 //        v.iMapViewControllermage = UIImage(named: "map_pin", in: Bundle(for: MapViewController.self), compatibleWith: nil)
-        v.image = v.image?.withRenderingMode(.alwaysTemplate)
+        v.image = v.image?.withRenderingMode(.alwaysOriginal)
 //        v.tintColor = self.view.tintColor
-        v.tintColor = UIColor.red
+//        v.tintColor = UIColor.red
         v.backgroundColor = .clear
         v.clipsToBounds = true
         v.contentMode = .scaleAspectFit
@@ -178,7 +178,7 @@ class MapPickerViewController: BaseViewController, GMSMapViewDelegate, LocateOnT
         if let location = location {
             coordinate = location.coordinate
         } else{
-            coordinate = mapView.myLocation != nil ? (mapView.myLocation?.coordinate)! : CLLocationCoordinate2D(latitude: 10.8010, longitude: 106.6823)
+            coordinate = mapView.myLocation != nil ? (mapView.myLocation?.coordinate)! : CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
         }
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 15)
         mapView.camera = camera
