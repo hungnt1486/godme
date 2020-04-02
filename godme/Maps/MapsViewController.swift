@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class MapsViewController: BaseViewController, UISearchBarDelegate {
+class MapsViewController: BaseViewController {
 
     
     var arrayMarkerDoctor: [GMSMarker] =  []
@@ -20,9 +20,7 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
     let marker = GMSMarker()
     let markerUser = GMSMarker()
     
-    var listBaseService: [BaseServiceModel] = []
-    var listAuction:[AuctionServiceModel] = []
-    var listEvents: [EventModel] = []
+    var listAllService: [MapModel] = []
     
     var isChooseBase = true, isChooseAuction = true, isChooseEvent = true
     
@@ -34,10 +32,8 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
     @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var lbKm: UILabel!
     
-    // search bar
-    var searchResultController: SearchResultsController!
-    var resultsArray = [String]()
-    var gmsFetcher: GMSAutocompleteFetcher!
+    var vSearchBar: VSearchBarMap!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,19 +42,31 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
         DispatchQueue.main.async {
             self.setupUI()
         }
-        self.getListAllService()
-//
-//        if self.map == nil {
-//            self.configMapView(lat: BaseViewController.Current_Lat, lng: BaseViewController.Current_Lng)
-//            self.addMarkerUser()
-//        }
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "Map")
+//        self.navigationItem.title = Settings.ShareInstance.translate(key: "Map")
+        self.setupSearchBar()
+        self.getListAllService()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if vSearchBar != nil {
+            vSearchBar.viewWithTag(5)?.removeFromSuperview()
+            vSearchBar = nil
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if vSearchBar != nil {
+            vSearchBar.viewWithTag(5)?.removeFromSuperview()
+            vSearchBar = nil
+        }
     }
     
     func setupUI(){
@@ -69,9 +77,6 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
         self.btBaseService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
         self.btAuctionService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
         self.btEventService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
-        
-        let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_search")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight))
-        self.navigationItem.rightBarButtonItem = right
         
 //        let w = self.vSlide.frame.size.height
         slider.minimumValue = 1.0
@@ -85,21 +90,20 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
 
         self.vSlide.addSubview(slider)
         self.vSlide.clipsToBounds = true
-        
-        searchResultController = SearchResultsController()
-//        searchResultController.delegate = self
-        
+    }
+    
+    func setupSearchBar(){
+        if vSearchBar == nil {
+            vSearchBar = VSearchBarMap.instanceFromNib()
+            vSearchBar.delegate = self
+            vSearchBar.tag = 5
+            vSearchBar.configVSearchBar(frameView: CGRect.init(x: (UIScreen.main.bounds.width - 200)/2, y: 0, width: 200, height: 50))
+            self.navigationController?.navigationBar.addSubview(vSearchBar)
+        }
     }
     
     @objc func touchLeft(){
         
-    }
-    
-    @objc func touchRight(){
-        let searchController = UISearchController(searchResultsController: searchResultController)
-        searchController.searchBar.delegate = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        self.present(searchController, animated:true, completion: nil)
     }
     
     @objc func changeSliderValue(){
@@ -107,71 +111,38 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
     }
     
     func getListAllService(){
-        let group = DispatchGroup()
-        self.listBaseService.removeAll()
-        self.listAuction.removeAll()
-        self.listEvents.removeAll()
+        var arr: [String] = []
         if isChooseBase {
-            group.enter()
-            ManageServicesManager.shareManageServicesManager().getListBaseService(page: 1, pageSize: 1000) { [unowned self](response) in
-                switch response {
-                    
-                case .success(let data):
-                    self.hideProgressHub()
-                    self.listBaseService = data
-                    break
-                case .failure(let message):
-                    self.hideProgressHub()
-                    Settings.ShareInstance.showAlertView(message: message, vc: self)
-                    group.leave()
-                    break
-                }
-                group.leave()
-            }
+            arr.append("BASIC")
         }
         if isChooseAuction {
-            group.enter()
-            ManageServicesManager.shareManageServicesManager().getListAuctionService { [unowned self](response) in
-                switch response {
-                    
-                case .success(let data):
-                    self.hideProgressHub()
-                    self.listAuction = data
-                    break
-                case .failure(let message):
-                    self.hideProgressHub()
-                    Settings.ShareInstance.showAlertView(message: message, vc: self)
-                    group.leave()
-                    break
-                }
-                group.leave()
-            }
+            arr.append("AUCTION")
         }
         if isChooseEvent {
-            group.enter()
-            ManageServicesManager.shareManageServicesManager().getListEventService(type: "") { [unowned self](response) in
-                switch response {
-
-                case .success(let data):
-                    self.hideProgressHub()
-                    self.listEvents = data
-                    break
-                case .failure(let message):
-                    self.hideProgressHub()
-                    Settings.ShareInstance.showAlertView(message: message, vc: self)
-                    group.leave()
-                    break
-                }
-                group.leave()
-            }
+            arr.append("EVENT")
         }
-        
-        group.notify(queue: DispatchQueue.main) {
-            if self.map == nil {
-                self.configMapView(lat: BaseViewController.Current_Lat, lng: BaseViewController.Current_Lng)
-                self.addMarkerUser()
+        var model = AddNewFindMapParams()
+        model.centerLat = BaseViewController.Lat
+        model.centerLong = BaseViewController.Lng
+        model.keySearch = vSearchBar.tfInputText.text ?? ""
+        model.radius = Int(self.slider.value)
+        model.services = arr
+        ManageServicesManager.shareManageServicesManager().searchServiceOnMap(model: model) {[unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                if self.map == nil {
+                    self.configMapView(lat: BaseViewController.Lat, lng: BaseViewController.Lng)
+                    self.addMarkerUser()
+                }
+                self.addMarkerToMap(arrAllService: data)
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
             }
-            self.addMarkerToMap(arrBaseService: self.listBaseService, arrAuctionService: self.listAuction, arrEventService: self.listEvents)
         }
     }
     
@@ -190,46 +161,33 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
 
     func addMarkerUser() -> Void {
         let userModel = Settings.ShareInstance.getDictUser()
-        //        var bounds = GMSCoordinateBounds()
         markerUser.position = CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
         markerUser.title = userModel.fullName
         markerUser.icon = UIImage.init(named: "ic_marker_user")
         markerUser.map = map
-//        markerUser.map!.moveCamera(GMSCameraUpdate.setCamera(GMSCameraPosition.camera(withLatitude: BaseViewController.Lat, longitude: BaseViewController.Lng, zoom: 15.0)))
     }
     
-    func addMarkerToMap(arrBaseService: [BaseServiceModel] = [], arrAuctionService: [AuctionServiceModel] = [], arrEventService: [EventModel] = []) -> Void {
+    func addMarkerToMap(arrAllService: [MapModel]) -> Void {
         self.hideProgressHub()
         for data in self.arrayMarkerDoctor {
             data.map = nil
         }
         self.arrayMarkerDoctor.removeAll()
 
-        for homeModel in arrBaseService {
+        for homeModel in arrAllService {
             let marker1 = GMSMarker()
             marker1.position = CLLocationCoordinate2D(latitude: homeModel.latitude!, longitude: homeModel.longitude!)
-            marker1.title = homeModel.userInfo?.fullName
-            marker1.icon = UIImage.init(named: "ic_marker_base")
+            marker1.title = homeModel.title
+            if homeModel.serviceType == "BASIC" {
+                marker1.icon = UIImage.init(named: "ic_marker_base")
+            }else if homeModel.serviceType == "AUCTION" {
+                marker1.icon = UIImage.init(named: "ic_marker_auction")
+            }else{
+                marker1.icon = UIImage.init(named: "ic_marker_event")
+            }
             marker1.map = map
             arrayMarkerDoctor.append(marker1)
         }
-        for homeModel in arrAuctionService {
-            let marker1 = GMSMarker()
-            marker1.position = CLLocationCoordinate2D(latitude: homeModel.latitude!, longitude: homeModel.longitude!)
-            marker1.title = homeModel.userInfo?.fullName
-            marker1.icon = UIImage.init(named: "ic_marker_auction")
-            marker1.map = map
-            arrayMarkerDoctor.append(marker1)
-        }
-        for homeModel in arrEventService {
-            let marker1 = GMSMarker()
-            marker1.position = CLLocationCoordinate2D(latitude: homeModel.latitude!, longitude: homeModel.longitude!)
-            marker1.title = homeModel.userInfo?.fullName
-            marker1.icon = UIImage.init(named: "ic_marker_event")
-            marker1.map = map
-            arrayMarkerDoctor.append(marker1)
-        }
-//        map.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 15.0))
     }
     
     @IBAction func touchBaseService(_ sender: Any) {
@@ -247,63 +205,6 @@ class MapsViewController: BaseViewController, UISearchBarDelegate {
         self.showProgressHub()
         self.getListAllService()
     }
-    
-    /**
-     Searchbar when text change
-     
-     - parameter searchBar:  searchbar UI
-     - parameter searchText: searchtext description
-     */
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-                let placeClient = GMSPlacesClient()
-
-
-                placeClient.autocompleteQuery(searchText, bounds: nil, filter: nil)  {(results, error: Error?) -> Void in
-                   // NSError myerr = Error;
-                    print("Error @%",Error.self)
-
-                    self.resultsArray.removeAll()
-                    if results == nil {
-                        return
-                    }
-
-                    for result in results! {
-                        if let result = result as? GMSAutocompletePrediction {
-                            self.resultsArray.append(result.attributedFullText.string)
-                        }
-                    }
-
-                    self.searchResultController.reloadDataWithArray(self.resultsArray)
-
-                }
-
-
-        self.resultsArray.removeAll()
-        gmsFetcher?.sourceTextHasChanged(searchText)
-
-    }
-    
-    //MARK: - GMSAutocompleteFetcherDelegate
-    /**
-     * Called when autocomplete predictions are available.
-     * @param predictions an array of GMSAutocompletePrediction objects.
-     */
-    public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
-        //self.resultsArray.count + 1
-        
-        for prediction in predictions {
-            
-            if let prediction = prediction as GMSAutocompletePrediction?{
-                self.resultsArray.append(prediction.attributedFullText.string)
-            }
-        }
-        self.searchResultController.reloadDataWithArray(self.resultsArray)
-        //   self.searchResultsTable.reloadDataWithArray(self.resultsArray)
-        print(resultsArray)
-    }
-    
-
 }
 
 extension MapsViewController: GMSMapViewDelegate {
@@ -352,5 +253,12 @@ extension MapsViewController: GMSMapViewDelegate {
 //            }
             isMapMove = false
         }
+    }
+}
+
+extension MapsViewController: VSearchBarMapProtocol{
+    func didSearchMap() {
+        self.showProgressHub()
+        self.getListAllService()
     }
 }

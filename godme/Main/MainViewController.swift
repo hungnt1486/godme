@@ -440,6 +440,8 @@ extension MainViewController: CLLocationManagerDelegate {
                // self.getListBannerTransaction()
                 BaseViewController.Current_Lat = self.latt
                 BaseViewController.Current_Lng = self.longt
+                BaseViewController.Lat = self.latt
+                BaseViewController.Lng = self.longt
                // self.getListBannerTransaction(Skip: self.currentPage*self.pageSize, Take: self.pageSize)
             }
             

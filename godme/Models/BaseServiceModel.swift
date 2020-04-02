@@ -282,4 +282,12 @@ struct AddNewPushNotificationServiceParams {
     var relationship: [Int]?
 }
 
+struct AddNewFindMapParams {
+    var keySearch: String?
+    var centerLat: Double?
+    var centerLong: Double?
+    var radius: Int?
+    var services: [String]?
+}
+
 

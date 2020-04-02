@@ -53,6 +53,7 @@ struct URLs {
         static let createPushNotification = "api/mobile/notification/save"
         static let createContinueRelation = "api/mobile/transaction/extensionReferral"
         static let createRequestPayIn = "api/mobile/transaction/requestPayin"
+        static let searchServiceOnMap = "api/mobile/user/findServiceOnMap"
         
     }
     
@@ -197,6 +198,11 @@ struct URLs {
     }
     static var createPushNotification: String{
         return String(format: "%@%@", linkServer, Routes.createPushNotification)
+    }
+    
+    // map
+    static var searchServiceOnMap: String{
+        return String(format: "%@%@", linkServer, Routes.searchServiceOnMap)
     }
     
 }

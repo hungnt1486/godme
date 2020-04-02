@@ -195,6 +195,8 @@
 		41550052241A662B006B189E /* CollapseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41550050241A662B006B189E /* CollapseTableView.swift */; };
 		41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41550053241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift */; };
 		41550056241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */; };
+		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
+		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -509,6 +511,8 @@
 		41550050241A662B006B189E /* CollapseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapseTableView.swift; sourceTree = "<group>"; };
 		41550053241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarBaseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarBaseInfoTableViewCell.xib; sourceTree = "<group>"; };
+		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
+		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -1083,6 +1087,8 @@
 		4155002424190CCB006B189E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				41867AC824362D7000377704 /* VSearchBarMap.swift */,
+				41867AC724362D7000377704 /* VSearchBarMap.xib */,
 				4150DA78241B15E800F8A7E4 /* VImageStarsOranges.swift */,
 				4150DA79241B15E800F8A7E4 /* VImageStarsOranges.xib */,
 				4155002524190CE7006B189E /* VSearchBar.swift */,
@@ -1422,6 +1428,7 @@
 				41ADEAEC241E4AD6002C95FA /* CreateEventViewController.xib in Resources */,
 				41ADEACC241E0685002C95FA /* DescriptionCarTableViewCell.xib in Resources */,
 				411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */,
+				41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */,
 				4150DA73241B15B600F8A7E4 /* Roboto-Italic.ttf in Resources */,
 				410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */,
 				41ADEAD5241E0885002C95FA /* DateTableViewCell.xib in Resources */,
@@ -1686,6 +1693,7 @@
 				410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */,
 				413937B5242DE7B20079C587 /* MyServiceDetailViewController.swift in Sources */,
 				411329BE2416A6160089DD18 /* InfoDetailTableViewCell.swift in Sources */,
+				41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */,
 				41ADEAC1241E0210002C95FA /* ImageCarTableViewCell.swift in Sources */,
 				41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */,
 				410E67EC2414958400FA2F54 /* HeaderMain.swift in Sources */,

@@ -126,6 +126,30 @@ class JobModel: BaseModel {
     }
 }
 
+class MapModel: BaseModel {
+    var address: String?
+    var amount: Float?
+    var distance: Float?
+    var id: Int?
+    var images: String?
+    var latitude: Double?
+    var longitude: Double?
+    var serviceType: String?
+    var title: String?
+    required init?(json: JSON) {
+        super.init(json: json)
+        address = json["address"].stringValue
+        amount = json["amount"].floatValue
+        distance = json["distance"].floatValue
+        id = json["id"].intValue
+        images = json["images"].stringValue
+        latitude = json["latitude"].doubleValue
+        longitude = json["longitude"].doubleValue
+        serviceType = json["serviceType"].stringValue
+        title = json["title"].stringValue
+    }
+}
+
 class GenderModel: BaseModel {
     var Id: String?
     var Name: String?

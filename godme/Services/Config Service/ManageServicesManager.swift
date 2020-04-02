@@ -273,4 +273,17 @@ class ManageServicesManager{
         }
     }
     
+    func searchServiceOnMap(model: AddNewFindMapParams, completion: @escaping(ListResult<MapModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["centerLat"] = model.centerLat
+        paramsBody["centerLong"] = model.centerLong
+        paramsBody["keySearch"] = model.keySearch
+        paramsBody["radius"] = model.radius
+        paramsBody["services"] = model.services
+        Alamofire.request(URLs.searchServiceOnMap, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("searchServiceOnMap = \(response)")
+            completion(ListResult<MapModel>.handleResponse(response))
+        }
+    }
+    
 }
