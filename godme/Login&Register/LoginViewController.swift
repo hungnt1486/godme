@@ -48,6 +48,14 @@ class LoginViewController: BaseViewController {
         self.lbRegister.isUserInteractionEnabled = true
         self.lbRegister.addGestureRecognizer(tap)
         
+        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 18.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Blue.BGColor]
+        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 17.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+        let str = Settings.ShareInstance.translate(key: "you_dont_account")
+        let arr = str.split(separator: "?")
+        let attr1 = NSMutableAttributedString(string: String(arr[1]), attributes: attrs1 as [NSAttributedString.Key : Any])
+        let attr2 = NSMutableAttributedString(string: String(arr[0] + "?"), attributes: attrs2 as [NSAttributedString.Key : Any])
+        attr2.append(attr1)
+        self.lbRegister.attributedText = attr2
         self.tfUserName.text = "+84admin"
         self.tfPassword.text = "1234567890"
     }

@@ -72,11 +72,29 @@ class Settings: NSObject {
         return model
     }
     
+//    func formatCurrency(Value: String) -> String{
+//        let format = NumberFormatter()
+//        format.numberStyle = .currency
+//        format.currencyCode = "VND"
+//        return format.string(from: NSNumber.init(value: Int(Value)!))!
+//    }
+    
     func formatCurrency(Value: String) -> String{
         let format = NumberFormatter()
         format.numberStyle = .currency
         format.currencyCode = "VND"
-        return format.string(from: NSNumber.init(value: Int(Value)!))!
+        if (Value.range(of: ".") != nil) {
+//            let
+//            let pos = Value.distance(from: Value.startIndex, to: idx)
+//            print("Found \(needle) at position \(pos)")
+            return format.string(from: NSNumber.init(value: Double(Value) ?? 0)) ?? ""
+        }
+        else {
+            print("Not found")
+            return format.string(from: NSNumber.init(value: Int(Value) ?? 0)) ?? ""
+        }
+        
+//        return format.string(from: NSNumber.init(value: Float(Value)!))!
     }
     
     func setDictUser(data: UserLoginReturnModel){

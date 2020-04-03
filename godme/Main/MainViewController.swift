@@ -171,8 +171,8 @@ class MainViewController: BaseViewController {
                 self.hideProgressHub()
                 self.walletCharity = data
                 let total = Double(self.walletCharity?.totalAmountGodmeCharity ?? "0.0")
-                self.headerMain?.lbTotalMoney.text = "\(total! * 1000) vnd"
-                self.headerMain?.lbMoney.text = "\(Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")! * 1000) vnd"
+                self.headerMain?.lbTotalMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(total! * 1000)")
+                self.headerMain?.lbMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")! * 1000)")
                 self.headerMain?.lbCharity.text = "Quỹ từ thiện Godme"
                 self.tbvMain.reloadData()
                 break
