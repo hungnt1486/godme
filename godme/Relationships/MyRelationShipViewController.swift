@@ -203,7 +203,7 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
         }
         cell.lbTime.text = strCareer
         cell.indexStar = model.totalStar ?? 0.0
-        cell.lbCoin.text = "\(model.totalBenefited ?? 0) Godcoin"
+        cell.lbCoin.text = "\(Int(model.totalBenefited ?? 0).formatnumber()) Godcoin"
         cell.lbTitle.text = model.fullName
         cell.lbEmail.text = model.email
         cell.imgPhone.isHidden = true

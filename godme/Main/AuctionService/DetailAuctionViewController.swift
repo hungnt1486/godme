@@ -33,8 +33,12 @@ class DetailAuctionViewController: BaseViewController {
         self.getListAuctionServiceByCurrentService()
     }
     
-    func setupUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = modelDetail?.title
+    }
+    
+    func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
     }
     

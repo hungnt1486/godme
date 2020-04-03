@@ -181,7 +181,7 @@ extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.lbTime.text = strCareer
         cell.indexStar = model.totalStar ?? 0.0
-        cell.lbCoin.text = "\(model.totalBenefited ?? 0) Godcoin"
+        cell.lbCoin.text = "\(Int(model.totalBenefited ?? 0).formatnumber()) Godcoin"
         cell.lbEmail.text = model.email
         cell.lbPhone.text = ""
         cell.imgPhone.isHidden = true
