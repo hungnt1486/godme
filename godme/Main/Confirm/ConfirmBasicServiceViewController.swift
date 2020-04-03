@@ -155,7 +155,9 @@ extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
                 case .success(let data):
                     self.hideProgressHub()
                     print("data = \(data)")
-                    Settings.ShareInstance.showAlertView(message: data.MessageInfo, vc: self)
+                    Settings.ShareInstance.showAlertView(message: "Bạn đã tham gia thành công", vc: self) { [unowned self](str) in
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
                     break
                 case .failure(let message):
                     self.hideProgressHub()
@@ -163,7 +165,6 @@ extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
                     break
                 }
             }
-            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     
