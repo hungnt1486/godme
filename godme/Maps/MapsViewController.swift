@@ -122,6 +122,7 @@ class MapsViewController: BaseViewController {
     }
     
     func getListAllService(){
+        self.view.endEditing(true)
         var arr: [String] = []
         if isChooseBase {
             arr.append("BASIC")

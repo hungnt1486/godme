@@ -26,6 +26,7 @@ class MyRelationShipTableViewCell: UITableViewCell {
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var imgMore: UIImageView!
     @IBOutlet weak var imgPhone: UIImageView!
+    @IBOutlet weak var constraintHeightPhone: NSLayoutConstraint!
     var vImgStars: VImageStars!
     var delegate: MyRelationShipTableViewCellProtocol?
     var indexStar: Float = 0.0

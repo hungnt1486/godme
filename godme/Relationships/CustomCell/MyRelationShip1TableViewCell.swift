@@ -30,6 +30,7 @@ class MyRelationShip1TableViewCell: UITableViewCell {
     var vImgStars: VImageStars!
     var delegate: MyRelationShip1TableViewCellProtocol?
     var indexStar: Float = 0.0
+    @IBOutlet weak var constraintHeightPhone: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

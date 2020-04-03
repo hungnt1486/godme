@@ -188,6 +188,8 @@ extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
         if let phone = model.phoneNumber, phone.count > 0 {
             cell.lbPhone.text = phone
             cell.imgPhone.isHidden = false
+        }else{
+            cell.constraintHeightPhone.constant = 0
         }
         cell.lbTitle.text = model.fullName
         cell.lbCity.text = model.address

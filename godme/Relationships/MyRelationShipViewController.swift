@@ -211,6 +211,8 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
         if let phone = model.phoneNumber, phone.count > 0 {
             cell.lbPhone.text = phone
             cell.imgPhone.isHidden = false
+        }else{
+            cell.constraintHeightPhone.constant = 0
         }
         cell.lbCity.text = model.address
         cell.lbDayLeft.text = "\(model.datesLeft ?? 0) ngày"
