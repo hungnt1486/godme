@@ -31,9 +31,10 @@ class MyAuctionServiceDetailViewController: BaseViewController {
     }
    
     func setupTableView(){
-        self.tbvMyAuctionServiceDetail.register(UINib(nibName: "AuctionServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServicesTableViewCell")
+        self.tbvMyAuctionServiceDetail.register(UINib(nibName: "AuctionServices1TableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServices1TableViewCell")
     
         self.tbvMyAuctionServiceDetail.register(UINib(nibName: "MyAuctionServicesDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyAuctionServicesDetailTableViewCell")
+        self.tbvMyAuctionServiceDetail.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
        
 
         self.tbvMyAuctionServiceDetail.delegate = self
@@ -73,6 +74,9 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
         if section == 0 {
             return 1
         }
+        if listOrderAuctionServiceDetail.count == 0 {
+            return 1
+        }
         return listOrderAuctionServiceDetail.count
     }
     
@@ -90,12 +94,15 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 1 {
+            return 50
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServices1TableViewCell") as! AuctionServices1TableViewCell
             cell.lbTitle.text = modelDetail?.title
             let images = modelDetail?.images
             let arrImgage = images?.split(separator: ",")
@@ -108,12 +115,17 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
-            cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
+            cell.lbTime.text = "Giá hiện tại: \(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCity.text = "Bước giá: \(Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbName.text = modelDetail?.userInfo?.userCategory
-            cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoin.text = "Số lệnh đấu giá: \(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0")"
             return cell
         }else{
+            if listOrderAuctionServiceDetail.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+                cell.lbTitle.text = "Chưa có người đăng ký tham gia"
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyAuctionServicesDetailTableViewCell") as! MyAuctionServicesDetailTableViewCell
             let model = listOrderAuctionServiceDetail[indexPath.row]
             cell.imgAvatar.sd_setImage(with: URL.init(string: model.buyerInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in

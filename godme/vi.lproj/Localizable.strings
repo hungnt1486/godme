@@ -21,6 +21,9 @@
 "register" = "Đăng ký";
 "login" = "Đăng nhập";
 "you_dont_account" = "Bạn chưa có tài khoản? Đăng ký mới";
+"PAYMENTED" = "Đã thanh toán";
+"REJECT" = "Từ chối";
+"PENDING" = "Đang duyệt";
 
 "info_user" = "Thông tin người dùng";
 

@@ -21,6 +21,9 @@
 "register" = "Register";
 "login" = "Login";
 "you_dont_account" = "Do you have account? Register now";
+"PAYMENTED" = "Paymented";
+"REJECT" = "Rejected";
+"PENDING" = "Pending";
 
 "info_user" = "Information User";
 

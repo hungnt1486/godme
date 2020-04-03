@@ -158,7 +158,7 @@ extension MyGroupRelationShipExpandViewController: UITableViewDelegate, UITableV
         cell.lbTime.text = strCareer
         cell.indexStar = model.totalStar ?? 0.0
         cell.lbTitle.text = model.fullName
-        cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+        cell.lbCity.text = model.address
         cell.setupUI()
         return cell
     }

@@ -173,10 +173,10 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbCity.text = model.address
             cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
-            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
@@ -193,10 +193,10 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbCity.text = model.address
             cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
-            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
@@ -213,10 +213,10 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbCity.text = "Địa chỉ: \(model.address ?? "")"
+            cell.lbCity.text = model.address
             cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
-            cell.lbCoin.text = "\(model.amount ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }
         

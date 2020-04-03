@@ -35,6 +35,7 @@ class MyServiceDetailViewController: BaseViewController {
         self.tbvMyServiceDetail.register(UINib(nibName: "MyBaseService1DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyBaseService1DetailTableViewCell")
         self.tbvMyServiceDetail.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
         self.tbvMyServiceDetail.register(UINib(nibName: "MyBaseService2DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyBaseService2DetailTableViewCell")
+        self.tbvMyServiceDetail.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
         
 
         self.tbvMyServiceDetail.delegate = self
@@ -106,7 +107,10 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 1 {
+            return 50
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -125,11 +129,16 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 }
             }
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0)
-            cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
+            cell.lbCity.text = modelDetail?.address
             cell.lbName.text = modelDetail?.userInfo?.userCategory
             cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else{
+            if listOrderBaseServiceDetail.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+                cell.lbTitle.text = "Chưa có người đăng ký tham gia"
+                return cell
+            }
             let model = listOrderBaseServiceDetail[indexPath.row]
             if model.status == "PENDING" {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyBaseService1DetailTableViewCell") as! MyBaseService1DetailTableViewCell

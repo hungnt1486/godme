@@ -33,6 +33,7 @@ class MyEventServiceDetailViewController: BaseViewController {
          self.tbvMyEventServiceDetail.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
      
          self.tbvMyEventServiceDetail.register(UINib(nibName: "MyEventServicesDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyEventServicesDetailTableViewCell")
+        self.tbvMyEventServiceDetail.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
         
 
          self.tbvMyEventServiceDetail.delegate = self
@@ -89,7 +90,10 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 1 {
+            return 50
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,12 +111,18 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
-            cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0)
+            cell.lbCity.text = modelDetail?.address
             cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbName.text = "Số người đăng ký: \(modelDetail?.totalOrder ?? 0)/\(modelDetail?.maxOrder ?? 0)"
             return cell
         }else{
+            if listOrderEventServiceDetail.count == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
+                cell.lbTitle.text = "Chưa có người đăng ký tham gia"
+                return cell
+                
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyEventServicesDetailTableViewCell") as! MyEventServicesDetailTableViewCell
             let model = listOrderEventServiceDetail[indexPath.row]
             cell.imgAvatar.sd_setImage(with: URL.init(string: model.buyerInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in

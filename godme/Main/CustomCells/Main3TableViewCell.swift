@@ -75,7 +75,7 @@ extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
+        cell.lbCity.text = model.userInfo?.address
 //        cell.lbTitleDetail.text = model.userInfo?.userCategory
         cell.lbTitle.text = model.title
         return cell
