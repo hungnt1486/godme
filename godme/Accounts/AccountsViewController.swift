@@ -62,8 +62,21 @@ class AccountsViewController: BaseViewController {
     }
     
     @objc func touchRight(){
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có muốn thoát ứng dụng?", vc: self) { (str) in
-            self.logoutSuccess()
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có muốn thoát ứng dụng?", vc: self) { [unowned self] (str) in
+            UserManager.shareUserManager().logout {[unowned self] (response) in
+                switch response {
+                    
+                case .success(_):
+                    self.hideProgressHub()
+                    self.logoutSuccess()
+                    
+                    break
+                case .failure(let message):
+                    self.hideProgressHub()
+                    Settings.ShareInstance.showAlertView(message: message, vc: self)
+                    break
+                }
+            }
         }
     }
 }

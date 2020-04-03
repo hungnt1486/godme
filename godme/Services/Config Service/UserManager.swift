@@ -57,7 +57,7 @@ class UserManager{
     }
     
     func logout(completion: @escaping(SingleResult<BaseModel>) -> Void){
-        Alamofire.request(URLs.forgotPassword, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+        Alamofire.request(URLs.logout, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("logout = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }

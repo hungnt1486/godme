@@ -45,6 +45,14 @@ class FinanceViewController: BaseViewController {
         self.lbInputCoin.text = Settings.ShareInstance.translate(key: "input_godcoin")
         self.lbWithDraw.text = Settings.ShareInstance.translate(key: "withdraw")
         self.lbHistory.text = Settings.ShareInstance.translate(key: "find_history")
+        
+        let right = UIBarButtonItem.init(title: "đ <-> Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        right.tintColor = UIColor.FlatColor.Oranges.BGColor
+        self.navigationItem.rightBarButtonItem = right
+    }
+    
+    @objc func touchRight(){
+        
     }
     
     @IBAction func touchInputCoin(_ sender: Any) {

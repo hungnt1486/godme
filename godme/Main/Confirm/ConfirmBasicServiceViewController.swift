@@ -62,8 +62,11 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
             cell.lbTitle.text = modelDetail?.title
             let images = modelDetail?.images
             let arrImgage = images?.split(separator: ",")
-            let linkImg = arrImgage?[0]
-            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            var linkImg = ""
+            if arrImgage!.count > 0 {
+                linkImg = String(arrImgage?[0] ?? "")
+            }
+            cell.imgAvatar.sd_setImage(with: URL.init(string: linkImg), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
                 if error == nil {
                     cell.imgAvatar.image = image
                 }

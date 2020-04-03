@@ -74,8 +74,11 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         let images = model.images
         let arrImgage = images?.split(separator: ",")
         cell.lbName.text = model.title
-        let linkImg = arrImgage?[0]
-        cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        var linkImg = ""
+        if arrImgage!.count > 0 {
+            linkImg = String(arrImgage?[0] ?? "")
+        }
+        cell.imgAvatar.sd_setImage(with: URL.init(string: linkImg), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }

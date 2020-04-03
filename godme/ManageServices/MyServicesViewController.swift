@@ -164,8 +164,11 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
             cell.lbTitle.text = model.title
             let images = model.images
             let arrImgage = images?.split(separator: ",")
-            let linkImg = arrImgage?[0]
-            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            var linkImg = ""
+            if arrImgage!.count > 0 {
+                linkImg = String(arrImgage?[0] ?? "")
+            }
+            cell.imgAvatar.sd_setImage(with: URL.init(string: linkImg), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
                 if error == nil {
                     cell.imgAvatar.image = image
                 }
@@ -181,8 +184,11 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
             cell.lbTitle.text = model.title
             let images = model.images
             let arrImgage = images?.split(separator: ",")
-            let linkImg = arrImgage?[0]
-            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            var linkImg = ""
+            if arrImgage!.count > 0 {
+                linkImg = String(arrImgage?[0] ?? "")
+            }
+            cell.imgAvatar.sd_setImage(with: URL.init(string: linkImg), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
                 if error == nil {
                     cell.imgAvatar.image = image
                 }
@@ -198,8 +204,11 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
             cell.lbTitle.text = model.title
             let images = model.images
             let arrImgage = images?.split(separator: ",")
-            let linkImg = arrImgage?[0]
-            cell.imgAvatar.sd_setImage(with: URL.init(string: String(linkImg ?? "")), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+            var linkImg = ""
+            if arrImgage!.count > 0 {
+                linkImg = String(arrImgage?[0] ?? "")
+            }
+            cell.imgAvatar.sd_setImage(with: URL.init(string: linkImg), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
                 if error == nil {
                     cell.imgAvatar.image = image
                 }
