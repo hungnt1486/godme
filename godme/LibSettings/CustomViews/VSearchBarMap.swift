@@ -34,8 +34,5 @@ class VSearchBarMap: UIView {
         self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
         self.tfInputText = Settings.ShareInstance.setupTextField(textField: self.tfInputText, isLeftView: true)
     }
-    @IBAction func touchSearch(_ sender: Any) {
-        delegate?.didSearchMap()
-    }
     
 }

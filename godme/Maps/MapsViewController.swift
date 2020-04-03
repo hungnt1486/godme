@@ -32,6 +32,7 @@ class MapsViewController: BaseViewController {
     @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var lbKm: UILabel!
     
+    @IBOutlet weak var vSub: UIView!
     var vSearchBar: VSearchBarMap!
     
     override func viewDidLoad() {
@@ -73,6 +74,10 @@ class MapsViewController: BaseViewController {
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
         
+        
+        let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_search")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight))
+        self.navigationItem.rightBarButtonItem = right
+        
         self.vSlide = Settings.ShareInstance.setupView(v: self.vSlide)
         self.btBaseService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
         self.btAuctionService.roundCorners(corners: [.topRight, .bottomRight], radius: 10.0)
@@ -84,18 +89,19 @@ class MapsViewController: BaseViewController {
         slider.tintColor = UIColor.FlatColor.Oranges.BGColor
         slider.thumbTintColor = UIColor.FlatColor.Oranges.BGColor
         slider.bounds.size.width = self.vSlide.frame.size.height/3*2
-        slider.center = CGPoint(x: self.vSlide.bounds.width/2, y: self.vSlide.bounds.width/2 + 70)
+        slider.center = CGPoint(x: self.vSlide.bounds.width/2, y: self.vSub.frame.origin.y + self.vSlide.frame.origin.y - 20)
         slider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
         slider.addTarget(self, action: #selector(changeSliderValue), for: .valueChanged)
 
         self.vSlide.addSubview(slider)
         self.vSlide.clipsToBounds = true
+        self.lbKm.text = "\(Int(self.slider.value)) km"
     }
     
     func setupSearchBar(){
         if vSearchBar == nil {
             vSearchBar = VSearchBarMap.instanceFromNib()
-            vSearchBar.delegate = self
+//            vSearchBar.delegate = self
             vSearchBar.tag = 5
             vSearchBar.configVSearchBar(frameView: CGRect.init(x: (UIScreen.main.bounds.width - 200)/2, y: 0, width: 200, height: 50))
             self.navigationController?.navigationBar.addSubview(vSearchBar)
@@ -104,6 +110,11 @@ class MapsViewController: BaseViewController {
     
     @objc func touchLeft(){
         
+    }
+    
+    @objc func touchRight(){
+        self.showProgressHub()
+        self.getListAllService()
     }
     
     @objc func changeSliderValue(){
@@ -253,12 +264,5 @@ extension MapsViewController: GMSMapViewDelegate {
 //            }
             isMapMove = false
         }
-    }
-}
-
-extension MapsViewController: VSearchBarMapProtocol{
-    func didSearchMap() {
-        self.showProgressHub()
-        self.getListAllService()
     }
 }

@@ -23,6 +23,7 @@
                 <outlet property="lbKm" destination="GRm-47-mCn" id="HKp-mS-ZaV"/>
                 <outlet property="mapView" destination="G1o-Yz-z49" id="tPD-sh-hVL"/>
                 <outlet property="vSlide" destination="CV4-Cc-Zwr" id="lmM-wA-E5x"/>
+                <outlet property="vSub" destination="5VG-um-Hsn" id="E2e-ay-xdl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
