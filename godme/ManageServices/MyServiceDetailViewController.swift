@@ -141,8 +141,15 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
             }
             let model = listOrderBaseServiceDetail[indexPath.row]
             if model.status == "PENDING" {
+                let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
+                let attr2 = NSMutableAttributedString(string: " đang duyệt ", attributes: attrs2 as [NSAttributedString.Key : Any])
+                let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
+                attr2.append(attr3)
+                attr1.append(attr2)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyBaseService1DetailTableViewCell") as! MyBaseService1DetailTableViewCell
-                cell.lbTitle.text = "\(model.buyerInfo?.fullName ?? "") đã đặt dịch vụ \(modelDetail?.title ?? "")"
+                cell.lbTitle.attributedText = attr1
                 cell.lbStatus.text = model.buyerInfo?.address ?? ""
                 let career = model.buyerInfo?.career
                 let arrCareer = career?.split(separator: ",")
@@ -164,8 +171,15 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 cell.delegate = self
                 return cell
             }else if model.status == "ACCEPT" {
+                let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
+                let attr2 = NSMutableAttributedString(string: " đã duyệt thành công ", attributes: attrs2 as [NSAttributedString.Key : Any])
+                let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
+                attr2.append(attr3)
+                attr1.append(attr2)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyBaseService2DetailTableViewCell") as! MyBaseService2DetailTableViewCell
-                cell.lbTitle.text = "\(model.buyerInfo?.fullName ?? "") đã đặt dịch vụ \(modelDetail?.title ?? "")"
+                cell.lbTitle.attributedText = attr1
                 cell.lbStatus.text = model.buyerInfo?.address ?? ""
                 let career = model.buyerInfo?.career
                 let arrCareer = career?.split(separator: ",")
@@ -186,8 +200,15 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 cell.delegate = self
                 return cell
             }else {
+                let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
+                let attr2 = NSMutableAttributedString(string: " đã đặt dịch vụ ", attributes: attrs2 as [NSAttributedString.Key : Any])
+                let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
+                attr2.append(attr3)
+                attr1.append(attr2)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyBaseServiceDetailTableViewCell") as! MyBaseServiceDetailTableViewCell
-                cell.lbTitle.text = "\(model.buyerInfo?.fullName ?? "") đã đặt dịch vụ \(modelDetail?.title ?? "")"
+                cell.lbTitle.attributedText = attr1
                 cell.lbStatus.text = model.buyerInfo?.address ?? ""
                 let career = model.buyerInfo?.career
                 let arrCareer = career?.split(separator: ",")
