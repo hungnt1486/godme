@@ -71,13 +71,13 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
+            cell.lbCity.text = modelDetail?.address
             cell.lbName.text = modelDetail?.userInfo?.userCategory
-            cell.lbCoin.text = "\(modelDetail?.amount ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         case .ConfirmContent:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmBasicServiceTableViewCell") as! ConfirmBasicServiceTableViewCell
-            cell.lbMoney.text = "\(modelDetail?.amount ?? "0") Godcoin"
+            cell.lbMoney.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             var arr: [String] = []
             if ((modelDetail?.dateTime1) != 0) {
                 arr.append(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0))

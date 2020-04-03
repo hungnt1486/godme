@@ -21,13 +21,16 @@ class DetailBasicServiceViewController: BaseViewController {
     @IBOutlet weak var tbvDetailBasicService: UITableView!
     var listTypeCell: [typeCellDetailBasic] = [.Avatar, .Address, .Detail, .Book]
     var modelDetail: BaseServiceModel?
+    var listBaseService: [BaseServiceModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
+        self.getListBaseServiceByCurrentService()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +55,25 @@ class DetailBasicServiceViewController: BaseViewController {
         self.tbvDetailBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvDetailBasicService.estimatedRowHeight = 300
         self.tbvDetailBasicService.rowHeight = UITableView.automaticDimension
+    }
+    
+    func getListBaseServiceByCurrentService(){
+        ManageServicesManager.shareManageServicesManager().getListBaseServiceByCurrentService(currentServiceId: modelDetail?.id ?? 0, page: 1, pageSize: 1000) { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listBaseService.append(model)
+                }
+                self.tbvDetailBasicService.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
 }
 
@@ -87,7 +109,10 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 1 {
+            return 50
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,7 +144,7 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
                 }
                 cell.lbFullName.text = modelDetail?.userInfo?.fullName
                 cell.lbJob.text = modelDetail?.title
-                cell.lbCoin.text = (modelDetail?.amount ?? "0") + " Godcoin"
+                cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
                 return cell
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
@@ -142,6 +167,8 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
             cell.delegate = self
+            cell.listBaseService = self.listBaseService
+            cell.collectionView.reloadData()
             return cell
         }
         
@@ -190,7 +217,9 @@ extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
 extension DetailBasicServiceViewController: MainTableViewCellProtocol{
     func didCell(index: Int) {
         print("index = ", index)
+        let model = listBaseService[index]
         let detail = DetailBasicServiceViewController()
+        detail.modelDetail = model
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }

@@ -62,6 +62,17 @@ class ManageServicesManager{
         }
     }
     
+    func getListBaseServiceByCurrentService(currentServiceId: Int, page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["currentServiceId"] = currentServiceId
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListBaseServiceByCurrentService = \(response)")
+            completion(ListResult<BaseServiceModel>.handleResponse(response))
+        }
+    }
+    
     func getDetailBaseService(id: Int, completion: @escaping(SingleResult<BaseServiceModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["id"] = id
@@ -141,6 +152,17 @@ class ManageServicesManager{
         }
     }
     
+    func getListAuctionServiceByCurrentService(currentServiceId: Int, page: Int, pageSize: Int, completion: @escaping(ListResult<AuctionServiceModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["currentServiceId"] = currentServiceId
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListAuctionServiceByCurrentService = \(response)")
+            completion(ListResult<AuctionServiceModel>.handleResponse(response))
+        }
+    }
+    
     func searchOrderAuctionService(buyerId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<AuctionServiceInfoBookedModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["buyerId"] = buyerId
@@ -180,6 +202,17 @@ class ManageServicesManager{
         paramsBody["pageSize"] = pageSize
         Alamofire.request(URLs.searchEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("searchEventService = \(response)")
+            completion(ListResult<EventModel>.handleResponse(response))
+        }
+    }
+    
+    func getListEventServiceByCurrentService(currentServiceId: Int, page: Int, pageSize: Int, completion: @escaping(ListResult<EventModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["currentServiceId"] = currentServiceId
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        Alamofire.request(URLs.searchEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListEventServiceByCurrentService = \(response)")
             completion(ListResult<EventModel>.handleResponse(response))
         }
     }
@@ -269,6 +302,18 @@ class ManageServicesManager{
         paramsBody["dateTime"] = model.dateTime
         Alamofire.request(URLs.confirmBookBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("confirmBookBaseService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func createOrderEventSave(model: AddNewConfirmBasicServiceParams, completion: @escaping(SingleResult<BaseModel>)-> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["serviceId"] = model.serviceId
+        paramsBody["sellerId"] = model.sellerId
+        paramsBody["buyerId"] = model.buyerId
+        paramsBody["amount"] = model.amount
+        Alamofire.request(URLs.createOrderEventSave, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("createOrderEventSave = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }

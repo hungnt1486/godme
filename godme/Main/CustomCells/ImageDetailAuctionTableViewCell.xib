@@ -55,7 +55,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LE MINH HUNG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y07-g2-Evr">
-                                <rect key="frame" x="30" y="38" width="260" height="20"/>
+                                <rect key="frame" x="30" y="34" width="260" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="QLc-dg-Ypv"/>
                                 </constraints>
@@ -63,11 +63,8 @@
                                 <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tư vấn khởi nghiệp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l17-56-LcZ">
-                                <rect key="frame" x="30" y="68" width="260" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="r5V-Wh-WhG"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tư vấn khởi nghiệp" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l17-56-LcZ">
+                                <rect key="frame" x="30" y="64" width="260" height="29"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -108,6 +105,7 @@
                             <constraint firstItem="l17-56-LcZ" firstAttribute="leading" secondItem="u1d-w8-qvG" secondAttribute="leading" constant="30" id="bAf-WA-AVN"/>
                             <constraint firstItem="YVS-XL-Png" firstAttribute="leading" secondItem="u1d-w8-qvG" secondAttribute="leading" constant="30" id="cX2-bH-6NR"/>
                             <constraint firstAttribute="trailing" secondItem="dtC-Nd-Vf5" secondAttribute="trailing" constant="30" id="drc-o2-w6I"/>
+                            <constraint firstItem="Y07-g2-Evr" firstAttribute="top" secondItem="Kqb-sH-3Pm" secondAttribute="bottom" constant="9" id="lOW-xp-Gfs"/>
                             <constraint firstAttribute="trailing" secondItem="Kqb-sH-3Pm" secondAttribute="trailing" id="oPY-aV-cEF"/>
                             <constraint firstAttribute="bottom" secondItem="dtC-Nd-Vf5" secondAttribute="bottom" constant="10" id="rAG-zG-UfK"/>
                             <constraint firstItem="Kqb-sH-3Pm" firstAttribute="top" secondItem="u1d-w8-qvG" secondAttribute="top" constant="5" id="vNt-aB-M99"/>

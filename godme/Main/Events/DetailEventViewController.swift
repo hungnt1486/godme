@@ -20,13 +20,21 @@ class DetailEventViewController: BaseViewController {
     @IBOutlet weak var tbvDetailBasicService: UITableView!
     var listTypeCell: [typeCellDetailEvent] = [.Avatar, .Address, .Detail, .Book]
     var modelDetail: EventModel?
+    var listEvents: [EventModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
+        self.getListEventServiceByCurrentService()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = modelDetail?.title ?? ""
     }
     
     func setupUI(){
@@ -46,6 +54,24 @@ class DetailEventViewController: BaseViewController {
         self.tbvDetailBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvDetailBasicService.estimatedRowHeight = 300
         self.tbvDetailBasicService.rowHeight = UITableView.automaticDimension
+    }
+    
+    func getListEventServiceByCurrentService(){
+        ManageServicesManager.shareManageServicesManager().getListEventServiceByCurrentService(currentServiceId: modelDetail?.id ?? 0, page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                case .success(let data):
+                    self.hideProgressHub()
+                    for model in data {
+                        self.listEvents.append(model)
+                    }
+                    self.tbvDetailBasicService.reloadData()
+                    break
+                case .failure(let message):
+                    self.hideProgressHub()
+                    Settings.ShareInstance.showAlertView(message: message, vc: self)
+                    break
+            }
+        }
     }
 }
 
@@ -80,7 +106,10 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 1 {
+            return 50
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,18 +120,40 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
                 
             case .Avatar:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as! ImageDetailTableViewCell
-                cell.arrImageBanner = ["ic_banner_default"]
+                let images = modelDetail?.images
+                let arrImgage = images?.split(separator: ",")
+                var arrImg: [String] = []
+                if let arrImgage = arrImgage {
+                    for item in arrImgage {
+                        arrImg.append(String(item))
+                    }
+                }
+                cell.arrImageBanner = arrImg
                 cell.delegate = self
                 if cell.arrImageBanner.count > 0 {
                     cell.crollViewImage()
                     cell.configCrollView()
                 }
+                cell.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_avatar"), options: .lowPriority) { (image, error, nil, link) in
+                    if error == nil {
+                        cell.imgAvatar.image = image
+                    }
+                }
+                cell.lbFullName.text = modelDetail?.userInfo?.fullName
+                cell.lbJob.text = modelDetail?.title
+                cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
                 return cell
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
+                cell.contraintHeightV1.constant = 0
+                cell.v1.isHidden = true
+                cell.lbAddress.text = modelDetail?.address
+                cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
+                 cell.lbLanguages.text = modelDetail?.language
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
+                cell.lbDetail.text = modelDetail?.description
                 return cell
             case .Book:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
@@ -113,6 +164,8 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
             cell.delegate = self
+            cell.listEvents = self.listEvents
+            cell.collectionView.reloadData()
             return cell
         }
     }
@@ -127,6 +180,26 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
 extension DetailEventViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
         Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn tham gia sự kiện?", vc: self) { (str) in
+            let modelUser = Settings.ShareInstance.getDictUser()
+            var model = AddNewConfirmBasicServiceParams()
+            model.amount = Int(self.modelDetail?.amount ?? "0")
+            model.buyerId = modelUser.userId ?? 0
+            model.sellerId = self.modelDetail?.userInfo?.id
+            model.serviceId = self.modelDetail?.id
+            ManageServicesManager.shareManageServicesManager().createOrderEventSave(model: model) { [unowned self] (response) in
+                switch response {
+                    
+                case .success(let data):
+                    self.hideProgressHub()
+                    print("data = \(data)")
+                    Settings.ShareInstance.showAlertView(message: data.MessageInfo, vc: self)
+                    break
+                case .failure(let message):
+                    self.hideProgressHub()
+                    Settings.ShareInstance.showAlertView(message: message, vc: self)
+                    break
+                }
+            }
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
@@ -159,7 +232,9 @@ extension DetailEventViewController: ImageDetailTableViewCellProtocol{
 extension DetailEventViewController: Main2TableViewCellProtocol{
     func didCellMain2(index: Int) {
         print("index2 = ", index)
-        let detailEvent = DetailEventViewController()
-        self.navigationController?.pushViewController(detailEvent, animated: true)
+        let model = listEvents[index]
+        let detail = DetailEventViewController()
+        detail.modelDetail = model
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }

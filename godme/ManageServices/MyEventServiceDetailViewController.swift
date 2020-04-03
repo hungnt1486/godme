@@ -109,8 +109,7 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
             }
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
             cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
-            cell.lbName.text = modelDetail?.userInfo?.userCategory
-            cell.lbCoin.text = "\(modelDetail?.amount ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbName.text = "Số người đăng ký: \(modelDetail?.totalOrder ?? 0)/\(modelDetail?.maxOrder ?? 0)"
             return cell
         }else{

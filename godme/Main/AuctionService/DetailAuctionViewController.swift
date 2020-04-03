@@ -21,13 +21,16 @@ class DetailAuctionViewController: BaseViewController {
     @IBOutlet weak var tbvDetailAuction: UITableView!
     var listTypeCell: [typeCellDetailAuction] = [.Avatar, .Auction, .Address, .Detail]
     var modelDetail: AuctionServiceModel?
+    var listAuction:[AuctionServiceModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
+        self.getListAuctionServiceByCurrentService()
     }
     
     func setupUI(){
@@ -48,6 +51,25 @@ class DetailAuctionViewController: BaseViewController {
         self.tbvDetailAuction.separatorInset = UIEdgeInsets.zero
         self.tbvDetailAuction.estimatedRowHeight = 300
         self.tbvDetailAuction.rowHeight = UITableView.automaticDimension
+    }
+    
+    func getListAuctionServiceByCurrentService(){
+        ManageServicesManager.shareManageServicesManager().getListAuctionServiceByCurrentService(currentServiceId: modelDetail?.id ?? 0, page: 1, pageSize: 1000) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listAuction.append(model)
+                }
+                self.tbvDetailAuction.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
 }
 
@@ -82,7 +104,10 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        if section == 1 {
+            return 50
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,16 +153,16 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoAuctionTableViewCell") as! InfoAuctionTableViewCell
                 cell.delegate = self
                 cell.lbWiner.text = modelDetail?.currentWinner
-                cell.lbStepMoney.text = modelDetail?.priceStep ?? "0" + " Godcoin"
-                cell.lbPrice.text = modelDetail?.amountOriginal ?? "0" + " Godcoin"
+                cell.lbStepMoney.text = Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0" + " Godcoin"
+                cell.lbPrice.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
                 cell.lbNumber.text = "\(modelDetail?.totalOrder ?? 0)"
                 return cell
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
                 cell.contraintHeightV1.constant = 0
-                 cell.lbAddress.text = modelDetail?.address
+                cell.v1.isHidden = true
+                cell.lbAddress.text = modelDetail?.address
                 cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
-//                 cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0)
                  cell.lbLanguages.text = modelDetail?.language
                 return cell
             case .Detail:
@@ -148,6 +173,8 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Main1TableViewCell") as! Main1TableViewCell
             cell.delegate = self
+            cell.listAuction = self.listAuction
+            cell.collectionView.reloadData()
             return cell
         }
     }
@@ -186,8 +213,10 @@ extension DetailAuctionViewController: ImageDetailAuctionTableViewCellProtocol{
 extension DetailAuctionViewController: Main1TableViewCellProtocol{
     func didCellMain1(index: Int) {
         print("index1 = ", index)
-        let detailAuction = DetailAuctionViewController()
-        self.navigationController?.pushViewController(detailAuction, animated: true)
+        let model = listAuction[index]
+        let detail = DetailAuctionViewController()
+        detail.modelDetail = model
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
 

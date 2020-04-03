@@ -15,6 +15,7 @@ class TimeAddressTableViewCell: UITableViewCell {
     @IBOutlet weak var lbLanguages: UILabel!
     @IBOutlet weak var lbNumberBooked: UILabel!
     @IBOutlet weak var contraintHeightV1: NSLayoutConstraint!
+    @IBOutlet weak var v1: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

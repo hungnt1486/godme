@@ -54,6 +54,7 @@ struct URLs {
         static let createContinueRelation = "api/mobile/transaction/extensionReferral"
         static let createRequestPayIn = "api/mobile/transaction/requestPayin"
         static let searchServiceOnMap = "api/mobile/user/findServiceOnMap"
+        static let createOrderEventSave = "api/mobile/order/event/save"
         
     }
     
@@ -172,6 +173,9 @@ struct URLs {
     }
     static var searchOrderEventService: String{
         return String(format: "%@%@", linkServer, Routes.searchOrderEventService)
+    }
+    static var createOrderEventSave: String{
+        return String(format: "%@%@", linkServer, Routes.createOrderEventSave)
     }
     
     ////  collaboration service

@@ -111,7 +111,7 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
             cell.lbCity.text = "Địa chỉ: \(modelDetail?.address ?? "")"
             cell.lbName.text = modelDetail?.userInfo?.userCategory
-            cell.lbCoin.text = "\(modelDetail?.amount ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyAuctionServicesDetailTableViewCell") as! MyAuctionServicesDetailTableViewCell
