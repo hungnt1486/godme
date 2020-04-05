@@ -23,6 +23,7 @@ class ViewShowListCheckBox: UIView {
     @IBOutlet weak var btDone: UIButton!
     
     
+    var userId: Int = 0
     var strDateTime: String?
     
     var listIndex: [Int] = []
@@ -117,6 +118,15 @@ extension ViewShowListCheckBox: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckBoxTableViewCell") as! CheckBoxTableViewCell
         let model = BaseViewController.listGroup[indexPath.row]
+        if model.listUserInfo!.count > 0 {
+            for item in model.listUserInfo! {
+                if item.id == userId {
+                    cell.img1.image = UIImage.init(named: "ic_checked")
+                    self.listIndex.append(indexPath.row)
+                    break
+                }
+            }
+        }
         cell.delegate = self
         cell.bt1.tag = indexPath.row
         cell.img1.tag = indexPath.row

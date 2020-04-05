@@ -105,7 +105,7 @@ class BaseViewController: UIViewController {
                 
             case .success(let data):
                 self.hideProgressHub()
-                
+                BaseViewController.listGroup.removeAll()
                 for model in data {
                     BaseViewController.listGroup.append(model)
                 }

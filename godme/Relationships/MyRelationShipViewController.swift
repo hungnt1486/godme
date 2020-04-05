@@ -161,9 +161,10 @@ class MyRelationShipViewController: BaseViewController {
         }
     }
     
-    func setupVCheckBox(){
+    func setupVCheckBox(userId: Int){
         if vCheckBox == nil {
             vCheckBox = ViewShowListCheckBox.instanceFromNib()
+            vCheckBox.userId = userId
             vCheckBox.tag = 10
             self.view.window?.addSubview(vCheckBox)
             vCheckBox.delegate = self
@@ -270,7 +271,7 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
             alertControl.dismiss(animated: true, completion: nil)
             let model = self.listMyRelationShip[index]
             self.listUserId.append(model.id ?? 0)
-            self.setupVCheckBox()
+            self.setupVCheckBox(userId: model.id ?? 0)
         }
         alertControl.addAction(action5)
         alertControl.addAction(action2)

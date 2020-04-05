@@ -9,12 +9,12 @@
 import UIKit
 
 protocol VSearchBarProtocol {
-    func didSearch()
+    func didSearch(_ str: String)
 }
 
 class VSearchBar: UIView {
     @IBOutlet weak var vContent: UIView!
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var tfInput: UITextField!
     @IBOutlet weak var iconSearch: UIImageView!
     @IBOutlet weak var btSearch: UIButton!
     var delegate: VSearchBarProtocol?
@@ -35,17 +35,18 @@ class VSearchBar: UIView {
     func setupUI(){
         self.vContent = Settings.ShareInstance.setupBTV(v: self.vContent)
         let tapGesture = UIGestureRecognizer.init(target: self, action: #selector(touchSearch))
-        self.lbTitle.isUserInteractionEnabled = true
         self.iconSearch.isUserInteractionEnabled = true
-        self.lbTitle.addGestureRecognizer(tapGesture)
         self.iconSearch.addGestureRecognizer(tapGesture)
+        
+        self.tfInput.attributedPlaceholder = NSAttributedString(string: "Tìm kiếm",
+                                                                attributes: [NSAttributedString.Key.foregroundColor: UIColor.FlatColor.Gray.BGColor])
     }
     
     @objc func touchSearch(){
-        delegate?.didSearch()
+        delegate?.didSearch(self.tfInput.text ?? "")
     }
     @IBAction func touchSearchButton(_ sender: Any) {
-        delegate?.didSearch()
+        delegate?.didSearch(self.tfInput.text ?? "")
     }
     
 }

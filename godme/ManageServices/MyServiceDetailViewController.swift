@@ -19,11 +19,15 @@ class MyServiceDetailViewController: BaseViewController {
         super.viewDidLoad()
 
         self.showProgressHub()
-        self.setupUI()
         self.configButtonBack()
         self.setupTableView()
 //        self.getListJobs()
         self.getDetailOrderBaseService()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupUI()
     }
     
     func setupUI(){
@@ -142,7 +146,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
             let model = listOrderBaseServiceDetail[indexPath.row]
             if model.status == "PENDING" {
                 let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
-                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Gray.TextColor]
                 let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
                 let attr2 = NSMutableAttributedString(string: " đang duyệt ", attributes: attrs2 as [NSAttributedString.Key : Any])
                 let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
@@ -172,7 +176,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 return cell
             }else if model.status == "ACCEPT" {
                 let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
-                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Gray.TextColor]
                 let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
                 let attr2 = NSMutableAttributedString(string: " đã duyệt thành công ", attributes: attrs2 as [NSAttributedString.Key : Any])
                 let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
@@ -201,7 +205,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 return cell
             }else {
                 let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
-                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+                let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Gray.TextColor]
                 let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
                 let attr2 = NSMutableAttributedString(string: " đã đặt dịch vụ ", attributes: attrs2 as [NSAttributedString.Key : Any])
                 let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
@@ -209,6 +213,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 attr1.append(attr2)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyBaseServiceDetailTableViewCell") as! MyBaseServiceDetailTableViewCell
                 cell.lbTitle.attributedText = attr1
+                cell.lbTitle.tag = indexPath.row
                 cell.lbStatus.text = model.buyerInfo?.address ?? ""
                 let career = model.buyerInfo?.career
                 let arrCareer = career?.split(separator: ",")
@@ -225,6 +230,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                     }
                 }
                 cell.lbTime.text = strCareer
+                cell.delegate = self
                 return cell
             }
         }
@@ -232,22 +238,11 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        if indexPath.section == 0 {
-//            let model = listBaseService[indexPath.row]
-//            let detail = DetailBasicServiceViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }else if indexPath.section == 1 {
-//            let model = listAuction[indexPath.row]
-//            let detail = DetailAuctionViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }else {
-//            let model = listEvents[indexPath.row]
-//            let detail = DetailEventViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }
+        if indexPath.section == 0 {
+            let detail = DetailBasicServiceViewController()
+            detail.modelDetail = modelDetail
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
     }
     
     
@@ -317,5 +312,14 @@ extension MyServiceDetailViewController: MyBaseService2DetailTableViewCellProtoc
                 break
             }
         }
+    }
+}
+
+extension MyServiceDetailViewController: MyBaseServiceDetailTableViewCellProtocol{
+    func didTitle(_ index: Int) {
+        let model = self.listOrderBaseServiceDetail[index]
+        let searchBarDetail = SearchBarDetailViewController()
+        searchBarDetail.userId = model.buyerId ?? 0
+        self.navigationController?.pushViewController(searchBarDetail, animated: true)
     }
 }

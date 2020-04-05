@@ -40,7 +40,8 @@ class RelationshipsViewController: BaseViewController {
         self.navigationItem.leftBarButtonItem = left
         
         let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_notification_fast")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight))
-        self.navigationItem.rightBarButtonItem = right
+        let right1 = UIBarButtonItem.init(image: UIImage.init(named: "ic_more_horizol")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight1))
+        self.navigationItem.rightBarButtonItems = [right1, right]
     }
     
     @objc func touchLeft(){
@@ -48,11 +49,23 @@ class RelationshipsViewController: BaseViewController {
     }
     
     @objc func touchRight(){
-        print("right")
-//        let createNotification = CreateNotificationViewController()
-//        self.navigationController?.pushViewController(createNotification, animated: true)
         let pushNotification = PushNotificationViewController()
         self.navigationController?.pushViewController(pushNotification, animated: true)
+    }
+    
+    @objc func touchRight1(){
+        let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let action2 = UIAlertAction.init(title: "Nhóm mối quan hệ", style: .default) {(action) in
+            alertControl.dismiss(animated: true, completion: nil)
+            let listGroup = ListGroupRelationShipViewController()
+            self.navigationController?.pushViewController(listGroup, animated: true)
+        }
+        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        alertControl.addAction(action2)
+        alertControl.addAction(actionCancel)
+        self.navigationController?.present(alertControl, animated: true, completion: nil)
     }
     
     override func viewWillLayoutSubviews() {

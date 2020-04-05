@@ -10,6 +10,8 @@ import UIKit
 
 @objc protocol TitleTableViewCellProtocol {
     @objc optional
+    func getText(_ str: String)
+    @objc optional
     func getTextBaseService(_ str: String, type: typeCellCreateService)
     @objc optional
     func getTextAuctionService(_ str: String, type: typeCellCreateAuction)
@@ -51,6 +53,7 @@ class TitleTableViewCell: UITableViewCell {
         delegate?.getTextCollaborationService?(self.tfInput.text ?? "", type: typeCellCreateCollaborate(rawValue: self.tfInput.tag)!)
         delegate?.getTextHelp?(self.tfInput.text ?? "", type: typeCellHelp(rawValue: self.tfInput.tag)!)
         delegate?.getTextPushNotification?(self.tfInput.text ?? "", type: typeCellPushNotification(rawValue: self.tfInput.tag)!)
+        delegate?.getText?(self.tfInput.text ?? "")
     }
     
     func setupUI(){

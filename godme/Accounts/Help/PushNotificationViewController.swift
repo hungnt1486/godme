@@ -261,6 +261,7 @@ extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSo
             return UIView()
         }
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderMyServices") as! HeaderMyServices
+        view.lbTitle.text = "Đối tượng nhận thông báo"
         return view
     }
     

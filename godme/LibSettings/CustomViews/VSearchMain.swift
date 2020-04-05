@@ -90,8 +90,8 @@ class VSearchMain: UIView {
     @IBAction func touchSearch(_ sender: Any) {
         let model = userSearchParamsModel()
         model.nationCode = "VN"
-        model.keyword = self.strFullName ?? ""
-        model.fullName = self.strFullName ?? ""
+        model.keyword = self.strFullName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        model.fullName = self.strFullName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         model.gender = self.strGender ?? ""
         model.education = self.strEducation ?? ""
         model.career = self.strJob ?? ""

@@ -422,9 +422,10 @@ extension MainViewController: HeaderSubMainProtocol{
 }
 
 extension MainViewController: VSearchBarProtocol{
-    func didSearch() {
+    func didSearch(_ str: String) {
         print("search")
         let searchBar = SearchBarViewController()
+        searchBar.strKeyWord = str.trimmingCharacters(in: .whitespacesAndNewlines)
         self.navigationController?.pushViewController(searchBar, animated: true)
     }
 }

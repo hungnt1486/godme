@@ -33,6 +33,7 @@ class SearchBarViewController: BaseViewController {
     var vSearchMain: VSearchMain!
     var listSearchMain: [UserRegisterReturnModel] = []
     var modelUserSearch = userSearchParamsModel()
+    var strKeyWord: String?
 //    var arrayJobs: [[String: String]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,8 @@ class SearchBarViewController: BaseViewController {
         modelUserSearch.provinceCode = ""
         modelUserSearch.districtCode = ""
         modelUserSearch.wardCode = ""
+        modelUserSearch.keyword = strKeyWord ?? ""
+        modelUserSearch.fullName = strKeyWord ?? ""
         modelUserSearch.page = currentPage
         modelUserSearch.pageSize = pageSize
         self.getListSearch()
@@ -234,6 +237,7 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
 extension SearchBarViewController: VSearchMainProtocol{
     func didSearch(_ value: userSearchParamsModel) {
         self.showProgressHub()
+        self.currentPage = 1
         modelUserSearch = value
         self.getListSearch()
         vSearchMain.viewWithTag(10)?.removeFromSuperview()

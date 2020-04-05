@@ -12,10 +12,8 @@ import DropDown
 class MyGroupRelationShipExpandViewController: BaseViewController {
 
     @IBOutlet weak var vTop: UIView!
-    @IBOutlet weak var tfInputName: UITextField!
     @IBOutlet weak var lbFilterJob: UILabel!
     @IBOutlet weak var tbvMyRelationShipExpand: UITableView!
-    @IBOutlet weak var btFind: UIButton!
     var listRelationShipExpand: [GroupRelationShipModel] = []
     
 //    lazy var refreshControl: UIRefreshControl = {
@@ -30,7 +28,7 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
 //    var isLoadMore: Bool = true
 //    var currentPage: Int = 1
 //    var pageSize: Int = 10
-    var indexJob: Int = 1
+    var indexJob: Int = 0
     
     var TypeDropdown = DropDown()
     var arrString:[String] = []
@@ -40,7 +38,7 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
-        self.setupTypeDropdown()
+//        self.setupTypeDropdown()
         self.setupTableView()
         self.getListGroupRelationShipFilter()
     }
@@ -48,7 +46,6 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
     func setupUI(){
         self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
         
-        self.tfInputName = Settings.ShareInstance.setupTextField(textField: self.tfInputName, isLeftView: true)
         
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showType))
         tapGesture.numberOfTouchesRequired = 1
@@ -70,7 +67,6 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
     
     func setupTypeDropdown(){
         TypeDropdown.anchorView = self.lbFilterJob
-        self.arr = BaseViewController.arrayJobs
         TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbFilterJob.bounds.height)
             for item in arr {
                 arrString.append(item["name"] ?? "")
@@ -81,6 +77,7 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
             self.lbFilterJob.text = item
             let model = self.arr[index]
             self.indexJob = Int(model["code"] ?? "0")!
+            self.tbvMyRelationShipExpand.reloadData()
         }
     }
         
@@ -88,22 +85,21 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
         TypeDropdown.show()
     }
     
-//    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-//        currentPage = 1
-//        self.getListGroupRelationShipFilter()
-//        refreshControl.endRefreshing()
-//    }
-    
     func getListGroupRelationShipFilter(){
-        RelationShipsManager.shareRelationShipsManager().searchGroupRelationShip(id: self.indexJob) { [unowned self](response) in
+        RelationShipsManager.shareRelationShipsManager().getSearchGroupRelationShip{ [unowned self](response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
                 
-                for model in data {
+                for (index, model) in data.enumerated() {
                     self.listRelationShipExpand.append(model)
+                    self.arr.append(["name":model.name ?? "", "code": "\(index)"])
+                    if index == 0 {
+                        self.lbFilterJob.text = model.name
+                    }
                 }
+                self.setupTypeDropdown()
                 self.tbvMyRelationShipExpand.reloadData()
                 break
             case .failure(let message):
@@ -113,28 +109,21 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
             }
         }
     }
-    
-    @IBAction func touchFind(_ sender: Any) {
-        self.showProgressHub()
-        self.getListGroupRelationShipFilter()
-    }
-    
 }
 
 extension MyGroupRelationShipExpandViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if listRelationShipExpand.count > 0 {
-            let model = listRelationShipExpand[0]
+            let model = listRelationShipExpand[indexJob]
             return model.listUserInfo?.count ?? 0
         }
         return 0
-//        return listRelationShipExpand.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupRelationShipTableViewCell") as! MyGroupRelationShipTableViewCell
         cell.delegate = self
-        let mod = listRelationShipExpand[0]
+        let mod = listRelationShipExpand[indexJob]
         let model = mod.listUserInfo![indexPath.row]
         cell.imgAvatar.sd_setImage(with: URL.init(string: model.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {

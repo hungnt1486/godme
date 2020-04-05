@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ListGroupRelationShipTableViewCell" customModule="godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p34-x9-Ov0">
+                        <rect key="frame" x="10" y="0.0" width="300" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRv-eK-RJ6">
+                                <rect key="frame" x="10" y="5" width="140" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GNC-tp-tVa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cry-hS-9eB">
+                                <rect key="frame" x="155" y="5" width="70" height="40"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="F3P-AM-7Yh"/>
+                                    <constraint firstAttribute="height" constant="40" id="S8r-Jl-pAO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="Sửa">
+                                    <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchEdit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VU9-WZ-Rju"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAM-Ee-CTz">
+                                <rect key="frame" x="230" y="5" width="70" height="40"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="RW7-D8-22u"/>
+                                    <constraint firstAttribute="height" constant="40" id="zdG-C8-MTB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <state key="normal" title="Xoá">
+                                    <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IYD-oh-6az"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zRv-eK-RJ6" firstAttribute="leading" secondItem="p34-x9-Ov0" secondAttribute="leading" constant="10" id="Fi4-y8-6YR"/>
+                            <constraint firstItem="cry-hS-9eB" firstAttribute="leading" secondItem="zRv-eK-RJ6" secondAttribute="trailing" constant="5" id="GxI-cf-vfQ"/>
+                            <constraint firstAttribute="bottom" secondItem="zRv-eK-RJ6" secondAttribute="bottom" constant="5" id="Kf5-Ke-cKV"/>
+                            <constraint firstItem="pAM-Ee-CTz" firstAttribute="top" secondItem="p34-x9-Ov0" secondAttribute="top" constant="5" id="Lc5-0z-bz9"/>
+                            <constraint firstAttribute="trailing" secondItem="pAM-Ee-CTz" secondAttribute="trailing" id="Le3-ha-mJw"/>
+                            <constraint firstItem="cry-hS-9eB" firstAttribute="top" secondItem="p34-x9-Ov0" secondAttribute="top" constant="5" id="Lfl-w2-JsM"/>
+                            <constraint firstItem="pAM-Ee-CTz" firstAttribute="leading" secondItem="cry-hS-9eB" secondAttribute="trailing" constant="5" id="dvL-P4-fYb"/>
+                            <constraint firstAttribute="bottom" secondItem="pAM-Ee-CTz" secondAttribute="bottom" constant="5" id="pUi-VK-Igp"/>
+                            <constraint firstItem="zRv-eK-RJ6" firstAttribute="top" secondItem="p34-x9-Ov0" secondAttribute="top" constant="5" id="sO0-EQ-sob"/>
+                            <constraint firstAttribute="bottom" secondItem="cry-hS-9eB" secondAttribute="bottom" constant="5" id="yiH-yb-GPH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="p34-x9-Ov0" secondAttribute="trailing" constant="10" id="KK7-Xl-1Iy"/>
+                    <constraint firstItem="p34-x9-Ov0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="o6V-UG-M3Y"/>
+                    <constraint firstAttribute="bottom" secondItem="p34-x9-Ov0" secondAttribute="bottom" id="pQz-w6-HOY"/>
+                    <constraint firstItem="p34-x9-Ov0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="tED-HH-yjm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btDelete" destination="pAM-Ee-CTz" id="hmy-Y5-bnq"/>
+                <outlet property="btEdit" destination="cry-hS-9eB" id="z5N-Af-fiO"/>
+                <outlet property="lbTitle" destination="zRv-eK-RJ6" id="uZ7-ns-lEq"/>
+                <outlet property="vSub" destination="p34-x9-Ov0" id="oHz-V4-rPR"/>
+            </connections>
+            <point key="canvasLocation" x="93" y="137"/>
+        </tableViewCell>
+    </objects>
+</document>

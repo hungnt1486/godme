@@ -9,8 +9,8 @@
 struct URLs {
     // for test
     static let linkServer = "http://45.117.169.99:8888/godme-service/"
-    // for live https://godme.org:8443
-//    static let linkServer = "http://cityf.vn/api-test/"
+    // for live https://godme.vn:8443
+//    static let linkServer = "https://godme.vn/"
     private struct Routes{
         static let login = "api/v1/auth/login"
         static let changePassword = "api/v1/auth/changePassword"
@@ -35,6 +35,7 @@ struct URLs {
         static let connectToUser = "api/mobile/notification/connectToUser"
         static let addGroupRelationShip = "api/mobile/groupRelationship/save"
         static let updateGroupRelationShip = "api/mobile/groupRelationship/update"
+        static let deleteGroupRelationShip = "api/mobile/groupRelationship/delete"
         static let addUserToMultiGroupRelationShip = "api/mobile/groupRelationship/addUserToGroups"
         static let searchGroupRelationShip = "api/mobile/groupRelationship/search"
         static let sendEmailRelationShip = "api/mobile/groupRelationship/sendMailSupport"
@@ -124,6 +125,9 @@ struct URLs {
     }
     static var createContinueRelation: String{
         return String(format: "%@%@", linkServer, Routes.createContinueRelation)
+    }
+    static var deleteGroupRelationShip: String{
+        return String(format: "%@%@", linkServer, Routes.deleteGroupRelationShip)
     }
     
     /// base service

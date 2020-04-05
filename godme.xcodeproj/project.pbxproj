@@ -197,6 +197,14 @@
 		41550056241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */; };
 		4170C42924378A56004F400D /* AuctionServices1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4170C42724378A56004F400D /* AuctionServices1TableViewCell.swift */; };
 		4170C42A24378A56004F400D /* AuctionServices1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C42824378A56004F400D /* AuctionServices1TableViewCell.xib */; };
+		4170C42D24387EC1004F400D /* ListGroupRelationShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4170C42B24387EC1004F400D /* ListGroupRelationShipViewController.swift */; };
+		4170C42E24387EC1004F400D /* ListGroupRelationShipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C42C24387EC1004F400D /* ListGroupRelationShipViewController.xib */; };
+		4170C431243880EC004F400D /* ListGroupRelationShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4170C42F243880EC004F400D /* ListGroupRelationShipTableViewCell.swift */; };
+		4170C432243880EC004F400D /* ListGroupRelationShipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C430243880EC004F400D /* ListGroupRelationShipTableViewCell.xib */; };
+		4170C4352438CF79004F400D /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4170C4332438CF79004F400D /* CreateGroupViewController.swift */; };
+		4170C4362438CF79004F400D /* CreateGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C4342438CF79004F400D /* CreateGroupViewController.xib */; };
+		4170C4392438D8CA004F400D /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4170C4372438D8CA004F400D /* EditGroupViewController.swift */; };
+		4170C43A2438D8CA004F400D /* EditGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C4382438D8CA004F400D /* EditGroupViewController.xib */; };
 		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
@@ -515,6 +523,14 @@
 		41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarBaseInfoTableViewCell.xib; sourceTree = "<group>"; };
 		4170C42724378A56004F400D /* AuctionServices1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuctionServices1TableViewCell.swift; sourceTree = "<group>"; };
 		4170C42824378A56004F400D /* AuctionServices1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionServices1TableViewCell.xib; sourceTree = "<group>"; };
+		4170C42B24387EC1004F400D /* ListGroupRelationShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupRelationShipViewController.swift; sourceTree = "<group>"; };
+		4170C42C24387EC1004F400D /* ListGroupRelationShipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListGroupRelationShipViewController.xib; sourceTree = "<group>"; };
+		4170C42F243880EC004F400D /* ListGroupRelationShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGroupRelationShipTableViewCell.swift; sourceTree = "<group>"; };
+		4170C430243880EC004F400D /* ListGroupRelationShipTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListGroupRelationShipTableViewCell.xib; sourceTree = "<group>"; };
+		4170C4332438CF79004F400D /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		4170C4342438CF79004F400D /* CreateGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGroupViewController.xib; sourceTree = "<group>"; };
+		4170C4372438D8CA004F400D /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
+		4170C4382438D8CA004F400D /* EditGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditGroupViewController.xib; sourceTree = "<group>"; };
 		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
@@ -987,6 +1003,12 @@
 				41EACD1F242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib */,
 				4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */,
 				4130D13D24346FE100DDC9D6 /* ContinueMyRelationShipViewController.xib */,
+				4170C42B24387EC1004F400D /* ListGroupRelationShipViewController.swift */,
+				4170C42C24387EC1004F400D /* ListGroupRelationShipViewController.xib */,
+				4170C4332438CF79004F400D /* CreateGroupViewController.swift */,
+				4170C4342438CF79004F400D /* CreateGroupViewController.xib */,
+				4170C4372438D8CA004F400D /* EditGroupViewController.swift */,
+				4170C4382438D8CA004F400D /* EditGroupViewController.xib */,
 			);
 			path = Relationships;
 			sourceTree = "<group>";
@@ -1290,6 +1312,8 @@
 				41EACD23242FAD4A003A6962 /* MyGroupRelationShipTableViewCell.xib */,
 				4130D1402434714C00DDC9D6 /* NumberOfYearTableViewCell.swift */,
 				4130D1412434714C00DDC9D6 /* NumberOfYearTableViewCell.xib */,
+				4170C42F243880EC004F400D /* ListGroupRelationShipTableViewCell.swift */,
+				4170C430243880EC004F400D /* ListGroupRelationShipTableViewCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -1443,7 +1467,9 @@
 				E66F6902241B404B00A0EC99 /* MyRelationShipViewController.xib in Resources */,
 				41AD16B524139CCF001E132E /* HistoryViewController.xib in Resources */,
 				415500492419BEB3006B189E /* SearchBarInfoBaseViewController.xib in Resources */,
+				4170C432243880EC004F400D /* ListGroupRelationShipTableViewCell.xib in Resources */,
 				4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */,
+				4170C43A2438D8CA004F400D /* EditGroupViewController.xib in Resources */,
 				41AD16BD2413A8D0001E132E /* FollowTableViewCell.xib in Resources */,
 				41ADEAE8241E3E52002C95FA /* CreateAuctionViewController.xib in Resources */,
 				4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */,
@@ -1451,6 +1477,7 @@
 				4150DA70241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf in Resources */,
 				4150DA69241B15B600F8A7E4 /* RobotoCondensed-Light.ttf in Resources */,
 				413937622425E65A0079C587 /* VSearchMain.xib in Resources */,
+				4170C42E24387EC1004F400D /* ListGroupRelationShipViewController.xib in Resources */,
 				4155002824190CF2006B189E /* VSearchBar.xib in Resources */,
 				411329C624171C3A0089DD18 /* DetailEventViewController.xib in Resources */,
 				411329A224168C970089DD18 /* AuctionServiceViewController.xib in Resources */,
@@ -1531,6 +1558,7 @@
 				41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */,
 				41ADEAC9241E04C5002C95FA /* TimeTableViewCell.xib in Resources */,
 				41EACD2924306E1F003A6962 /* SearchBar1TableViewCell.xib in Resources */,
+				4170C4362438CF79004F400D /* CreateGroupViewController.xib in Resources */,
 				41ADEADA241E08F6002C95FA /* CreateServiceViewController.xib in Resources */,
 				411329CF24171FC00089DD18 /* ImageDetailAuctionTableViewCell.xib in Resources */,
 				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
@@ -1662,6 +1690,7 @@
 				41286AEF240F3EE70021157C /* Result.swift in Sources */,
 				410F1AED2431893400841231 /* DefaultTableViewCell.swift in Sources */,
 				4155003124194164006B189E /* SearchBarTableViewCell.swift in Sources */,
+				4170C4392438D8CA004F400D /* EditGroupViewController.swift in Sources */,
 				410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */,
 				411329A624168CB60089DD18 /* AuctionServicesTableViewCell.swift in Sources */,
 				413937B2242DD3890079C587 /* MyBaseService1DetailTableViewCell.swift in Sources */,
@@ -1689,6 +1718,7 @@
 				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,
 				41286B15241151210021157C /* AccountsViewController.swift in Sources */,
 				41ADEAED241E4AD6002C95FA /* CreateEventViewController.swift in Sources */,
+				4170C42D24387EC1004F400D /* ListGroupRelationShipViewController.swift in Sources */,
 				41286B1A2411514B0021157C /* ServicesManageViewController.swift in Sources */,
 				41ADEAC8241E04C5002C95FA /* TimeTableViewCell.swift in Sources */,
 				410E67E92414311C00FA2F54 /* HeaderServicesInfoBook.swift in Sources */,
@@ -1736,6 +1766,7 @@
 				E66F6901241B404B00A0EC99 /* MyRelationShipViewController.swift in Sources */,
 				411329A124168C970089DD18 /* AuctionServiceViewController.swift in Sources */,
 				E6500C6D2408BAAF001E023D /* AppDelegate.swift in Sources */,
+				4170C4352438CF79004F400D /* CreateGroupViewController.swift in Sources */,
 				411329D2241722330089DD18 /* InfoAuctionTableViewCell.swift in Sources */,
 				413937602425E64C0079C587 /* VSearchMain.swift in Sources */,
 				41286B752411DC7E0021157C /* FeatureTableViewCell.swift in Sources */,
@@ -1802,6 +1833,7 @@
 				4113298424154E710089DD18 /* Main1CollectionViewCell.swift in Sources */,
 				413937582425C6140079C587 /* Main3CollectionViewCell.swift in Sources */,
 				E6500C822408BB0F001E023D /* MainViewController.swift in Sources */,
+				4170C431243880EC004F400D /* ListGroupRelationShipTableViewCell.swift in Sources */,
 				41286AEA240F3EE70021157C /* BaseModel.swift in Sources */,
 				41286B24241151A90021157C /* MapsViewController.swift in Sources */,
 			);

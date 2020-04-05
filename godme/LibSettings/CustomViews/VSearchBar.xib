@@ -21,15 +21,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxI-ed-tXt">
                     <rect key="frame" x="10" y="0.0" width="180" height="30"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tìm kiếm ngành nghề" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5B-Bh-FcV">
-                            <rect key="frame" x="0.0" y="5" width="155" height="20"/>
+                        <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tìm kiếm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvi-PS-Pyd">
+                            <rect key="frame" x="5" y="5" width="130" height="20"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="hDr-vs-0ze"/>
+                                <constraint firstAttribute="height" constant="20" id="lk4-hV-J1v"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                             <color key="textColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="YhC-O1-foG">
                             <rect key="frame" x="160" y="5" width="20" height="20"/>
                             <constraints>
@@ -38,7 +39,10 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpQ-XY-VzB">
-                            <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                            <rect key="frame" x="140" y="0.0" width="40" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="z1K-jS-BKI"/>
+                            </constraints>
                             <connections>
                                 <action selector="touchSearchButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="w1k-c2-1od"/>
                             </connections>
@@ -46,15 +50,15 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="x5B-Bh-FcV" firstAttribute="leading" secondItem="jxI-ed-tXt" secondAttribute="leading" id="3pL-OA-5mM"/>
                         <constraint firstAttribute="trailing" secondItem="OpQ-XY-VzB" secondAttribute="trailing" id="FTE-gi-Iw2"/>
-                        <constraint firstItem="OpQ-XY-VzB" firstAttribute="leading" secondItem="jxI-ed-tXt" secondAttribute="leading" id="GoA-Mu-0JA"/>
                         <constraint firstAttribute="bottom" secondItem="OpQ-XY-VzB" secondAttribute="bottom" id="K3k-fU-KkX"/>
+                        <constraint firstItem="fvi-PS-Pyd" firstAttribute="top" secondItem="jxI-ed-tXt" secondAttribute="top" constant="5" id="LYX-3Q-n4a"/>
+                        <constraint firstAttribute="bottom" secondItem="fvi-PS-Pyd" secondAttribute="bottom" constant="5" id="TQa-cI-sl6"/>
+                        <constraint firstItem="fvi-PS-Pyd" firstAttribute="leading" secondItem="jxI-ed-tXt" secondAttribute="leading" constant="5" id="bk0-aG-PCC"/>
                         <constraint firstItem="OpQ-XY-VzB" firstAttribute="top" secondItem="jxI-ed-tXt" secondAttribute="top" id="dV2-dC-D9Q"/>
-                        <constraint firstItem="YhC-O1-foG" firstAttribute="centerY" secondItem="x5B-Bh-FcV" secondAttribute="centerY" id="oP7-aB-bcD"/>
+                        <constraint firstItem="OpQ-XY-VzB" firstAttribute="leading" secondItem="fvi-PS-Pyd" secondAttribute="trailing" constant="5" id="prI-4D-6B9"/>
+                        <constraint firstItem="YhC-O1-foG" firstAttribute="centerY" secondItem="fvi-PS-Pyd" secondAttribute="centerY" id="qys-ro-I8c"/>
                         <constraint firstAttribute="trailing" secondItem="YhC-O1-foG" secondAttribute="trailing" id="scp-uG-oBe"/>
-                        <constraint firstAttribute="bottom" secondItem="x5B-Bh-FcV" secondAttribute="bottom" constant="5" id="vtX-e8-1lB"/>
-                        <constraint firstItem="YhC-O1-foG" firstAttribute="leading" secondItem="x5B-Bh-FcV" secondAttribute="trailing" constant="5" id="wC0-Za-xcR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -70,10 +74,10 @@
             <connections>
                 <outlet property="btSearch" destination="OpQ-XY-VzB" id="uDO-OS-Iu5"/>
                 <outlet property="iconSearch" destination="YhC-O1-foG" id="zTh-sh-9bU"/>
-                <outlet property="lbTitle" destination="x5B-Bh-FcV" id="gkP-VI-bFi"/>
+                <outlet property="tfInput" destination="fvi-PS-Pyd" id="gSn-vX-Kc0"/>
                 <outlet property="vContent" destination="jxI-ed-tXt" id="Pzb-h0-qPu"/>
             </connections>
-            <point key="canvasLocation" x="113" y="137"/>
+            <point key="canvasLocation" x="111.59420289855073" y="136.95652173913044"/>
         </view>
     </objects>
     <resources>

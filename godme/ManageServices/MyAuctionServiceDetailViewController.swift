@@ -20,10 +20,14 @@ class MyAuctionServiceDetailViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.showProgressHub()
-        self.setupUI()
         self.setupTableView()
         self.configButtonBack()
         self.getDetailOrderAuctionService()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupUI()
     }
     
     func setupUI(){
@@ -140,22 +144,16 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        if indexPath.section == 0 {
-//            let model = listBaseService[indexPath.row]
-//            let detail = DetailBasicServiceViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }else if indexPath.section == 1 {
-//            let model = listAuction[indexPath.row]
-//            let detail = DetailAuctionViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }else {
-//            let model = listEvents[indexPath.row]
-//            let detail = DetailEventViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }
+        if indexPath.section == 0 {
+            let detail = DetailAuctionViewController()
+            detail.modelDetail = modelDetail
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else {
+            let model = self.listOrderAuctionServiceDetail[indexPath.row]
+            let searchBarDetail = SearchBarDetailViewController()
+            searchBarDetail.userId = model.buyerId ?? 0
+            self.navigationController?.pushViewController(searchBarDetail, animated: true)
+        }
     }
     
     

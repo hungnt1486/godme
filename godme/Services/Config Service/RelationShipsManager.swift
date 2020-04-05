@@ -105,11 +105,11 @@ class RelationShipsManager{
         }
     }
     
-    func addGroupRelationShip(name: String, completion: @escaping(SingleResult<BaseModel>) -> Void){
+    func addNewGroupRelationShip(name: String, completion: @escaping(SingleResult<BaseModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["name"] = name
         Alamofire.request(URLs.addGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
-            print(response)
+            print("addNewGroupRelationShip = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
@@ -121,6 +121,15 @@ class RelationShipsManager{
         paramsBody["userIds"] = userIds
         Alamofire.request(URLs.updateGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func deleteGroupRelationShip(id: Int, completion: @escaping(SingleResult<BaseModel>)-> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        Alamofire.request(URLs.deleteGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("deleteGroupRelationShip = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
@@ -148,6 +157,25 @@ class RelationShipsManager{
         
         Alamofire.request(URLs.searchGroupRelationShip, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("getSearchGroupRelationShip = \(response)")
+            completion(ListResult<GroupRelationShipModel>.handleResponse(response))
+        }
+    }
+    
+    func getListGroupRelationShip(sorts: [[String: String]], completion: @escaping(ListResult<GroupRelationShipModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["sorts"] = sorts
+        Alamofire.request(URLs.searchGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListGroupRelationShip = \(response)")
+            completion(ListResult<GroupRelationShipModel>.handleResponse(response))
+        }
+    }
+    
+    func getDetailGroupRelationShip(id: Int, sorts: [[String: String]], completion: @escaping(ListResult<GroupRelationShipModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        paramsBody["sorts"] = sorts
+        Alamofire.request(URLs.searchGroupRelationShip, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getDetailGroupRelationShip = \(response)")
             completion(ListResult<GroupRelationShipModel>.handleResponse(response))
         }
     }

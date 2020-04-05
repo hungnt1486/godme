@@ -57,7 +57,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="VKR-dQ-Ele">
-                            <rect key="frame" x="133" y="72.5" width="15" height="15"/>
+                            <rect key="frame" x="125" y="72.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="iHv-4Y-K78"/>
                                 <constraint firstAttribute="width" constant="15" id="tkP-T3-goa"/>
@@ -90,7 +90,7 @@
                         <constraint firstItem="5VI-VK-G1O" firstAttribute="top" secondItem="v5F-Ok-ga4" secondAttribute="top" constant="10" id="lJl-Mk-Vgb"/>
                         <constraint firstItem="5VI-VK-G1O" firstAttribute="leading" secondItem="v5F-Ok-ga4" secondAttribute="leading" constant="20" id="qXY-nJ-6O4"/>
                         <constraint firstItem="VKR-dQ-Ele" firstAttribute="centerY" secondItem="TvI-bf-aOW" secondAttribute="centerY" id="qb3-nf-sOz"/>
-                        <constraint firstItem="VKR-dQ-Ele" firstAttribute="leading" secondItem="TvI-bf-aOW" secondAttribute="trailing" constant="10" id="vIZ-q8-EUj"/>
+                        <constraint firstItem="VKR-dQ-Ele" firstAttribute="leading" secondItem="TvI-bf-aOW" secondAttribute="trailing" constant="2" id="vIZ-q8-EUj"/>
                     </constraints>
                 </view>
             </subviews>
