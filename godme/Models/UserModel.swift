@@ -223,6 +223,36 @@ class TransactionModel: BaseModel {
     }
 }
 
+class HistoryModel: BaseModel {
+    var historyInWeek: [HistorySubModel]?
+    var historyInMonth: [HistorySubModel]?
+    required init?(json: JSON) {
+        super.init(json: json)
+        if let listInWeek = json["historyInWeek"].array {
+            historyInWeek = [HistorySubModel]()
+            for item in listInWeek {
+                historyInWeek?.append(HistorySubModel(json: item)!)
+            }
+        }
+        if let listInMonth = json["historyInMonth"].array {
+            historyInMonth = [HistorySubModel]()
+            for item in listInMonth {
+                historyInMonth?.append(HistorySubModel(json: item)!)
+            }
+        }
+    }
+}
+
+class HistorySubModel: BaseModel {
+    var serviceType: String?
+    var totalAmount: String?
+    required init?(json: JSON) {
+        super.init(json: json)
+        serviceType = json["serviceType"].stringValue
+        totalAmount = json["totalAmount"].stringValue
+    }
+}
+
 struct changePasswordParams {
     var username: String?
     var password: String?

@@ -26,19 +26,39 @@ class FinanceViewController: BaseViewController {
     @IBOutlet weak var lbWithDraw: UILabel!
     @IBOutlet weak var lbHistory: UILabel!
     var myWallet: MyWalletModel?
+    @IBOutlet weak var tbvFollow: CollapseTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.showProgressHub()
         self.setupUI()
+        self.setupTableview()
+        
+        self.tbvFollow.didTapSectionHeaderView = { (sectionIndex, isOpen) in
+            debugPrint("sectionIndex \(sectionIndex), isOpen \(isOpen)")
+        }
+        reloadTableView { [unowned self] in
+            self.tbvFollow.openSection(0, animated: true)
+        }
+        
         self.configButtonBack()
         self.getMyWallet()
+        self.getListHistory()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = Settings.ShareInstance.translate(key: "wallet_finance")
+    }
+    
+    func reloadTableView(_ completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock({
+            completion()
+        })
+        self.tbvFollow.reloadData()
+        CATransaction.commit()
     }
     
     func setupUI(){
@@ -49,9 +69,20 @@ class FinanceViewController: BaseViewController {
         self.lbWithDraw.text = Settings.ShareInstance.translate(key: "withdraw")
         self.lbHistory.text = Settings.ShareInstance.translate(key: "find_history")
         
-        let right = UIBarButtonItem.init(title: "đ <-> Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
         right.tintColor = UIColor.FlatColor.Oranges.BGColor
         self.navigationItem.rightBarButtonItem = right
+    }
+    
+    func setupTableview(){
+        self.tbvFollow.register(UINib(nibName: "FollowTableViewCell", bundle: nil), forCellReuseIdentifier: "FollowTableViewCell")
+        self.tbvFollow.register(UINib.init(nibName: "SectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeaderView")
+        self.tbvFollow.register(UINib.init(nibName: "HeaderMyServices", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderMyServices")
+        self.tbvFollow.delegate = self
+        self.tbvFollow.dataSource = self
+        self.tbvFollow.allowsSelection = false
+        self.tbvFollow.estimatedRowHeight = 100
+        self.tbvFollow.rowHeight = UITableView.automaticDimension
     }
     
     @objc func touchRight(){
@@ -93,6 +124,76 @@ class FinanceViewController: BaseViewController {
         let history = HistoryViewController()
         self.navigationController?.pushViewController(history, animated: true)
     }
+    
+    func getListHistory(){
+        UserManager.shareUserManager().getListHistory(month: 3, year: 2020) {[unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+}
+
+extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as! SectionHeaderView
+        if section == 0 {
+            view.lbTitle.text = "Tuần này"
+        } else if section == 1 {
+            view.lbTitle.text = "Tháng này"
+        } else if section == 2 {
+            view.lbTitle.text = "3/2020"
+        } else if section == 3 {
+            view.lbTitle.text = "2/2020"
+        } else if section == 4 {
+            view.lbTitle.text = "1/2020"
+        }
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            return cell
+        }else if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            return cell
+        }else if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            return cell
+        }else if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            return cell
+        }
+    }
+    
+    
 }
 
 //extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{

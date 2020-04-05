@@ -6,9 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
-        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -23,15 +20,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuần này" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xes-hI-EeJ">
-                        <rect key="frame" x="10" y="5" width="300" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="KEl-Pr-wVK"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu nhập từ mối quan hệ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zed-MG-7vY">
                         <rect key="frame" x="10" y="30" width="190" height="20"/>
                         <constraints>
@@ -46,6 +34,25 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="rdr-tb-JL2"/>
                             <constraint firstAttribute="height" constant="20" id="vmU-16-nGI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu nhập từ kết nối" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfo-Q0-UNk">
+                        <rect key="frame" x="10" y="5" width="190" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="YQs-Ya-AgZ"/>
+                            <constraint firstAttribute="width" constant="190" id="k38-VS-ccy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-Pz-zOK">
+                        <rect key="frame" x="210" y="5" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="rlP-eD-dkn"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                         <nil key="textColor"/>
@@ -70,7 +77,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu nhập từ event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2e-O6-HTK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu nhập từ sự kiện" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2e-O6-HTK">
                         <rect key="frame" x="10" y="105" width="190" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Be4-6Q-X6w"/>
@@ -115,25 +122,27 @@
                     <constraint firstItem="3DY-wR-aud" firstAttribute="leading" secondItem="Ij7-HJ-exy" secondAttribute="trailing" constant="10" id="3gG-7S-D0u"/>
                     <constraint firstAttribute="trailing" secondItem="Z3C-Gt-UcK" secondAttribute="trailing" constant="10" id="Cst-N0-VGu"/>
                     <constraint firstAttribute="trailing" secondItem="Eeb-2y-b0P" secondAttribute="trailing" constant="10" id="Ddr-s6-hpl"/>
-                    <constraint firstItem="Eeb-2y-b0P" firstAttribute="top" secondItem="Xes-hI-EeJ" secondAttribute="bottom" constant="5" id="EfD-R7-Bce"/>
-                    <constraint firstItem="Zed-MG-7vY" firstAttribute="top" secondItem="Xes-hI-EeJ" secondAttribute="bottom" constant="5" id="Ijo-Rt-NWO"/>
+                    <constraint firstItem="Zed-MG-7vY" firstAttribute="top" secondItem="rfo-Q0-UNk" secondAttribute="bottom" constant="5" id="H7s-No-0qp"/>
                     <constraint firstAttribute="trailing" secondItem="azu-Ew-3dJ" secondAttribute="trailing" constant="10" id="ImV-Af-o9z"/>
                     <constraint firstItem="Z3C-Gt-UcK" firstAttribute="leading" secondItem="F2e-O6-HTK" secondAttribute="trailing" constant="10" id="JbS-rR-7aQ"/>
+                    <constraint firstItem="6a6-Pz-zOK" firstAttribute="leading" secondItem="rfo-Q0-UNk" secondAttribute="trailing" constant="10" id="Jmy-F2-2Ma"/>
+                    <constraint firstItem="Eeb-2y-b0P" firstAttribute="top" secondItem="6a6-Pz-zOK" secondAttribute="bottom" constant="5" id="OTT-ND-34Z"/>
                     <constraint firstItem="JNu-YI-2bJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="PB8-Xf-1co"/>
-                    <constraint firstAttribute="trailing" secondItem="Xes-hI-EeJ" secondAttribute="trailing" constant="10" id="PZx-w3-SgS"/>
                     <constraint firstItem="Zed-MG-7vY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Rke-9L-Su2"/>
                     <constraint firstAttribute="bottom" secondItem="Z3C-Gt-UcK" secondAttribute="bottom" constant="10" id="SOH-LU-1EM"/>
                     <constraint firstItem="azu-Ew-3dJ" firstAttribute="top" secondItem="Ij7-HJ-exy" secondAttribute="bottom" constant="5" id="T51-yE-tLc"/>
-                    <constraint firstItem="Xes-hI-EeJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TYt-9y-TO3"/>
                     <constraint firstItem="3DY-wR-aud" firstAttribute="top" secondItem="Zed-MG-7vY" secondAttribute="bottom" constant="5" id="ThZ-jb-qeH"/>
-                    <constraint firstItem="Xes-hI-EeJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="c6q-CN-cak"/>
                     <constraint firstAttribute="bottom" secondItem="F2e-O6-HTK" secondAttribute="bottom" constant="10" id="d8j-8C-KYP"/>
                     <constraint firstItem="Ij7-HJ-exy" firstAttribute="top" secondItem="Zed-MG-7vY" secondAttribute="bottom" constant="5" id="dUk-J4-ql7"/>
                     <constraint firstItem="JNu-YI-2bJ" firstAttribute="top" secondItem="Ij7-HJ-exy" secondAttribute="bottom" constant="5" id="daw-UL-lmL"/>
+                    <constraint firstAttribute="trailing" secondItem="6a6-Pz-zOK" secondAttribute="trailing" constant="10" id="dte-6p-dTb"/>
+                    <constraint firstItem="6a6-Pz-zOK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="eje-Gd-9gI"/>
                     <constraint firstItem="Eeb-2y-b0P" firstAttribute="leading" secondItem="Zed-MG-7vY" secondAttribute="trailing" constant="10" id="fUI-yq-hJa"/>
                     <constraint firstItem="Ij7-HJ-exy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="lAW-Nu-Wnp"/>
+                    <constraint firstItem="rfo-Q0-UNk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="oVv-63-V18"/>
                     <constraint firstItem="F2e-O6-HTK" firstAttribute="top" secondItem="JNu-YI-2bJ" secondAttribute="bottom" constant="5" id="sBj-Wg-7DW"/>
                     <constraint firstItem="F2e-O6-HTK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="tMQ-e3-5w0"/>
+                    <constraint firstItem="rfo-Q0-UNk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="x4Y-eO-Drk"/>
                     <constraint firstItem="azu-Ew-3dJ" firstAttribute="leading" secondItem="JNu-YI-2bJ" secondAttribute="trailing" constant="10" id="yB2-yh-FA3"/>
                     <constraint firstAttribute="trailing" secondItem="3DY-wR-aud" secondAttribute="trailing" constant="10" id="zgt-bl-41C"/>
                 </constraints>

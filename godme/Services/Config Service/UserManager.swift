@@ -168,4 +168,14 @@ class UserManager{
             completion(ListResult<TransactionModel>.handleResponse(response))
         }
     }
+    
+    func getListHistory(month: Int, year: Int, completion: @escaping(SingleResult<HistoryModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["month"] = month
+        paramsBody["year"] = year
+        Alamofire.request(URLs.getListHistory, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListHistory = \(response)")
+            completion(SingleResult<HistoryModel>.handleResponse(response))
+        }
+    }
 }

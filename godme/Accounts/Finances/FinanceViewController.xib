@@ -21,6 +21,7 @@
                 <outlet property="lbHistory" destination="ZjD-02-Pye" id="jSU-aR-b4h"/>
                 <outlet property="lbInputCoin" destination="ik7-iN-DtW" id="kDg-Bu-X3r"/>
                 <outlet property="lbWithDraw" destination="UaP-EM-r5K" id="pVy-Z5-0wq"/>
+                <outlet property="tbvFollow" destination="lwS-Wc-W4z" id="zoK-lJ-4lx"/>
                 <outlet property="vMain" destination="HBe-Hk-R1T" id="yHg-mW-tWF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -168,10 +169,34 @@
                         <constraint firstItem="7Vp-Rr-MQJ" firstAttribute="height" secondItem="HBe-Hk-R1T" secondAttribute="height" multiplier="2/3" id="pWT-sV-pYW"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bảng theo dõi thụ hưởng" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqy-tV-ASV">
+                    <rect key="frame" x="20" y="210" width="374" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="rfW-eY-4y7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lwS-Wc-W4z" customClass="CollapseTableView" customModule="godme" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="240" width="414" height="496"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Qzk-Lg-44w"/>
+                        <outlet property="delegate" destination="-1" id="nbO-4k-dsT"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="mrC-cn-Dwc" firstAttribute="bottom" secondItem="lwS-Wc-W4z" secondAttribute="bottom" id="3Uy-Bj-qX0"/>
+                <constraint firstItem="mrC-cn-Dwc" firstAttribute="trailing" secondItem="lwS-Wc-W4z" secondAttribute="trailing" id="Iuo-sh-f7b"/>
+                <constraint firstItem="Yqy-tV-ASV" firstAttribute="top" secondItem="HBe-Hk-R1T" secondAttribute="bottom" constant="10" id="KfF-Qf-KaP"/>
+                <constraint firstItem="lwS-Wc-W4z" firstAttribute="top" secondItem="Yqy-tV-ASV" secondAttribute="bottom" id="LcC-3u-2iM"/>
                 <constraint firstItem="HBe-Hk-R1T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="QKX-wK-ccd"/>
+                <constraint firstItem="mrC-cn-Dwc" firstAttribute="trailing" secondItem="Yqy-tV-ASV" secondAttribute="trailing" constant="20" id="Xux-FR-nty"/>
+                <constraint firstItem="lwS-Wc-W4z" firstAttribute="leading" secondItem="mrC-cn-Dwc" secondAttribute="leading" id="eaj-4c-78N"/>
+                <constraint firstItem="Yqy-tV-ASV" firstAttribute="leading" secondItem="mrC-cn-Dwc" secondAttribute="leading" constant="20" id="gOT-ck-k1D"/>
                 <constraint firstAttribute="trailing" secondItem="HBe-Hk-R1T" secondAttribute="trailing" constant="20" id="xRp-4L-sdI"/>
                 <constraint firstItem="HBe-Hk-R1T" firstAttribute="top" secondItem="mrC-cn-Dwc" secondAttribute="top" constant="20" id="zGu-zq-4q7"/>
             </constraints>
