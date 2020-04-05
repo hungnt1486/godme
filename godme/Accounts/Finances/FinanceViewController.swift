@@ -25,12 +25,15 @@ class FinanceViewController: BaseViewController {
     @IBOutlet weak var lbInputCoin: UILabel!
     @IBOutlet weak var lbWithDraw: UILabel!
     @IBOutlet weak var lbHistory: UILabel!
+    var myWallet: MyWalletModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
         self.configButtonBack()
+        self.getMyWallet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +55,28 @@ class FinanceViewController: BaseViewController {
     }
     
     @objc func touchRight(){
-        
+        if (self.lbCoin.text?.contains("Godcoin"))! {
+            self.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(myWallet?.amount ?? "0") ?? 0)*1000)")
+        }else{
+            self.lbCoin.text = "\(Double(myWallet?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        }
+    }
+    
+    func getMyWallet(){
+        UserManager.shareUserManager().getMyWallet { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                self.myWallet = data[0]
+                self.lbCoin.text = "\(Double(self.myWallet?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     @IBAction func touchInputCoin(_ sender: Any) {

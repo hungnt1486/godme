@@ -10,9 +10,16 @@ import UIKit
 
 class HistoryLabelTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var lbDate: UILabel!
-    @IBOutlet weak var lbContent: UILabel!
+    @IBOutlet weak var lbTitleTransaction: UILabel!
+    @IBOutlet weak var lbTransaction: UILabel!
+    @IBOutlet weak var lbTitleMoney: UILabel!
+    @IBOutlet weak var lbMoney: UILabel!
+    @IBOutlet weak var lbTitleDay: UILabel!
+    @IBOutlet weak var lbDay: UILabel!
+    @IBOutlet weak var lbTitleStatus: UILabel!
+    @IBOutlet weak var lbStatus: UILabel!
+    @IBOutlet weak var lbTitleDescription: UILabel!
+    @IBOutlet weak var lbDescription: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

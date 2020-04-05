@@ -142,7 +142,7 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
                 }
                 cellImageDetail.lbFullName.text = modelDetail?.userInfo?.fullName
                 cellImageDetail.lbJob.text = modelDetail?.title
-                cellImageDetail.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cellImageDetail.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
                 return cellImageDetail
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
@@ -210,9 +210,9 @@ extension DetailEventViewController: BookServiceTableViewCellProtocol{
 extension DetailEventViewController: ImageDetailTableViewCellProtocol{
     func didCoinConvert() {
         if (cellImageDetail.lbCoin.text?.contains("Godcoin"))! {
-            cellImageDetail.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Int(modelDetail?.amount ?? "0") ?? 0)*1000)")
+            cellImageDetail.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(modelDetail?.amount ?? "0") ?? 0)*1000)")
         }else{
-            cellImageDetail.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cellImageDetail.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         }
     }
     

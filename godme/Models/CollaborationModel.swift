@@ -15,9 +15,9 @@ class CollaborationModel: BaseModel {
     var description: String?
     var images: String?
     var id: Int?
-    var createdOn: Int32?
+    var createdOn: Double?
     var createdBy: String?
-    var modifiedOn: Int32?
+    var modifiedOn: Double?
     var userInfo: userInfoModel?
     var fullName: String?
     var email: String?
@@ -39,9 +39,9 @@ class CollaborationModel: BaseModel {
         description = json["description"].stringValue
         images = json["images"].stringValue
         id = json["id"].intValue
-        createdOn = json["createdOn"].int32Value
+        createdOn = json["createdOn"].doubleValue
         createdBy = json["createdBy"].stringValue
-        modifiedOn = json["modifiedOn"].int32Value
+        modifiedOn = json["modifiedOn"].doubleValue
         userInfo = userInfoModel.init(json: json["userInfo"])
     }
 }
@@ -63,9 +63,9 @@ class BlogModel: BaseModel {
     var description: String?
     var content: String?
     var id: Int?
-    var createdOn: Int32?
+    var createdOn: Double?
     var createdBy: String?
-    var modifiedOn: Int32?
+    var modifiedOn: Double?
     var createdByUserId: Int?
     
     required init?(json: JSON) {
@@ -76,9 +76,9 @@ class BlogModel: BaseModel {
         description = json["description"].stringValue
         content = json["content"].stringValue
         id = json["id"].intValue
-        createdOn = json["createdOn"].int32Value
+        createdOn = json["createdOn"].doubleValue
         createdBy = json["createdBy"].stringValue
-        modifiedOn = json["modifiedOn"].int32Value
+        modifiedOn = json["modifiedOn"].doubleValue
         createdByUserId = json["createdByUserId"].intValue
     }
 }

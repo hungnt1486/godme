@@ -136,4 +136,36 @@ class UserManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func getMyWallet(completion: @escaping(ListResult<MyWalletModel>) -> Void){
+        Alamofire.request(URLs.getMyWallet, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getMyWallet = \(response)")
+            completion(ListResult<MyWalletModel>.handleResponse(response))
+        }
+    }
+    
+    func getListTransaction(page: Int, pageSize: Int, sorts:[[String: String]], completion: @escaping(ListResult<TransactionModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        paramsBody["sorts"] = sorts
+        
+        Alamofire.request(URLs.getListTransaction, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListTransaction = \(response)")
+            completion(ListResult<TransactionModel>.handleResponse(response))
+        }
+    }
+    
+    func getListTransactionFilter(page: Int, pageSize: Int, sorts:[[String: String]], ge:[[String: String]], le:[[String: String]], completion: @escaping(ListResult<TransactionModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        paramsBody["sorts"] = sorts
+        paramsBody["ge"] = ge
+        paramsBody["le"] = le
+        Alamofire.request(URLs.getListTransaction, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListTransactionFilter = \(response)")
+            completion(ListResult<TransactionModel>.handleResponse(response))
+        }
+    }
 }

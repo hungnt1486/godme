@@ -24,6 +24,8 @@
 "PAYMENTED" = "Đã thanh toán";
 "REJECT" = "Từ chối";
 "PENDING" = "Đang duyệt";
+"CONFIRMED" = "Đã xác nhận";
+"RECHARGE" = "Nạp Godcoin";
 
 "info_user" = "Thông tin người dùng";
 

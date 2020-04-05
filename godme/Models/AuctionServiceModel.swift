@@ -26,9 +26,9 @@ class AuctionServiceModel: BaseModel {
     var amountOriginal: String?
     var currentWinner: String?
     var id: Int?
-    var createdOn: Int32?
+    var createdOn: Double?
     var createdBy: String?
-    var modifiedOn: Int32?
+    var modifiedOn: Double?
     var userInfo: userInfoModel?
     var isRelationshipWithSeller: Bool?
     
@@ -50,9 +50,9 @@ class AuctionServiceModel: BaseModel {
         amountOriginal = json["amountOriginal"].stringValue
         currentWinner = json["currentWinner"].stringValue
         id = json["id"].intValue
-        createdOn = json["createdOn"].int32Value
+        createdOn = json["createdOn"].doubleValue
         createdBy = json["createdBy"].stringValue
-        modifiedOn = json["modifiedOn"].int32Value
+        modifiedOn = json["modifiedOn"].doubleValue
         userInfo = userInfoModel.init(json: json["userInfo"])
         isRelationshipWithSeller = json["isRelationshipWithSeller"].boolValue
     }

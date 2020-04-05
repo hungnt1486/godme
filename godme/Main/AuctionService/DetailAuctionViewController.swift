@@ -158,8 +158,8 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 cellInfo = tableView.dequeueReusableCell(withIdentifier: "InfoAuctionTableViewCell") as? InfoAuctionTableViewCell
                 cellInfo.delegate = self
                 cellInfo.lbWiner.text = modelDetail?.currentWinner
-                cellInfo.lbStepMoney.text = "\(Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
-                cellInfo.lbPrice.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cellInfo.lbStepMoney.text = "\(Double(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cellInfo.lbPrice.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
                 cellInfo.lbNumber.text = "\(modelDetail?.totalOrder ?? 0)"
                 return cellInfo
             case .Address:
@@ -228,11 +228,11 @@ extension DetailAuctionViewController: Main1TableViewCellProtocol{
 extension DetailAuctionViewController: InfoAuctionTableViewCellProtocol{
     func didCoinConvert() {
         if (cellInfo.lbPrice.text?.contains("Godcoin"))! {
-            cellInfo.lbPrice.text = Settings.ShareInstance.formatCurrency(Value: "\((Int(modelDetail?.amount ?? "0") ?? 0)*1000)")
-            cellInfo.lbStepMoney.text = Settings.ShareInstance.formatCurrency(Value: "\((Int(modelDetail?.priceStep ?? "0") ?? 0)*1000)")
+            cellInfo.lbPrice.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(modelDetail?.amount ?? "0") ?? 0)*1000)")
+            cellInfo.lbStepMoney.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(modelDetail?.priceStep ?? "0") ?? 0)*1000)")
         }else{
-            cellInfo.lbPrice.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
-            cellInfo.lbStepMoney.text = "\(Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cellInfo.lbPrice.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cellInfo.lbStepMoney.text = "\(Double(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
         }
     }
     

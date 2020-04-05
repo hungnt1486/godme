@@ -163,7 +163,7 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
             let model = listBaseService[indexPath.row]
             cell.lbTitle.text = model.serviceTitle ?? ""
-            cell.lbCoinResult.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoinResult.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbStatusResult.text = Settings.ShareInstance.translate(key: model.status ?? "")
             cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.createdOn ?? 0.0)
             return cell
@@ -171,7 +171,7 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
             let model = listAuction[indexPath.row]
             cell.lbTitle.text = model.serviceTitle ?? ""
-            cell.lbCoinResult.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoinResult.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbStatusResult.text = Settings.ShareInstance.translate(key: model.status ?? "")
             cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.createdOn ?? 0.0)
             return cell
@@ -179,7 +179,7 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: "ServicesInfoBookTableViewCell") as! ServicesInfoBookTableViewCell
             let model = listEvents[indexPath.row]
             cell.lbTitle.text = model.serviceTitle ?? ""
-            cell.lbCoinResult.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoinResult.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbStatusResult.text = Settings.ShareInstance.translate(key: model.status ?? "")
             cell.lbTimeResult.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.createdOn ?? 0.0)
             return cell

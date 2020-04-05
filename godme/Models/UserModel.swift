@@ -36,9 +36,9 @@ class UserRegisterReturnModel: BaseModel {
     var dob: String?
     var userInfo: String?
     var id: Int?
-    var createdOn: String?
+    var createdOn: Double?
     var createdBy: String?
-    var modifiedOn: String?
+    var modifiedOn: Double?
     var createdByUserId: Int?
     var totalStar: Float?
     var isConnected: Int?
@@ -71,9 +71,9 @@ class UserRegisterReturnModel: BaseModel {
         dob = json["dob"].stringValue
         userInfo = json["userInfo"].stringValue
         id = json["id"].intValue
-        createdOn = json["createdOn"].stringValue
+        createdOn = json["createdOn"].doubleValue
         createdBy = json["createdBy"].stringValue
-        modifiedOn = json["modifiedOn"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
         createdByUserId = json["createdByUserId"].intValue
         totalStar = json["totalStar"].floatValue
         isConnected = json["isConnected"].intValue
@@ -109,18 +109,18 @@ class JobModel: BaseModel {
     var name: String?
     var code: String?
     var id: Int?
-    var createdOn: Int32?
+    var createdOn: Double?
     var createdBy: String?
-    var modifiedOn: Int32?
+    var modifiedOn: Double?
     var createdByUserId: Int?
     required init?(json: JSON) {
         super.init(json: json)
         name = json["name"].stringValue
         code = json["code"].stringValue
         id = json["id"].intValue
-        createdOn = json["createdOn"].int32Value
+        createdOn = json["createdOn"].doubleValue
         createdBy = json["createdBy"].stringValue
-        modifiedOn = json["modifiedOn"].int32Value
+        modifiedOn = json["modifiedOn"].doubleValue
         createdByUserId = json["createdByUserId"].intValue
         
     }
@@ -160,6 +160,66 @@ class GenderModel: BaseModel {
         }
         Id = json["Id"].stringValue
         Name = json["Name"].stringValue
+    }
+}
+
+class MyWalletModel: BaseModel {
+    var amount: String?
+    var accountName: String?
+    var userCode: String?
+    var userId: Int?
+    var id: Int?
+    var createdOn: Double?
+    var createdBy: String?
+    var modifiedOn: Double?
+    var createdByUserId: Int?
+    required init?(json: JSON) {
+        super.init(json: json)
+        amount = json["amount"].stringValue
+        accountName = json["accountName"].stringValue
+        userCode = json["userCode"].stringValue
+        userId = json["userId"].intValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].doubleValue
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        createdByUserId = json["createdByUserId"].intValue
+    }
+}
+
+class TransactionModel: BaseModel {
+    var amount: String?
+    var status: String?
+    var transactionType: String?
+    var description: String?
+    var bankName: String?
+    var branchName: String?
+    var accountName: String?
+    var userName: String?
+    var userId: Int?
+    var id: Int?
+    var createdOn: Double?
+    var createdBy: String?
+    var modifiedOn: Double?
+    var createdByUserId: Int?
+    var userInfo: userInfoModel?
+    required init?(json: JSON) {
+        super.init(json: json)
+        amount = json["amount"].stringValue
+        status = json["status"].stringValue
+        transactionType = json["transactionType"].stringValue
+        description = json["description"].stringValue
+        bankName = json["bankName"].stringValue
+        branchName = json["branchName"].stringValue
+        accountName = json["accountName"].stringValue
+        userName = json["userName"].stringValue
+        userId = json["userId"].intValue
+        id = json["id"].intValue
+        createdOn = json["createdOn"].doubleValue
+        createdBy = json["createdBy"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        createdByUserId = json["createdByUserId"].intValue
+        userInfo = userInfoModel.init(json: json["userInfo"])
     }
 }
 

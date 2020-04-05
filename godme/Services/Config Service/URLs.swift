@@ -56,6 +56,8 @@ struct URLs {
         static let createRequestPayIn = "api/mobile/transaction/requestPayin"
         static let searchServiceOnMap = "api/mobile/user/findServiceOnMap"
         static let createOrderEventSave = "api/mobile/order/event/save"
+        static let getMyWallet = "api/mobile/wallet/getMyWallet"
+        static let getListTransaction = "api/mobile/transaction/search"
         
     }
     
@@ -81,6 +83,12 @@ struct URLs {
     }
     static var createRequestPayIn: String{
         return String(format: "%@%@", linkServer, Routes.createRequestPayIn)
+    }
+    static var getMyWallet: String{
+        return String(format: "%@%@", linkServer, Routes.getMyWallet)
+    }
+    static var getListTransaction: String{
+        return String(format: "%@%@", linkServer, Routes.getListTransaction)
     }
     
     /// relationship

@@ -30,9 +30,9 @@ class BaseServiceModel: BaseModel {
     var totalOrder: Int?
     var totalOrderPending: Int?
     var id: Int?
-    var createdOn: Int32?
+    var createdOn: Double?
     var createdBy: String?
-    var modifiedOn: Int32?
+    var modifiedOn: Double?
     var createdByUserId: Int?
     var isRelationshipWithSeller: Bool?
     var userInfo: userInfoModel?
@@ -58,9 +58,9 @@ class BaseServiceModel: BaseModel {
         totalOrder = json["totalOrder"].intValue
         totalOrderPending = json["totalOrderPending"].intValue
         id = json["id"].intValue
-        createdOn = json["createdOn"].int32Value
+        createdOn = json["createdOn"].doubleValue
         createdBy = json["createdBy"].stringValue
-        modifiedOn = json["modifiedOn"].int32Value
+        modifiedOn = json["modifiedOn"].doubleValue
         createdByUserId = json["createdByUserId"].intValue
         isRelationshipWithSeller = json["isRelationshipWithSeller"].boolValue
         userInfo = userInfoModel(json: json["userInfo"])

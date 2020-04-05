@@ -165,7 +165,7 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
             cell.lbCity.text = model.address
             cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
-            cell.lbCoin.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else if indexPath.section == 1 {
             if listAuction.count == 0 {
@@ -189,7 +189,7 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
             cell.lbCity.text = model.address
             cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
-            cell.lbCoin.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else{
             if listEvents.count == 0 {
@@ -213,7 +213,7 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
             cell.lbCity.text = model.address
             cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
-            cell.lbCoin.text = "\(Int(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }
         

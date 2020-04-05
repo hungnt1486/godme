@@ -135,7 +135,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0)
             cell.lbCity.text = modelDetail?.address
             cell.lbName.text = modelDetail?.userInfo?.userCategory
-            cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else{
             if listOrderBaseServiceDetail.count == 0 {

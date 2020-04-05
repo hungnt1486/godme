@@ -114,6 +114,8 @@
 		41286B762411DC7E0021157C /* FeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B742411DC7E0021157C /* FeatureTableViewCell.xib */; };
 		41286B792411DEF40021157C /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286B772411DEF30021157C /* AvatarTableViewCell.xib */; };
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
+		412CF31F2439C52B00064301 /* BankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412CF31D2439C52B00064301 /* BankTableViewCell.swift */; };
+		412CF3202439C52B00064301 /* BankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412CF31E2439C52B00064301 /* BankTableViewCell.xib */; };
 		4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */; };
 		4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */; };
 		4130D13E24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */; };
@@ -211,8 +213,6 @@
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
 		41AD169124134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168F24134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib */; };
-		41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169224134A44001E132E /* InputGodcoinLabel3TableViewCell.swift */; };
-		41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD169324134A44001E132E /* InputGodcoinLabel3TableViewCell.xib */; };
 		41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169624134CFC001E132E /* InputGodcoinViewController.swift */; };
 		41AD169924134CFC001E132E /* InputGodcoinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD169724134CFC001E132E /* InputGodcoinViewController.xib */; };
 		41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD169A241358D1001E132E /* WithdrawViewController.swift */; };
@@ -440,6 +440,8 @@
 		41286B742411DC7E0021157C /* FeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTableViewCell.xib; sourceTree = "<group>"; };
 		41286B772411DEF30021157C /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		412CF31D2439C52B00064301 /* BankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankTableViewCell.swift; sourceTree = "<group>"; };
+		412CF31E2439C52B00064301 /* BankTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTableViewCell.xib; sourceTree = "<group>"; };
 		4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewDatePicker1.xib; sourceTree = "<group>"; };
 		4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDatePicker1.swift; sourceTree = "<group>"; };
 		4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueMyRelationShipViewController.swift; sourceTree = "<group>"; };
@@ -537,8 +539,6 @@
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168F24134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel2TableViewCell.xib; sourceTree = "<group>"; };
-		41AD169224134A44001E132E /* InputGodcoinLabel3TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel3TableViewCell.swift; sourceTree = "<group>"; };
-		41AD169324134A44001E132E /* InputGodcoinLabel3TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel3TableViewCell.xib; sourceTree = "<group>"; };
 		41AD169624134CFC001E132E /* InputGodcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinViewController.swift; sourceTree = "<group>"; };
 		41AD169724134CFC001E132E /* InputGodcoinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinViewController.xib; sourceTree = "<group>"; };
 		41AD169A241358D1001E132E /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
@@ -815,8 +815,6 @@
 				41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */,
 				41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */,
 				41AD168F24134A2F001E132E /* InputGodcoinLabel2TableViewCell.xib */,
-				41AD169224134A44001E132E /* InputGodcoinLabel3TableViewCell.swift */,
-				41AD169324134A44001E132E /* InputGodcoinLabel3TableViewCell.xib */,
 				41AD169E24135985001E132E /* WithDraw1TableViewCell.swift */,
 				41AD169F24135985001E132E /* WithDraw1TableViewCell.xib */,
 				41AD16A2241359AA001E132E /* WithDrawLabelTableViewCell.swift */,
@@ -1046,6 +1044,8 @@
 		41286B6E2411DC1E0021157C /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				412CF31D2439C52B00064301 /* BankTableViewCell.swift */,
+				412CF31E2439C52B00064301 /* BankTableViewCell.xib */,
 				41ADEAD2241E0885002C95FA /* DateTableViewCell.swift */,
 				41ADEAD3241E0885002C95FA /* DateTableViewCell.xib */,
 				41ADEACF241E075B002C95FA /* AddressPostCarTableViewCell.swift */,
@@ -1430,7 +1430,6 @@
 				41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */,
 				E66F691D241B792F00A0EC99 /* district.json in Resources */,
 				411329812414E3F70089DD18 /* MainCollectionViewCell.xib in Resources */,
-				41AD169524134A44001E132E /* InputGodcoinLabel3TableViewCell.xib in Resources */,
 				41EACD11242E46CB003A6962 /* MyAuctionServiceDetailViewController.xib in Resources */,
 				4139375D2425C6140079C587 /* Main4TableViewCell.xib in Resources */,
 				41286B16241151210021157C /* AccountsViewController.xib in Resources */,
@@ -1474,6 +1473,7 @@
 				41ADEAE8241E3E52002C95FA /* CreateAuctionViewController.xib in Resources */,
 				4150DA67241B15B600F8A7E4 /* Roboto-Light.ttf in Resources */,
 				41286B1B2411514B0021157C /* ServicesManageViewController.xib in Resources */,
+				412CF3202439C52B00064301 /* BankTableViewCell.xib in Resources */,
 				4150DA70241B15B600F8A7E4 /* RobotoCondensed-Regular.ttf in Resources */,
 				4150DA69241B15B600F8A7E4 /* RobotoCondensed-Light.ttf in Resources */,
 				413937622425E65A0079C587 /* VSearchMain.xib in Resources */,
@@ -1728,6 +1728,7 @@
 				4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */,
 				413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */,
 				4170C42924378A56004F400D /* AuctionServices1TableViewCell.swift in Sources */,
+				412CF31F2439C52B00064301 /* BankTableViewCell.swift in Sources */,
 				410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */,
 				413937B5242DE7B20079C587 /* MyServiceDetailViewController.swift in Sources */,
 				411329BE2416A6160089DD18 /* InfoDetailTableViewCell.swift in Sources */,
@@ -1743,7 +1744,6 @@
 				41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */,
 				415500382419B2D2006B189E /* SearchBarDetailViewController.swift in Sources */,
 				410F1AFA2431C90A00841231 /* CheckBoxTableViewCell.swift in Sources */,
-				41AD169424134A44001E132E /* InputGodcoinLabel3TableViewCell.swift in Sources */,
 				4130D1462434889D00DDC9D6 /* MyRelationShip1TableViewCell.swift in Sources */,
 				41286B1024106CAC0021157C /* CompleteTableViewCell.swift in Sources */,
 				410F1AF22431B75800841231 /* HelpViewController.swift in Sources */,

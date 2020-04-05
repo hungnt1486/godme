@@ -11,15 +11,19 @@ import UIKit
 enum cellTypeInputGodcoid: Int{
     case Label1 = 0
     case Label2 = 1
-    case Label3 = 2
-    case Confirm = 3
 }
 
 class InputGodcoinViewController: BaseViewController {
 
     @IBOutlet weak var tbvInputGodcoin: UITableView!
-    var listTypeCell:[cellTypeInputGodcoid] = [.Label1, .Label2, .Label3, .Confirm]
+    var listTypeCell:[cellTypeInputGodcoid] = [.Label1, .Label2]
     var modelUser = Settings.ShareInstance.getDictUser()
+    
+    var imageBank = [["icon":"ic_vcb", "bank_name": "Vietcombank", "fullname": "NGUYEN HUU TOAN", "number": "0021000347653", "branch" : "Hà nội"],
+                     ["icon":"ic_acb", "bank_name": "ACB", "fullname": "NGUYEN HUU TOAN", "number": "7366517", "branch" : "Hồ Chí Minh"],
+                     ["icon":"ic_vietinbank", "bank_name": "Vietinbank", "fullname": "NGUYEN HUU TOAN", "number": "103000488420", "branch" : "Chương Dương, Hà Nội"],
+                     ["icon":"ic_techcombank", "bank_name": "Techcombank", "fullname": "NGUYEN HUU TOAN", "number": "19033992025014", "branch" : "Hồ Chí Minh"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +40,8 @@ class InputGodcoinViewController: BaseViewController {
     func setupTableView(){
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel1TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel1TableViewCell")
         self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel2TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel2TableViewCell")
-        self.tbvInputGodcoin.register(UINib(nibName: "InputGodcoinLabel3TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel3TableViewCell")
         self.tbvInputGodcoin.register(UINib(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
+        self.tbvInputGodcoin.register(UINib(nibName: "BankTableViewCell", bundle: nil), forCellReuseIdentifier: "BankTableViewCell")
 
         self.tbvInputGodcoin.delegate = self
         self.tbvInputGodcoin.dataSource = self
@@ -68,28 +72,49 @@ class InputGodcoinViewController: BaseViewController {
 
 extension InputGodcoinViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listTypeCell.count
+        if section == 0{
+            return listTypeCell.count
+        }else if section == 1 {
+            return imageBank.count
+        }else {
+            return 1
+        }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let typeCell = listTypeCell[indexPath.row]
-        switch typeCell {
-        case .Label1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel1TableViewCell") as! InputGodcoinLabel1TableViewCell
-            cell.lbCode.text = "NAP \(modelUser.userName ?? "")"
+        if indexPath.section == 0 {
+            let typeCell = listTypeCell[indexPath.row]
+            switch typeCell {
+            case .Label1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel1TableViewCell") as! InputGodcoinLabel1TableViewCell
+                cell.lbCode.text = "NAP \(modelUser.userName ?? "")"
+                return cell
+            
+            case .Label2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel2TableViewCell") as! InputGodcoinLabel2TableViewCell
+                return cell
+            }
+        }else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BankTableViewCell") as! BankTableViewCell
+            let model = imageBank[indexPath.row]
+            cell.imgAvatar.image = UIImage.init(named: model["icon"]!)
+            cell.lbTitle.text = "Tên chủ tài khoản: \(model["fullname"] ?? "")"
+            cell.lbTime.text = "Ngân hàng: \(model["bank_name"] ?? "")"
+            cell.lbCity.text = "Số tài khoản: \(model["number"] ?? "")"
+            cell.lbName.text = "Chi nhánh: \(model["branch"] ?? "")"
+            cell.lbCoin.text = "Nội dung: NAP \(modelUser.userName ?? "")"
             return cell
-        
-        case .Label2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel2TableViewCell") as! InputGodcoinLabel2TableViewCell
-            return cell
-        case .Label3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel3TableViewCell") as! InputGodcoinLabel3TableViewCell
-            return cell
-        case .Confirm:
+        }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
             cell.btComplete.setTitle("Gửi yêu cầu nạp Godcoin", for: .normal)
             return cell
+
         }
     }
 }

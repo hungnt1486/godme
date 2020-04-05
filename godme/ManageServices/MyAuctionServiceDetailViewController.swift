@@ -119,8 +119,8 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbTime.text = "Giá hiện tại: \(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
-            cell.lbCity.text = "Bước giá: \(Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbTime.text = "Giá hiện tại: \(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCity.text = "Bước giá: \(Double(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbName.text = modelDetail?.userInfo?.userCategory
             cell.lbCoin.text = "Số lệnh đấu giá: \(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0")"
             return cell
