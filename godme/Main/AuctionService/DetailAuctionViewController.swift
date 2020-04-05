@@ -22,6 +22,7 @@ class DetailAuctionViewController: BaseViewController {
     var listTypeCell: [typeCellDetailAuction] = [.Avatar, .Auction, .Address, .Detail]
     var modelDetail: AuctionServiceModel?
     var listAuction:[AuctionServiceModel] = []
+    var cellInfo: InfoAuctionTableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -154,13 +155,13 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 
                 return cell
             case .Auction:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoAuctionTableViewCell") as! InfoAuctionTableViewCell
-                cell.delegate = self
-                cell.lbWiner.text = modelDetail?.currentWinner
-                cell.lbStepMoney.text = Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0" + " Godcoin"
-                cell.lbPrice.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                cell.lbNumber.text = "\(modelDetail?.totalOrder ?? 0)"
-                return cell
+                cellInfo = tableView.dequeueReusableCell(withIdentifier: "InfoAuctionTableViewCell") as? InfoAuctionTableViewCell
+                cellInfo.delegate = self
+                cellInfo.lbWiner.text = modelDetail?.currentWinner
+                cellInfo.lbStepMoney.text = "\(Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cellInfo.lbPrice.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cellInfo.lbNumber.text = "\(modelDetail?.totalOrder ?? 0)"
+                return cellInfo
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
                 cell.contraintHeightV1.constant = 0
@@ -225,6 +226,16 @@ extension DetailAuctionViewController: Main1TableViewCellProtocol{
 }
 
 extension DetailAuctionViewController: InfoAuctionTableViewCellProtocol{
+    func didCoinConvert() {
+        if (cellInfo.lbPrice.text?.contains("Godcoin"))! {
+            cellInfo.lbPrice.text = Settings.ShareInstance.formatCurrency(Value: "\((Int(modelDetail?.amount ?? "0") ?? 0)*1000)")
+            cellInfo.lbStepMoney.text = Settings.ShareInstance.formatCurrency(Value: "\((Int(modelDetail?.priceStep ?? "0") ?? 0)*1000)")
+        }else{
+            cellInfo.lbPrice.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cellInfo.lbStepMoney.text = "\(Int(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+        }
+    }
+    
     func didAuction() {
         Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đấu giá dịch vụ?", vc: self) { (str) in
             self.navigationController?.popToRootViewController(animated: true)

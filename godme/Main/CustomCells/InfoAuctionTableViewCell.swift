@@ -10,6 +10,7 @@ import UIKit
 
 protocol InfoAuctionTableViewCellProtocol {
     func didAuction()
+    func didCoinConvert()
 }
 
 class InfoAuctionTableViewCell: UITableViewCell {
@@ -25,6 +26,7 @@ class InfoAuctionTableViewCell: UITableViewCell {
     @IBOutlet weak var tfMoney: UITextField!
     @IBOutlet weak var btAuction: UIButton!
     var delegate: InfoAuctionTableViewCellProtocol?
+    @IBOutlet weak var lbCoinConvert: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,6 +42,13 @@ class InfoAuctionTableViewCell: UITableViewCell {
     func setupUI(){
         self.btAuction = Settings.ShareInstance.setupButton(button: self.btAuction)
         self.tfMoney = Settings.ShareInstance.setupBTView(v: self.tfMoney)
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(touchConvert))
+        self.lbCoinConvert.isUserInteractionEnabled = true
+        self.lbCoinConvert.addGestureRecognizer(tap)
+    }
+    
+    @objc func touchConvert(){
+        delegate?.didCoinConvert()
     }
     
     @IBAction func touchAuction(_ sender: Any) {

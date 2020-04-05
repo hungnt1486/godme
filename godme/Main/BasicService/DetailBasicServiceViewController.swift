@@ -22,6 +22,7 @@ class DetailBasicServiceViewController: BaseViewController {
     var listTypeCell: [typeCellDetailBasic] = [.Avatar, .Address, .Detail, .Book]
     var modelDetail: BaseServiceModel?
     var listBaseService: [BaseServiceModel] = []
+    var cellImageDetail: ImageDetailTableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -122,7 +123,7 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
             switch typeCell {
                 
             case .Avatar:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as! ImageDetailTableViewCell
+                cellImageDetail = tableView.dequeueReusableCell(withIdentifier: "ImageDetailTableViewCell") as? ImageDetailTableViewCell
                 let images = modelDetail?.images
                 let arrImgage = images?.split(separator: ",")
                 var arrImg: [String] = []
@@ -131,21 +132,21 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
                         arrImg.append(String(item))
                     }
                 }
-                cell.arrImageBanner = arrImg
-                cell.delegate = self
-                if cell.arrImageBanner.count > 0 {
-                    cell.crollViewImage()
-                    cell.configCrollView()
+                cellImageDetail.arrImageBanner = arrImg
+                cellImageDetail.delegate = self
+                if cellImageDetail.arrImageBanner.count > 0 {
+                    cellImageDetail.crollViewImage()
+                    cellImageDetail.configCrollView()
                 }
-                cell.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_avatar"), options: .lowPriority) { (image, error, nil, link) in
+                cellImageDetail.imgAvatar.sd_setImage(with: URL.init(string: modelDetail?.userInfo?.avatar ?? ""), placeholderImage: UIImage.init(named: "ic_avatar"), options: .lowPriority) {[unowned self] (image, error, nil, link) in
                     if error == nil {
-                        cell.imgAvatar.image = image
+                        self.cellImageDetail.imgAvatar.image = image
                     }
                 }
-                cell.lbFullName.text = modelDetail?.userInfo?.fullName
-                cell.lbJob.text = modelDetail?.title
-                cell.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                return cell
+                cellImageDetail.lbFullName.text = modelDetail?.userInfo?.fullName
+                cellImageDetail.lbJob.text = modelDetail?.title
+                cellImageDetail.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                return cellImageDetail
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
 //                let date = NSDate.init(timeIntervalSinceNow: modelDetail?.dateTime1 ?? 0.0)
@@ -191,6 +192,14 @@ extension DetailBasicServiceViewController: BookServiceTableViewCellProtocol{
 }
 
 extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
+    func didCoinConvert() {
+        if (cellImageDetail.lbCoin.text?.contains("Godcoin"))! {
+            cellImageDetail.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Int(modelDetail?.amount ?? "0") ?? 0)*1000)")
+        }else{
+            cellImageDetail.lbCoin.text = "\(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        }
+    }
+    
     func didShowMore() {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let action2 = UIAlertAction.init(title: "Tạo dịch vụ của bạn", style: .default) {[unowned self] (action) in

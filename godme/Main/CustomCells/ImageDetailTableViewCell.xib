@@ -77,9 +77,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.000 Godcoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtC-Nd-Vf5">
-                                <rect key="frame" x="30" y="120" width="260" height="18"/>
+                                <rect key="frame" x="30" y="120" width="120" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="Cqg-DF-U1w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="đ &lt;-&gt; Godcoin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0k-BE-mQ7">
+                                <rect key="frame" x="170" y="120" width="120" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="GP2-kD-kEx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -89,14 +98,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Y07-g2-Evr" secondAttribute="trailing" constant="30" id="2Pc-7q-b5y"/>
+                            <constraint firstAttribute="trailing" secondItem="y0k-BE-mQ7" secondAttribute="trailing" constant="30" id="5Cz-Rf-TSh"/>
                             <constraint firstAttribute="bottom" secondItem="dtC-Nd-Vf5" secondAttribute="bottom" constant="10" id="6Dl-Ds-dvi"/>
                             <constraint firstItem="dtC-Nd-Vf5" firstAttribute="top" secondItem="l17-56-LcZ" secondAttribute="bottom" constant="15" id="75O-dH-Puy"/>
-                            <constraint firstAttribute="trailing" secondItem="dtC-Nd-Vf5" secondAttribute="trailing" constant="30" id="8CE-E6-LmU"/>
+                            <constraint firstItem="y0k-BE-mQ7" firstAttribute="width" secondItem="u1d-w8-qvG" secondAttribute="width" multiplier="1/2" constant="-40" id="CAc-Z5-E4H"/>
                             <constraint firstItem="l17-56-LcZ" firstAttribute="top" secondItem="Y07-g2-Evr" secondAttribute="bottom" constant="15" id="Ies-fJ-1bZ"/>
                             <constraint firstItem="dtC-Nd-Vf5" firstAttribute="leading" secondItem="u1d-w8-qvG" secondAttribute="leading" constant="30" id="M2p-xA-lYB"/>
                             <constraint firstItem="Y07-g2-Evr" firstAttribute="top" secondItem="Kqb-sH-3Pm" secondAttribute="bottom" constant="17" id="SIP-YZ-tny"/>
+                            <constraint firstItem="dtC-Nd-Vf5" firstAttribute="width" secondItem="u1d-w8-qvG" secondAttribute="width" multiplier="1/2" constant="-40" id="TrG-Hm-btL"/>
+                            <constraint firstItem="y0k-BE-mQ7" firstAttribute="leading" secondItem="dtC-Nd-Vf5" secondAttribute="trailing" constant="20" id="UUE-uV-IgS"/>
                             <constraint firstItem="l17-56-LcZ" firstAttribute="leading" secondItem="u1d-w8-qvG" secondAttribute="leading" constant="30" id="bAf-WA-AVN"/>
                             <constraint firstAttribute="trailing" secondItem="Kqb-sH-3Pm" secondAttribute="trailing" id="oPY-aV-cEF"/>
+                            <constraint firstItem="y0k-BE-mQ7" firstAttribute="top" secondItem="l17-56-LcZ" secondAttribute="bottom" constant="15" id="pzm-Uz-HIk"/>
+                            <constraint firstAttribute="bottom" secondItem="y0k-BE-mQ7" secondAttribute="bottom" constant="10" id="sDI-gr-lbq"/>
                             <constraint firstItem="Kqb-sH-3Pm" firstAttribute="top" secondItem="u1d-w8-qvG" secondAttribute="top" constant="5" id="vNt-aB-M99"/>
                             <constraint firstAttribute="trailing" secondItem="l17-56-LcZ" secondAttribute="trailing" constant="30" id="wXc-NL-37B"/>
                             <constraint firstItem="Y07-g2-Evr" firstAttribute="leading" secondItem="u1d-w8-qvG" secondAttribute="leading" constant="30" id="yBz-wf-EB5"/>
@@ -129,6 +143,7 @@
                 <outlet property="imgAvatar" destination="5GT-ob-YRc" id="RM0-gf-HyC"/>
                 <outlet property="imgShowMore" destination="Kqb-sH-3Pm" id="yeN-sb-G6N"/>
                 <outlet property="lbCoin" destination="dtC-Nd-Vf5" id="Z6t-p6-Epa"/>
+                <outlet property="lbCoinConvert" destination="y0k-BE-mQ7" id="bog-1R-QxI"/>
                 <outlet property="lbFullName" destination="Y07-g2-Evr" id="bAT-sr-r3n"/>
                 <outlet property="lbJob" destination="l17-56-LcZ" id="hqr-kj-Yh4"/>
                 <outlet property="pageView" destination="hZG-pH-tD3" id="jUU-Uh-83m"/>

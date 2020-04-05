@@ -203,16 +203,37 @@ class MapsViewController: BaseViewController {
     }
     
     @IBAction func touchBaseService(_ sender: Any) {
+        if isChooseBase {
+            self.btBaseService.backgroundColor = UIColor.FlatColor.Gray.BGColor
+            self.btBaseService.setTitleColor(UIColor.FlatColor.Blue.BGColor, for: .normal)
+        }else{
+            self.btBaseService.backgroundColor = UIColor.FlatColor.Blue.BGColor
+            self.btBaseService.setTitleColor(UIColor.FlatColor.Gray.BGColor, for: .normal)
+        }
         isChooseBase = !isChooseBase
         self.showProgressHub()
         self.getListAllService()
     }
     @IBAction func touchAuctionService(_ sender: Any) {
+        if isChooseAuction {
+            self.btAuctionService.backgroundColor = UIColor.FlatColor.Gray.BGColor
+            self.btAuctionService.setTitleColor(UIColor.FlatColor.Blue.BGColor, for: .normal)
+        }else{
+            self.btAuctionService.backgroundColor = UIColor.FlatColor.Blue.BGColor
+            self.btAuctionService.setTitleColor(UIColor.FlatColor.Gray.BGColor, for: .normal)
+        }
         isChooseAuction = !isChooseAuction
         self.showProgressHub()
         self.getListAllService()
     }
     @IBAction func touchEventService(_ sender: Any) {
+        if isChooseEvent {
+            self.btEventService.backgroundColor = UIColor.FlatColor.Gray.BGColor
+            self.btEventService.setTitleColor(UIColor.FlatColor.Blue.BGColor, for: .normal)
+        }else{
+            self.btEventService.backgroundColor = UIColor.FlatColor.Blue.BGColor
+            self.btEventService.setTitleColor(UIColor.FlatColor.Gray.BGColor, for: .normal)
+        }
         isChooseEvent = !isChooseEvent
         self.showProgressHub()
         self.getListAllService()

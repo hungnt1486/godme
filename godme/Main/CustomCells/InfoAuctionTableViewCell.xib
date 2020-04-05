@@ -115,9 +115,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="2.000.0000 Godcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-lf-KLx">
-                                <rect key="frame" x="93" y="38" width="217" height="18"/>
+                                <rect key="frame" x="93" y="38" width="132" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="jEh-nD-M7A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="đ&lt;-&gt;Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49j-GB-e2y">
+                                <rect key="frame" x="230" y="38" width="85" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="JBd-H5-kGp"/>
+                                    <constraint firstAttribute="height" constant="18" id="LtD-FO-e4n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -130,16 +140,18 @@
                             <constraint firstItem="OZc-Gp-lWw" firstAttribute="leading" secondItem="jZo-mc-1ww" secondAttribute="trailing" constant="5" id="4cS-Dh-rsy"/>
                             <constraint firstItem="2Ky-vE-UeO" firstAttribute="top" secondItem="1rM-6S-hov" secondAttribute="bottom" constant="20" id="5Ga-zG-fae"/>
                             <constraint firstItem="yur-2r-119" firstAttribute="leading" secondItem="zG3-11-ijM" secondAttribute="trailing" constant="5" id="6rg-Cc-l8T"/>
+                            <constraint firstItem="49j-GB-e2y" firstAttribute="top" secondItem="OZc-Gp-lWw" secondAttribute="bottom" constant="10" id="9sM-Ne-w6d"/>
                             <constraint firstItem="zG3-11-ijM" firstAttribute="top" secondItem="040-LZ-cXg" secondAttribute="bottom" constant="10" id="BtP-ZE-mcN"/>
                             <constraint firstItem="szR-FX-Q27" firstAttribute="top" secondItem="zG3-11-ijM" secondAttribute="bottom" constant="10" id="ECm-ey-ys4"/>
                             <constraint firstItem="zG3-11-ijM" firstAttribute="leading" secondItem="iej-9S-ozK" secondAttribute="leading" constant="20" id="EqM-a5-Ikr"/>
+                            <constraint firstAttribute="trailing" secondItem="49j-GB-e2y" secondAttribute="trailing" constant="5" id="FLK-9U-we3"/>
                             <constraint firstItem="DVi-VO-r1c" firstAttribute="leading" secondItem="szR-FX-Q27" secondAttribute="trailing" constant="5" id="G0K-qh-FMZ"/>
+                            <constraint firstItem="49j-GB-e2y" firstAttribute="leading" secondItem="1s9-lf-KLx" secondAttribute="trailing" constant="5" id="JQH-v4-rJs"/>
                             <constraint firstItem="OZc-Gp-lWw" firstAttribute="top" secondItem="iej-9S-ozK" secondAttribute="top" constant="10" id="KRc-nz-Kfw"/>
                             <constraint firstItem="2Ky-vE-UeO" firstAttribute="leading" secondItem="iej-9S-ozK" secondAttribute="leading" constant="80" id="Mqn-kZ-NsY"/>
                             <constraint firstAttribute="height" constant="230" id="NSI-OX-iM8"/>
                             <constraint firstAttribute="trailing" secondItem="2Ky-vE-UeO" secondAttribute="trailing" constant="80" id="P0J-ft-IMN"/>
                             <constraint firstAttribute="trailing" secondItem="DVi-VO-r1c" secondAttribute="trailing" constant="10" id="Sc7-F9-POJ"/>
-                            <constraint firstAttribute="trailing" secondItem="1s9-lf-KLx" secondAttribute="trailing" constant="10" id="TyQ-6d-sH6"/>
                             <constraint firstItem="040-LZ-cXg" firstAttribute="leading" secondItem="iej-9S-ozK" secondAttribute="leading" constant="20" id="eNJ-vP-xR2"/>
                             <constraint firstItem="1rM-6S-hov" firstAttribute="top" secondItem="szR-FX-Q27" secondAttribute="bottom" constant="15" id="ew3-7n-2vP"/>
                             <constraint firstItem="1s9-lf-KLx" firstAttribute="leading" secondItem="040-LZ-cXg" secondAttribute="trailing" constant="5" id="hUd-xw-B6H"/>
@@ -147,6 +159,7 @@
                             <constraint firstItem="szR-FX-Q27" firstAttribute="leading" secondItem="iej-9S-ozK" secondAttribute="leading" constant="20" id="mdM-FR-UaW"/>
                             <constraint firstItem="DVi-VO-r1c" firstAttribute="top" secondItem="yur-2r-119" secondAttribute="bottom" constant="10" id="mxe-V8-HsU"/>
                             <constraint firstAttribute="trailing" secondItem="OZc-Gp-lWw" secondAttribute="trailing" constant="10" id="oQZ-Da-cNT"/>
+                            <constraint firstItem="yur-2r-119" firstAttribute="top" secondItem="49j-GB-e2y" secondAttribute="bottom" constant="10" id="se0-Ch-FxH"/>
                             <constraint firstItem="040-LZ-cXg" firstAttribute="top" secondItem="jZo-mc-1ww" secondAttribute="bottom" constant="10" id="tYn-Q0-zlL"/>
                             <constraint firstItem="yur-2r-119" firstAttribute="top" secondItem="1s9-lf-KLx" secondAttribute="bottom" constant="10" id="vxF-oa-rXY"/>
                             <constraint firstItem="1rM-6S-hov" firstAttribute="centerX" secondItem="iej-9S-ozK" secondAttribute="centerX" id="vxU-mi-fqf"/>
@@ -167,6 +180,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btAuction" destination="2Ky-vE-UeO" id="eav-ks-6H4"/>
+                <outlet property="lbCoinConvert" destination="49j-GB-e2y" id="SwB-ik-qmb"/>
                 <outlet property="lbNumber" destination="yur-2r-119" id="LtG-aJ-nic"/>
                 <outlet property="lbPrice" destination="1s9-lf-KLx" id="7mr-8B-A0f"/>
                 <outlet property="lbStep" destination="jZo-mc-1ww" id="Nf3-eU-4F2"/>

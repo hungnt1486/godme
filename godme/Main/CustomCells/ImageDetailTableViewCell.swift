@@ -11,6 +11,7 @@ import SDWebImage
 
 protocol ImageDetailTableViewCellProtocol {
     func didShowMore()
+    func didCoinConvert()
 }
 
 class ImageDetailTableViewCell: UITableViewCell {
@@ -23,6 +24,7 @@ class ImageDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var lbFullName: UILabel!
     @IBOutlet weak var lbJob: UILabel!
     @IBOutlet weak var lbCoin: UILabel!
+    @IBOutlet weak var lbCoinConvert: UILabel!
     
     var delegate: ImageDetailTableViewCellProtocol?
     
@@ -36,6 +38,9 @@ class ImageDetailTableViewCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchShowMore))
         self.imgShowMore.isUserInteractionEnabled = true
         self.imgShowMore.addGestureRecognizer(tapGesture)
+        let tapConvert = UITapGestureRecognizer.init(target: self, action: #selector(touchConvert))
+        self.lbCoinConvert.isUserInteractionEnabled = true
+        self.lbCoinConvert.addGestureRecognizer(tapConvert)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,6 +56,10 @@ class ImageDetailTableViewCell: UITableViewCell {
     
     @objc func touchShowMore(){
         delegate?.didShowMore()
+    }
+    
+    @objc func touchConvert(){
+        delegate?.didCoinConvert()
     }
     
     func crollViewImage() {
