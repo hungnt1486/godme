@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
-import GoogleMaps
 
 protocol DateTableViewCellProtocol {
     func getDateText(_ str: String)

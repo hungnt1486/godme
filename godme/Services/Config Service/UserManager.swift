@@ -178,4 +178,40 @@ class UserManager{
             completion(SingleResult<HistoryModel>.handleResponse(response))
         }
     }
+    
+    func getUserInfo(completion: @escaping(ListResult<UserRegisterReturnModel>) -> Void){
+        Alamofire.request(URLs.getUserInfo, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getUserInfo = \(response)")
+            completion(ListResult<UserRegisterReturnModel>.handleResponse(response))
+        }
+    }
+    
+    func updateUserInfo(model: AddNewUserProfileParams, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = model.id
+        paramsBody["avatar"] = model.avatar
+        paramsBody["fullName"] = model.fullName
+        paramsBody["gender"] = model.gender
+        paramsBody["position"] = model.position
+        paramsBody["education"] = model.education
+        paramsBody["experience"] = model.experience
+        paramsBody["dob"] = model.dob
+        paramsBody["career"] = model.career
+        paramsBody["email"] = model.email
+        paramsBody["userInfo"] = model.userInfo
+        paramsBody["nationCode"] = model.nationCode
+        paramsBody["nationName"] = model.nationName
+        paramsBody["provinceCode"] = model.provinceCode
+        paramsBody["provinceName"] = model.provinceName
+        paramsBody["districtCode"] = model.districtCode
+        paramsBody["districtName"] = model.districtName
+        paramsBody["wardCode"] = model.wardCode
+        paramsBody["wardName"] = model.wardName
+        paramsBody["address"] = model.address
+        paramsBody["userCode"] = model.userCode
+        Alamofire.request(URLs.updateUserInfo, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("updateUserInfo = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
 }

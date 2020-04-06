@@ -59,6 +59,8 @@ struct URLs {
         static let getMyWallet = "api/mobile/wallet/getMyWallet"
         static let getListTransaction = "api/mobile/transaction/search"
         static let getListHistory = "api/mobile/order/transaction/getHistory"
+        static let getUserInfo = "api/mobile/user/getInfo"
+        static let updateUserInfo = "api/mobile/user/update"
         
     }
     
@@ -93,6 +95,12 @@ struct URLs {
     }
     static var getListHistory: String{
         return String(format: "%@%@", linkServer, Routes.getListHistory)
+    }
+    static var getUserInfo: String{
+        return String(format: "%@%@", linkServer, Routes.getUserInfo)
+    }
+    static var updateUserInfo: String{
+        return String(format: "%@%@", linkServer, Routes.updateUserInfo)
     }
     
     /// relationship

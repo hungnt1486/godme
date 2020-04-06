@@ -480,7 +480,7 @@ class Settings: NSObject {
         let jsonSex = "[{\"Name\":\"Nữ\",\"Id\":NU}, {\"Name\":\"Nam\",\"Id\":NAM}]"
         let json = JSON.init(jsonSex)
         var arrGender: [GenderModel] = []
-        for i in 0..<3 {
+        for i in 0..<2 {
             switch i {
             case 0:
                 let sexModel = GenderModel.init(json: json)
@@ -533,7 +533,7 @@ class Settings: NSObject {
         let arr = str.split(separator: "T")
         if arr.count > 0 {
             let arr1 = arr[0].split(separator: "-")
-            return "\(arr1[2])-\(arr1[1])-\(arr1[0])"
+            return "\(arr1[0])-\(arr1[1])-\(arr1[2])"
         }
         return ""
     }

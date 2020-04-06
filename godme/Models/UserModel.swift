@@ -80,6 +80,76 @@ class UserRegisterReturnModel: BaseModel {
     }
 }
 
+class UserProfileParamsModel {
+    var fullName = ""
+    var userCategory = ""
+    var email = ""
+    var gender = ""
+    var nationCode = ""
+    var nationName = ""
+    var provinceCode = ""
+    var provinceName = ""
+    var districtCode = ""
+    var districtName = ""
+    var wardCode = ""
+    var wardName = ""
+    var address = ""
+    var career = ""
+    var education = ""
+    var referralCode = ""
+    var limitReferralCode = 0
+    var userCode = ""
+    var avatar = ""
+    var position = ""
+    var experience = ""
+    var idNumber = 0
+    var phoneNumber = ""
+    var dob = ""
+    var userInfo = ""
+    var id = 0
+    var createdOn = 0.0
+    var createdBy = ""
+    var modifiedOn = 0.0
+    var createdByUserId = 0
+    var totalStar = 0.0
+    var isConnected = 0
+}
+
+struct AddNewUserProfileParams {
+    var fullName: String?
+    var userCategory: String?
+    var email: String?
+    var gender: String?
+    var nationCode: String?
+    var nationName: String?
+    var provinceCode: String?
+    var provinceName: String?
+    var districtCode: String?
+    var districtName: String?
+    var wardCode: String?
+    var wardName: String?
+    var address: String?
+    var career: String?
+    var education: String?
+    var referralCode: String?
+    var limitReferralCode: Int?
+    var userCode: String?
+    var avatar: String?
+    var position: String?
+    var experience: String?
+    var idNumber: Int?
+    var phoneNumber: String?
+    var dob: String?
+    var userInfo: String?
+    var id: Int?
+    var createdOn: Double?
+    var createdBy: String?
+    var modifiedOn: Double?
+    var createdByUserId: Int?
+    var totalStar: Float?
+    var isConnected: Int?
+}
+
 class UserLoginReturnModel: BaseModel{
     var access_token: String?
     var fullName: String?

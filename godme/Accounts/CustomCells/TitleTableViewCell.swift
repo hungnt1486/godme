@@ -23,6 +23,8 @@ import UIKit
     func getTextHelp(_ str: String, type: typeCellHelp)
     @objc optional
     func getTextPushNotification(_ str: String, type: typeCellPushNotification)
+    @objc optional
+    func getTextEditProfile(_ str: String, type: typeCellEditProfile)
 }
 
 class TitleTableViewCell: UITableViewCell {
@@ -54,6 +56,7 @@ class TitleTableViewCell: UITableViewCell {
         delegate?.getTextHelp?(self.tfInput.text ?? "", type: typeCellHelp(rawValue: self.tfInput.tag)!)
         delegate?.getTextPushNotification?(self.tfInput.text ?? "", type: typeCellPushNotification(rawValue: self.tfInput.tag)!)
         delegate?.getText?(self.tfInput.text ?? "")
+        delegate?.getTextEditProfile?(self.tfInput.text ?? "", type: typeCellEditProfile(rawValue: self.tfInput.tag)!)
     }
     
     func setupUI(){

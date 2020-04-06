@@ -9,8 +9,10 @@
 import UIKit
 import DropDown
 
-@objc protocol TypeCarTableViewCellProtocol {
-    func eventGetTextTypeCar(_ string: String, index: Int)
+protocol TypeCarTableViewCellProtocol {
+//    func eventGetTextTypeCar(_ string: String, index: Int)
+    
+    func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int)
     
 //    @objc optional
 //    func eventGetTextWithType(_ string: String, type: typeCellPost, index: Int)
@@ -33,36 +35,36 @@ class TypeCarTableViewCell: UITableViewCell {
     var TypeDropdown = DropDown()
     var delegate: TypeCarTableViewCellProtocol?
     
-    var arr = ["Bán xe", "Mua xe", "Cho thuê", "Cầm xe"]
+    var arr: [[String: String]] = []// ["Bán xe", "Mua xe", "Cho thuê", "Cầm xe"]
     var arrString = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.setupTypeDropdown()
+        DispatchQueue.main.async {
+            self.setupUI()
+        }
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showType))
         self.lbTypeCar.addGestureRecognizer(tapGesture)
         self.lbTypeCar.isUserInteractionEnabled = true
     }
     
+    func setupUI(){
+        self.lbTypeCar = Settings.ShareInstance.setupBTLabelView(v: self.lbTypeCar)
+    }
+    
     func setupTypeDropdown(){
         TypeDropdown.anchorView = self.lbTypeCar
         TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbTypeCar.bounds.height)
-//        for item in arr {
-//            arrString.append(item.Name!)
-//        }
+        for item in arr {
+            arrString.append(item["name"] ?? "")
+        }
         let typeDataSource = arrString
         TypeDropdown.dataSource = typeDataSource
         TypeDropdown.selectionAction = { [unowned self] (index, item) in
             self.lbTypeCar.text = item
-//            self.btChooseType.tag = index
-            self.delegate?.eventGetTextTypeCar(item, index: index)
-//            self.delegate?.eventGetTextWithType?(item, type: typeCellPost(rawValue: self.lbTypeCar.tag)!, index: index)
-//            self.delegate?.eventGetTextWithRealEstate?(item, type: typeCellRealEstate(rawValue: self.lbTypeCar.tag)!, index: index)
-//            self.delegate?.eventGetTextWithTour?(item, type: typeCellTour(rawValue: self.lbTypeCar.tag)!, index: index)
-//            self.delegate?.eventGetTextWithBeauty?(item, type: typeCellBeauty(rawValue: self.lbTypeCar.tag)!, index: index)
-//            self.delegate?.eventGetTextWithShop?(item, type: typeCellStore(rawValue: self.lbTypeCar.tag)!, index: index)
-//            self.delegate?.eventGetTextWithPromotion?(item, type: typeCellPromotion(rawValue: self.lbTypeCar.tag)!, index: index)
+            self.delegate?.eventGetTextEditProfile(item, type: typeCellEditProfile(rawValue: self.lbTypeCar.tag)!, index: index)
         }
     }
     

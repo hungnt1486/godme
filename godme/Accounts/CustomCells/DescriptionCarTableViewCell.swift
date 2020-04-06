@@ -12,6 +12,8 @@ import UIKit
     func getDescriptionText(_ string: String)
 //    @objc optional
 //    func getDescriptionText(_ string: String, type: typeCellTour)
+    @objc optional
+    func getDescriptionTextEditProfile(_ string: String, type: typeCellEditProfile)
 }
 
 class DescriptionCarTableViewCell: UITableViewCell {
@@ -43,6 +45,7 @@ class DescriptionCarTableViewCell: UITableViewCell {
 extension DescriptionCarTableViewCell: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         self.delegate?.getDescriptionText(textView.text)
+        self.delegate?.getDescriptionTextEditProfile?(textView.text, type: typeCellEditProfile(rawValue: self.textView.tag)!)
 //        self.delegate?.getDescriptionText?(textView.text, type: typeCellTour(rawValue: textView.tag)!)
     }
 }
