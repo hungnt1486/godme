@@ -46,6 +46,7 @@ class RelationshipsViewController: BaseViewController {
     
     @objc func touchLeft(){
         print("left")
+        self.editProfile()
     }
     
     @objc func touchRight(){

@@ -109,7 +109,7 @@ class MapsViewController: BaseViewController {
     }
     
     @objc func touchLeft(){
-        
+        self.editProfile()
     }
     
     @objc func touchRight(){

@@ -134,6 +134,11 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func editProfile(){
+        let editProfile = EditProfileViewController()
+        self.navigationController?.pushViewController(editProfile, animated: true)
+    }
+    
     func loginSuccess() -> Void {
         
         let accounts = AccountsViewController()

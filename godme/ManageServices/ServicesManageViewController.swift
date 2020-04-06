@@ -39,6 +39,7 @@ class ServicesManageViewController: BaseViewController {
     
     @objc func touchLeft(){
         print("left")
+        self.editProfile()
     }
 
     override func viewWillLayoutSubviews() {

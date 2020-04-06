@@ -214,7 +214,7 @@ class MainViewController: BaseViewController {
     }
     
     @objc func touchLeft(){
-        
+        self.editProfile()
     }
     
     @objc func touchRight(){

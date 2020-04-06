@@ -116,6 +116,8 @@
 		41286B7A2411DEF40021157C /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286B782411DEF40021157C /* AvatarTableViewCell.swift */; };
 		412CF31F2439C52B00064301 /* BankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412CF31D2439C52B00064301 /* BankTableViewCell.swift */; };
 		412CF3202439C52B00064301 /* BankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412CF31E2439C52B00064301 /* BankTableViewCell.xib */; };
+		412CF323243ABEFE00064301 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412CF321243ABEFE00064301 /* EditProfileViewController.swift */; };
+		412CF324243ABEFE00064301 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412CF322243ABEFE00064301 /* EditProfileViewController.xib */; };
 		4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */; };
 		4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */; };
 		4130D13E24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */; };
@@ -209,6 +211,8 @@
 		4170C43A2438D8CA004F400D /* EditGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C4382438D8CA004F400D /* EditGroupViewController.xib */; };
 		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
+		41AA8CC0243AC1E200BDF892 /* TypeCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */; };
+		41AA8CC1243AC1E200BDF892 /* TypeCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -442,6 +446,8 @@
 		41286B782411DEF40021157C /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		412CF31D2439C52B00064301 /* BankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankTableViewCell.swift; sourceTree = "<group>"; };
 		412CF31E2439C52B00064301 /* BankTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTableViewCell.xib; sourceTree = "<group>"; };
+		412CF321243ABEFE00064301 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		412CF322243ABEFE00064301 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewDatePicker1.xib; sourceTree = "<group>"; };
 		4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDatePicker1.swift; sourceTree = "<group>"; };
 		4130D13C24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueMyRelationShipViewController.swift; sourceTree = "<group>"; };
@@ -535,6 +541,8 @@
 		4170C4382438D8CA004F400D /* EditGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditGroupViewController.xib; sourceTree = "<group>"; };
 		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
+		41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCarTableViewCell.swift; sourceTree = "<group>"; };
+		41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeCarTableViewCell.xib; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -957,6 +965,8 @@
 				41286B6E2411DC1E0021157C /* CustomCells */,
 				41286B13241151210021157C /* AccountsViewController.swift */,
 				41286B14241151210021157C /* AccountsViewController.xib */,
+				412CF321243ABEFE00064301 /* EditProfileViewController.swift */,
+				412CF322243ABEFE00064301 /* EditProfileViewController.xib */,
 				41ADEAD6241E08D9002C95FA /* Services */,
 				4121FA3B24133A5800AF26D3 /* Finances */,
 			);
@@ -1044,6 +1054,8 @@
 		41286B6E2411DC1E0021157C /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */,
+				41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */,
 				412CF31D2439C52B00064301 /* BankTableViewCell.swift */,
 				412CF31E2439C52B00064301 /* BankTableViewCell.xib */,
 				41ADEAD2241E0885002C95FA /* DateTableViewCell.swift */,
@@ -1499,6 +1511,7 @@
 				E66F690A241B407000A0EC99 /* ListHiddenViewController.xib in Resources */,
 				41EACD0D242E1B00003A6962 /* MyBaseService2DetailTableViewCell.xib in Resources */,
 				41286B1124106CAC0021157C /* CompleteTableViewCell.xib in Resources */,
+				41AA8CC1243AC1E200BDF892 /* TypeCarTableViewCell.xib in Resources */,
 				410E67FB24149E4F00FA2F54 /* Main1TableViewCell.xib in Resources */,
 				41AD16C12413A8DF001E132E /* FollowMonthTableViewCell.xib in Resources */,
 				4121FA3F24133AC500AF26D3 /* FinanceViewController.xib in Resources */,
@@ -1537,6 +1550,7 @@
 				41AD16D22413FDC6001E132E /* ServicesInfoBookedViewController.xib in Resources */,
 				4150DA6E241B15B600F8A7E4 /* RobotoCondensed-LightItalic.ttf in Resources */,
 				415500232417F1D8006B189E /* ConfirmBasicServiceTableViewCell.xib in Resources */,
+				412CF324243ABEFE00064301 /* EditProfileViewController.xib in Resources */,
 				41286AF4240F73120021157C /* LoginViewController.xib in Resources */,
 				4155001F2417F10B006B189E /* ConfirmBasicServiceViewController.xib in Resources */,
 				41AD16A124135985001E132E /* WithDraw1TableViewCell.xib in Resources */,
@@ -1755,6 +1769,7 @@
 				413937642428A1570079C587 /* AWSS3Manager.swift in Sources */,
 				41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */,
 				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
+				412CF323243ABEFE00064301 /* EditProfileViewController.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
 				41F15EE8241E8B410031D066 /* NotificationsViewController.swift in Sources */,
 				4130D13E24346FE100DDC9D6 /* ContinueMyRelationShipViewController.swift in Sources */,
@@ -1827,6 +1842,7 @@
 				4155001E2417F10B006B189E /* ConfirmBasicServiceViewController.swift in Sources */,
 				415500452419B9C2006B189E /* SearchBarRelationShipTableViewCell.swift in Sources */,
 				4150DA7E241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift in Sources */,
+				41AA8CC0243AC1E200BDF892 /* TypeCarTableViewCell.swift in Sources */,
 				41AD16CD2413FD9E001E132E /* MyServicesViewController.swift in Sources */,
 				41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */,
 				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,
