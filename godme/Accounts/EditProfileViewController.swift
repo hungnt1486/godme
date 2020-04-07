@@ -39,7 +39,7 @@ class EditProfileViewController: BaseViewController {
     var cellImage: AvatarTableViewCell!
     var userInfo: UserRegisterReturnModel?
     var imagePicker = UIImagePickerController()
-    var imgAvatar = UIImage.init(named: "ic_account_active")
+    var imgAvatar = UIImage.init(named: "ic_avatar")
     var isUploadImg = false
     var userInfoModel = UserProfileParamsModel()
     
@@ -317,7 +317,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Avatar:
             cellImage = tableView.dequeueReusableCell(withIdentifier: "AvatarTableViewCell") as? AvatarTableViewCell
             if self.userInfoModel.avatar.count > 0 {
-                if imgAvatar?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_account_active")?.jpegData(compressionQuality: 0.5) {
+                if imgAvatar?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_avatar")?.jpegData(compressionQuality: 0.5) {
                     cellImage.imgAvatar.image = imgAvatar
                 }else{
                     cellImage.imgAvatar.sd_setImage(with: URL.init(string: self.userInfoModel.avatar), placeholderImage: imgAvatar, options: .lowPriority) { [unowned self] (img, error, nil, url) in
@@ -655,7 +655,7 @@ extension EditProfileViewController: TitleTableViewCellProtocol{
 
 extension EditProfileViewController: AvatarTableViewCellProtocol{
     func didCopy() {
-        UIPasteboard.general.string = "abcd"
+        UIPasteboard.general.string = "https://godme.org/register?refId=\(self.userInfoModel.id)"
         Toast.init(text: "Copy").show()
     }
     

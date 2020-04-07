@@ -88,7 +88,7 @@ class MainViewController: BaseViewController {
     }
     
     func getListBaseService(){
-        ManageServicesManager.shareManageServicesManager().getListBaseService(page: 1, pageSize: 1000) { [unowned self](response) in
+        ManageServicesManager.shareManageServicesManager().getListBaseService(page: 1, pageSize: 1000, sorts: [["field":"createdOn", "order": "desc"]]) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
@@ -107,7 +107,7 @@ class MainViewController: BaseViewController {
     }
     
     func getListAuctionService(){
-        ManageServicesManager.shareManageServicesManager().getListAuctionService { [unowned self](response) in
+        ManageServicesManager.shareManageServicesManager().getListAuctionService(page: 1, pageSize: 1000, sorts: [["field":"createdOn", "order": "desc"]], ge: [["field": "endTime", "value": "\(Int(Settings.ShareInstance.convertDateToTimeInterval(date: Date())))"]]) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
@@ -125,8 +125,8 @@ class MainViewController: BaseViewController {
         }
     }
     
-    func getListEventService(type: String = ""){
-        ManageServicesManager.shareManageServicesManager().getListEventService(type: type) { [unowned self](response) in
+    func getListEventService(){
+        ManageServicesManager.shareManageServicesManager().getListEventService(page: 1, pageSize: 1000, sorts: [["field":"createdOn", "order": "desc"]], ge: [["field": "endTime", "value": "\(Int(Settings.ShareInstance.convertDateToTimeInterval(date: Date())))"]]) { [unowned self](response) in
             switch response {
 
             case .success(let data):
@@ -336,26 +336,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        if indexPath.section == 0 {
-//            let model = listBaseService[indexPath.row]
-//            let detail = DetailBasicServiceViewController()
-//            detail.modelDetail = model
-//            self.navigationController?.pushViewController(detail, animated: true)
-//        }else if indexPath.section == 1 {
-//            let model = listAuction[indexPath.row]
-//            let detailAuction = DetailAuctionViewController()
-//            detailAuction.modelDetail = model
-//            self.navigationController?.pushViewController(detailAuction, animated: true)
-//        }else{
-//            let model = listEvents[indexPath.row]
-//            let detailEvent = DetailEventViewController()
-//            detailEvent.modelDetail = model
-//            self.navigationController?.pushViewController(detailEvent, animated: true)
-//        }
-//    }
 }
 
 extension MainViewController: MainTableViewCellProtocol{

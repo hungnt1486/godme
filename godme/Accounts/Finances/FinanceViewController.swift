@@ -278,10 +278,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let weeks = self.HistoryCurrentDate?.historyInWeek
             for item in weeks ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -291,10 +319,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.HistoryCurrentDate?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -310,6 +366,34 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
                 }
             }
             return cell
@@ -317,10 +401,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -330,10 +442,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -343,10 +483,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -356,10 +524,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -369,10 +565,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -382,10 +606,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -395,10 +647,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -408,10 +688,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -421,10 +729,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }
@@ -434,10 +770,38 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "EVENT" {
+                    if !isGodcoin {
+                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "AUCTION" {
+                    if !isGodcoin {
+                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else if item.serviceType == "CONNECT_USER" {
+                    if !isGodcoin {
+                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }else{
+                    if !isGodcoin {
+                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
                     }
                     break
                 }

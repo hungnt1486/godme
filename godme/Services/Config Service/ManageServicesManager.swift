@@ -16,11 +16,12 @@ class ManageServicesManager{
         return Static._shareManageServicesManager
     }
     
-    func getListBaseService(page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceModel>) -> Void){
+    func getListBaseService(page: Int, pageSize: Int, sorts: [[String: String]], completion: @escaping(ListResult<BaseServiceModel>) -> Void){
         var paramsBody = [String: Any]()
+        paramsBody["sorts"] = sorts
         paramsBody["page"] = page
         paramsBody["pageSize"] = pageSize
-        Alamofire.request(URLs.getListBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+        Alamofire.request(URLs.searchBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("getListBaseService = \(response)")
             completion(ListResult<BaseServiceModel>.handleResponse(response))
         }
@@ -114,8 +115,13 @@ class ManageServicesManager{
         }
     }
     
-    func getListAuctionService(completion: @escaping(ListResult<AuctionServiceModel>) -> Void){
-        Alamofire.request(URLs.getListAuctionService, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+    func getListAuctionService(page: Int, pageSize: Int, sorts: [[String: String]], ge: [[String: String]], completion: @escaping(ListResult<AuctionServiceModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        paramsBody["ge"] = ge
+        Alamofire.request(URLs.searchAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(ListResult<AuctionServiceModel>.handleResponse(response))
         }
@@ -185,10 +191,13 @@ class ManageServicesManager{
         }
     }
     
-    func getListEventService(type: String, completion: @escaping(ListResult<EventModel>) -> Void){
+    func getListEventService(page: Int, pageSize: Int, sorts: [[String: String]], ge: [[String: String]], completion: @escaping(ListResult<EventModel>) -> Void){
         var paramsBody = [String: Any]()
-        paramsBody["serviceType"] = type
-        Alamofire.request(URLs.getListEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        paramsBody["ge"] = ge
+        Alamofire.request(URLs.searchEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print(response)
             completion(ListResult<EventModel>.handleResponse(response))
         }

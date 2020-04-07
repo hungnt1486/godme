@@ -61,23 +61,12 @@ class BasicServiceViewController: BaseViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         currentPage = 1
-//        modelUserSearch.nationCode = "VN"
-//        modelUserSearch.provinceCode = ""
-//        modelUserSearch.districtCode = ""
-//        modelUserSearch.wardCode = ""
-//        modelUserSearch.fullName = ""
-//        modelUserSearch.education = ""
-//        modelUserSearch.gender = ""
-//        modelUserSearch.keyword = ""
-//        modelUserSearch.career = ""
-//        modelUserSearch.page = currentPage
-//        modelUserSearch.pageSize = pageSize
         self.getListBaseService()
         refreshControl.endRefreshing()
     }
     
     func getListBaseService(){
-        ManageServicesManager.shareManageServicesManager().getListBaseService(page: self.currentPage, pageSize: self.pageSize) { [unowned self](response) in
+        ManageServicesManager.shareManageServicesManager().getListBaseService(page: self.currentPage, pageSize: self.pageSize,  sorts: [["field":"createdOn", "order": "desc"]]) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
@@ -143,7 +132,6 @@ extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource
         if isLoadMore {
             if indexPath.row == listBaseService.count - 3 {
                 currentPage = currentPage + 1
-//                modelUserSearch.page = currentPage
                 self.getListBaseService()
             }
         }

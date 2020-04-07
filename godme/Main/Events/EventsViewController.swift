@@ -12,6 +12,20 @@ class EventsViewController: BaseViewController {
 
     @IBOutlet weak var tbvEvents: UITableView!
     var listEvents: [EventModel] = []
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.gray
+        
+        return refreshControl
+    }()
+    var isLoadMore: Bool = true
+    var currentPage: Int = 1
+    var pageSize: Int = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,14 +54,29 @@ class EventsViewController: BaseViewController {
         self.tbvEvents.separatorInset = UIEdgeInsets.zero
         self.tbvEvents.estimatedRowHeight = 300
         self.tbvEvents.rowHeight = UITableView.automaticDimension
+        self.tbvEvents.addSubview(refreshControl)
     }
     
-    func getListEventService(type: String = ""){
-        ManageServicesManager.shareManageServicesManager().getListEventService(type: type) { [unowned self](response) in
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        currentPage = 1
+        self.getListEventService()
+        refreshControl.endRefreshing()
+    }
+    
+    func getListEventService(){
+        ManageServicesManager.shareManageServicesManager().getListEventService(page: currentPage, pageSize: pageSize, sorts: [["field":"createdOn", "order": "desc"]], ge: [["field": "endTime", "value": "\(Int(Settings.ShareInstance.convertDateToTimeInterval(date: Date())))"]]) { [unowned self](response) in
             switch response {
 
             case .success(let data):
                 self.hideProgressHub()
+                if self.currentPage == 1 {
+                    self.isLoadMore = true
+                    self.listEvents.removeAll()
+                    self.listEvents = [EventModel]()
+                }
+                if data.count < self.pageSize {
+                    self.isLoadMore = false
+                }
                 for model in data {
                     self.listEvents.append(model)
                 }
@@ -99,5 +128,13 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.pushViewController(detail, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isLoadMore {
+            if indexPath.row == listEvents.count - 3 {
+                currentPage = currentPage + 1
+                self.getListEventService()
+            }
+        }
+    }
     
 }

@@ -141,7 +141,6 @@
 		413937642428A1570079C587 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937632428A1570079C587 /* AWSS3Manager.swift */; };
 		413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937A5242B65020079C587 /* Title1TableViewCell.xib */; };
 		413937A8242B65020079C587 /* Title1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937A6242B65020079C587 /* Title1TableViewCell.swift */; };
-		413937AA242C5E070079C587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 413937A9242C5E060079C587 /* GoogleService-Info.plist */; };
 		413937AD242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937AB242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift */; };
 		413937AE242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937AC242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib */; };
 		413937B1242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937AF242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib */; };
@@ -217,6 +216,7 @@
 		41AA8CC5243B722800BDF892 /* ViewShowListCheckBoxJob.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */; };
 		41AA8CC8243B75B300BDF892 /* JobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */; };
 		41AA8CC9243B75B300BDF892 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */; };
+		41AA8CCD243C86E200BDF892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -475,7 +475,6 @@
 		413937632428A1570079C587 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
 		413937A5242B65020079C587 /* Title1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Title1TableViewCell.xib; sourceTree = "<group>"; };
 		413937A6242B65020079C587 /* Title1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title1TableViewCell.swift; sourceTree = "<group>"; };
-		413937A9242C5E060079C587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		413937AB242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBaseServiceDetailTableViewCell.swift; sourceTree = "<group>"; };
 		413937AC242DD0FC0079C587 /* MyBaseServiceDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBaseServiceDetailTableViewCell.xib; sourceTree = "<group>"; };
 		413937AF242DD3890079C587 /* MyBaseService1DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBaseService1DetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -551,6 +550,7 @@
 		41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewShowListCheckBoxJob.xib; sourceTree = "<group>"; };
 		41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobTableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
+		41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -1311,7 +1311,7 @@
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
 				41132992241684450089DD18 /* Localizable.strings */,
 				E6500C7A2408BAB1001E023D /* Info.plist */,
-				413937A9242C5E060079C587 /* GoogleService-Info.plist */,
+				41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */,
 				E6500C742408BAB1001E023D /* Preview Content */,
 			);
 			path = godme;
@@ -1550,6 +1550,7 @@
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
 				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
 				411329BF2416A6160089DD18 /* InfoDetailTableViewCell.xib in Resources */,
+				41AA8CCD243C86E200BDF892 /* GoogleService-Info.plist in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
@@ -1579,7 +1580,6 @@
 				4150DA6C241B15B600F8A7E4 /* RobotoCondensed-Italic.ttf in Resources */,
 				41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */,
 				4150DA66241B15B600F8A7E4 /* Roboto-Medium.ttf in Resources */,
-				413937AA242C5E070079C587 /* GoogleService-Info.plist in Resources */,
 				41EACD21242F9CE2003A6962 /* MyGroupRelationShipExpandViewController.xib in Resources */,
 				415500392419B2D2006B189E /* SearchBarDetailViewController.xib in Resources */,
 				41ADEAF1241E4BA5002C95FA /* StartEndTimeTableViewCell.xib in Resources */,

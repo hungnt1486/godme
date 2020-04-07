@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 //import NDParallaxIntroView
 
 class IntroduceViewController: UIViewController {
@@ -42,6 +43,15 @@ class IntroduceViewController: UIViewController {
         DispatchQueue.main.async {
             self.setupUI()
         }
+        
+//        PhoneAuthProvider.provider().verifyPhoneNumber("+84909301378", uiDelegate: nil) { (verificationID, error) in
+//          if let error = error {
+//            Settings.ShareInstance.showAlertView(message: error.localizedDescription, vc: self)
+//            return
+//          }
+//          // Sign in using the verificationID and the code sent to the user
+//          // ...
+//        }
         
 //        var date = Date(timeIntervalSince1970: 1415639000.67457)
 //        let dateFormatter = DateFormatter()

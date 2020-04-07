@@ -63,13 +63,11 @@ extension Main2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        if indexPath.section == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main2CollectionViewCell",
                                                       for: indexPath) as! Main2CollectionViewCell
         cell.btJoin.tag = indexPath.row
         cell.delegate = self
         let model = listEvents[indexPath.row]
-//        cell.lbName.text = model.title
         let images = model.images
         let arrImgage = images?.split(separator: ",")
         var linkImg = ""

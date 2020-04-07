@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         GMSServices.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
         GMSPlacesClient.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
         // init AWS
         self.initializeS3()
         self.checkLogin()

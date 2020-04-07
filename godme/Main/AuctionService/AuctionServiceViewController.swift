@@ -13,6 +13,20 @@ class AuctionServiceViewController: BaseViewController {
 
     @IBOutlet weak var tbvAuctionService: UITableView!
     var listAuction:[AuctionServiceModel] = []
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.gray
+        
+        return refreshControl
+    }()
+    var isLoadMore: Bool = true
+    var currentPage: Int = 1
+    var pageSize: Int = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,14 +55,29 @@ class AuctionServiceViewController: BaseViewController {
         self.tbvAuctionService.separatorInset = UIEdgeInsets.zero
         self.tbvAuctionService.estimatedRowHeight = 300
         self.tbvAuctionService.rowHeight = UITableView.automaticDimension
+        self.tbvAuctionService.addSubview(refreshControl)
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        currentPage = 1
+        self.getListAuctionService()
+        refreshControl.endRefreshing()
     }
     
     func getListAuctionService(){
-        ManageServicesManager.shareManageServicesManager().getListAuctionService { [unowned self](response) in
+        ManageServicesManager.shareManageServicesManager().getListAuctionService(page: currentPage, pageSize: pageSize, sorts: [["field":"createdOn", "order": "desc"]], ge: [["field": "endTime", "value": "\(Int(Settings.ShareInstance.convertDateToTimeInterval(date: Date())))"]]) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
+                if self.currentPage == 1 {
+                    self.isLoadMore = true
+                    self.listAuction.removeAll()
+                    self.listAuction = [AuctionServiceModel]()
+                }
+                if data.count < self.pageSize {
+                    self.isLoadMore = false
+                }
                 for model in data {
                     self.listAuction.append(model)
                 }
@@ -97,5 +126,13 @@ extension AuctionServiceViewController: UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(detail, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if isLoadMore {
+            if indexPath.row == listAuction.count - 3 {
+                currentPage = currentPage + 1
+                self.getListAuctionService()
+            }
+        }
+    }
     
 }
