@@ -94,6 +94,9 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
         if section == 0 {
             return 1
         }
+        if listOrderBaseServiceDetail.count == 0 {
+            return 1
+        }
         return listOrderBaseServiceDetail.count
     }
     

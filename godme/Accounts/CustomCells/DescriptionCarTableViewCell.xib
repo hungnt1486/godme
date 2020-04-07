@@ -17,12 +17,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7L-Ge-625">
-                        <rect key="frame" x="20" y="15" width="31.5" height="14.5"/>
+                        <rect key="frame" x="20" y="15" width="31.5" height="20.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-iA-y7P">
-                        <rect key="frame" x="20" y="37.5" width="280" height="100"/>
+                        <rect key="frame" x="20" y="43.5" width="280" height="100"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="edC-0r-XwP"/>
@@ -33,13 +33,23 @@
                             <outlet property="delegate" destination="-1" id="dZ1-3r-AS7"/>
                         </connections>
                     </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQ4-Xp-LNM">
+                        <rect key="frame" x="20" y="148.5" width="280" height="0.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="ad9-Wy-WyV"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="KQ4-Xp-LNM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3uU-hx-15B"/>
                     <constraint firstItem="G7L-Ge-625" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Aff-26-9o9"/>
+                    <constraint firstItem="KQ4-Xp-LNM" firstAttribute="top" secondItem="vbi-iA-y7P" secondAttribute="bottom" constant="5" id="CvQ-uU-dg6"/>
                     <constraint firstAttribute="trailing" secondItem="vbi-iA-y7P" secondAttribute="trailing" constant="20" id="GZx-CR-B7h"/>
+                    <constraint firstAttribute="bottom" secondItem="KQ4-Xp-LNM" secondAttribute="bottom" id="Gcq-Ub-HNn"/>
+                    <constraint firstAttribute="trailing" secondItem="KQ4-Xp-LNM" secondAttribute="trailing" constant="20" id="P7h-60-HEr"/>
                     <constraint firstItem="G7L-Ge-625" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Zvq-b2-2NN"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vbi-iA-y7P" secondAttribute="bottom" constant="5" id="gjo-gl-cDX"/>
                     <constraint firstItem="vbi-iA-y7P" firstAttribute="top" secondItem="G7L-Ge-625" secondAttribute="bottom" constant="8" id="hXn-aJ-q5q"/>
                     <constraint firstItem="vbi-iA-y7P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="wW6-eY-HXr"/>
                 </constraints>

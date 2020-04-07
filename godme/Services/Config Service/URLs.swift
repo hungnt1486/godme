@@ -9,8 +9,8 @@
 struct URLs {
     // for test
     static let linkServer = "http://45.117.169.99:8888/godme-service/"
-    // for live https://godme.vn:8443
-//    static let linkServer = "https://godme.vn/"
+    // for live http://13.229.146.11:8080/ //https://godme.vn:8443
+//    static let linkServer = "http://13.229.146.11:8080/godme-service/"
     private struct Routes{
         static let login = "api/v1/auth/login"
         static let changePassword = "api/v1/auth/changePassword"

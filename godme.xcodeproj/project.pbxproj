@@ -213,6 +213,10 @@
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
 		41AA8CC0243AC1E200BDF892 /* TypeCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */; };
 		41AA8CC1243AC1E200BDF892 /* TypeCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */; };
+		41AA8CC4243B722800BDF892 /* ViewShowListCheckBoxJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CC2243B722800BDF892 /* ViewShowListCheckBoxJob.swift */; };
+		41AA8CC5243B722800BDF892 /* ViewShowListCheckBoxJob.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */; };
+		41AA8CC8243B75B300BDF892 /* JobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */; };
+		41AA8CC9243B75B300BDF892 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -543,6 +547,10 @@
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
 		41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCarTableViewCell.swift; sourceTree = "<group>"; };
 		41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeCarTableViewCell.xib; sourceTree = "<group>"; };
+		41AA8CC2243B722800BDF892 /* ViewShowListCheckBoxJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShowListCheckBoxJob.swift; sourceTree = "<group>"; };
+		41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewShowListCheckBoxJob.xib; sourceTree = "<group>"; };
+		41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobTableViewCell.xib; sourceTree = "<group>"; };
+		41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -877,6 +885,8 @@
 		41286AE1240F3EE70021157C /* LibSettings */ = {
 			isa = PBXGroup;
 			children = (
+				41AA8CC2243B722800BDF892 /* ViewShowListCheckBoxJob.swift */,
+				41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */,
 				4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */,
 				4130D13824342F4F00DDC9D6 /* ViewDatePicker1.xib */,
 				41E06084243334A300E1942D /* ViewShowListCheckBox.swift */,
@@ -1054,6 +1064,8 @@
 		41286B6E2411DC1E0021157C /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */,
+				41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */,
 				41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */,
 				41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */,
 				412CF31D2439C52B00064301 /* BankTableViewCell.swift */,
@@ -1473,6 +1485,7 @@
 				4150DA73241B15B600F8A7E4 /* Roboto-Italic.ttf in Resources */,
 				410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */,
 				41ADEAD5241E0885002C95FA /* DateTableViewCell.xib in Resources */,
+				41AA8CC5243B722800BDF892 /* ViewShowListCheckBoxJob.xib in Resources */,
 				411329A524168CB60089DD18 /* AuctionServicesTableViewCell.xib in Resources */,
 				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
 				E66F6902241B404B00A0EC99 /* MyRelationShipViewController.xib in Resources */,
@@ -1578,6 +1591,7 @@
 				4121FA272412920A00AF26D3 /* IntroView.xib in Resources */,
 				410F1AEE2431893400841231 /* DefaultTableViewCell.xib in Resources */,
 				4155003024194164006B189E /* SearchBarTableViewCell.xib in Resources */,
+				41AA8CC8243B75B300BDF892 /* JobTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1719,6 +1733,7 @@
 				41ADEADC241E326A002C95FA /* MapPickerViewController.swift in Sources */,
 				41ADEACD241E0685002C95FA /* DescriptionCarTableViewCell.swift in Sources */,
 				41AD16B0241399BF001E132E /* HistoryLabelTableViewCell.swift in Sources */,
+				41AA8CC4243B722800BDF892 /* ViewShowListCheckBoxJob.swift in Sources */,
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
 				411329CE24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift in Sources */,
 				41ADEAC4241E03B7002C95FA /* TitleTableViewCell.swift in Sources */,
@@ -1802,6 +1817,7 @@
 				4150DA7A241B15E800F8A7E4 /* VImageStarsOranges.swift in Sources */,
 				41ADEAF6241E505D002C95FA /* CreateCollaborateViewController.swift in Sources */,
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
+				41AA8CC9243B75B300BDF892 /* JobTableViewCell.swift in Sources */,
 				E6B490B3241F724000D206A1 /* UserModel.swift in Sources */,
 				411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */,
 				41AD16C82413FC31001E132E /* ViewPagerTab.swift in Sources */,

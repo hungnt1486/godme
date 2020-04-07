@@ -189,6 +189,7 @@ class UserManager{
     func updateUserInfo(model: AddNewUserProfileParams, completion: @escaping(SingleResult<BaseModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["id"] = model.id
+        paramsBody["idNumber"] = model.idNumber
         paramsBody["avatar"] = model.avatar
         paramsBody["fullName"] = model.fullName
         paramsBody["gender"] = model.gender

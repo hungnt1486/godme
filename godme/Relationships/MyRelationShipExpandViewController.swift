@@ -128,6 +128,7 @@ class MyRelationShipExpandViewController: BaseViewController {
     
     @IBAction func touchFind(_ sender: Any) {
         self.showProgressHub()
+        self.currentPage = 1
         self.getListRelationShipExpandFilter()
     }
     

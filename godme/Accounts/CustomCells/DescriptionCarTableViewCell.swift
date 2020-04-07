@@ -37,7 +37,7 @@ class DescriptionCarTableViewCell: UITableViewCell {
     }
     
     func setupUI(){
-        self.textView = Settings.ShareInstance.setupBTTextView(v: self.textView)
+//        self.textView = Settings.ShareInstance.setupBTTextView(v: self.textView)
     }
     
 }

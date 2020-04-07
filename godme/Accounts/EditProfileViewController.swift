@@ -39,6 +39,7 @@ class EditProfileViewController: BaseViewController {
     var userInfo: UserRegisterReturnModel?
     var imagePicker = UIImagePickerController()
     var imgAvatar = UIImage.init(named: "ic_account_active")
+    var isUploadImg = false
     var userInfoModel = UserProfileParamsModel()
     
     var arrayProvince: [[String: String]] = []
@@ -54,6 +55,7 @@ class EditProfileViewController: BaseViewController {
     var cellDate: DateTableViewCell!
     
     var vDatePicker: ViewDatePicker1!
+    var vCheckBox: ViewShowListCheckBoxJob!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +92,7 @@ class EditProfileViewController: BaseViewController {
         self.tbvEditProfile.register(UINib(nibName: "ContentTableViewCell", bundle: nil), forCellReuseIdentifier: "ContentTableViewCell")
         self.tbvEditProfile.register(UINib(nibName: "DescriptionCarTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCarTableViewCell")
         self.tbvEditProfile.register(UINib(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTableViewCell")
+        self.tbvEditProfile.register(UINib(nibName: "JobTableViewCell", bundle: nil), forCellReuseIdentifier: "JobTableViewCell")
         self.tbvEditProfile.delegate = self
         self.tbvEditProfile.dataSource = self
         self.tbvEditProfile.separatorColor = UIColor.clear
@@ -173,6 +176,23 @@ class EditProfileViewController: BaseViewController {
         self.present(alertControl, animated: true, completion: nil)
     }
     
+    func setupVCheckBox(){
+        if vCheckBox == nil {
+            vCheckBox = ViewShowListCheckBoxJob.instanceFromNib()
+            let arr = self.userInfoModel.career.split(separator: ",")
+            var arrTemp:[Int] = []
+            for item in arr {
+                
+                arrTemp.append(Int(String(item)) ?? 0)
+            }
+            vCheckBox.listId = arrTemp
+            vCheckBox.tag = 10
+            self.view.window?.addSubview(vCheckBox)
+            vCheckBox.delegate = self
+            self.vCheckBox.configFrame()
+        }
+    }
+    
     func getUserInfo(){
         UserManager.shareUserManager().getUserInfo {[unowned self] (response) in
             switch response {
@@ -188,7 +208,7 @@ class EditProfileViewController: BaseViewController {
                 self.userInfoModel.createdOn = self.userInfo?.createdOn ?? 0.0
                 self.userInfoModel.districtCode = self.userInfo?.districtCode ?? "0"
                 self.userInfoModel.districtName = self.userInfo?.districtName ?? ""
-                self.userInfoModel.dob = self.userInfo?.dob ?? ""
+                self.userInfoModel.dob = Settings.ShareInstance.convertDOB(str: self.userInfo?.dob ?? "")
                 self.userInfoModel.education = self.userInfo?.education ?? ""
                 self.userInfoModel.email = self.userInfo?.email ?? ""
                 self.userInfoModel.experience = self.userInfo?.experience ?? ""
@@ -224,7 +244,7 @@ class EditProfileViewController: BaseViewController {
     
     func updateProfile(){
         let group = DispatchGroup()
-        if cellImage.imgAvatar.image != nil {
+        if self.isUploadImg {
             group.enter()
             AWSS3Manager.shared.uploadImage(image: cellImage.imgAvatar.image!, progress: nil) { [unowned self] (fileURL, error) in
                 
@@ -241,6 +261,7 @@ class EditProfileViewController: BaseViewController {
         group.notify(queue: DispatchQueue.global(qos: .background)) {
             var model = AddNewUserProfileParams()
             model.id = self.userInfoModel.id
+            model.idNumber = self.userInfoModel.idNumber
             model.avatar = self.userInfoModel.avatar
             model.fullName = self.userInfoModel.fullName
             model.gender = self.userInfoModel.gender
@@ -364,7 +385,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             cell.delegate = self
             return cell
         case .Job:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "JobTableViewCell") as! JobTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTitle.text = "Ngành nghề"
             cell.lbTypeCar.tag = indexPath.row
@@ -385,19 +406,14 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
                 }
                 cell.lbTypeCar.text = strCareer
             }
-            
             cell.delegate = self
-            if cell.arr.count == 0 {
-                cell.arr = self.arrayJobs
-                cell.setupTypeDropdown()
-            }
             return cell
         case .DOB:
             cellDate = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell") as? DateTableViewCell
             cellDate.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cellDate.lbTitle.text = "Ngày sinh"
             cellDate.lbTypeCar.tag = indexPath.row
-            cellDate.lbTypeCar.text = Settings.ShareInstance.convertDOB(str: userInfoModel.dob)
+            cellDate.lbTypeCar.text = userInfoModel.dob
             cellDate.delegate = self
             return cellDate
         case .National:
@@ -478,7 +494,12 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             return cell
         case .RealText:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell") as! ContentTableViewCell
-            
+            let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Red.TextColor]
+            let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+            let attr1 = NSMutableAttributedString(string: "Không được phép nhập thông tin liên hệ cá nhân vào mô tả. ", attributes: attrs1 as [NSAttributedString.Key : Any])
+            let attr2 = NSMutableAttributedString(string: "Khuyến nghị sử dụng thông tin thật vì lợi ích tài chính người dùng", attributes: attrs2 as [NSAttributedString.Key : Any])
+            attr1.append(attr2)
+            cell.lbText.attributedText = attr1
             return cell
         case .Confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
@@ -691,6 +712,7 @@ extension EditProfileViewController: DescriptionCarTableViewCellProtocol{
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.imagePicker.dismiss(animated: true) {
+            self.isUploadImg = true
             self.imgAvatar = info[.editedImage] as? UIImage
             let indexPath = NSIndexPath(row: 0, section: 0)
             self.tbvEditProfile.reloadRows(at: [indexPath as IndexPath], with: .none)
@@ -742,4 +764,43 @@ extension EditProfileViewController: DateTableViewCellProtocol{
     }
     
     
+}
+
+extension EditProfileViewController: ViewShowListCheckBoxJobProtocol{
+    func tapDone(_ list: [Int]) {
+        if list.count == 0 {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn nhóm quan hệ", vc: self)
+            return
+        }
+        var str: String = ""
+        for i in 0..<list.count {
+            if str.count == 0 {
+                str = "\(list[i])"
+            }else{
+                str = "\(str),\(list[i])"
+            }
+        }
+        self.userInfoModel.career = str
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+        self.tbvEditProfile.reloadData()
+    }
+    
+    func tapCancelJob() {
+//        self.listUserId.removeAll()
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+    }
+    
+    func tapGestureJob() {
+//        self.listUserId.removeAll()
+        vCheckBox.viewWithTag(10)?.removeFromSuperview()
+        vCheckBox = nil
+    }
+}
+
+extension EditProfileViewController: JobTableViewCellProtocol{
+    func showPopup() {
+        self.setupVCheckBox()
+    }
 }

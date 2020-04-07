@@ -137,6 +137,7 @@ class MyRelationShipViewController: BaseViewController {
     
     @IBAction func touchFind(_ sender: Any) {
         self.showProgressHub()
+        self.currentPage = 1
         self.getListRelationShipFilter()
     }
     
@@ -251,6 +252,8 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
         }
         let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
+            let help = HelpViewController()
+            self.navigationController?.pushViewController(help, animated: true)
         }
         let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)

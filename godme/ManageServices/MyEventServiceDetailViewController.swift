@@ -77,6 +77,9 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
         if section == 0 {
             return 1
         }
+        if listOrderEventServiceDetail.count == 0 {
+            return 1
+        }
         return listOrderEventServiceDetail.count
     }
     
