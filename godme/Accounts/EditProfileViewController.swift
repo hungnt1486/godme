@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Toaster
 
 @objc enum typeCellEditProfile: Int{
     case Avatar = 0
@@ -328,6 +329,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             }else {
                 cellImage.imgAvatar.image = imgAvatar
             }
+            cellImage.lbCode.text = "Mã giới thiệu: \(userInfoModel.userCode)"
             cellImage.delegate = self
             return cellImage
         case .FullName:
@@ -652,6 +654,11 @@ extension EditProfileViewController: TitleTableViewCellProtocol{
 }
 
 extension EditProfileViewController: AvatarTableViewCellProtocol{
+    func didCopy() {
+        UIPasteboard.general.string = "abcd"
+        Toast.init(text: "Copy").show()
+    }
+    
     func didImg() {
         self.chooseAvatar()
     }

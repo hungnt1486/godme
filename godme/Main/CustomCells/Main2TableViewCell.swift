@@ -86,6 +86,7 @@ extension Main2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
         cell.lbNumberRegister.text = "Số người đã đăng ký: \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
 //        cell.lbTitleDetail.text = model.userInfo?.userCategory
         cell.lbTitle.text = model.title
+        cell.lbFee.text = "Phí tham dự: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         return cell
         
     }

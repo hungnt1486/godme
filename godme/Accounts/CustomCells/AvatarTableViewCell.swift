@@ -10,11 +10,14 @@ import UIKit
 
 protocol AvatarTableViewCellProtocol {
     func didImg()
+    func didCopy()
 }
 
 class AvatarTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var lbCode: UILabel!
+    @IBOutlet weak var lbCopy: UILabel!
     var delegate: AvatarTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,10 +28,18 @@ class AvatarTableViewCell: UITableViewCell {
         imgAvatar.layer.cornerRadius = self.imgAvatar.frame.height/2
         imgAvatar.layer.borderWidth = 0
         imgAvatar.clipsToBounds = true
+        self.lbCopy.text = "Sao chép Affiliate"
+        let tapcopy = UITapGestureRecognizer.init(target: self, action: #selector(touchCopy))
+        self.lbCopy.isUserInteractionEnabled = true
+        self.lbCopy.addGestureRecognizer(tapcopy)
     }
     
     @objc func touchImg(){
         delegate?.didImg()
+    }
+    
+    @objc func touchCopy(){
+        delegate?.didCopy()
     }
     
     func didUpdateImg(img: UIImage){

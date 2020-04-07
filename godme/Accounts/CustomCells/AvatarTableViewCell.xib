@@ -10,6 +10,9 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -42,8 +45,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="fzP-2E-hfe"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -63,6 +66,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgAvatar" destination="FLi-mL-Cdr" id="71G-lw-N7c"/>
+                <outlet property="lbCode" destination="4lp-5W-1gd" id="dTJ-Uw-jVd"/>
+                <outlet property="lbCopy" destination="D9e-lh-tc2" id="nfL-Q6-Lmz"/>
             </connections>
             <point key="canvasLocation" x="-39.130434782608695" y="114.50892857142857"/>
         </tableViewCell>
