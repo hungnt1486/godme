@@ -10,6 +10,16 @@ import UIKit
 
 class FollowTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lbTitleConnect: UILabel!
+    @IBOutlet weak var lbConnect: UILabel!
+    @IBOutlet weak var lbTitleRelationShip: UILabel!
+    @IBOutlet weak var lbRelationShip: UILabel!
+    @IBOutlet weak var lbTitleService: UILabel!
+    @IBOutlet weak var lbService: UILabel!
+    @IBOutlet weak var lbTitleAuction: UILabel!
+    @IBOutlet weak var lbAuction: UILabel!
+    @IBOutlet weak var lbTitleEvent: UILabel!
+    @IBOutlet weak var lbEvent: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

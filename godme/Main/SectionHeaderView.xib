@@ -58,6 +58,7 @@
             <connections>
                 <outlet property="imageView" destination="diD-fa-6dA" id="OBL-GN-Flg"/>
                 <outlet property="lbTitle" destination="WzL-Ho-Mwo" id="1cH-IN-C8j"/>
+                <outlet property="vSub" destination="ur3-jR-pmv" id="1bl-wD-suP"/>
             </connections>
             <point key="canvasLocation" x="30" y="-152"/>
         </view>

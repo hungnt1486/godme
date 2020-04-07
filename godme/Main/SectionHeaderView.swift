@@ -16,6 +16,7 @@ class SectionHeaderView: UITableViewHeaderFooterView, CollapseSectionHeader {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var vSub: UIView!
     
     var indicatorImageView: UIImageView {
         return imageView

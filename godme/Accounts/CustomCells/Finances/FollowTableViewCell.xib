@@ -29,7 +29,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-2y-b0P">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-2y-b0P">
                         <rect key="frame" x="210" y="30" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="rdr-tb-JL2"/>
@@ -49,7 +49,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-Pz-zOK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-Pz-zOK">
                         <rect key="frame" x="210" y="5" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="rlP-eD-dkn"/>
@@ -67,7 +67,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azu-Ew-3dJ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azu-Ew-3dJ">
                         <rect key="frame" x="210" y="80" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="sEm-d8-Rco"/>
@@ -86,7 +86,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3C-Gt-UcK">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3C-Gt-UcK">
                         <rect key="frame" x="210" y="105" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="0vM-sA-T36"/>
@@ -105,7 +105,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DY-wR-aud">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Godcoin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DY-wR-aud">
                         <rect key="frame" x="210" y="55" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="n3p-QS-RSG"/>
@@ -147,6 +147,18 @@
                     <constraint firstAttribute="trailing" secondItem="3DY-wR-aud" secondAttribute="trailing" constant="10" id="zgt-bl-41C"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lbAuction" destination="azu-Ew-3dJ" id="uZn-03-dlm"/>
+                <outlet property="lbConnect" destination="6a6-Pz-zOK" id="YQ2-js-1RL"/>
+                <outlet property="lbEvent" destination="Z3C-Gt-UcK" id="mZw-Fu-HES"/>
+                <outlet property="lbRelationShip" destination="Eeb-2y-b0P" id="Keo-uT-1y6"/>
+                <outlet property="lbService" destination="3DY-wR-aud" id="U0X-Y4-Xxe"/>
+                <outlet property="lbTitleAuction" destination="JNu-YI-2bJ" id="3Gq-Zh-I3y"/>
+                <outlet property="lbTitleConnect" destination="rfo-Q0-UNk" id="AaZ-tY-UbG"/>
+                <outlet property="lbTitleEvent" destination="F2e-O6-HTK" id="pKy-RN-oFW"/>
+                <outlet property="lbTitleRelationShip" destination="Zed-MG-7vY" id="mK8-kW-5kf"/>
+                <outlet property="lbTitleService" destination="Ij7-HJ-exy" id="R1f-3z-4V6"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
         </tableViewCell>
     </objects>

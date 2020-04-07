@@ -27,24 +27,69 @@ class FinanceViewController: BaseViewController {
     @IBOutlet weak var lbHistory: UILabel!
     var myWallet: MyWalletModel?
     @IBOutlet weak var tbvFollow: CollapseTableView!
+    var listMonthYear: [String] = []
+    var History:HistoryModel?
+    var HistoryCurrentDate:HistoryModel?
+    var strCurrentDate: String = ""
+    var sectionIndexOpen: Int = -1
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/yyyy"
+        let date = Date.init()
+        strCurrentDate = formatter.string(from: date)
+        let arr = strCurrentDate.split(separator: "/")
+        let month = Int(String(arr[0]))
+        let year = Int(String(arr[1]))
+        for i in 1..<12 {
+            
+            if (month! - i) <= 0{
+                print(month! - i + 12)
+                self.listMonthYear.append("\(month! - i + 12)/\(year! - 1)")
+            }else{
+                print(month! - i)
+                self.listMonthYear.append("\(month! - i)/\(year!)")
+            }
+        }
+        print(self.listMonthYear)
+        
 
         // Do any additional setup after loading the view.
         self.showProgressHub()
         self.setupUI()
         self.setupTableview()
         
-        self.tbvFollow.didTapSectionHeaderView = { (sectionIndex, isOpen) in
-            debugPrint("sectionIndex \(sectionIndex), isOpen \(isOpen)")
+        self.tbvFollow.didTapSectionHeaderView = {[unowned self] (sectionIndex, isOpen) in
+//            debugPrint("sectionIndex \(sectionIndex), isOpen \(isOpen)")
+
+            if sectionIndex >= 2 {
+                if self.sectionIndexOpen != -1 {
+                    self.tbvFollow.closeSection(self.sectionIndexOpen, animated: false)
+                    self.sectionIndexOpen = sectionIndex
+                }else{
+                    self.sectionIndexOpen = sectionIndex
+                }
+                let str = self.listMonthYear[sectionIndex - 2]
+                let arr = str.split(separator: "/")
+                let month = Int(String(arr[0]))
+                let year = Int(String(arr[1]))
+                self.getListHistory(month: month!, year: year!)
+            }else{
+                let arr = self.strCurrentDate.split(separator: "/")
+                let month = Int(String(arr[0]))
+                let year = Int(String(arr[1]))
+                self.getListHistory(month: month!, year: year!, isCurrentDate: true)
+            }
         }
         reloadTableView { [unowned self] in
             self.tbvFollow.openSection(0, animated: true)
+            self.tbvFollow.openSection(1, animated: true)
         }
         
         self.configButtonBack()
         self.getMyWallet()
-        self.getListHistory()
+        self.getListHistory(month: month!, year: year!, isCurrentDate: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +136,7 @@ class FinanceViewController: BaseViewController {
         }else{
             self.lbCoin.text = "\(Double(myWallet?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         }
+        self.tbvFollow.reloadData()
     }
     
     func getMyWallet(){
@@ -125,12 +171,18 @@ class FinanceViewController: BaseViewController {
         self.navigationController?.pushViewController(history, animated: true)
     }
     
-    func getListHistory(){
-        UserManager.shareUserManager().getListHistory(month: 3, year: 2020) {[unowned self] (response) in
+    func getListHistory(month: Int, year: Int, isCurrentDate: Bool = false){
+        UserManager.shareUserManager().getListHistory(month: month, year: year) {[unowned self] (response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
+                if isCurrentDate {
+                    self.HistoryCurrentDate = data
+                }else {
+                    self.History = data
+                }
+                self.tbvFollow.reloadData()
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -139,6 +191,8 @@ class FinanceViewController: BaseViewController {
             }
         }
     }
+    
+    
 }
 
 extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
@@ -147,21 +201,56 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return self.listMonthYear.count + 2
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as! SectionHeaderView
+        view.vSub.backgroundColor = UIColor.white
         if section == 0 {
+            view.vSub.backgroundColor = UIColor.FlatColor.Gray.BGColor
             view.lbTitle.text = "Tuần này"
         } else if section == 1 {
+            view.vSub.backgroundColor = UIColor.FlatColor.Gray.BGColor
             view.lbTitle.text = "Tháng này"
-        } else if section == 2 {
-            view.lbTitle.text = "3/2020"
-        } else if section == 3 {
-            view.lbTitle.text = "2/2020"
-        } else if section == 4 {
-            view.lbTitle.text = "1/2020"
+        } else if section >= 2 {
+            switch (section - 2) {
+            case 0:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 1:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 2:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 3:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 4:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 5:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 6:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 7:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 8:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 9:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            case 10:
+                view.lbTitle.text = self.listMonthYear[section - 2]
+                break
+            default:
+                break
+            }
         }
         return view
     }
@@ -175,20 +264,193 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+        cell.lbService.text = "0 Godcoin"
+        cell.lbAuction.text = "0 Godcoin"
+        cell.lbEvent.text = "0 Godcoin"
+        cell.lbRelationShip.text = "0 Godcoin"
+        cell.lbConnect.text = "0 Godcoin"
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            let weeks = self.HistoryCurrentDate?.historyInWeek
+            for item in weeks ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
             return cell
-        }else if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+        }else if indexPath.section == 1 {
+            let months = self.HistoryCurrentDate?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
             return cell
-        }else if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+        }else if indexPath.section == 2 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
             return cell
-        }else if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+        }else if indexPath.section == 3 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 4 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 5 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 6 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 7 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 8 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 9 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 10 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
+            return cell
+        }else if indexPath.section == 11 {
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
+            let months = self.History?.historyInMonth
+            for item in months ?? [] {
+                if item.serviceType == "BASIC" {
+                    cell.lbService.text = item.totalAmount
+                    if (cell.lbService.text?.contains("Godcoin"))! {
+                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                    }else{
+                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                    }
+                    break
+                }
+            }
             return cell
         }
     }
