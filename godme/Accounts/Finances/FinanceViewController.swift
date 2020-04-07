@@ -32,6 +32,7 @@ class FinanceViewController: BaseViewController {
     var HistoryCurrentDate:HistoryModel?
     var strCurrentDate: String = ""
     var sectionIndexOpen: Int = -1
+    var isGodcoin = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,9 +65,11 @@ class FinanceViewController: BaseViewController {
 //            debugPrint("sectionIndex \(sectionIndex), isOpen \(isOpen)")
 
             if sectionIndex >= 2 {
-                if self.sectionIndexOpen != -1 {
-                    self.tbvFollow.closeSection(self.sectionIndexOpen, animated: false)
-                    self.sectionIndexOpen = sectionIndex
+                if self.sectionIndexOpen != -1  {
+                    if self.sectionIndexOpen != sectionIndex {
+                        self.tbvFollow.closeSection(self.sectionIndexOpen, animated: false)
+                        self.sectionIndexOpen = sectionIndex
+                    }
                 }else{
                     self.sectionIndexOpen = sectionIndex
                 }
@@ -131,6 +134,7 @@ class FinanceViewController: BaseViewController {
     }
     
     @objc func touchRight(){
+        isGodcoin = !isGodcoin
         if (self.lbCoin.text?.contains("Godcoin"))! {
             self.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(myWallet?.amount ?? "0") ?? 0)*1000)")
         }else{
@@ -274,7 +278,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let weeks = self.HistoryCurrentDate?.historyInWeek
             for item in weeks ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -288,7 +291,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.HistoryCurrentDate?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -302,8 +304,7 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
-                    if (cell.lbService.text?.contains("Godcoin"))! {
+                    if !isGodcoin {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
                         cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
@@ -316,7 +317,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -330,7 +330,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -344,7 +343,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -358,7 +356,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -372,7 +369,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -386,7 +382,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -400,7 +395,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -414,7 +408,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -428,7 +421,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
@@ -442,7 +434,6 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
             let months = self.History?.historyInMonth
             for item in months ?? [] {
                 if item.serviceType == "BASIC" {
-                    cell.lbService.text = item.totalAmount
                     if (cell.lbService.text?.contains("Godcoin"))! {
                         cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
                     }else{
