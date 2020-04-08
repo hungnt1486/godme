@@ -655,7 +655,7 @@ extension EditProfileViewController: TitleTableViewCellProtocol{
 
 extension EditProfileViewController: AvatarTableViewCellProtocol{
     func didCopy() {
-        UIPasteboard.general.string = "https://godme.org/register?refId=\(self.userInfoModel.id)"
+        UIPasteboard.general.string = "\(URLs.linkWebRefference)refId=\(self.userInfoModel.id)"
         Toast.init(text: "Copy").show()
     }
     

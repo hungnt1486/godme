@@ -20,6 +20,7 @@ class MainViewController: BaseViewController {
     var listEvents: [EventModel] = []
     var listCollaboration: [CollaborationModel] = []
     var listBlogs: [BlogModel] = []
+    var listCharity: [BlogModel] = []
     var walletCharity: WalletCharityModel?
     var headerMain: HeaderMain?
     
@@ -39,6 +40,7 @@ class MainViewController: BaseViewController {
         self.getListEventService()
         self.getListCollaborationService()
         self.getListBlogs()
+        self.getListCharity()
         self.getAmountCharity()
         self.getListJobsMain()
         self.getListGroupRelationShip()
@@ -144,8 +146,8 @@ class MainViewController: BaseViewController {
         }
     }
     
-    func getListCollaborationService(type: String = "", content: String = ""){
-        ManageServicesManager.shareManageServicesManager().getListCollaborationService(type: type, content: content) { [unowned self](response) in
+    func getListCollaborationService(){
+        ManageServicesManager.shareManageServicesManager().getListCollaborationService(page: 1, pageSize: 1000, sorts: [["field":"createdOn", "order": "desc"]]) { [unowned self](response) in
             switch response {
 
             case .success(let data):
@@ -203,6 +205,25 @@ class MainViewController: BaseViewController {
         }
     }
     
+    func getListCharity(){
+        ManageServicesManager.shareManageServicesManager().getListCharityService { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listCharity.append(model)
+                }
+                self.tbvMain.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
     func setupUI(){
         let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .done, target: self, action: #selector(touchLeft))
         self.navigationItem.leftBarButtonItem = left
@@ -228,6 +249,7 @@ class MainViewController: BaseViewController {
         self.tbvMain.register(UINib(nibName: "Main2TableViewCell", bundle: nil), forCellReuseIdentifier: "Main2TableViewCell")
         self.tbvMain.register(UINib(nibName: "Main3TableViewCell", bundle: nil), forCellReuseIdentifier: "Main3TableViewCell")
         self.tbvMain.register(UINib(nibName: "Main4TableViewCell", bundle: nil), forCellReuseIdentifier: "Main4TableViewCell")
+        self.tbvMain.register(UINib(nibName: "Main6TableViewCell", bundle: nil), forCellReuseIdentifier: "Main6TableViewCell")
         self.tbvMain.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
 
         self.tbvMain.delegate = self
@@ -319,8 +341,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
         else if indexPath.section == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main4TableViewCell") as! Main4TableViewCell
             cell.delegate = self
+            cell.listBlogs = self.listCharity
+            cell.collectionView.reloadData()
             return cell
         }
         else if indexPath.section == 5 {
@@ -329,7 +353,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Main4TableViewCell") as! Main4TableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main6TableViewCell") as! Main6TableViewCell
             cell.delegate = self
             cell.listBlogs = self.listBlogs
             cell.collectionView.reloadData()
@@ -372,16 +396,27 @@ extension MainViewController: Main2TableViewCellProtocol{
 extension MainViewController: Main3TableViewCellProtocol{
     func didCellMain3(index: Int) {
         print("index3 = ", index)
-        let detailEvent = DetailEventViewController()
-        self.navigationController?.pushViewController(detailEvent, animated: true)
+        let model = self.listCollaboration[index]
+        let str = "\(model.title ?? "") \(model.id ?? 0)"
+        Settings.ShareInstance.openWebsite(link: "\(URLs.linkWebCollaboration)\(str.convertedToSlug() ?? "")")
     }
 }
 
 extension MainViewController: Main4TableViewCellProtocol{
     func didCellMain4(index: Int) {
         print("index4 = ", index)
-        let detailEvent = DetailEventViewController()
-        self.navigationController?.pushViewController(detailEvent, animated: true)
+        let model = self.listCharity[index]
+        let str = "\(model.title ?? "") \(model.id ?? 0)"
+        Settings.ShareInstance.openWebsite(link: "\(URLs.linkwebBlog)\(str.convertedToSlug() ?? "")")
+    }
+}
+
+extension MainViewController: Main6TableViewCellProtocol{
+    func didCellMain6(index: Int) {
+        print("index4 = ", index)
+        let model = self.listBlogs[index]
+        let str = "\(model.title ?? "") \(model.id ?? 0)"
+        Settings.ShareInstance.openWebsite(link: "\(URLs.linkwebBlog)\(str.convertedToSlug() ?? "")")
     }
 }
 

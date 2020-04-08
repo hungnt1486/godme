@@ -217,6 +217,8 @@
 		41AA8CC8243B75B300BDF892 /* JobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */; };
 		41AA8CC9243B75B300BDF892 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */; };
 		41AA8CCD243C86E200BDF892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */; };
+		41AA8CD0243D664C00BDF892 /* Main6TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */; };
+		41AA8CD1243D664D00BDF892 /* Main6TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -551,6 +553,8 @@
 		41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobTableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main6TableViewCell.swift; sourceTree = "<group>"; };
+		41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main6TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -751,6 +755,8 @@
 				413937532425C6140079C587 /* Main4CollectionViewCell.xib */,
 				413937522425C6140079C587 /* Main4TableViewCell.swift */,
 				413937552425C6140079C587 /* Main4TableViewCell.xib */,
+				41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */,
+				41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */,
 				410F1AEB2431893400841231 /* DefaultTableViewCell.swift */,
 				410F1AEC2431893400841231 /* DefaultTableViewCell.xib */,
 			);
@@ -1546,6 +1552,7 @@
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
 				413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */,
 				4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */,
+				41AA8CD1243D664D00BDF892 /* Main6TableViewCell.xib in Resources */,
 				41ADEAD0241E075B002C95FA /* AddressPostCarTableViewCell.xib in Resources */,
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
 				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
@@ -1808,6 +1815,7 @@
 				411329CA24171CAA0089DD18 /* DetailAuctionViewController.swift in Sources */,
 				4139375C2425C6140079C587 /* Main3TableViewCell.swift in Sources */,
 				411329BA2416A3380089DD18 /* TimeAddressTableViewCell.swift in Sources */,
+				41AA8CD0243D664C00BDF892 /* Main6TableViewCell.swift in Sources */,
 				41AD16B424139CCF001E132E /* HistoryViewController.swift in Sources */,
 				411329C724171C3A0089DD18 /* DetailEventViewController.swift in Sources */,
 				4113298C2415552C0089DD18 /* Main2TableViewCell.swift in Sources */,

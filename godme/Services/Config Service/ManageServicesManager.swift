@@ -267,10 +267,11 @@ class ManageServicesManager{
         }
     }
     
-    func getListCollaborationService(type: String, content: String, completion: @escaping(ListResult<CollaborationModel>) -> Void){
+    func getListCollaborationService(page: Int, pageSize: Int, sorts: [[String: String]], completion: @escaping(ListResult<CollaborationModel>) -> Void){
         var paramsBody = [String: Any]()
-        paramsBody["serviceType"] = type
-        paramsBody["content"] = content
+        paramsBody["sorts"] = sorts
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
         Alamofire.request(URLs.getListCollaborationService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("getListCollaborationService = \(response)")
             completion(ListResult<CollaborationModel>.handleResponse(response))
@@ -292,10 +293,22 @@ class ManageServicesManager{
         }
     }
     
-    func getListBlogsService(limit: Int = 10, sort: [[String: String]] = [["field" : "createdOn"], ["order" : "desc"]], completion:@escaping(ListResult<BlogModel>)->Void){
+    func getListCharityService(page: Int = 1, pageSize: Int = 1000, or: [[String: String]] = [["field" : "tags", "value":"QUY-TU-THIEN"], ["field":"tags","value":"CHARITY"]], completion:@escaping(ListResult<BlogModel>)->Void){
         var paramsBody = [String: Any]()
-        paramsBody["limit"] = limit
-        paramsBody["sort"] = sort
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        paramsBody["or"] = or
+        Alamofire.request(URLs.getListBlogs, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListCharityService = \(response)")
+            completion(ListResult<BlogModel>.handleResponse(response))
+        }
+    }
+    
+    func getListBlogsService(page: Int = 1, pageSize: Int = 1000, or: [[String: String]] = [["field" : "tags", "value":"BLOG"], ["field":"tags","value":"BAI-VIET"]], completion:@escaping(ListResult<BlogModel>)->Void){
+        var paramsBody = [String: Any]()
+        paramsBody["page"] = page
+        paramsBody["pageSize"] = pageSize
+        paramsBody["or"] = or
         Alamofire.request(URLs.getListBlogs, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("getListBlogsService = \(response)")
             completion(ListResult<BlogModel>.handleResponse(response))

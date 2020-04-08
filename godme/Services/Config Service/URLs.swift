@@ -7,6 +7,9 @@
 //
 
 struct URLs {
+    static let linkWebRefference = "https://godme.org/register?"
+    static let linkWebCollaboration = "https://godme.org/services/coop/view/"
+    static let linkwebBlog = "https://godme.org/article/"
     // for test
     static let linkServer = "http://45.117.169.99:8888/godme-service/"
     // for live http://13.229.146.11:8080/ //https://godme.vn:8443
@@ -43,7 +46,7 @@ struct URLs {
         static let createEventService = "api/mobile/service/event/save"
         static let searchEventService = "api/mobile/service/event/search"
         static let searchOrderEventService = "api/mobile/order/event/search"
-        static let getListCollaborationService = "api/mobile/service/cooperation/getListService"
+        static let getListCollaborationService = "api/mobile/service/cooperation/search"
         static let createCollaborationService = "api/mobile/service/cooperation/save"
         static let getAmountCharity = "api/mobile/wallet/getAmountCharity"
         static let getListBlogs = "api/web/article/search"

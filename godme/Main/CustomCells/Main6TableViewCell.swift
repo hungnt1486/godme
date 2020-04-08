@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol Main3TableViewCellProtocol {
-    func didCellMain3(index: Int)
+protocol Main6TableViewCellProtocol {
+    func didCellMain6(index: Int)
 }
 
-class Main3TableViewCell: UITableViewCell {
+class Main6TableViewCell: UITableViewCell {
 
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var flowLayout = UICollectionViewFlowLayout()
-    var delegate: Main3TableViewCellProtocol?
-    var listCollaboration: [CollaborationModel] = []
+    var delegate: Main6TableViewCellProtocol?
+    var listBlogs: [BlogModel] = []
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,7 +45,7 @@ class Main3TableViewCell: UITableViewCell {
         collectionView.delegate = self
         
         collectionView.dataSource = self
-        self.collectionView.register(UINib.init(nibName: "Main3CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main3CollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "Main4CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main4CollectionViewCell")
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 290)
         self.collectionView.collectionViewLayout = flowLayout
@@ -53,9 +53,9 @@ class Main3TableViewCell: UITableViewCell {
     
 }
 
-extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+extension Main6TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listCollaboration.count
+        return listBlogs.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -64,27 +64,26 @@ extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //        if indexPath.section == 0 {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main3CollectionViewCell",
-                                                      for: indexPath) as! Main3CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main4CollectionViewCell",
+                                                      for: indexPath) as! Main4CollectionViewCell
         cell.btJoin.tag = indexPath.row
         cell.delegate = self
-        let model = listCollaboration[indexPath.row]
-//        cell.lbName.text = model.title
-        cell.imgAvatar.sd_setImage(with: URL.init(string: model.images ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
+        let model = listBlogs[indexPath.row]
+        cell.lbTitle.text = model.title
+        cell.imgAvatar.sd_setImage(with: URL.init(string: model.image ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = model.userInfo?.address
+//        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
 //        cell.lbTitleDetail.text = model.userInfo?.userCategory
-        cell.lbTitle.text = model.title
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //            delegate?.didEvent(index: indexPath.row)
-        delegate?.didCellMain3(index: indexPath.row)
+        delegate?.didCellMain6(index: indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -98,8 +97,8 @@ extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension Main3TableViewCell: Main3CollectionViewCellProtocol{
-    func didJoin3(index: Int) {
+extension Main6TableViewCell: Main4CollectionViewCellProtocol{
+    func didJoin4(index: Int) {
         print("index join = ", index)
     }
     
