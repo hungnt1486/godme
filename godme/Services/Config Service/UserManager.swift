@@ -215,4 +215,31 @@ class UserManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func registerUser(model: AddNewRegisterParams, completion: @escaping(SingleResult<BaseModel>)-> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["username"] = model.username
+        paramsBody["password"] = model.password
+        paramsBody["fullName"] = model.fullName
+        paramsBody["email"] = model.email
+        paramsBody["gender"] = model.gender
+        paramsBody["nationCode"] = model.nationCode
+        paramsBody["nationName"] = model.nationName
+        paramsBody["provinceCode"] = model.provinceCode
+        paramsBody["provinceName"] = model.provinceName
+        paramsBody["districtCode"] = model.districtCode
+        paramsBody["districtName"] = model.districtName
+        paramsBody["wardCode"] = model.wardCode
+        paramsBody["wardName"] = model.wardName
+        paramsBody["dob"] = model.dob
+        paramsBody["career"] = model.career
+        paramsBody["address"] = model.address
+        paramsBody["education"] = model.education
+        paramsBody["codeOTP"] = model.codeOTP
+        paramsBody["referralCode"] = model.referralCode
+        Alamofire.request(URLs.register, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("registerUser = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
 }

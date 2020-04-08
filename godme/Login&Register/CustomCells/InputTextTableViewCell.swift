@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol InputTextTableViewCellProtocol {
     @objc optional
-    func getTextInput(_ string: String)
+    func getTextInput(_ string: String, type: typeCellRegister)
 }
 
 class InputTextTableViewCell: UITableViewCell {
@@ -34,7 +34,7 @@ class InputTextTableViewCell: UITableViewCell {
     }
     
     @objc func getPriceText(string: String){
-        delegate?.getTextInput?(string)
+        delegate?.getTextInput?(string, type: typeCellRegister(rawValue: self.tfText.tag)!)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

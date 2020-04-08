@@ -219,6 +219,7 @@
 		41AA8CCD243C86E200BDF892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */; };
 		41AA8CD0243D664C00BDF892 /* Main6TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */; };
 		41AA8CD1243D664D00BDF892 /* Main6TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */; };
+		41AA8CD3243D9E9200BDF892 /* OTPPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -555,6 +556,7 @@
 		41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main6TableViewCell.swift; sourceTree = "<group>"; };
 		41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main6TableViewCell.xib; sourceTree = "<group>"; };
+		41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPPhone.swift; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -891,6 +893,7 @@
 		41286AE1240F3EE70021157C /* LibSettings */ = {
 			isa = PBXGroup;
 			children = (
+				41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */,
 				41AA8CC2243B722800BDF892 /* ViewShowListCheckBoxJob.swift */,
 				41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */,
 				4130D13924342F5000DDC9D6 /* ViewDatePicker1.swift */,
@@ -1617,7 +1620,6 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlertViewBuilder/AlertViewBuilder.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
@@ -1638,7 +1640,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertViewBuilder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
@@ -1688,6 +1689,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-godme/Pods-godme-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -1695,6 +1698,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
@@ -1776,6 +1781,7 @@
 				411329972416888C0089DD18 /* BasicServicesTableViewCell.swift in Sources */,
 				41EACD24242FAD4B003A6962 /* MyGroupRelationShipTableViewCell.swift in Sources */,
 				41AD16A8241359CB001E132E /* WithDrawButtonTableViewCell.swift in Sources */,
+				41AA8CD3243D9E9200BDF892 /* OTPPhone.swift in Sources */,
 				E60FA99824246BEB00A45AFF /* EventModel.swift in Sources */,
 				41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */,
 				415500382419B2D2006B189E /* SearchBarDetailViewController.swift in Sources */,

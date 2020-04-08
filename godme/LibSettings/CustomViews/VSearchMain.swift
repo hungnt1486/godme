@@ -289,7 +289,7 @@ extension VSearchMain: ComboboxTableViewCellProtocol{
             break
         case .Ward:
             let code = self.arrayWard[index]["code"]
-            self.strJob = code
+            self.strWard = code
             break
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class LoginViewController: BaseViewController {
 
@@ -16,11 +17,14 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var btLogin: UIButton!
     @IBOutlet weak var lbRegister: UILabel!
     var status = ""
+    var type = 0
+    var alertController = UIAlertController()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        self.getListJobsMain()
         self.configButtonBack()
     }
     
@@ -100,11 +104,90 @@ class LoginViewController: BaseViewController {
     @objc func touchRegister(){
         let register = RegisterViewController()
         self.navigationController?.pushViewController(register, animated: true)
+//        self.type = 1
+//        let otpPhone = OTPPhone(target: self)
+//        otpPhone.signInPhone(phone: "")
     }
     
     @IBAction func touchLogin(_ sender: Any) {
         self.showProgressHub()
         self.touchLogin()
 //        self.loginSuccess()
+    }
+}
+
+extension LoginViewController: FUIAuthDelegate {
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        if error == nil {
+            let phoneNumber = user?.phoneNumber
+            // for case forgot password
+            if self.type == 0 {
+                if let phoneNum = phoneNumber?.replacingOccurrences(of: "+84", with: "0"), !phoneNum.isEmpty{
+                    self.dismiss(animated: true, completion: nil)
+//                    self.configProgressUploadAndGetInfor(uiView: self.view)
+//                    BaseViewController.spinner.startAnimating()
+//                    let password = self.alertController.textFields![1] as UITextField
+//                    UserManager.shareUserManager().userResetPassword(Phone: phoneNum, Password: password.text ?? "") { (response) in
+//                        switch response {
+//
+//                        case .success(let data):
+//                            self.stopProgressUploadAndGetInfor()
+//                            Singleton.shared.showAlertView(message: "Chúc mừng bạn đã tạo mật khẩu mới thành công", vc: self) { [unowned self] (nil) in
+//                                Singleton.shared.setDictUser(data: data)
+//
+//                                let model = Singleton.shared.getDictUser()
+//                                BaseViewController.accessToken = model.Token ?? ""
+//                                UserManager.shareUserManager().autoLogin { (response) in
+//                                    switch response {
+//
+//                                    case .success(let data):
+//                                        self.stopProgressUploadAndGetInfor()
+//                                        data.Udid = Singleton.shared.getUDIDString()
+//                                        Singleton.shared.setDictUser(data: data)
+//                                        self.loginSuccess()
+//                                        break
+//                                    case .failure(let message):
+//                                        self.stopProgressUploadAndGetInfor()
+//                                        Singleton.shared.showAlertView(message: message, vc: self)
+//                                        break
+//                                    }
+//                                }
+//                            }
+//                            break
+//                        case .failure(let message):
+//                            BaseViewController.spinner.stopAnimating()
+//                            Singleton.shared.showAlertView(message: message, vc: self)
+//                            break
+//                        }
+//                    }
+                }
+            }else {
+                if !(phoneNumber?.isEmpty ?? true){
+                    self.dismiss(animated: true, completion: nil)
+                    let register = RegisterViewController()
+                    register.phoneNumber = phoneNumber ?? ""
+                    self.navigationController?.pushViewController(register, animated: true)
+//                    UserManager.shareUserManager().registerUser(UserName: "", Phone: phoneNum, FullName: self.tfFullName.text ?? "", Password: self.tfPassword.text ?? "", Language: "vi") { [unowned self] (response) in
+//                        switch response {
+//
+//
+//                        case .success(let data):
+//                            self.stopProgressUploadAndGetInfor()
+//                            Singleton.shared.showAlertView(message: "Chúc mừng bạn đã đăng ký thành công", vc: self) { [unowned self] (nil) in
+//                                data.Udid = Singleton.shared.getUDIDString()
+//                                Singleton.shared.setDictUser(data: data)
+//                                self.loginSuccess()
+//                            }
+//                            break
+//                        case .failure(let error):
+//                            self.stopProgressUploadAndGetInfor()
+//                            Singleton.shared.showAlertView(message: error, vc: self)
+//                            break
+//                        }
+//                    }
+                }
+            }
+        }
     }
 }

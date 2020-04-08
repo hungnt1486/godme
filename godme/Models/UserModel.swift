@@ -362,3 +362,48 @@ class userSearchParamsModel {
     var page = 1
     var pageSize = 10
 }
+
+class RegisterParamsModel{
+    var username = ""
+    var password = ""
+    var passwordConfirm = ""
+    var fullName = ""
+    var email = ""
+    var gender = ""
+    var nationCode = ""
+    var nationName = ""
+    var provinceCode = ""
+    var provinceName = ""
+    var districtCode = ""
+    var districtName = ""
+    var wardCode = ""
+    var wardName = ""
+    var address = ""
+    var career = ""
+    var dob = ""
+    var education = ""
+    var codeOTP = ""
+    var referralCode = ""
+}
+
+struct AddNewRegisterParams {
+    var username: String?
+    var password: String?
+    var fullName: String?
+    var email: String?
+    var gender: String?
+    var nationCode: String?
+    var nationName: String?
+    var provinceCode: String?
+    var provinceName: String?
+    var districtCode: String?
+    var districtName: String?
+    var wardCode: String?
+    var wardName: String?
+    var address: String?
+    var career: String?
+    var dob: String?
+    var education: String?
+    var codeOTP: String?
+    var referralCode: String?
+}

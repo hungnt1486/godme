@@ -28,14 +28,15 @@ import Toaster
     case Experience = 14
     case Intro = 15
     case Code = 16
-    case RealText = 17
-    case Confirm = 18
+    case ConnectValue = 17
+    case RealText = 18
+    case Confirm = 19
 }
 
 class EditProfileViewController: BaseViewController {
 
     @IBOutlet weak var tbvEditProfile: UITableView!
-    var listTypeCell: [typeCellEditProfile] = [.Avatar, .FullName, .Gender, .Education, .Position, .SocialSecurity, .Job, .DOB, .National, .City, .District, .Ward, .Address, .Email, .Experience, .Intro, .Code, .RealText, .Confirm]
+    var listTypeCell: [typeCellEditProfile] = [.Avatar, .FullName, .Gender, .Education, .Position, .SocialSecurity, .Job, .DOB, .National, .City, .District, .Ward, .Address, .Email, .Experience, .Intro, .Code, .ConnectValue, .RealText, .Confirm]
     var cellImage: AvatarTableViewCell!
     var userInfo: UserRegisterReturnModel?
     var imagePicker = UIImagePickerController()
@@ -494,6 +495,14 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             cell.tfInput.text = userInfoModel.userCode
             cell.delegate = self
             return cell
+        case .ConnectValue:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+            cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
+            cell.lbTitle.text = "Giá trị kết nối"
+            cell.tfInput.tag = indexPath.row
+            cell.tfInput.text = userInfoModel.userCode
+            cell.delegate = self
+            return cell
         case .RealText:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell") as! ContentTableViewCell
             let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Red.TextColor]
@@ -585,6 +594,8 @@ extension EditProfileViewController: TypeCarTableViewCellProtocol{
             break
         case .Code:
             break
+        case .ConnectValue:
+            break
         case .RealText:
             break
         case .Confirm:
@@ -644,6 +655,8 @@ extension EditProfileViewController: TitleTableViewCellProtocol{
             break
         case .Code:
             self.userInfoModel.userCode = str
+            break
+        case .ConnectValue:
             break
         case .RealText:
             break
@@ -707,6 +720,8 @@ extension EditProfileViewController: DescriptionCarTableViewCellProtocol{
             self.userInfoModel.userInfo = string
             break
         case .Code:
+            break
+        case .ConnectValue:
             break
         case .RealText:
             break

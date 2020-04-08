@@ -7,9 +7,13 @@
 //
 
 struct URLs {
-    static let linkWebRefference = "https://godme.org/register?"
-    static let linkWebCollaboration = "https://godme.org/services/coop/view/"
-    static let linkwebBlog = "https://godme.org/article/"
+    // dev
+    static let linkHostName = "https://godme.org"
+    // live
+//    static let linkHostName = "https://godme.vn"
+    static let linkWebRefference = "\(linkHostName)/register?"
+    static let linkWebCollaboration = "\(linkHostName)/services/coop/view/"
+    static let linkwebBlog = "\(linkHostName)/article/"
     // for test
     static let linkServer = "http://45.117.169.99:8888/godme-service/"
     // for live http://13.229.146.11:8080/ //https://godme.vn:8443
@@ -64,6 +68,7 @@ struct URLs {
         static let getListHistory = "api/mobile/order/transaction/getHistory"
         static let getUserInfo = "api/mobile/user/getInfo"
         static let updateUserInfo = "api/mobile/user/update"
+        static let register = "api/v1/auth/signup"
         
     }
     
@@ -104,6 +109,9 @@ struct URLs {
     }
     static var updateUserInfo: String{
         return String(format: "%@%@", linkServer, Routes.updateUserInfo)
+    }
+    static var register: String{
+        return String(format: "%@%@", linkServer, Routes.register)
     }
     
     /// relationship
