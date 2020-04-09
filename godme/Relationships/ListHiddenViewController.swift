@@ -72,6 +72,8 @@ class ListHiddenViewController: BaseViewController {
     func setupTypeDropdown(){
         TypeDropdown.anchorView = self.lbFilterJob
         self.arr = BaseViewController.arrayJobs
+        self.arr.insert(["name": "Tất cả", "code": "0"], at: 0)
+        self.lbFilterJob.text = self.arr[0]["name"]
         TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbFilterJob.bounds.height)
             for item in arr {
                 arrString.append(item["name"] ?? "")
@@ -177,6 +179,7 @@ extension ListHiddenViewController: UITableViewDelegate, UITableViewDataSource{
                     }else {
                         strCareer = strCareer + ", " + item1["name"]!
                     }
+                    break
                 }
             }
         }

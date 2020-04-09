@@ -206,6 +206,7 @@ class SearchBarDetailViewController: BaseViewController {
                                 }else {
                                     strCareer = strCareer + ", " + item1["name"]!
                                 }
+                                break
                             }
                         }
                     }

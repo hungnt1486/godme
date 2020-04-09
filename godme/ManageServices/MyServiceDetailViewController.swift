@@ -169,6 +169,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                             }else {
                                 strCareer = strCareer + ", " + item1.name!
                             }
+                            break
                         }
                     }
                 }
@@ -199,6 +200,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                             }else {
                                 strCareer = strCareer + ", " + item1.name!
                             }
+                            break
                         }
                     }
                 }
@@ -229,6 +231,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                             }else {
                                 strCareer = strCareer + ", " + (item1["name"] ?? "")
                             }
+                            break
                         }
                     }
                 }

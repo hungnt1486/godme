@@ -141,6 +141,7 @@ extension MyGroupRelationShipExpandViewController: UITableViewDelegate, UITableV
                     }else {
                         strCareer = strCareer + ", " + item1["name"]!
                     }
+                    break
                 }
             }
         }

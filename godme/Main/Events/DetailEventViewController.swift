@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SDWebImage
+import Toaster
 
 enum typeCellDetailEvent: Int {
     case Avatar = 0
@@ -22,6 +24,7 @@ class DetailEventViewController: BaseViewController {
     var modelDetail: EventModel?
     var listEvents: [EventModel] = []
     var cellImageDetail: ImageDetailTableViewCell!
+    var modelUser = Settings.ShareInstance.getDictUser()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -143,6 +146,10 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
                 cellImageDetail.lbFullName.text = modelDetail?.userInfo?.fullName
                 cellImageDetail.lbJob.text = modelDetail?.title
                 cellImageDetail.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cellImageDetail.constraintHeightLabelCopy.constant = 0
+                if modelDetail?.isRelationshipWithSeller ?? false {
+                    cellImageDetail.constraintHeightLabelCopy.constant = 20
+                }
                 return cellImageDetail
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
@@ -208,6 +215,12 @@ extension DetailEventViewController: BookServiceTableViewCellProtocol{
 }
 
 extension DetailEventViewController: ImageDetailTableViewCellProtocol{
+    func didCopy() {
+        let str = "\(modelDetail?.title ?? "") \(modelDetail?.id ?? 0)"
+        UIPasteboard.general.string = "\(URLs.linkServiceEvent)\(str.convertedToSlug() ?? "")?refId=\(modelUser.userId ?? 0)"
+        Toast.init(text: "Copy").show()
+    }
+    
     func didCoinConvert() {
         if (cellImageDetail.lbCoin.text?.contains("Godcoin"))! {
             cellImageDetail.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(modelDetail?.amount ?? "0") ?? 0)*1000)")

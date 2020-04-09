@@ -122,8 +122,10 @@ extension AccountsViewController: UICollectionViewDelegate, UICollectionViewData
                 self.navigationController?.pushViewController(event, animated: true)
                 break
             case 4:
-                let collaborate = CreateCollaborateViewController()
-                self.navigationController?.pushViewController(collaborate, animated: true)
+//                let collaborate = CreateCollaborateViewController()
+//                self.navigationController?.pushViewController(collaborate, animated: true)
+                self.tabBarController?.tabBar.isHidden = false
+                Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/coop")
                 break
             case 5:
                 let help = HelpViewController()

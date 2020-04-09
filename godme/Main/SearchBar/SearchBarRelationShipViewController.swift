@@ -107,6 +107,7 @@ extension SearchBarRelationShipViewController: UITableViewDelegate, UITableViewD
                     }else {
                         strCareer = strCareer + ", " + item1["name"]!
                     }
+                    break
                 }
             }
         }

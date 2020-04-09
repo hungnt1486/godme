@@ -429,9 +429,12 @@ extension MainViewController: HeaderSubMainProtocol{
         }else if index == 1 {
             let auctionService = AuctionServiceViewController()
             self.navigationController?.pushViewController(auctionService, animated: true)
-        }else{
+        }else if index == 2{
             let event = EventsViewController()
             self.navigationController?.pushViewController(event, animated: true)
+        }else if index == 3 {
+//            https://godme.org/coop
+            Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/coop")
         }
     }
 }

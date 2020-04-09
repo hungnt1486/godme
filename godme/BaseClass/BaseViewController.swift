@@ -86,6 +86,7 @@ class BaseViewController: UIViewController {
             case .success(let data):
                 self.hideProgressHub()
                 if data.count > 0 {
+                    BaseViewController.arrayJobs.removeAll()
                     for item in data {
                         BaseViewController.arrayJobs.append(["name":item.name ?? "", "code": "\(item.id ?? 0)"])
                     }

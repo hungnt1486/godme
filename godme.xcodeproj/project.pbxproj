@@ -216,10 +216,10 @@
 		41AA8CC5243B722800BDF892 /* ViewShowListCheckBoxJob.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */; };
 		41AA8CC8243B75B300BDF892 /* JobTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */; };
 		41AA8CC9243B75B300BDF892 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */; };
-		41AA8CCD243C86E200BDF892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */; };
 		41AA8CD0243D664C00BDF892 /* Main6TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */; };
 		41AA8CD1243D664D00BDF892 /* Main6TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */; };
 		41AA8CD3243D9E9200BDF892 /* OTPPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */; };
+		41AA8CD7243ED19F00BDF892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CD6243ED19F00BDF892 /* GoogleService-Info.plist */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -553,10 +553,10 @@
 		41AA8CC3243B722800BDF892 /* ViewShowListCheckBoxJob.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewShowListCheckBoxJob.xib; sourceTree = "<group>"; };
 		41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobTableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
-		41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main6TableViewCell.swift; sourceTree = "<group>"; };
 		41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main6TableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPPhone.swift; sourceTree = "<group>"; };
+		41AA8CD6243ED19F00BDF892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -1320,7 +1320,7 @@
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
 				41132992241684450089DD18 /* Localizable.strings */,
 				E6500C7A2408BAB1001E023D /* Info.plist */,
-				41AA8CCC243C86E200BDF892 /* GoogleService-Info.plist */,
+				41AA8CD6243ED19F00BDF892 /* GoogleService-Info.plist */,
 				E6500C742408BAB1001E023D /* Preview Content */,
 			);
 			path = godme;
@@ -1559,8 +1559,8 @@
 				41ADEAD0241E075B002C95FA /* AddressPostCarTableViewCell.xib in Resources */,
 				410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */,
 				41132989241550070089DD18 /* Main2CollectionViewCell.xib in Resources */,
+				41AA8CD7243ED19F00BDF892 /* GoogleService-Info.plist in Resources */,
 				411329BF2416A6160089DD18 /* InfoDetailTableViewCell.xib in Resources */,
-				41AA8CCD243C86E200BDF892 /* GoogleService-Info.plist in Resources */,
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
@@ -2041,7 +2041,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hung.godme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -2065,7 +2065,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hung.godme;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

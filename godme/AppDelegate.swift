@@ -42,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        else {
 //            print("key didn't provided")
 //        }
-        GMSServices.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
-        GMSPlacesClient.provideAPIKey("AIzaSyDFBrKG4FZ1jSDOuTHHh87w5ZDdqep_uvA")
+        GMSServices.provideAPIKey("AIzaSyBVVFTLZlEwbYwCFvL68MG23sTyJu4biYk")
+        GMSPlacesClient.provideAPIKey("AIzaSyBVVFTLZlEwbYwCFvL68MG23sTyJu4biYk")
         FirebaseApp.configure()
         // init AWS
         self.initializeS3()

@@ -11,6 +11,7 @@ import SDWebImage
 
 protocol ImageDetailAuctionTableViewCellProtocol {
     func didShowMoreAuction()
+    func didCopy()
 }
 
 class ImageDetailAuctionTableViewCell: UITableViewCell {
@@ -23,6 +24,8 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
     @IBOutlet weak var lbFullName: UILabel!
     @IBOutlet weak var lbJob: UILabel!
     @IBOutlet weak var lbCoin: UILabel!
+    @IBOutlet weak var lbCopy: UILabel!
+    @IBOutlet weak var constraintHeightLabelCopy: NSLayoutConstraint!
     
     var delegate: ImageDetailAuctionTableViewCellProtocol?
     
@@ -36,12 +39,20 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchShowMore))
         self.imgShowMore.isUserInteractionEnabled = true
         self.imgShowMore.addGestureRecognizer(tapGesture)
+        let tapCopy = UITapGestureRecognizer.init(target: self, action: #selector(touchCopy))
+        tapCopy.numberOfTapsRequired = 1
+        self.lbCopy.isUserInteractionEnabled = true
+        self.lbCopy.addGestureRecognizer(tapCopy)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    @objc func touchCopy(){
+        delegate?.didCopy()
     }
     
     @objc func touchShowMore(){

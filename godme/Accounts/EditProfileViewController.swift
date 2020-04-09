@@ -405,6 +405,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
                                 strCareer = strCareer + ", " + (item1["name"] ?? "")
                             }
                         }
+                        break
                     }
                 }
                 cell.lbTypeCar.text = strCareer

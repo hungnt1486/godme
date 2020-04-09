@@ -12,6 +12,7 @@ import SDWebImage
 protocol ImageDetailTableViewCellProtocol {
     func didShowMore()
     func didCoinConvert()
+    func didCopy()
 }
 
 class ImageDetailTableViewCell: UITableViewCell {
@@ -25,6 +26,8 @@ class ImageDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var lbJob: UILabel!
     @IBOutlet weak var lbCoin: UILabel!
     @IBOutlet weak var lbCoinConvert: UILabel!
+    @IBOutlet weak var lbCopy: UILabel!
+    @IBOutlet weak var constraintHeightLabelCopy: NSLayoutConstraint!
     
     var delegate: ImageDetailTableViewCellProtocol?
     
@@ -41,6 +44,10 @@ class ImageDetailTableViewCell: UITableViewCell {
         let tapConvert = UITapGestureRecognizer.init(target: self, action: #selector(touchConvert))
         self.lbCoinConvert.isUserInteractionEnabled = true
         self.lbCoinConvert.addGestureRecognizer(tapConvert)
+        
+        let tapCopy = UITapGestureRecognizer.init(target: self, action: #selector(touchCopy))
+        self.lbCopy.isUserInteractionEnabled = true
+        self.lbCopy.addGestureRecognizer(tapCopy)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -60,6 +67,10 @@ class ImageDetailTableViewCell: UITableViewCell {
     
     @objc func touchConvert(){
         delegate?.didCoinConvert()
+    }
+    
+    @objc func touchCopy(){
+        delegate?.didCopy()
     }
     
     func crollViewImage() {

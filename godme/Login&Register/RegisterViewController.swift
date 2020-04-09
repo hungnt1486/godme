@@ -296,6 +296,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
                                 }else {
                                     strCareer = strCareer + ", " + (item1["name"] ?? "")
                                 }
+                                break
                             }
                         }
                     }
@@ -642,6 +643,42 @@ extension RegisterViewController: ViewDatePicker1Protocol {
 
 extension RegisterViewController: CompleteTableViewCellProtocol{
     func didComplete() {
-        print(self.registerModel)
+        self.showProgressHub()
+        if self.registerModel.address.count == 0 ||
+            self.registerModel.career.count == 0 ||
+            self.registerModel.districtCode.count == 0 ||
+            self.registerModel.dob.count == 0 ||
+            self.registerModel.education.count == 0 ||
+            self.registerModel.email.count == 0 ||
+            self.registerModel.fullName.count == 0 ||
+            self.registerModel.password.count == 0 ||
+            self.registerModel.provinceCode.count == 0 ||
+            self.registerModel.referralCode.count == 0 ||
+            self.registerModel.username.count == 0 ||
+            self.registerModel.wardCode.count == 0 {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin", vc: self)
+            self.hideProgressHub()
+        }
+        var model = AddNewRegisterParams()
+        model.address = self.registerModel.address
+        model.career = self.registerModel.career
+        model.codeOTP = self.registerModel.codeOTP
+        model.districtCode = self.registerModel.districtCode
+        model.districtName = self.registerModel.districtName
+        model.dob = self.registerModel.dob
+        model.education = self.registerModel.education
+        model.email = self.registerModel.email
+        model.fullName = self.registerModel.fullName
+        model.gender = self.registerModel.gender
+        model.nationCode = self.registerModel.nationCode
+        model.nationName = self.registerModel.nationName
+        model.password = self.registerModel.password
+        model.provinceCode = self.registerModel.provinceCode
+        model.provinceName = self.registerModel.provinceName
+        model.referralCode = self.registerModel.referralCode
+        model.username = self.registerModel.username
+        model.wardCode = self.registerModel.wardCode
+        model.wardName = self.registerModel.wardName
+        self.registerUser(model: model)
     }
 }

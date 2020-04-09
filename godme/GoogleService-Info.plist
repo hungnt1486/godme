@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>690698974418-ljuu4v8ej9f1p313gu9slcqm2k7649re.apps.googleusercontent.com</string>
+	<string>356953028443-r7f6ig9t4unkn16fmosv7g9pk9l9th5l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.690698974418-ljuu4v8ej9f1p313gu9slcqm2k7649re</string>
+	<string>com.googleusercontent.apps.356953028443-r7f6ig9t4unkn16fmosv7g9pk9l9th5l</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAlPjrkIQU80VM5JlRKKi_gZrY2k8Nn_us</string>
+	<string>AIzaSyDpX2nwKTw5wzQZRvFEzj5i-FxLqbM4VWo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>690698974418</string>
+	<string>356953028443</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.hung.godme</string>
+	<string>com.toan.godme</string>
 	<key>PROJECT_ID</key>
-	<string>godme123-382cd</string>
+	<string>godme-d4f78</string>
 	<key>STORAGE_BUCKET</key>
-	<string>godme123-382cd.appspot.com</string>
+	<string>godme-d4f78.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:690698974418:ios:3fe2da97519d5a20b9290b</string>
+	<string>1:356953028443:ios:e113f6deaff1421c47cc7e</string>
 	<key>DATABASE_URL</key>
-	<string>https://godme123-382cd.firebaseio.com</string>
+	<string>https://godme-d4f78.firebaseio.com</string>
 </dict>
 </plist>

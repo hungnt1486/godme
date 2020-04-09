@@ -102,11 +102,11 @@ class LoginViewController: BaseViewController {
     }
     
     @objc func touchRegister(){
-        let register = RegisterViewController()
-        self.navigationController?.pushViewController(register, animated: true)
-//        self.type = 1
-//        let otpPhone = OTPPhone(target: self)
-//        otpPhone.signInPhone(phone: "")
+//        let register = RegisterViewController()
+//        self.navigationController?.pushViewController(register, animated: true)
+        self.type = 1
+        let otpPhone = OTPPhone(target: self)
+        otpPhone.signInPhone(phone: "")
     }
     
     @IBAction func touchLogin(_ sender: Any) {
