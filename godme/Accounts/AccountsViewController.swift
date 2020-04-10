@@ -128,7 +128,7 @@ extension AccountsViewController: UICollectionViewDelegate, UICollectionViewData
                 Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/coop")
                 break
             case 5:
-                let help = HelpViewController()
+                let help = SupportViewController()
                 self.navigationController?.pushViewController(help, animated: true)
                 break
             case 6:
