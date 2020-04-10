@@ -19,12 +19,12 @@ class AccountsViewController: BaseViewController {
                                              bottom: 0.0,
                                              right: 10.0)
     var flowLayout = UICollectionViewFlowLayout()
-    var arr : [[String:Any]] = [["title":Settings.ShareInstance.translate(key: "wallet_finance"), "icon" : "ic_wallet"],
-                                ["title":Settings.ShareInstance.translate(key: "create_services"), "icon" : "ic_service"],
-                                ["title":Settings.ShareInstance.translate(key: "create_auction"), "icon" : "ic_auction"],
-                                ["title":Settings.ShareInstance.translate(key: "create_event"), "icon" : "ic_event"],
-                                ["title":Settings.ShareInstance.translate(key: "collaboration"), "icon" : "ic_colloborate"],
-                                ["title":Settings.ShareInstance.translate(key: "support_report"), "icon" : "ic_help"]]
+    var arr : [[String:String]] = [["title":"wallet_finance", "icon" : "ic_wallet"],
+                                ["title":"create_services", "icon" : "ic_service"],
+                                ["title":"create_auction", "icon" : "ic_auction"],
+                                ["title":"create_event", "icon" : "ic_event"],
+                                ["title":"collaboration", "icon" : "ic_colloborate"],
+                                ["title":"support_report", "icon" : "ic_help"]]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
@@ -36,6 +36,7 @@ class AccountsViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.navigationItem.title = Settings.ShareInstance.translate(key: "account")
+        self.collectionAccount.reloadData()
     }
     
     func setupUI(){
@@ -96,9 +97,9 @@ extension AccountsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountCollectionViewCell",
                                                       for: indexPath) as! AccountCollectionViewCell
-        let dict = arr[indexPath.row] as NSDictionary
-        cell.icon.image = UIImage.init(named: dict.object(forKey: "icon") as! String)
-        cell.lbTitle.text = dict.object(forKey: "title") as? String
+        let dict = arr[indexPath.row]
+        cell.icon.image = UIImage.init(named: dict["icon"] ?? "")//UIImage.init(named: dict.object(forKey: "icon") as! String)
+        cell.lbTitle.text = Settings.ShareInstance.translate(key: dict["title"] ?? "")
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -11,13 +11,19 @@ import UIKit
 class LanguagesViewController: BaseViewController {
 
     @IBOutlet weak var tbvLanguages: UITableView!
-    var listLanguages:[String] = ["\(Settings.ShareInstance.translate(key: "vietnamese"))", "\(Settings.ShareInstance.translate(key: "english"))"]
+    var listLanguages:[[String: String]] = [["language": "\(Settings.ShareInstance.translate(key: "vietnamese"))", "code" : "vi"], ["language": "\(Settings.ShareInstance.translate(key: "english"))", "code" : "en"]]
+    let currentLanguage = Settings.ShareInstance.getCurrentLanguage()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupUI()
         self.setupTableView()
         self.configButtonBack()
+    }
+    
+    func setupUI(){
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "languages")
     }
     
     func setupTableView(){
@@ -41,14 +47,27 @@ extension LanguagesViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HelpTableViewCell") as! HelpTableViewCell
-        cell.lbTitle.text = listLanguages[indexPath.row]
-        cell.accessoryType = .checkmark
+        let model = listLanguages[indexPath.row]
+        cell.lbTitle.text = model["language"]
+        cell.accessoryType = .none
+        if currentLanguage == model["code"] {
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        let model = listLanguages[indexPath.row]
+        if currentLanguage != model["code"] {
+            Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn muốn chuyển ngôn ngữ khác?", vc: self) {[unowned self] (str) in
+                let model = self.listLanguages[indexPath.row]
+                
+                UserDefaults.standard.setValue(model["code"], forKey: info_language)
+                UserDefaults.standard.synchronize()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
 }

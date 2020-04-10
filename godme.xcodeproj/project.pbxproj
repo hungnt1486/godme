@@ -208,6 +208,8 @@
 		41786A572440096500F91695 /* SupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A552440096500F91695 /* SupportViewController.xib */; };
 		41786A5A244010A400F91695 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41786A58244010A400F91695 /* LanguagesViewController.swift */; };
 		41786A5B244010A400F91695 /* LanguagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A59244010A400F91695 /* LanguagesViewController.xib */; };
+		41786A5E2440620800F91695 /* LanguagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */; };
+		41786A5F2440620800F91695 /* LanguagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */; };
 		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
 		4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */; };
@@ -557,6 +559,8 @@
 		41786A552440096500F91695 /* SupportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportViewController.xib; sourceTree = "<group>"; };
 		41786A58244010A400F91695 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
 		41786A59244010A400F91695 /* LanguagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagesViewController.xib; sourceTree = "<group>"; };
+		41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguagesTableViewCell.xib; sourceTree = "<group>"; };
+		41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewCell.swift; sourceTree = "<group>"; };
 		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
 		4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1140,6 +1144,8 @@
 				410F1AF92431C90A00841231 /* CheckBoxTableViewCell.xib */,
 				4195E781244006AE00D48D1C /* HelpTableViewCell.swift */,
 				4195E782244006AE00D48D1C /* HelpTableViewCell.xib */,
+				41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */,
+				41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1567,6 +1573,7 @@
 				4150DA6D241B15B600F8A7E4 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				41286AFD240F73C40021157C /* InputTextTableViewCell.xib in Resources */,
 				41286B0D24106C760021157C /* ContentTableViewCell.xib in Resources */,
+				41786A5E2440620800F91695 /* LanguagesTableViewCell.xib in Resources */,
 				E6500C792408BAB1001E023D /* LaunchScreen.storyboard in Resources */,
 				41ADEAC0241E0210002C95FA /* ImageCarTableViewCell.xib in Resources */,
 				E66F690A241B407000A0EC99 /* ListHiddenViewController.xib in Resources */,
@@ -1762,6 +1769,7 @@
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
 				41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */,
 				41F15EEB241FCB490031D066 /* URLs.swift in Sources */,
+				41786A5F2440620800F91695 /* LanguagesTableViewCell.swift in Sources */,
 				41EACD1C242E53AE003A6962 /* MyEventServiceDetailViewController.swift in Sources */,
 				41AD16C02413A8DF001E132E /* FollowMonthTableViewCell.swift in Sources */,
 				4155004C2419BECB006B189E /* SearchBarServiceViewController.swift in Sources */,
@@ -2081,6 +2089,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2105,6 +2114,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;

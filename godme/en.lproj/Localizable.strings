@@ -26,6 +26,7 @@
 "PENDING" = "Pending";
 "CONFIRMED" = "Confirmed";
 "RECHARGE" = "Recharge Godcoin";
+"languages" = "Language";
 
 "info_user" = "Information User";
 

@@ -23,6 +23,7 @@
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tìm kiếm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ga-7Q-YGz">
                             <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                            <color key="tintColor" red="0.043137254899999998" green="0.47450980390000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>

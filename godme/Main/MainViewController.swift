@@ -239,8 +239,9 @@ class MainViewController: BaseViewController {
     }
     
     @objc func touchRight(){
-        let notification = NotificationsViewController()
-        self.navigationController?.pushViewController(notification, animated: true)
+        Settings.ShareInstance.showAlertView(message: "Coming soon", vc: self)
+//        let notification = NotificationsViewController()
+//        self.navigationController?.pushViewController(notification, animated: true)
     }
     
     func setupTableView(){

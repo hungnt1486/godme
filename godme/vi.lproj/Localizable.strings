@@ -26,6 +26,7 @@
 "PENDING" = "Đang duyệt";
 "CONFIRMED" = "Đã xác nhận";
 "RECHARGE" = "Nạp Godcoin";
+"languages" = "Ngôn ngữ";
 
 "info_user" = "Thông tin người dùng";
 

@@ -60,8 +60,8 @@ class LoginViewController: BaseViewController {
         let attr2 = NSMutableAttributedString(string: String(arr[0] + "?"), attributes: attrs2 as [NSAttributedString.Key : Any])
         attr2.append(attr1)
         self.lbRegister.attributedText = attr2
-        self.tfUserName.text = "+84admin"
-        self.tfPassword.text = "1234567890"
+        self.tfUserName.text = "0913571105"//"+84admin"
+        self.tfPassword.text = "Toan1789"//"1234567890"
     }
     
     @IBAction func touchForgotPassword(_ sender: Any) {
@@ -69,7 +69,9 @@ class LoginViewController: BaseViewController {
     }
     
     func touchLogin(){
-        UserManager.shareUserManager().loginUser(username: self.tfUserName.text!, password: self.tfPassword.text!) { [unowned self](response) in
+        let myNSRange = NSRange(location: 0, length: 1)
+        let strUserName = self.tfUserName.text?.replacingOccurrences(of: "0", with: "+84", options: .literal, range: Range.init(myNSRange, in: self.tfUserName.text ?? ""))
+        UserManager.shareUserManager().loginUser(username: strUserName ?? "", password: self.tfPassword.text!) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
