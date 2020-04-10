@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Main4CollectionViewCell: UICollectionViewCell {
+class Main6CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var imgAvatar: UIImageView!

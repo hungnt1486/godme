@@ -46,6 +46,7 @@ class Main2TableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         self.collectionView.register(UINib.init(nibName: "Main2CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main2CollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "DefaultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DefaultCollectionViewCell")
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 290)
         self.collectionView.collectionViewLayout = flowLayout
@@ -55,6 +56,9 @@ class Main2TableViewCell: UITableViewCell {
 
 extension Main2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listEvents.count == 0 {
+            return 1
+        }
         return listEvents.count
     }
     
@@ -63,6 +67,12 @@ extension Main2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if listEvents.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCollectionViewCell",
+            for: indexPath) as! DefaultCollectionViewCell
+            cell.lbTitle.text = "Chưa có sự kiện"
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main2CollectionViewCell",
                                                       for: indexPath) as! Main2CollectionViewCell
         cell.btJoin.tag = indexPath.row
@@ -91,6 +101,9 @@ extension Main2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //            delegate?.didEvent(index: indexPath.row)
+        if listEvents.count == 0 {
+            return
+        }
         delegate?.didCellMain2(index: indexPath.row)
     }
     

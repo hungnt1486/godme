@@ -49,6 +49,7 @@ class MainTableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         self.collectionView.register(UINib.init(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MainCollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "DefaultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DefaultCollectionViewCell")
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.8, height: 130)
         self.collectionView.collectionViewLayout = flowLayout
@@ -58,6 +59,9 @@ class MainTableViewCell: UITableViewCell {
 
 extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listBaseService.count == 0 {
+            return 1
+        }
         return listBaseService.count
     }
     
@@ -66,7 +70,13 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        if indexPath.section == 0 {
+
+        if listBaseService.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCollectionViewCell",
+            for: indexPath) as! DefaultCollectionViewCell
+            cell.lbTitle.text = "Chưa có dịch vụ cơ bản"
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell",
                                                       for: indexPath) as! MainCollectionViewCell
         

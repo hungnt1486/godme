@@ -46,8 +46,9 @@ class Main4TableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         self.collectionView.register(UINib.init(nibName: "Main4CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main4CollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "DefaultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DefaultCollectionViewCell")
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 290)
+        flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 180)
         self.collectionView.collectionViewLayout = flowLayout
     }
     
@@ -55,6 +56,9 @@ class Main4TableViewCell: UITableViewCell {
 
 extension Main4TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listBlogs.count == 0 {
+            return 1
+        }
         return listBlogs.count
     }
     
@@ -63,11 +67,14 @@ extension Main4TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        if indexPath.section == 0 {
+        if self.listBlogs.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCollectionViewCell",
+            for: indexPath) as! DefaultCollectionViewCell
+            cell.lbTitle.text = "Chưa có quỹ từ thiện"
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main4CollectionViewCell",
                                                       for: indexPath) as! Main4CollectionViewCell
-        cell.btJoin.tag = indexPath.row
-        cell.delegate = self
         let model = listBlogs[indexPath.row]
         cell.lbTitle.text = model.title
         cell.imgAvatar.sd_setImage(with: URL.init(string: model.image ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
@@ -75,8 +82,7 @@ extension Main4TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.imgAvatar.image = image
             }
         }
-//        cell.lbCity.text = "Địa chỉ: \(model.userInfo?.address ?? "")"
-//        cell.lbTitleDetail.text = model.userInfo?.userCategory
+        cell.lbTime.text = model.description
         return cell
         
     }
@@ -95,12 +101,4 @@ extension Main4TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
 //                }
 //            }
     }
-}
-
-extension Main4TableViewCell: Main4CollectionViewCellProtocol{
-    func didJoin4(index: Int) {
-        print("index join = ", index)
-    }
-    
-    
 }

@@ -8,21 +8,20 @@
 
 import UIKit
 
-protocol SearchBarBaseInfoTableViewCellProtocol {
-    func didMoreButton()
-}
-
 class SearchBarBaseInfoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var lbContent: UILabel!
-    @IBOutlet weak var lbNumberOfBookService: UILabel!
-    @IBOutlet weak var lbVote: UILabel!
-    @IBOutlet weak var vStars: UIView!
-    @IBOutlet weak var lbNumberVote: UILabel!
-    @IBOutlet weak var btMore: UIButton!
-    var vImagesStar: VImageStarsOranges!
-    var delegate: SearchBarBaseInfoTableViewCellProtocol?
+    @IBOutlet weak var lbTitleInfoBase: UILabel!
+    @IBOutlet weak var lbGender: UILabel!
+    @IBOutlet weak var lbDOB: UILabel!
+    @IBOutlet weak var lbJob: UILabel!
+    @IBOutlet weak var lbEmail: UILabel!
+    @IBOutlet weak var lbShowInfo: UILabel!
+    @IBOutlet weak var lbContentShowInfo: UILabel!
+    @IBOutlet weak var lbExperience: UILabel!
+    @IBOutlet weak var lbContentExperience: UILabel!
+    @IBOutlet weak var lbPosition: UILabel!
+    @IBOutlet weak var lbAddress: UILabel!
+    @IBOutlet weak var lbPhone: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -36,16 +35,7 @@ class SearchBarBaseInfoTableViewCell: UITableViewCell {
     }
     
     func setupUI(){
-        vImagesStar = VImageStarsOranges.instanceFromNib()
         
-        self.vStars.addSubview(vImagesStar)
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
-            self.vImagesStar.configVImageStarsOranges(frameView: self.vStars.frame, index: 4)
-        }, completion: nil)
-    }
-    
-    @IBAction func touchMore(_ sender: Any) {
-        delegate?.didMoreButton()
     }
     
 }

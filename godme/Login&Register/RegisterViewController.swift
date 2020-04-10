@@ -181,6 +181,9 @@ class RegisterViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã đăng ký thành công", vc: self) { [unowned self] (str) in
+                    self.navigationController?.popViewController(animated: true)
+                }
                 break
             case .failure(let message):
                 self.hideProgressHub()

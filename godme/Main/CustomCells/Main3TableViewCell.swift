@@ -46,8 +46,9 @@ class Main3TableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         self.collectionView.register(UINib.init(nibName: "Main3CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main3CollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "DefaultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DefaultCollectionViewCell")
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 290)
+        flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 180)
         self.collectionView.collectionViewLayout = flowLayout
     }
     
@@ -55,6 +56,9 @@ class Main3TableViewCell: UITableViewCell {
 
 extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listCollaboration.count == 0 {
+            return 1
+        }
         return listCollaboration.count
     }
     
@@ -63,27 +67,31 @@ extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        if indexPath.section == 0 {
+        if self.listCollaboration.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCollectionViewCell",
+            for: indexPath) as! DefaultCollectionViewCell
+            cell.lbTitle.text = "Chưa có hợp tác nào"
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main3CollectionViewCell",
                                                       for: indexPath) as! Main3CollectionViewCell
-        cell.btJoin.tag = indexPath.row
-        cell.delegate = self
         let model = listCollaboration[indexPath.row]
-//        cell.lbName.text = model.title
         cell.imgAvatar.sd_setImage(with: URL.init(string: model.images ?? ""), placeholderImage: UIImage.init(named: "ic_logo"), options: .lowPriority) { (image, error, nil, link) in
             if error == nil {
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = model.userInfo?.address
-//        cell.lbTitleDetail.text = model.userInfo?.userCategory
         cell.lbTitle.text = model.title
+        cell.lbTime.text = model.description
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //            delegate?.didEvent(index: indexPath.row)
+        if self.listCollaboration.count == 0 {
+            return
+        }
         delegate?.didCellMain3(index: indexPath.row)
     }
     
@@ -96,12 +104,4 @@ extension Main3TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
 //                }
 //            }
     }
-}
-
-extension Main3TableViewCell: Main3CollectionViewCellProtocol{
-    func didJoin3(index: Int) {
-        print("index join = ", index)
-    }
-    
-    
 }

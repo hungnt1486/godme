@@ -46,6 +46,7 @@ class Main1TableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         self.collectionView.register(UINib.init(nibName: "Main1CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main1CollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "DefaultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DefaultCollectionViewCell")
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.8, height: 130)
         self.collectionView.collectionViewLayout = flowLayout
@@ -55,6 +56,9 @@ class Main1TableViewCell: UITableViewCell {
 
 extension Main1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listAuction.count == 0 {
+            return 1
+        }
         return listAuction.count
     }
     
@@ -63,7 +67,13 @@ extension Main1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        if indexPath.section == 0 {
+
+        if listAuction.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCollectionViewCell",
+            for: indexPath) as! DefaultCollectionViewCell
+            cell.lbTitle.text = "Chưa có dịch vụ đấu giá"
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main1CollectionViewCell",
                                                       for: indexPath) as! Main1CollectionViewCell
 
@@ -89,6 +99,9 @@ extension Main1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //            delegate?.didEvent(index: indexPath.row)
+        if listAuction.count == 0 {
+            return
+        }
         delegate?.didCellMain1(index: indexPath.row)
     }
     

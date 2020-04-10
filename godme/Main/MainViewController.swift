@@ -249,6 +249,7 @@ class MainViewController: BaseViewController {
         self.tbvMain.register(UINib(nibName: "Main2TableViewCell", bundle: nil), forCellReuseIdentifier: "Main2TableViewCell")
         self.tbvMain.register(UINib(nibName: "Main3TableViewCell", bundle: nil), forCellReuseIdentifier: "Main3TableViewCell")
         self.tbvMain.register(UINib(nibName: "Main4TableViewCell", bundle: nil), forCellReuseIdentifier: "Main4TableViewCell")
+        self.tbvMain.register(UINib(nibName: "Main5TableViewCell", bundle: nil), forCellReuseIdentifier: "Main5TableViewCell")
         self.tbvMain.register(UINib(nibName: "Main6TableViewCell", bundle: nil), forCellReuseIdentifier: "Main6TableViewCell")
         self.tbvMain.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
 
@@ -303,8 +304,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 || indexPath.section == 1 {
             return 130
-        }else{
+        }else if indexPath.section == 2 || indexPath.section == 5 {
             return 290
+        }else{
+            return 180
         }
     }
     
@@ -348,8 +351,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             return cell
         }
         else if indexPath.section == 5 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Main2TableViewCell") as! Main2TableViewCell
-            cell.delegate = self
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Main5TableViewCell") as! Main5TableViewCell
+//            cell.delegate = self
             return cell
         }
         else{

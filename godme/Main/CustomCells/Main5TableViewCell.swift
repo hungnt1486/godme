@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol Main6TableViewCellProtocol {
-    func didCellMain6(index: Int)
+protocol Main5TableViewCellProtocol {
+    func didCellMain5(index: Int)
 }
 
-class Main6TableViewCell: UITableViewCell {
+class Main5TableViewCell: UITableViewCell {
 
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -46,6 +46,7 @@ class Main6TableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         self.collectionView.register(UINib.init(nibName: "Main6CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Main6CollectionViewCell")
+        self.collectionView.register(UINib.init(nibName: "DefaultCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "DefaultCollectionViewCell")
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize.init(width: UIScreen.main.bounds.width*0.6, height: 180)
         self.collectionView.collectionViewLayout = flowLayout
@@ -53,8 +54,11 @@ class Main6TableViewCell: UITableViewCell {
     
 }
 
-extension Main6TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+extension Main5TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if listBlogs.count == 0 {
+            return 1
+        }
         return listBlogs.count
     }
     
@@ -63,7 +67,12 @@ extension Main6TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        if indexPath.section == 0 {
+        if self.listBlogs.count == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DefaultCollectionViewCell",
+            for: indexPath) as! DefaultCollectionViewCell
+            cell.lbTitle.text = "Chưa có sản phẩm liên kết"
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Main6CollectionViewCell",
                                                       for: indexPath) as! Main6CollectionViewCell
         let model = listBlogs[indexPath.row]
@@ -79,9 +88,8 @@ extension Main6TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//            delegate?.didEvent(index: indexPath.row)
         if listBlogs.count == 0 {
-            return 
+            return
         }
         delegate?.didCellMain6(index: indexPath.row)
     }

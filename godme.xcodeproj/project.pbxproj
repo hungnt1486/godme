@@ -129,13 +129,9 @@
 		4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374B2423CAF70079C587 /* AuctionServiceModel.swift */; };
 		4139374E2423D58D0079C587 /* RelationShipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139374D2423D58D0079C587 /* RelationShipsModel.swift */; };
 		413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4139374F2425C6130079C587 /* Main3TableViewCell.xib */; };
-		413937582425C6140079C587 /* Main3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937502425C6130079C587 /* Main3CollectionViewCell.swift */; };
-		413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937512425C6140079C587 /* Main4CollectionViewCell.swift */; };
 		4139375A2425C6140079C587 /* Main4TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937522425C6140079C587 /* Main4TableViewCell.swift */; };
-		4139375B2425C6140079C587 /* Main4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937532425C6140079C587 /* Main4CollectionViewCell.xib */; };
 		4139375C2425C6140079C587 /* Main3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937542425C6140079C587 /* Main3TableViewCell.swift */; };
 		4139375D2425C6140079C587 /* Main4TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937552425C6140079C587 /* Main4TableViewCell.xib */; };
-		4139375E2425C6140079C587 /* Main3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937562425C6140079C587 /* Main3CollectionViewCell.xib */; };
 		413937602425E64C0079C587 /* VSearchMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139375F2425E64C0079C587 /* VSearchMain.swift */; };
 		413937622425E65A0079C587 /* VSearchMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 413937612425E65A0079C587 /* VSearchMain.xib */; };
 		413937642428A1570079C587 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413937632428A1570079C587 /* AWSS3Manager.swift */; };
@@ -210,6 +206,14 @@
 		4170C43A2438D8CA004F400D /* EditGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4170C4382438D8CA004F400D /* EditGroupViewController.xib */; };
 		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
+		4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */; };
+		4195E776243FF84B00D48D1C /* Main3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195E772243FF84A00D48D1C /* Main3CollectionViewCell.swift */; };
+		4195E777243FF84B00D48D1C /* Main4CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195E773243FF84A00D48D1C /* Main4CollectionViewCell.swift */; };
+		4195E778243FF84B00D48D1C /* Main3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E774243FF84A00D48D1C /* Main3CollectionViewCell.xib */; };
+		4195E77B243FF9F900D48D1C /* DefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195E779243FF9F900D48D1C /* DefaultCollectionViewCell.swift */; };
+		4195E77C243FF9F900D48D1C /* DefaultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E77A243FF9F900D48D1C /* DefaultCollectionViewCell.xib */; };
+		4195E77F243FFD1B00D48D1C /* Main5TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195E77D243FFD1B00D48D1C /* Main5TableViewCell.swift */; };
+		4195E780243FFD1B00D48D1C /* Main5TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E77E243FFD1B00D48D1C /* Main5TableViewCell.xib */; };
 		41AA8CC0243AC1E200BDF892 /* TypeCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */; };
 		41AA8CC1243AC1E200BDF892 /* TypeCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */; };
 		41AA8CC4243B722800BDF892 /* ViewShowListCheckBoxJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CC2243B722800BDF892 /* ViewShowListCheckBoxJob.swift */; };
@@ -220,6 +224,8 @@
 		41AA8CD1243D664D00BDF892 /* Main6TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */; };
 		41AA8CD3243D9E9200BDF892 /* OTPPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */; };
 		41AA8CD7243ED19F00BDF892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CD6243ED19F00BDF892 /* GoogleService-Info.plist */; };
+		41AA8CDA243F7A9000BDF892 /* Main6CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AA8CD8243F7A9000BDF892 /* Main6CollectionViewCell.xib */; };
+		41AA8CDB243F7A9000BDF892 /* Main6CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA8CD9243F7A9000BDF892 /* Main6CollectionViewCell.swift */; };
 		41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */; };
 		41AD168D24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */; };
 		41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */; };
@@ -466,13 +472,9 @@
 		4139374B2423CAF70079C587 /* AuctionServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionServiceModel.swift; sourceTree = "<group>"; };
 		4139374D2423D58D0079C587 /* RelationShipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationShipsModel.swift; sourceTree = "<group>"; };
 		4139374F2425C6130079C587 /* Main3TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3TableViewCell.xib; sourceTree = "<group>"; };
-		413937502425C6130079C587 /* Main3CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main3CollectionViewCell.swift; sourceTree = "<group>"; };
-		413937512425C6140079C587 /* Main4CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main4CollectionViewCell.swift; sourceTree = "<group>"; };
 		413937522425C6140079C587 /* Main4TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main4TableViewCell.swift; sourceTree = "<group>"; };
-		413937532425C6140079C587 /* Main4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4CollectionViewCell.xib; sourceTree = "<group>"; };
 		413937542425C6140079C587 /* Main3TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main3TableViewCell.swift; sourceTree = "<group>"; };
 		413937552425C6140079C587 /* Main4TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4TableViewCell.xib; sourceTree = "<group>"; };
-		413937562425C6140079C587 /* Main3CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3CollectionViewCell.xib; sourceTree = "<group>"; };
 		4139375F2425E64C0079C587 /* VSearchMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSearchMain.swift; sourceTree = "<group>"; };
 		413937612425E65A0079C587 /* VSearchMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VSearchMain.xib; sourceTree = "<group>"; };
 		413937632428A1570079C587 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
@@ -547,6 +549,14 @@
 		4170C4382438D8CA004F400D /* EditGroupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditGroupViewController.xib; sourceTree = "<group>"; };
 		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
+		4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4CollectionViewCell.xib; sourceTree = "<group>"; };
+		4195E772243FF84A00D48D1C /* Main3CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main3CollectionViewCell.swift; sourceTree = "<group>"; };
+		4195E773243FF84A00D48D1C /* Main4CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main4CollectionViewCell.swift; sourceTree = "<group>"; };
+		4195E774243FF84A00D48D1C /* Main3CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main3CollectionViewCell.xib; sourceTree = "<group>"; };
+		4195E779243FF9F900D48D1C /* DefaultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCollectionViewCell.swift; sourceTree = "<group>"; };
+		4195E77A243FF9F900D48D1C /* DefaultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultCollectionViewCell.xib; sourceTree = "<group>"; };
+		4195E77D243FFD1B00D48D1C /* Main5TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main5TableViewCell.swift; sourceTree = "<group>"; };
+		4195E77E243FFD1B00D48D1C /* Main5TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main5TableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCarTableViewCell.swift; sourceTree = "<group>"; };
 		41AA8CBE243AC1E200BDF892 /* TypeCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeCarTableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CC2243B722800BDF892 /* ViewShowListCheckBoxJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShowListCheckBoxJob.swift; sourceTree = "<group>"; };
@@ -557,6 +567,8 @@
 		41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main6TableViewCell.xib; sourceTree = "<group>"; };
 		41AA8CD2243D9E9200BDF892 /* OTPPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPPhone.swift; sourceTree = "<group>"; };
 		41AA8CD6243ED19F00BDF892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41AA8CD8243F7A9000BDF892 /* Main6CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main6CollectionViewCell.xib; sourceTree = "<group>"; };
+		41AA8CD9243F7A9000BDF892 /* Main6CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main6CollectionViewCell.swift; sourceTree = "<group>"; };
 		41AD168A24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel1TableViewCell.swift; sourceTree = "<group>"; };
 		41AD168B24134A1C001E132E /* InputGodcoinLabel1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputGodcoinLabel1TableViewCell.xib; sourceTree = "<group>"; };
 		41AD168E24134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGodcoinLabel2TableViewCell.swift; sourceTree = "<group>"; };
@@ -707,6 +719,10 @@
 		410E67F324149E0B00FA2F54 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				4195E772243FF84A00D48D1C /* Main3CollectionViewCell.swift */,
+				4195E774243FF84A00D48D1C /* Main3CollectionViewCell.xib */,
+				4195E773243FF84A00D48D1C /* Main4CollectionViewCell.swift */,
+				4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */,
 				41EACD2624306E1F003A6962 /* SearchBar1TableViewCell.swift */,
 				41EACD2724306E1F003A6962 /* SearchBar1TableViewCell.xib */,
 				415500432419B9C2006B189E /* SearchBarRelationShipTableViewCell.swift */,
@@ -749,18 +765,20 @@
 				41550054241B12CB006B189E /* SearchBarBaseInfoTableViewCell.xib */,
 				4150DA7C241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.swift */,
 				4150DA7D241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib */,
-				413937502425C6130079C587 /* Main3CollectionViewCell.swift */,
-				413937562425C6140079C587 /* Main3CollectionViewCell.xib */,
 				413937542425C6140079C587 /* Main3TableViewCell.swift */,
 				4139374F2425C6130079C587 /* Main3TableViewCell.xib */,
-				413937512425C6140079C587 /* Main4CollectionViewCell.swift */,
-				413937532425C6140079C587 /* Main4CollectionViewCell.xib */,
 				413937522425C6140079C587 /* Main4TableViewCell.swift */,
 				413937552425C6140079C587 /* Main4TableViewCell.xib */,
 				41AA8CCE243D664C00BDF892 /* Main6TableViewCell.swift */,
 				41AA8CCF243D664C00BDF892 /* Main6TableViewCell.xib */,
+				4195E77D243FFD1B00D48D1C /* Main5TableViewCell.swift */,
+				4195E77E243FFD1B00D48D1C /* Main5TableViewCell.xib */,
 				410F1AEB2431893400841231 /* DefaultTableViewCell.swift */,
 				410F1AEC2431893400841231 /* DefaultTableViewCell.xib */,
+				41AA8CD9243F7A9000BDF892 /* Main6CollectionViewCell.swift */,
+				41AA8CD8243F7A9000BDF892 /* Main6CollectionViewCell.xib */,
+				4195E779243FF9F900D48D1C /* DefaultCollectionViewCell.swift */,
+				4195E77A243FF9F900D48D1C /* DefaultCollectionViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1478,15 +1496,15 @@
 				4150DA83241CEC0100F8A7E4 /* CreateNotificationViewController.xib in Resources */,
 				E66F691A241B792F00A0EC99 /* socials.json in Resources */,
 				4155003D2419B666006B189E /* SearchBarRelationShipViewController.xib in Resources */,
+				41AA8CDA243F7A9000BDF892 /* Main6CollectionViewCell.xib in Resources */,
 				411329CB24171CAA0089DD18 /* DetailAuctionViewController.xib in Resources */,
-				4139375E2425C6140079C587 /* Main3CollectionViewCell.xib in Resources */,
 				41ADEAE2241E354E002C95FA /* ViewDatePicker.xib in Resources */,
 				411329AF24168F670089DD18 /* EventsTableViewCell.xib in Resources */,
 				4150DA76241B15B600F8A7E4 /* Roboto-Thin.ttf in Resources */,
 				413937B6242DE7B20079C587 /* MyServiceDetailViewController.xib in Resources */,
 				41ADEABC241DD83B002C95FA /* AccountCollectionViewCell.xib in Resources */,
-				4139375B2425C6140079C587 /* Main4CollectionViewCell.xib in Resources */,
 				4150DA7F241B198400F8A7E4 /* SearchBarBaseInfor2TableViewCell.xib in Resources */,
+				4195E77C243FF9F900D48D1C /* DefaultCollectionViewCell.xib in Resources */,
 				41ADEAEC241E4AD6002C95FA /* CreateEventViewController.xib in Resources */,
 				41ADEACC241E0685002C95FA /* DescriptionCarTableViewCell.xib in Resources */,
 				411329982416888C0089DD18 /* BasicServicesTableViewCell.xib in Resources */,
@@ -1519,6 +1537,7 @@
 				E66F691E241B792F00A0EC99 /* educations.json in Resources */,
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
+				4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
 				413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */,
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
@@ -1553,6 +1572,7 @@
 				4130D1432434714C00DDC9D6 /* NumberOfYearTableViewCell.xib in Resources */,
 				41ADEAF5241E505D002C95FA /* CreateCollaborateViewController.xib in Resources */,
 				4113298D2415552C0089DD18 /* Main2TableViewCell.xib in Resources */,
+				4195E778243FF84B00D48D1C /* Main3CollectionViewCell.xib in Resources */,
 				413937A7242B65020079C587 /* Title1TableViewCell.xib in Resources */,
 				4130D13A24342F5000DDC9D6 /* ViewDatePicker1.xib in Resources */,
 				41AA8CD1243D664D00BDF892 /* Main6TableViewCell.xib in Resources */,
@@ -1564,6 +1584,7 @@
 				41286B01240F75530021157C /* ComboboxTableViewCell.xib in Resources */,
 				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
+				4195E780243FFD1B00D48D1C /* Main5TableViewCell.xib in Resources */,
 				4113298524154E710089DD18 /* Main1CollectionViewCell.xib in Resources */,
 				E6500C732408BAB1001E023D /* Assets.xcassets in Resources */,
 				4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */,
@@ -1715,6 +1736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4195E777243FF84B00D48D1C /* Main4CollectionViewCell.swift in Sources */,
 				E66F6909241B407000A0EC99 /* ListHiddenViewController.swift in Sources */,
 				41286AF3240F73120021157C /* LoginViewController.swift in Sources */,
 				41550051241A662B006B189E /* CollapseSectionHeader.swift in Sources */,
@@ -1767,7 +1789,6 @@
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
 				4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */,
-				413937592425C6140079C587 /* Main4CollectionViewCell.swift in Sources */,
 				4170C42924378A56004F400D /* AuctionServices1TableViewCell.swift in Sources */,
 				412CF31F2439C52B00064301 /* BankTableViewCell.swift in Sources */,
 				410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */,
@@ -1845,6 +1866,7 @@
 				41ADEAD1241E075B002C95FA /* AddressPostCarTableViewCell.swift in Sources */,
 				411329B6241694BE0089DD18 /* ImageDetailTableViewCell.swift in Sources */,
 				41EACD2824306E1F003A6962 /* SearchBar1TableViewCell.swift in Sources */,
+				41AA8CDB243F7A9000BDF892 /* Main6CollectionViewCell.swift in Sources */,
 				41EACD15242E48A2003A6962 /* MyAuctionServicesDetailTableViewCell.swift in Sources */,
 				4139375A2425C6140079C587 /* Main4TableViewCell.swift in Sources */,
 				41ADEAD9241E08F6002C95FA /* CreateServiceViewController.swift in Sources */,
@@ -1854,10 +1876,12 @@
 				4139374C2423CAF70079C587 /* AuctionServiceModel.swift in Sources */,
 				41AD168C24134A1C001E132E /* InputGodcoinLabel1TableViewCell.swift in Sources */,
 				41AD16D12413FDC6001E132E /* ServicesInfoBookedViewController.swift in Sources */,
+				4195E776243FF84B00D48D1C /* Main3CollectionViewCell.swift in Sources */,
 				4121FA4724133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.swift in Sources */,
 				4121FA3E24133AC500AF26D3 /* FinanceViewController.swift in Sources */,
 				41EACD10242E46CB003A6962 /* MyAuctionServiceDetailViewController.swift in Sources */,
 				415500482419BEB2006B189E /* SearchBarInfoBaseViewController.swift in Sources */,
+				4195E77B243FF9F900D48D1C /* DefaultCollectionViewCell.swift in Sources */,
 				41286AFC240F73C40021157C /* InputTextTableViewCell.swift in Sources */,
 				41ADEAE1241E354E002C95FA /* ViewDatePicker.swift in Sources */,
 				41ADEAE7241E3E52002C95FA /* CreateAuctionViewController.swift in Sources */,
@@ -1876,8 +1900,8 @@
 				41AD16CD2413FD9E001E132E /* MyServicesViewController.swift in Sources */,
 				41132988241550070089DD18 /* Main2CollectionViewCell.swift in Sources */,
 				41AD169C241358D1001E132E /* WithdrawViewController.swift in Sources */,
+				4195E77F243FFD1B00D48D1C /* Main5TableViewCell.swift in Sources */,
 				4113298424154E710089DD18 /* Main1CollectionViewCell.swift in Sources */,
-				413937582425C6140079C587 /* Main3CollectionViewCell.swift in Sources */,
 				E6500C822408BB0F001E023D /* MainViewController.swift in Sources */,
 				4170C431243880EC004F400D /* ListGroupRelationShipTableViewCell.swift in Sources */,
 				41286AEA240F3EE70021157C /* BaseModel.swift in Sources */,

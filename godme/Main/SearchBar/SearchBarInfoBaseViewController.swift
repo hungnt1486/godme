@@ -47,34 +47,35 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfoTableViewCell") as! SearchBarBaseInfoTableViewCell
-            cell.delegate = self
-        cell.lbContent.text = self.modelDetail?.userInfo ?? ""
-            return cell
-//        }else{
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfor2TableViewCell") as! SearchBarBaseInfor2TableViewCell
-//            cell.imgMore.tag = indexPath.row
-//            cell.delegate = self
-//            return cell
-//        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfoTableViewCell") as! SearchBarBaseInfoTableViewCell
+        cell.lbGender.text = "Giới tính: \(self.modelDetail?.gender == "NAM" ? "Nam" : "Nữ")"
+        cell.lbDOB.text = "Ngày sinh: \(Settings.ShareInstance.convertDOB(str: self.modelDetail?.dob ?? ""))"
+        let career = self.modelDetail?.career
+        let arrCareer = career?.split(separator: ",")
+        var strCareer = ""
+        for item in arrCareer! {
+            for item1 in BaseViewController.arrayJobs {
+                if Int(item) == Int(item1["code"] ?? "0") {
+                    if strCareer.count == 0 {
+                        strCareer = strCareer + item1["name"]!
+                    }else {
+                        strCareer = strCareer + ", " + item1["name"]!
+                    }
+                    break
+                }
+            }
+        }
+        cell.lbJob.text = "Ngành nghề: \(strCareer)"
+        cell.lbEmail.text = "Email: \(self.modelDetail?.email ?? "")"
+        cell.lbContentShowInfo.text = self.modelDetail?.userInfo
+        cell.lbContentExperience.text = self.modelDetail?.experience
+        cell.lbPosition.text = "Chức vụ: \(self.modelDetail?.position ?? "")"
+        cell.lbAddress.text = "Địa chỉ: \(self.modelDetail?.address ?? "")"
+        cell.lbPhone.text = "Số điện thoại: \(self.modelDetail?.phoneNumber ?? "")"
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-
-extension SearchBarInfoBaseViewController: SearchBarBaseInfoTableViewCellProtocol{
-    func didMoreButton(){
-        Settings.ShareInstance.showAlertView(message: "more button", vc: self)
-    }
-}
-
-//extension SearchBarInfoBaseViewController: SearchBarBaseInfor2TableViewCellProtocol{
-//    func didMore(index: Int) {
-//        Settings.ShareInstance.showAlertView(message: "more + index = \(index)" , vc: self)
-//    }
-//
-//
-//}
