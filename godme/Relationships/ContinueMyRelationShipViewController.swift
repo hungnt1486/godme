@@ -109,6 +109,9 @@ extension ContinueMyRelationShipViewController: UITableViewDelegate, UITableView
                     intRelationShip = item.id ?? 0
                 }
             }
+            if intRelationShip == 0 {
+                cell.lbTypeCar.text = "NaN"
+            }
             if cell.arrString.count == 0 {
                 cell.arrString = arr
                 cell.setupTypeDropdown()
@@ -145,6 +148,10 @@ extension ContinueMyRelationShipViewController: NumberOfYearTableViewCellProtoco
 
 extension ContinueMyRelationShipViewController: CompleteTableViewCellProtocol{
     func didComplete() {
+        if self.intRelationShip == 0 {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn mối quan hệ để gia hạn.", vc: self)
+            return
+        }
         self.showProgressHub()
         self.createContinueRelation(numberOfExtension: intYear, relationshipId: self.intRelationShip)
     }
