@@ -19,9 +19,10 @@ class ContinueMyRelationShipViewController: BaseViewController {
     @IBOutlet weak var tbvContinueMyRelationShip: UITableView!
     var listTypeCell: [typeCellContinue] = [.Title, .NumberOfYear, .Confirm]
     var cellNumber: NumberOfYearTableViewCell!
-    var detailModel: UserRegisterReturnModel?
+    var listUser: [UserRegisterReturnModel] = []
     var intYear = 1
     var userId: Int?
+    var intRelationShip = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,7 +41,7 @@ class ContinueMyRelationShipViewController: BaseViewController {
     
     func setupTableView(){
         self.tbvContinueMyRelationShip.register(UINib(nibName: "NumberOfYearTableViewCell", bundle: nil), forCellReuseIdentifier: "NumberOfYearTableViewCell")
-        self.tbvContinueMyRelationShip.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
+        self.tbvContinueMyRelationShip.register(UINib(nibName: "TypeCarTableViewCell", bundle: nil), forCellReuseIdentifier: "TypeCarTableViewCell")
         self.tbvContinueMyRelationShip.register(UINib.init(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
 
         self.tbvContinueMyRelationShip.delegate = self
@@ -57,7 +58,7 @@ class ContinueMyRelationShipViewController: BaseViewController {
                 
             case .success(let data):
                 self.hideProgressHub()
-                self.detailModel = data[0]
+                self.listUser = data
                 self.tbvContinueMyRelationShip.reloadData()
                 break
             case .failure(let message):
@@ -97,9 +98,22 @@ extension ContinueMyRelationShipViewController: UITableViewDelegate, UITableView
         switch type {
             
         case .Title:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.tfInput.isUserInteractionEnabled = false
-            cell.tfInput.text = detailModel?.fullName
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
+            cell.lbTitle.text = "Tiêu đề"
+            cell.lbTypeCar.tag = indexPath.row
+            var arr: [String] = []
+            for item in self.listUser {
+                arr.append(item.fullName ?? "")
+                if userId == item.id {
+                    cell.lbTypeCar.text = item.fullName
+                    intRelationShip = item.id ?? 0
+                }
+            }
+            if cell.arrString.count == 0 {
+                cell.arrString = arr
+                cell.setupTypeDropdown()
+            }
+            cell.delegate = self
             return cell
         case .NumberOfYear:
             cellNumber = tableView.dequeueReusableCell(withIdentifier: "NumberOfYearTableViewCell") as? NumberOfYearTableViewCell
@@ -118,7 +132,7 @@ extension ContinueMyRelationShipViewController: NumberOfYearTableViewCellProtoco
         if intYear > 1 {
             intYear = intYear - 1
             cellNumber.lbNumberOfYearValue.text = String(intYear)
-            cellNumber.lbTitleCoinValue.text = String(intYear * 10) + "Godcoin/năm"
+            cellNumber.lbTitleCoinValue.text = String(intYear * 10) + " Godcoin/năm"
         }
     }
     
@@ -132,7 +146,18 @@ extension ContinueMyRelationShipViewController: NumberOfYearTableViewCellProtoco
 extension ContinueMyRelationShipViewController: CompleteTableViewCellProtocol{
     func didComplete() {
         self.showProgressHub()
-        self.createContinueRelation(numberOfExtension: intYear, relationshipId: detailModel?.id ?? 0)
+        self.createContinueRelation(numberOfExtension: intYear, relationshipId: self.intRelationShip)
+    }
+}
+
+extension ContinueMyRelationShipViewController: TypeCarTableViewCellProtocol{
+    func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int) {
+        
+    }
+    
+    func eventGetTextTypeCar(_ string: String, index: Int) {
+        let model = self.listUser[index]
+        self.intRelationShip = model.id ?? 0
     }
 }
 

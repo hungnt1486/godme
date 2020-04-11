@@ -61,10 +61,16 @@ class RelationshipsViewController: BaseViewController {
             let listGroup = ListGroupRelationShipViewController()
             self.navigationController?.pushViewController(listGroup, animated: true)
         }
+        let action1 = UIAlertAction.init(title: "Gia hạn mối quan hệ", style: .default) {(action) in
+            alertControl.dismiss(animated: true, completion: nil)
+            let continueMyRelationShip = ContinueMyRelationShipViewController()
+            self.navigationController?.pushViewController(continueMyRelationShip, animated: true)
+        }
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(action2)
+        alertControl.addAction(action1)
         alertControl.addAction(actionCancel)
         self.navigationController?.present(alertControl, animated: true, completion: nil)
     }

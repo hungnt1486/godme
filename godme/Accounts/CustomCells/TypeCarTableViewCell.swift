@@ -9,8 +9,9 @@
 import UIKit
 import DropDown
 
-protocol TypeCarTableViewCellProtocol {
-//    func eventGetTextTypeCar(_ string: String, index: Int)
+@objc protocol TypeCarTableViewCellProtocol {
+    @objc optional
+    func eventGetTextTypeCar(_ string: String, index: Int)
     
     func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int)
     
@@ -65,6 +66,7 @@ class TypeCarTableViewCell: UITableViewCell {
         TypeDropdown.selectionAction = { [unowned self] (index, item) in
             self.lbTypeCar.text = item
             self.delegate?.eventGetTextEditProfile(item, type: typeCellEditProfile(rawValue: self.lbTypeCar.tag)!, index: index)
+            self.delegate?.eventGetTextTypeCar?(item, index: index)
         }
     }
     
