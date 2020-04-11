@@ -158,7 +158,7 @@
     </objects>
     <resources>
         <image name="ic_coin" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="ic_logo" width="341.66665649414062" height="341.33334350585938"/>
+        <image name="ic_logo" width="341.33334350585938" height="341.33334350585938"/>
         <image name="ic_marker_gray" width="28" height="28"/>
         <image name="ic_people_gray" width="28" height="28.333333969116211"/>
         <image name="ic_time_gray" width="28" height="28"/>

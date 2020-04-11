@@ -27,6 +27,7 @@ class AuctionServiceViewController: BaseViewController {
     var currentPage: Int = 1
     var pageSize: Int = 10
     
+    var isGodcoin = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +46,9 @@ class AuctionServiceViewController: BaseViewController {
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
+        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        right.tintColor = UIColor.FlatColor.Oranges.BGColor
+        self.navigationItem.rightBarButtonItem = right
     }
     
     func setupTableView(){
@@ -56,6 +60,11 @@ class AuctionServiceViewController: BaseViewController {
         self.tbvAuctionService.estimatedRowHeight = 300
         self.tbvAuctionService.rowHeight = UITableView.automaticDimension
         self.tbvAuctionService.addSubview(refreshControl)
+    }
+    
+    @objc func touchRight(){
+        isGodcoin = !isGodcoin
+        self.tbvAuctionService.reloadData()
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -112,8 +121,14 @@ extension AuctionServiceViewController: UITableViewDelegate, UITableViewDataSour
                 cell.imgAvatar.image = image
             }
         }
-        cell.lbCity.text = model.address
-        cell.lbName.text = model.userInfo?.userCategory
+        if isGodcoin {
+            cell.lbCity.text = "Bước giá: \(Double(model.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbName.text = "Giá hiện tại: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        }else{
+            cell.lbCity.text = "Bước giá: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.priceStep ?? "0") ?? 0)*1000)"))"
+            cell.lbName.text = "Giá hiện tại: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
+        }
+        cell.lbCoin.text = "Số lệnh đã đấu giá: \(model.totalOrder ?? 0)"
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
         return cell
     }

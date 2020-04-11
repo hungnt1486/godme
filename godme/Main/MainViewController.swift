@@ -440,7 +440,7 @@ extension MainViewController: HeaderSubMainProtocol{
 //            https://godme.org/coop
             Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/coop")
         }else if index == 4 {
-            Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/article/search")
+            Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/charity")
         }else if index == 6 {
             Settings.ShareInstance.openWebsite(link: "\(URLs.linkHostName)/article/search")
         }

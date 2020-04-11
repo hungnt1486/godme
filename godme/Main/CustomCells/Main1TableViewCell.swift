@@ -93,6 +93,7 @@ extension Main1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
         cell.lbCity.text = model.address
         cell.lbTitleDetail.text = model.userInfo?.userCategory
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
+        cell.lbGodcoin.text = "Số lệnh đã đấu giá: \(model.totalOrder ?? 0)"
         return cell
         
     }

@@ -26,6 +26,7 @@ class EventsViewController: BaseViewController {
     var currentPage: Int = 1
     var pageSize: Int = 10
     
+    var isGodcoin = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +45,10 @@ class EventsViewController: BaseViewController {
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
+        
+        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        right.tintColor = UIColor.FlatColor.Oranges.BGColor
+        self.navigationItem.rightBarButtonItem = right
     }
     
     func setupTableView(){
@@ -55,6 +60,11 @@ class EventsViewController: BaseViewController {
         self.tbvEvents.estimatedRowHeight = 300
         self.tbvEvents.rowHeight = UITableView.automaticDimension
         self.tbvEvents.addSubview(refreshControl)
+    }
+    
+    @objc func touchRight(){
+        isGodcoin = !isGodcoin
+        self.tbvEvents.reloadData()
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -116,7 +126,12 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource{
         cell.lbName.text = model.userInfo?.userCategory
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
         cell.lbName.text = "Số người đã đăng ký: \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
-        cell.lbCoin.text = "Phí tham gia: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        if !isGodcoin {
+            cell.lbCoin.text = "Phí tham gia: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
+        }else{
+            cell.lbCoin.text = "Phí tham gia: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        }
+//        cell.lbCoin.text = "Phí tham gia: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         return cell
     }
     

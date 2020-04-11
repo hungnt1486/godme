@@ -27,6 +27,8 @@ class BasicServiceViewController: BaseViewController {
     var currentPage: Int = 1
     var pageSize: Int = 10
     
+    var isGodcoin = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +48,10 @@ class BasicServiceViewController: BaseViewController {
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
+        
+        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        right.tintColor = UIColor.FlatColor.Oranges.BGColor
+        self.navigationItem.rightBarButtonItem = right
     }
     
     func setupTableView(){
@@ -57,6 +63,11 @@ class BasicServiceViewController: BaseViewController {
         self.tbvBasicService.estimatedRowHeight = 300
         self.tbvBasicService.rowHeight = UITableView.automaticDimension
         self.tbvBasicService.addSubview(refreshControl)
+    }
+    
+    @objc func touchRight(){
+        isGodcoin = !isGodcoin
+        self.tbvBasicService.reloadData()
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -116,7 +127,11 @@ extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource
         cell.lbCity.text = model.address
         cell.lbName.text = model.userInfo?.userCategory
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
-        cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        if !isGodcoin {
+            cell.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)")
+        }else{
+            cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+        }
         return cell
     }
     
