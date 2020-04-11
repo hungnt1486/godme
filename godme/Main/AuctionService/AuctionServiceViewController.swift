@@ -159,7 +159,8 @@ extension AuctionServiceViewController: UITableViewDelegate, UITableViewDataSour
             cell.lbName.text = "Giá hiện tại: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
         }
         cell.lbCoin.text = "Số lệnh đã đấu giá: \(model.totalOrder ?? 0)"
-        cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
+        cell.dateTime = Settings.ShareInstance.convertTimeIntervalToDateTimeForCountDown(timeInterval: model.endTime ?? 0.0)
+        cell.countDown()
         return cell
     }
     

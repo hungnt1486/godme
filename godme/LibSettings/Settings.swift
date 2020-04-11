@@ -513,6 +513,18 @@ class Settings: NSObject {
         return dateConvert
     }
     
+    func convertTimeIntervalToDateTimeForCountDown(timeInterval: Double)-> String{
+        if timeInterval == 0 {
+            return ""
+        }
+        let date = NSDate.init(timeIntervalSince1970: timeInterval/1000)
+        let formatDate = DateFormatter.init()
+        formatDate.dateFormat = "yyyy/MM/dd/HH/mm/ss"//"yyyy-MM-dd HH:mm"
+        formatDate.locale = Locale.current
+        let dateConvert = formatDate.string(from: date as Date)
+        return dateConvert
+    }
+    
     func convertTimeIntervalToDate(timeInterval: Double)-> String{
         if timeInterval == 0 {
             return ""
