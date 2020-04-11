@@ -210,8 +210,6 @@
 		41786A5B244010A400F91695 /* LanguagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A59244010A400F91695 /* LanguagesViewController.xib */; };
 		41786A5E2440620800F91695 /* LanguagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */; };
 		41786A5F2440620800F91695 /* LanguagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */; };
-		41786A6224414FC400F91695 /* Title2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A6024414FC400F91695 /* Title2TableViewCell.xib */; };
-		41786A6324414FC400F91695 /* Title2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41786A6124414FC400F91695 /* Title2TableViewCell.swift */; };
 		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
 		4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */; };
@@ -563,8 +561,6 @@
 		41786A59244010A400F91695 /* LanguagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagesViewController.xib; sourceTree = "<group>"; };
 		41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguagesTableViewCell.xib; sourceTree = "<group>"; };
 		41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewCell.swift; sourceTree = "<group>"; };
-		41786A6024414FC400F91695 /* Title2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Title2TableViewCell.xib; sourceTree = "<group>"; };
-		41786A6124414FC400F91695 /* Title2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title2TableViewCell.swift; sourceTree = "<group>"; };
 		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
 		4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1115,8 +1111,6 @@
 		41286B6E2411DC1E0021157C /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				41786A6124414FC400F91695 /* Title2TableViewCell.swift */,
-				41786A6024414FC400F91695 /* Title2TableViewCell.xib */,
 				41AA8CC7243B75B300BDF892 /* JobTableViewCell.swift */,
 				41AA8CC6243B75B300BDF892 /* JobTableViewCell.xib */,
 				41AA8CBD243AC1E100BDF892 /* TypeCarTableViewCell.swift */,
@@ -1545,7 +1539,6 @@
 				410E67F22414998D00FA2F54 /* HeaderSubMain.xib in Resources */,
 				41ADEAD5241E0885002C95FA /* DateTableViewCell.xib in Resources */,
 				41AA8CC5243B722800BDF892 /* ViewShowListCheckBoxJob.xib in Resources */,
-				41786A6224414FC400F91695 /* Title2TableViewCell.xib in Resources */,
 				411329A524168CB60089DD18 /* AuctionServicesTableViewCell.xib in Resources */,
 				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
 				E66F6902241B404B00A0EC99 /* MyRelationShipViewController.xib in Resources */,
@@ -1853,7 +1846,6 @@
 				41286B0C24106C760021157C /* ContentTableViewCell.swift in Sources */,
 				413937642428A1570079C587 /* AWSS3Manager.swift in Sources */,
 				41AD169824134CFC001E132E /* InputGodcoinViewController.swift in Sources */,
-				41786A6324414FC400F91695 /* Title2TableViewCell.swift in Sources */,
 				4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */,
 				412CF323243ABEFE00064301 /* EditProfileViewController.swift in Sources */,
 				41286B09240FEA670021157C /* TwiceComboboxTableViewCell.swift in Sources */,
@@ -2097,7 +2089,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2122,7 +2114,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
