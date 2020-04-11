@@ -85,7 +85,7 @@ extension CreateGroupViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension CreateGroupViewController: TitleTableViewCellProtocol{
-    func getText(_ str: String) {
+    func getTextTitle(_ str: String) {
         self.str = str.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

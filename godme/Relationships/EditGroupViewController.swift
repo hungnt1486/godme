@@ -172,7 +172,7 @@ extension EditGroupViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension EditGroupViewController: TitleTableViewCellProtocol{
-    func getText(_ str: String) {
+    func getTextTitle(_ str: String) {
         self.strName = str
     }
 }

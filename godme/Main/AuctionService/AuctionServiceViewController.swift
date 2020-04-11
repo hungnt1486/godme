@@ -28,6 +28,36 @@ class AuctionServiceViewController: BaseViewController {
     var pageSize: Int = 10
     
     var isGodcoin = true
+    
+//    let futureDate: Date = {
+//        var future = DateComponents(
+//            year: 2020,
+//            month: 5,
+//            day: 1,
+//            hour: 0,
+//            minute: 0,
+//            second: 0
+//        )
+//        return Calendar.current.date(from: future)!
+//    }()
+//
+//    var countdown: DateComponents {
+//        return Calendar.current.dateComponents([.day, .hour, .minute, .second], from: Date(), to: futureDate)
+//    }
+//
+//    @objc func updateTime() -> String {
+//        let countdown = self.countdown //only compute once per call
+//        let days = countdown.day!
+//        let hours = countdown.hour!
+//        let minutes = countdown.minute!
+//        let seconds = countdown.second!
+//        return String(format: "%02d:%02d:%02d:%02d", days, hours, minutes, seconds)
+//    }
+//
+//    func runCountdown() {
+//        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

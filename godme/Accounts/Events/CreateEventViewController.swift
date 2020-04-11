@@ -226,6 +226,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cell.lbTitle.text = "Tiêu đề"
             cell.tfInput.placeholder = "Tiêu đề của dịch vụ"
             cell.tfInput.tag = indexPath.row
+            cell.tfInput.text = self.eventModel.title
             cell.delegate = self
             return cell
         case .Time:
@@ -233,27 +234,41 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cellDate.delegate = self
             cellDate.lbTitle.text = "Thời gian"
             cellDate.lbStartTime.tag = 1
-            cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+            if self.eventModel.startTime > 0.0  {
+                cellDate.lbStartTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.eventModel.startTime)
+            }else {
+                cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+            }
             cellDate.lbEndTime.tag = 2
-            cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
+            if self.eventModel.endTime > 0.0  {
+                cellDate.lbEndTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.eventModel.endTime)
+            }else {
+                cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
+            }
             return cellDate
             
         case .Position:
             cellAddres = tableView.dequeueReusableCell(withIdentifier: "AddressPostCarTableViewCell") as? AddressPostCarTableViewCell
             cellAddres.lbTitle.text = "Vị trí"
-            cellAddres.lbTypeCar.text = "Chọn địa điểm"
+            if self.eventModel.address.count > 0 {
+                cellAddres.lbTypeCar.text = self.eventModel.address
+            }else {
+                cellAddres.lbTypeCar.text = "Chọn địa điểm"
+            }
             cellAddres.delegate = self
             return cellAddres
         case .MaxOrder:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Số người tối đa"
             cell.tfInput.placeholder = "Nhập số người tối đa"
+            cell.tfInput.text = self.eventModel.maxOrder
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.text = "Mô tả"
+            cell.textView.text = self.eventModel.description
             cell.delegate = self
             return cell
         case .Language:
@@ -261,6 +276,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cell.lbTitle.text = "Ngôn ngữ"
             cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
             cell.tfInput.tag = indexPath.row
+            cell.tfInput.text = self.eventModel.language
             cell.delegate = self
             return cell
         case .Fee:
@@ -268,6 +284,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cell.lbTitle.text = "Phí tham dự"
             cell.tfInput.placeholder = "Nhập phí tham dự"
             cell.tfInput.tag = indexPath.row
+            cell.tfInput.text = self.eventModel.amount
             cell.delegate = self
             return cell
         case .CreateEvent:

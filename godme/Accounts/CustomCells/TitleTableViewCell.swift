@@ -10,7 +10,7 @@ import UIKit
 
 @objc protocol TitleTableViewCellProtocol {
     @objc optional
-    func getText(_ str: String)
+    func getTextTitle(_ str: String)
     @objc optional
     func getTextBaseService(_ str: String, type: typeCellCreateService)
     @objc optional
@@ -55,7 +55,7 @@ class TitleTableViewCell: UITableViewCell {
         delegate?.getTextCollaborationService?(self.tfInput.text ?? "", type: typeCellCreateCollaborate(rawValue: self.tfInput.tag)!)
         delegate?.getTextHelp?(self.tfInput.text ?? "", type: typeCellHelp(rawValue: self.tfInput.tag)!)
         delegate?.getTextPushNotification?(self.tfInput.text ?? "", type: typeCellPushNotification(rawValue: self.tfInput.tag)!)
-        delegate?.getText?(self.tfInput.text ?? "")
+        delegate?.getTextTitle?(self.tfInput.text ?? "")
         delegate?.getTextEditProfile?(self.tfInput.text ?? "", type: typeCellEditProfile(rawValue: self.tfInput.tag)!)
     }
     

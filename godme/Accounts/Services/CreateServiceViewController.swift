@@ -255,6 +255,7 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
             case .Title:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
                 cell.tfInput.tag = indexPath.row
+                cell.tfInput.text = self.basicModel.title
                 cell.delegate = self
                 return cell
             }
@@ -265,12 +266,17 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
             case .Position:
                 cellAddres = tableView.dequeueReusableCell(withIdentifier: "AddressPostCarTableViewCell") as? AddressPostCarTableViewCell
                 cellAddres.lbTitle.text = "Vị trí"
-                cellAddres.lbTypeCar.text = "Chọn địa điểm"
+                if self.basicModel.address.count > 0 {
+                    cellAddres.lbTypeCar.text = self.basicModel.address
+                }else {
+                    cellAddres.lbTypeCar.text = "Chọn địa điểm"
+                }
                 cellAddres.delegate = self
                 return cellAddres
             case .Description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
                 cell.lbTitle.text = "Mô tả"
+                cell.textView.text = self.basicModel.description
                 cell.delegate = self
                 return cell
             case .Language:
@@ -279,6 +285,7 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.delegate = self
                 cell.lbTitle.text = "Ngôn ngữ"
                 cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
+                cell.tfInput.text = self.basicModel.language
                 return cell
             case .Fee:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Title1TableViewCell") as! Title1TableViewCell
@@ -286,6 +293,7 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.delegate = self
                 cell.lbTitle.text = "Phí tham dự"
                 cell.tfInput.placeholder = "Nhập phí tham gia"
+                cell.tfInput.text = self.basicModel.amount
                 return cell
             case .CreateService:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell

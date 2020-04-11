@@ -225,6 +225,7 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             cell.lbTitle.text = "Tiêu đề"
             cell.tfInput.placeholder = "Tiêu đề của dịch vụ"
             cell.tfInput.tag = indexPath.row
+            cell.tfInput.text = self.auctionModel.title
             cell.delegate = self
             return cell
         case .Time:
@@ -232,27 +233,40 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             cellDate.delegate = self
             cellDate.lbTitle.text = "Thời gian"
             cellDate.lbStartTime.tag = 1
-            cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+            if self.auctionModel.startTime > 0.0 {
+                cellDate.lbStartTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.auctionModel.startTime)
+            }else{
+                cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+            }
             cellDate.lbEndTime.tag = 2
-            cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
-//            cellDate.lbTypeCar.text = "Chọn thời gian"
+            if self.auctionModel.endTime > 0.0 {
+                cellDate.lbEndTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.auctionModel.endTime)
+            }else{
+                cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
+            }
             return cellDate
             
         case .Position:
             cellAddres = tableView.dequeueReusableCell(withIdentifier: "AddressPostCarTableViewCell") as? AddressPostCarTableViewCell
             cellAddres.lbTitle.text = "Vị trí"
-            cellAddres.lbTypeCar.text = "Chọn địa điểm"
+            if self.auctionModel.address.count > 0{
+                cellAddres.lbTypeCar.text = self.auctionModel.address
+            }else {
+                cellAddres.lbTypeCar.text = "Chọn địa điểm"
+            }
             cellAddres.delegate = self
             return cellAddres
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.text = "Mô tả"
+            cell.textView.text = self.auctionModel.description
             cell.delegate = self
             return cell
         case .Language:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Ngôn ngữ"
             cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
+            cell.tfInput.text = self.auctionModel.language
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell
@@ -260,6 +274,7 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Giá khởi điểm"
             cell.tfInput.placeholder = "Nhập giá khởi điểm"
+            cell.tfInput.text = self.auctionModel.amount
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell
@@ -267,6 +282,7 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.text = "Bước giá"
             cell.tfInput.placeholder = "Nhập bước giá"
+            cell.tfInput.text = self.auctionModel.priceStep
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell

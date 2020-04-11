@@ -198,11 +198,13 @@ extension HelpViewController: UITableViewDelegate, UITableViewDataSource{
             cell.lbTitle.text = "Tiêu đề"
             cell.tfInput.placeholder = "Tiêu đề"
             cell.tfInput.tag = indexPath.row
+            cell.tfInput.text = self.helpModel.title
             cell.delegate = self
             return cell
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.text = "Mô tả"
+            cell.textView.text = self.helpModel.description
             cell.delegate = self
             return cell
         case .Confirm:
