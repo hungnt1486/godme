@@ -81,6 +81,8 @@ class IntroduceViewController: BaseViewController {
         if UserDefaults.standard.object(forKey: information_login) != nil {
             DispatchQueue.main.async {
                 self.setupUI()
+                let modelUser = Settings.ShareInstance.getDictUser()
+                BaseViewController.accessToken = modelUser.access_token ?? ""
                 self.loginSuccess()
             }
         }else{
