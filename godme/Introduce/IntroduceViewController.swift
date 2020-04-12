@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 //import NDParallaxIntroView
 
-class IntroduceViewController: UIViewController {
+class IntroduceViewController: BaseViewController {
     
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
@@ -78,8 +78,15 @@ class IntroduceViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        DispatchQueue.main.async {
-            self.setupUI()
+        if UserDefaults.standard.object(forKey: information_login) != nil {
+            DispatchQueue.main.async {
+                self.setupUI()
+                self.loginSuccess()
+            }
+        }else{
+            DispatchQueue.main.async {
+                self.setupUI()
+            }
         }
     }
     

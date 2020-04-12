@@ -158,6 +158,14 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 if modelDetail?.isRelationshipWithSeller ?? false {
                     cell.constraintHeightLabelCopy.constant = 20
                 }
+                let date = Date()
+                if modelDetail?.endTime ?? 0.0 > Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.dateTime = Settings.ShareInstance.convertTimeIntervalToDateTimeForCountDown(timeInterval: modelDetail?.endTime ?? 0.0)
+                    cell.countDown()
+                }else{
+                    cell.lbCoin.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
+                    
+                }
                 return cell
             case .Auction:
                 cellInfo = tableView.dequeueReusableCell(withIdentifier: "InfoAuctionTableViewCell") as? InfoAuctionTableViewCell
@@ -166,6 +174,12 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 cellInfo.lbStepMoney.text = "\(Double(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
                 cellInfo.lbPrice.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
                 cellInfo.lbNumber.text = "\(modelDetail?.totalOrder ?? 0)"
+                let date = Date()
+                if modelDetail?.endTime ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cellInfo.btAuction.isUserInteractionEnabled = false
+                    cellInfo.tfMoney.isUserInteractionEnabled = false
+                    cellInfo.btAuction.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                }
                 return cellInfo
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell

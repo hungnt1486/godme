@@ -31,6 +31,7 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
     
     var arrImageBanner: [String] = [String]()
     weak var bannerTimer: Timer?
+    var dateTime: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +51,38 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    func countDown(){
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
+        }
+        
+        @objc func UpdateTime() {
+            let userCalendar = Calendar.current
+            // Set Current Date
+            let date = Date()
+            let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: date)
+            let currentDate = userCalendar.date(from: components)!
+            
+            // Set Event Date
+            let arr = dateTime.split(separator: "/")
+            var eventDateComponents = DateComponents()
+            eventDateComponents.year = Int(String(arr[0]))
+            eventDateComponents.month = Int(String(arr[1]))
+            eventDateComponents.day = Int(String(arr[2]))
+            eventDateComponents.hour = Int(String(arr[3]))
+            eventDateComponents.minute = Int(String(arr[4]))
+            eventDateComponents.second = Int(String(arr[5]))
+    //        eventDateComponents.timeZone = TimeZone(abbreviation: "GMT")
+            
+            // Convert eventDateComponents to the user's calendar
+            let eventDate = userCalendar.date(from: eventDateComponents)!
+            
+            // Change the seconds to days, hours, minutes and seconds
+            let timeLeft = userCalendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDate)
+            
+            // Display Countdown
+            self.lbCoin.text = "\(timeLeft.day!) ngày \(timeLeft.hour!) giờ:\(timeLeft.minute!) phút:\(timeLeft.second!) giây"
+        }
     
     @objc func touchCopy(){
         delegate?.didCopy()
