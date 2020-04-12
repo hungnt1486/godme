@@ -22,6 +22,7 @@ class SearchBarBaseInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var lbPosition: UILabel!
     @IBOutlet weak var lbAddress: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
+    @IBOutlet weak var lbEducation: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -12,10 +12,12 @@ class SearchBarInfoBaseViewController: BaseViewController {
 
     @IBOutlet weak var tbvBaseInfo: UITableView!
     var modelDetail: UserRegisterReturnModel?
+    var arrayEducation: [[String: String]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.arrayEducation = self.loadEduction()
         self.setupTableView()
     }
     
@@ -29,6 +31,17 @@ class SearchBarInfoBaseViewController: BaseViewController {
 //        self.tbvBaseInfo.separatorInset = UIEdgeInsets.zero
         self.tbvBaseInfo.estimatedRowHeight = 300
         self.tbvBaseInfo.rowHeight = UITableView.automaticDimension
+    }
+    
+    func loadEduction() ->[[String: String]]{
+        var arrString: [[String: String]] = []
+        let arrCountry = Settings.ShareInstance.loadEducation()
+        if arrCountry.count > 0 {
+            for item in arrCountry {
+                arrString.append(["name":item.label ?? "", "code": "\(item.code ?? "")"])
+            }
+        }
+        return arrString
     }
 
 }
@@ -63,6 +76,12 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
                     }
                     break
                 }
+            }
+        }
+        for item in self.arrayEducation {
+            if item["code"] == self.modelDetail?.education {
+                cell.lbEducation.text = "Học vấn: \(item["name"] ?? "")"
+                break
             }
         }
         cell.lbJob.text = "Ngành nghề: \(strCareer)"
