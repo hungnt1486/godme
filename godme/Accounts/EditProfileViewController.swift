@@ -501,7 +501,8 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTitle.text = "Giá trị kết nối"
             cell.tfInput.tag = indexPath.row
-            cell.tfInput.text = userInfoModel.userCode
+//            cell.tfInput.text = userInfoModel.userCode
+            cell.tfInput.keyboardType = .numberPad
             cell.delegate = self
             return cell
         case .RealText:

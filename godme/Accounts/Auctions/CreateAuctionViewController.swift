@@ -275,6 +275,7 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             cell.lbTitle.text = "Giá khởi điểm"
             cell.tfInput.placeholder = "Nhập giá khởi điểm"
             cell.tfInput.text = self.auctionModel.amount
+            cell.tfInput.keyboardType = .numberPad
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell
@@ -283,6 +284,7 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             cell.lbTitle.text = "Bước giá"
             cell.tfInput.placeholder = "Nhập bước giá"
             cell.tfInput.text = self.auctionModel.priceStep
+            cell.tfInput.keyboardType = .numberPad
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell

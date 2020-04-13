@@ -19,7 +19,7 @@ class ConfirmBasicServiceViewController: BaseViewController {
     @IBOutlet weak var tbvConfirmBasicService: UITableView!
     let listTypeCell:[typeCellConfirm] = [.Basic, .ConfirmContent, .ConfirmButton]
     var modelDetail: BaseServiceModel?
-    var indexDateTime: Int = 0
+    var indexDateTime: Int = -1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,6 +119,10 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
 
 extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
+        if indexDateTime == -1 {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn thời gian", vc: self)
+            return
+        }
         Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đặt dịch vụ?", vc: self) { [unowned self](str) in
             let modelUser = Settings.ShareInstance.getDictUser()
             var model = AddNewConfirmBasicServiceParams()

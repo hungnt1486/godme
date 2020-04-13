@@ -293,6 +293,7 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.delegate = self
                 cell.lbTitle.text = "Phí tham dự"
                 cell.tfInput.placeholder = "Nhập phí tham gia"
+                cell.tfInput.keyboardType = .numberPad
                 cell.tfInput.text = self.basicModel.amount
                 return cell
             case .CreateService:

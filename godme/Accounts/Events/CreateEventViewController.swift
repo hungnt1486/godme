@@ -285,6 +285,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cell.tfInput.placeholder = "Nhập phí tham dự"
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = self.eventModel.amount
+            cell.tfInput.keyboardType = .numberPad
             cell.delegate = self
             return cell
         case .CreateEvent:
