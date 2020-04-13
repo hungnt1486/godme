@@ -26,9 +26,9 @@ struct URLs {
         static let changePassword = "api/v1/auth/changePassword"
         static let forgotPassword = "/api/v1/auth/forgotPassword"
         static let logout = "api/v1/auth/logout"
-        static let getRelationship = "api/mobile/user/getRelationship"
-        static let getRelationshipExpand = "api/mobile/user/getRelationshipExtend"
-        static let getListHiden = "api/mobile/user/getListHiden"
+        static let getRelationship = "api/mobile/relationship/getRelationship"
+        static let getRelationshipExpand = "api/mobile/relationship/getRelationshipExtend"
+        static let getListHiden = "api/mobile/relationship/getListHiden"
         static let getListBaseService = "api/mobile/service/basic/getListService"
         static let createBaseService = "api/mobile/service/basic/save"
         static let searchBaseService = "api/mobile/service/basic/search"
@@ -39,8 +39,8 @@ struct URLs {
         static let searchOrderAuctionService = "api/mobile/order/auction/search"
         static let getListAuctionService = "api/mobile/service/auction/getListService"
         static let searchRelationShips = "api/mobile/relationship/search"
-        static let showRelationShip = "api/mobile/user/showRelationship"
-        static let hideRelationShip = "api/mobile/user/hideRelationship"
+        static let showRelationShip = "api/mobile/relationship/showRelationship"
+        static let hideRelationShip = "api/mobile/relationship/hideRelationship"
         static let agreeConnect = "api/mobile/notification/agreeConnect"
         static let connectToUser = "api/mobile/notification/connectToUser"
         static let addGroupRelationShip = "api/mobile/groupRelationship/save"
@@ -71,8 +71,7 @@ struct URLs {
         static let getListHistory = "api/mobile/order/transaction/getHistory"
         static let getUserInfo = "api/mobile/user/getInfo"
         static let updateUserInfo = "api/mobile/user/update"
-        static let register = "api/v1/auth/signup"
-        
+        static let register = "api/v1/auth/signupV2"
     }
     
     //// user

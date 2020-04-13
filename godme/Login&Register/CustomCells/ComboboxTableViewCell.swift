@@ -11,6 +11,8 @@ import DropDown
 
 @objc protocol ComboboxTableViewCellProtocol {
     @objc optional
+    func hideKeyboardCombobox()
+    @objc optional
     func didTouch(str: String, type: typeCellRegister, index: Int)
     
     @objc optional
@@ -76,6 +78,7 @@ class ComboboxTableViewCell: UITableViewCell {
     }
     
     @IBAction func touchShow(_ sender: Any) {
+        delegate?.hideKeyboardCombobox?()
         self.showType()
     }
 }

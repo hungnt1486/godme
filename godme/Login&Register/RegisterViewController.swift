@@ -11,19 +11,20 @@ import UIKit
 @objc enum typeCellRegister: Int {
     case RealText = 0
     case FullName = 1
-    case Password = 2
-    case PasswordConfirm = 3
-    case Email = 4
-    case Country = 5
-    case City = 6
-    case District  = 7
-    case Ward = 8
-    case Address = 9
-    case Job = 10
-    case Gender = 11
-    case Refferal = 12
-    case RefferalDefault = 13
-    case Complete = 14
+    case UserName = 2
+    case Password = 3
+    case PasswordConfirm = 4
+    case Email = 5
+    case Country = 6
+    case City = 7
+    case District  = 8
+    case Ward = 9
+    case Address = 10
+    case Job = 11
+    case Gender = 12
+    case Refferal = 13
+    case RefferalDefault = 14
+    case Complete = 15
 }
 
 class RegisterViewController: BaseViewController {
@@ -55,7 +56,7 @@ class RegisterViewController: BaseViewController {
     
     var strCity, strDistrict, strWard: String?
     
-    var listTypeCell : [typeCellRegister] = [.RealText, .FullName, .Password, .PasswordConfirm, .Email, .Country, .City, .District, .Ward, .Address, .Job, .Gender, .Refferal, .RefferalDefault, .Complete]
+    var listTypeCell : [typeCellRegister] = [.RealText, .FullName, .UserName, .Password, .PasswordConfirm, .Email, .Country, .City, .District, .Ward, .Address, .Job, .Gender, .Refferal, .RefferalDefault, .Complete]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,7 +70,7 @@ class RegisterViewController: BaseViewController {
         self.navigationItem.title = Settings.ShareInstance.translate(key: "register")
         self.navigationController?.navigationBar.isHidden = false
         self.view.backgroundColor = UIColor.FlatColor.Gray.BGColor
-        self.registerModel.email = phoneNumber
+        self.registerModel.username = phoneNumber
 //        self.arrayCountry = self.loadCountry()
         self.arrayJobs = BaseViewController.arrayJobs
         self.arrayProvince = self.loadProvince()
@@ -216,6 +217,14 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             cell.tfText.text = self.registerModel.fullName
             cell.delegate = self
             return cell
+           case .UserName:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
+            cell.tfText.placeholder = "Số điện thoại"
+            cell.tfText.tag = indexPath.row
+            cell.tfText.isUserInteractionEnabled = false
+            cell.tfText.text = self.registerModel.username
+            cell.delegate = self
+            return cell
            case .Password:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.placeholder = "Mật khẩu"
@@ -234,10 +243,8 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .Email:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Số điện thoại"
+            cell.tfText.placeholder = "Email"
             cell.tfText.tag = indexPath.row
-            cell.tfText.isUserInteractionEnabled = false
-            cell.tfText.text = self.registerModel.email
             cell.delegate = self
             return cell
            case .Country:
@@ -372,6 +379,9 @@ extension RegisterViewController: InputTextTableViewCellProtocol{
         case .FullName:
             self.registerModel.fullName = string
             break
+        case .UserName:
+            self.registerModel.username = string
+            break
         case .Password:
             self.registerModel.password = string
             break
@@ -411,6 +421,11 @@ extension RegisterViewController: InputTextTableViewCellProtocol{
 }
 
 extension RegisterViewController: ComboboxTableViewCellProtocol{
+    
+    func hideKeyboardCombobox() {
+        self.view.endEditing(true)
+    }
+    
     func didTouch(str: String, type: typeCellRegister, index: Int) {
         print("str = \(str), type = \(type), index = \(index)")
         switch type {
@@ -418,6 +433,8 @@ extension RegisterViewController: ComboboxTableViewCellProtocol{
         case .RealText:
             break
         case .FullName:
+            break
+        case .UserName:
             break
         case .Password:
             break
@@ -491,12 +508,19 @@ extension RegisterViewController: ComboboxTableViewCellProtocol{
 }
 
 extension RegisterViewController: TwiceComboboxTableViewCellProtocol{
+    
+    func hideKeyboard() {
+        self.view.endEditing(true)
+    }
+    
     func didTouch1(_ index: Int, type: typeCellRegister, str: String) {
         switch type {
             
         case .RealText:
             break
         case .FullName:
+            break
+        case .UserName:
             break
         case .Password:
             break
@@ -534,6 +558,8 @@ extension RegisterViewController: TwiceComboboxTableViewCellProtocol{
         case .RealText:
             break
         case .FullName:
+            break
+        case .UserName:
             break
         case .Password:
             break
@@ -656,11 +682,11 @@ extension RegisterViewController: CompleteTableViewCellProtocol{
             self.registerModel.fullName.count == 0 ||
             self.registerModel.password.count == 0 ||
             self.registerModel.provinceCode.count == 0 ||
-            self.registerModel.referralCode.count == 0 ||
             self.registerModel.username.count == 0 ||
             self.registerModel.wardCode.count == 0 {
             Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin", vc: self)
             self.hideProgressHub()
+            return
         }
         var model = AddNewRegisterParams()
         model.address = self.registerModel.address

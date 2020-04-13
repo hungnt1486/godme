@@ -26,7 +26,11 @@ class RelationShipsManager{
     
     func getListRelationShipFilter(careerId: Int, fullName: String, page: Int, pageSize: Int, completion: @escaping(ListResult<RelationShipsModel>) -> Void){
         var paramsBody = [String: Any]()
-        paramsBody["careerId"] = careerId
+        if careerId == 0 {
+            paramsBody["careerId"] = ""
+        }else{
+            paramsBody["careerId"] = careerId
+        }
         paramsBody["fullName"] = fullName
         paramsBody["page"] = page
         paramsBody["pageSize"] = pageSize
@@ -38,7 +42,11 @@ class RelationShipsManager{
     
     func getListRelationShipExpandFilter(careerId: Int, fullName: String, page: Int, pageSize: Int, completion: @escaping(ListResult<RelationShipsModel>) -> Void){
         var paramsBody = [String: Any]()
-        paramsBody["careerId"] = careerId
+        if careerId == 0 {
+            paramsBody["careerId"] = ""
+        }else{
+            paramsBody["careerId"] = careerId
+        }
         paramsBody["fullName"] = fullName
         paramsBody["page"] = page
         paramsBody["pageSize"] = pageSize
@@ -50,7 +58,11 @@ class RelationShipsManager{
     
     func getListHidenFilter(careerId: Int, fullName: String, page: Int, pageSize: Int, completion: @escaping(ListResult<RelationShipsModel>) -> Void){
         var paramsBody = [String: Any]()
-        paramsBody["careerId"] = careerId
+        if careerId == 0 {
+            paramsBody["careerId"] = ""
+        }else{
+            paramsBody["careerId"] = careerId
+        }
         paramsBody["fullName"] = fullName
         paramsBody["page"] = page
         paramsBody["pageSize"] = pageSize

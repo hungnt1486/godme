@@ -11,6 +11,8 @@ import DropDown
 
 @objc protocol TwiceComboboxTableViewCellProtocol{
     @objc optional
+    func hideKeyboard()
+    @objc optional
     func didShowListJob()
     @objc optional
     func didShowDate()
@@ -97,15 +99,19 @@ class TwiceComboboxTableViewCell: UITableViewCell {
     
     @IBAction func touchShow1(_ sender: Any) {
         if isListJob == 1 {
+            delegate?.hideKeyboard?()
             delegate?.didShowListJob?()
         }else if isListJob == 2 {
+            delegate?.hideKeyboard?()
             delegate?.didShowDate?()
         }else{
+            delegate?.hideKeyboard?()
             self.showType()
         }
     }
     
     @IBAction func touchShow2(_ sender: Any) {
+        delegate?.hideKeyboard?()
         self.showTypeSub()
     }
     
