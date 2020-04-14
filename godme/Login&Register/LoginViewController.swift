@@ -65,7 +65,48 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func touchForgotPassword(_ sender: Any) {
-        
+        alertController = UIAlertController.init(title: "Khôi phục mật khẩu", message: "", preferredStyle: .alert)
+                alertController.addTextField { (textField) in
+                    textField.placeholder = "Email"
+                }
+            
+                let actionOk = UIAlertAction.init(title: "Đồng ý", style: .default) { [unowned self](action) in
+                    self.alertController.dismiss(animated: true, completion: nil)
+                    let firstTextField = self.alertController.textFields![0] as UITextField
+                    if firstTextField.text!.isEmpty {
+                        Settings.ShareInstance.showAlertView(message: "Vui lòng nhập email", vc: self)
+                        
+                    }else{
+//                        let otpPhone = OTPPhone(target: self)
+//                        otpPhone.signInPhone(phone: firstTextField.text ?? "")
+                        self.showProgressHub()
+                        self.sendOTPForgotPassword(email: firstTextField.text ?? "")
+                    }
+                }
+                let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) {[unowned self] (action) in
+                    self.alertController.dismiss(animated: true, completion: nil)
+                }
+                alertController.addAction(actionOk)
+                alertController.addAction(actionCancel)
+                self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func sendOTPForgotPassword(email: String){
+        UserManager.shareUserManager().sendOTPForgotPassword(email: email) { (response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                let forgot = ForgotPasswordViewController()
+                forgot.email = email
+                self.navigationController?.pushViewController(forgot, animated: true)
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func touchLogin(){

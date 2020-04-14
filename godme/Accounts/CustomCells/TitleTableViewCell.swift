@@ -25,6 +25,8 @@ import UIKit
     func getTextPushNotification(_ str: String, type: typeCellPushNotification)
     @objc optional
     func getTextEditProfile(_ str: String, type: typeCellEditProfile)
+    @objc optional
+    func getTextForgotPassword(_ str: String, type: typeCellForGot)
 }
 
 class TitleTableViewCell: UITableViewCell {
@@ -57,6 +59,7 @@ class TitleTableViewCell: UITableViewCell {
         delegate?.getTextPushNotification?(self.tfInput.text ?? "", type: typeCellPushNotification(rawValue: self.tfInput.tag)!)
         delegate?.getTextTitle?(self.tfInput.text ?? "")
         delegate?.getTextEditProfile?(self.tfInput.text ?? "", type: typeCellEditProfile(rawValue: self.tfInput.tag)!)
+        delegate?.getTextForgotPassword?(self.tfInput.text ?? "", type: typeCellForGot(rawValue: self.tfInput.tag)!)
     }
     
     func setupUI(){

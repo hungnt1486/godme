@@ -56,6 +56,15 @@ class UserManager{
         }
     }
     
+    func sendOTPForgotPassword(email: String, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["email"] = email
+        Alamofire.request(URLs.sendOTPForgotPassword, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            print("sendOTPForgotPassword = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
     func logout(completion: @escaping(SingleResult<BaseModel>) -> Void){
         Alamofire.request(URLs.logout, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("logout = \(response)")

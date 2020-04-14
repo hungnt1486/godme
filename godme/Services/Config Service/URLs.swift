@@ -8,9 +8,9 @@
 
 struct URLs {
     // dev
-//    static let linkHostName = "https://godme.org"
+    static let linkHostName = "https://godme.org"
     // live
-    static let linkHostName = "https://godme.vn"
+//    static let linkHostName = "https://godme.vn"
     static let linkWebRefference = "\(linkHostName)/register?"
     static let linkWebCollaboration = "\(linkHostName)/services/coop/view/"
     static let linkwebBlog = "\(linkHostName)/article/"
@@ -18,13 +18,14 @@ struct URLs {
     static let linkServiceAuction = "\(linkHostName)/services/auction/view/"
     static let linkServiceEvent = "\(linkHostName)/services/event/view/"
     // for test
-//    static let linkServer = "http://45.117.169.99:8888/godme-service/"
+    static let linkServer = "http://45.117.169.99:8888/godme-service/"
     // for live http://13.229.146.11:8080/ //https://godme.vn:8443
-    static let linkServer = "http://13.229.146.11:8080/godme-service/"
+//    static let linkServer = "http://13.229.146.11:8080/godme-service/"
     private struct Routes{
         static let login = "api/v1/auth/login"
         static let changePassword = "api/v1/auth/changePassword"
-        static let forgotPassword = "/api/v1/auth/forgotPassword"
+        static let forgotPassword = "api/v1/auth/forgotPassword"
+        static let sendOTPForgotPassword = "api/v1/auth/sendOTPForgotPass"
         static let logout = "api/v1/auth/logout"
         static let getRelationship = "api/mobile/relationship/getRelationship"
         static let getRelationshipExpand = "api/mobile/relationship/getRelationshipExtend"
@@ -114,6 +115,9 @@ struct URLs {
     }
     static var register: String{
         return String(format: "%@%@", linkServer, Routes.register)
+    }
+    static var sendOTPForgotPassword: String{
+        return String(format: "%@%@", linkServer, Routes.sendOTPForgotPassword)
     }
     
     /// relationship

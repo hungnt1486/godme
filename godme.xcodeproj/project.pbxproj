@@ -210,6 +210,8 @@
 		41786A5B244010A400F91695 /* LanguagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A59244010A400F91695 /* LanguagesViewController.xib */; };
 		41786A5E2440620800F91695 /* LanguagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */; };
 		41786A5F2440620800F91695 /* LanguagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */; };
+		4182D17C24457776006845B8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4182D17A24457776006845B8 /* ForgotPasswordViewController.swift */; };
+		4182D17D24457776006845B8 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4182D17B24457776006845B8 /* ForgotPasswordViewController.xib */; };
 		41867AC924362D7000377704 /* VSearchBarMap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41867AC724362D7000377704 /* VSearchBarMap.xib */; };
 		41867ACA24362D7000377704 /* VSearchBarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41867AC824362D7000377704 /* VSearchBarMap.swift */; };
 		4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */; };
@@ -561,6 +563,8 @@
 		41786A59244010A400F91695 /* LanguagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagesViewController.xib; sourceTree = "<group>"; };
 		41786A5C2440620700F91695 /* LanguagesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguagesTableViewCell.xib; sourceTree = "<group>"; };
 		41786A5D2440620800F91695 /* LanguagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewCell.swift; sourceTree = "<group>"; };
+		4182D17A24457776006845B8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4182D17B24457776006845B8 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		41867AC724362D7000377704 /* VSearchBarMap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSearchBarMap.xib; sourceTree = "<group>"; };
 		41867AC824362D7000377704 /* VSearchBarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSearchBarMap.swift; sourceTree = "<group>"; };
 		4195E771243FF84A00D48D1C /* Main4CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main4CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -991,6 +995,8 @@
 				41286AF2240F73120021157C /* LoginViewController.xib */,
 				41286AF5240F732D0021157C /* RegisterViewController.swift */,
 				41286AF6240F732D0021157C /* RegisterViewController.xib */,
+				4182D17A24457776006845B8 /* ForgotPasswordViewController.swift */,
+				4182D17B24457776006845B8 /* ForgotPasswordViewController.xib */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -1564,6 +1570,7 @@
 				410E67EE2414959100FA2F54 /* HeaderMain.xib in Resources */,
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */,
+				4182D17D24457776006845B8 /* ForgotPasswordViewController.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
 				413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */,
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
@@ -1800,6 +1807,7 @@
 				41AD16CA2413FC31001E132E /* ViewPagerOptions.swift in Sources */,
 				411329CE24171FC00089DD18 /* ImageDetailAuctionTableViewCell.swift in Sources */,
 				41ADEAC4241E03B7002C95FA /* TitleTableViewCell.swift in Sources */,
+				4182D17C24457776006845B8 /* ForgotPasswordViewController.swift in Sources */,
 				41EACD0C242E1B00003A6962 /* MyBaseService2DetailTableViewCell.swift in Sources */,
 				41AD16D624141A55001E132E /* MyServicesTableViewCell.swift in Sources */,
 				4150DA82241CEC0100F8A7E4 /* CreateNotificationViewController.swift in Sources */,

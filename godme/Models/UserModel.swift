@@ -329,6 +329,13 @@ struct changePasswordParams {
     var newPassword: String?
 }
 
+class ForgotPasswordParamsModel{
+    var username = ""
+    var newPassword = ""
+    var confirmPassword = ""
+    var codeOTP = ""
+}
+
 struct forgotPasswordParams {
     var username: String?
     var codeOTP: String?
