@@ -60,8 +60,8 @@ class LoginViewController: BaseViewController {
         let attr2 = NSMutableAttributedString(string: String(arr[0] + "?"), attributes: attrs2 as [NSAttributedString.Key : Any])
         attr2.append(attr1)
         self.lbRegister.attributedText = attr2
-        self.tfUserName.text = "0913571105"//"+84admin"
-        self.tfPassword.text = "Toan1789"//"1234567890"
+//        self.tfUserName.text = "0913571105"//"+84admin"
+//        self.tfPassword.text = "Toan1789"//"1234567890"
     }
     
     @IBAction func touchForgotPassword(_ sender: Any) {
