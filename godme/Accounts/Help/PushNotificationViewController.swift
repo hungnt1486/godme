@@ -185,6 +185,7 @@ class PushNotificationViewController: BaseViewController {
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
                     Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                    self.hideProgressHub()
                 }
             }else {
                 let totalRow = self.listGroup.count + 2
@@ -299,7 +300,7 @@ extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSo
             cellCheckBox = tableView.dequeueReusableCell(withIdentifier: "CheckBoxTableViewCell") as? CheckBoxTableViewCell
             if indexPath.row == 0 {
                 cellCheckBox.lbTitle1.text = "Mối quan hệ"
-                cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
+//                cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
             }else if indexPath.row == 1 {
                 cellCheckBox.lbTitle1.text = "Mối quan hệ mở rộng"
             }else{
@@ -385,9 +386,9 @@ extension PushNotificationViewController: CheckBoxTableViewCellProtocol {
     
     func didImg1(_ index: Int) {
         cellCheckBox = self.tbvHelp.cellForRow(at: IndexPath.init(item: index, section: 1)) as? CheckBoxTableViewCell
-        if index == 0 {
-            return
-        }
+//        if index == 0 {
+//            return
+//        }
         if cellCheckBox.img1!.tag == index {
             if cellCheckBox?.img1.image?.jpegData(compressionQuality: 0.5) != UIImage.init(named: "ic_uncheck")?.jpegData(compressionQuality: 0.5) {
                 cellCheckBox.img1.image = UIImage.init(named: "ic_uncheck")

@@ -12,6 +12,7 @@ import SDWebImage
 protocol ImageDetailAuctionTableViewCellProtocol {
     func didShowMoreAuction()
     func didCopy()
+    func didFullName()
 }
 
 class ImageDetailAuctionTableViewCell: UITableViewCell {
@@ -44,6 +45,9 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
         tapCopy.numberOfTapsRequired = 1
         self.lbCopy.isUserInteractionEnabled = true
         self.lbCopy.addGestureRecognizer(tapCopy)
+        let tapFullName = UITapGestureRecognizer.init(target: self, action: #selector(touchFullName))
+        self.lbFullName.isUserInteractionEnabled = true
+        self.lbFullName.addGestureRecognizer(tapFullName)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -90,6 +94,10 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
     
     @objc func touchShowMore(){
         delegate?.didShowMoreAuction()
+    }
+    
+    @objc func touchFullName(){
+        delegate?.didFullName()
     }
     
     func crollViewImage() {

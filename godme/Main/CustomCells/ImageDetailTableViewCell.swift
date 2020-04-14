@@ -13,6 +13,7 @@ protocol ImageDetailTableViewCellProtocol {
     func didShowMore()
     func didCoinConvert()
     func didCopy()
+    func didFullName()
 }
 
 class ImageDetailTableViewCell: UITableViewCell {
@@ -48,6 +49,10 @@ class ImageDetailTableViewCell: UITableViewCell {
         let tapCopy = UITapGestureRecognizer.init(target: self, action: #selector(touchCopy))
         self.lbCopy.isUserInteractionEnabled = true
         self.lbCopy.addGestureRecognizer(tapCopy)
+        
+        let tapFullName = UITapGestureRecognizer.init(target: self, action: #selector(touchFullName))
+        self.lbFullName.isUserInteractionEnabled = true
+        self.lbFullName.addGestureRecognizer(tapFullName)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -71,6 +76,10 @@ class ImageDetailTableViewCell: UITableViewCell {
     
     @objc func touchCopy(){
         delegate?.didCopy()
+    }
+    
+    @objc func touchFullName(){
+        delegate?.didFullName()
     }
     
     func crollViewImage() {

@@ -198,6 +198,12 @@ extension DetailBasicServiceViewController: BookServiceTableViewCellProtocol{
 }
 
 extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
+    func didFullName() {
+        let searchBarDetail = SearchBarDetailViewController()
+        searchBarDetail.userId = modelDetail?.userInfo?.id ?? 0
+        self.navigationController?.pushViewController(searchBarDetail, animated: true)
+    }
+    
     func didCopy() {
         let str = "\(modelDetail?.title ?? "") \(modelDetail?.id ?? 0)"
         UIPasteboard.general.string = "\(URLs.linkServicebase)\(str.convertedToSlug() ?? "")?refId=\(modelUser.userId ?? 0)"

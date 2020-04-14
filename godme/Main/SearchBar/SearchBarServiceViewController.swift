@@ -186,10 +186,16 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbCity.text = model.address
-            cell.lbName.text = model.userInfo?.userCategory
-            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
-            cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+//            if isGodcoin {
+                cell.lbCity.text = "Bước giá: \(Double(model.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cell.lbName.text = "Giá hiện tại: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+//            }else{
+//                cell.lbCity.text = "Bước giá: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.priceStep ?? "0") ?? 0)*1000)"))"
+//                cell.lbName.text = "Giá hiện tại: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
+//            }
+            cell.lbCoin.text = "Số lệnh đã đấu giá: \(model.totalOrder ?? 0)"
+            cell.dateTime = Settings.ShareInstance.convertTimeIntervalToDateTimeForCountDown(timeInterval: model.endTime ?? 0.0)
+            cell.countDown()
             return cell
         }else{
             if listEvents.count == 0 {
@@ -211,7 +217,7 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
                 }
             }
             cell.lbCity.text = model.address
-            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbName.text = "Số người đã đăng ký: \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
             cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
