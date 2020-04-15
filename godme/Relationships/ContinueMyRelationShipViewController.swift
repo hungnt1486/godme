@@ -53,7 +53,7 @@ class ContinueMyRelationShipViewController: BaseViewController {
     }
     
     func getMyRelationShip(){
-        UserManager.shareUserManager().getMyRelationShip(id: userId ?? 0 ) { [unowned self](response) in
+        UserManager.shareUserManager().getMyRelationShip(id: intRelationShip ) { [unowned self](response) in
             switch response{
                 
             case .success(let data):

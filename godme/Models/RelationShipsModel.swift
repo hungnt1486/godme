@@ -21,6 +21,7 @@ class RelationShipsModel: BaseModel {
     var totalBenefited: Int?
     var totalStar: Float?
     var userCategory: String?
+    var relationshipId: Int?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -35,6 +36,7 @@ class RelationShipsModel: BaseModel {
         totalBenefited = json["totalBenefited"].intValue
         totalStar = json["totalStar"].floatValue
         userCategory = json["userCategory"].stringValue
+        relationshipId = json["relationshipId"].intValue
     }
 }
 

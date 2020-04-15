@@ -40,6 +40,10 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
         self.setupUI()
 //        self.setupTypeDropdown()
         self.setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.getListGroupRelationShipFilter()
     }
 
@@ -91,7 +95,8 @@ class MyGroupRelationShipExpandViewController: BaseViewController {
                 
             case .success(let data):
                 self.hideProgressHub()
-                
+                self.arr.removeAll()
+                self.arrString.removeAll()
                 for (index, model) in data.enumerated() {
                     self.listRelationShipExpand.append(model)
                     self.arr.append(["name":model.name ?? "", "code": "\(index)"])

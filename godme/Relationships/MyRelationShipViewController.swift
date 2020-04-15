@@ -211,8 +211,10 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
         cell.lbCoin.text = "\(Double(model.totalBenefited ?? 0).formatnumber()) Godcoin"
         cell.lbTitle.text = model.fullName
         cell.lbEmail.text = model.email
+        cell.lbEmail.tag = indexPath.row
         cell.imgMore.tag = indexPath.row
         cell.imgPhone.isHidden = true
+        cell.lbPhone.tag = indexPath.row
         cell.lbPhone.text = ""
         if let phone = model.phoneNumber, phone.count > 0 {
             cell.lbPhone.text = phone
@@ -247,6 +249,16 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
+    func didEmail(index: Int) {
+        let model = self.listMyRelationShip[index]
+        Settings.ShareInstance.openEmail(email: model.email ?? "")
+    }
+    
+    func didPhoneNumber(index: Int) {
+        let model = self.listMyRelationShip[index]
+        Settings.ShareInstance.callPhoneNumber(phoneNumber: model.phoneNumber ?? "")
+    }
+    
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { [unowned self] (action) in
@@ -270,6 +282,7 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
             alertControl.dismiss(animated: true, completion: nil)
             let model = self.listMyRelationShip[index]
             let continueMyRelation = ContinueMyRelationShipViewController()
+            continueMyRelation.intRelationShip = model.relationshipId ?? 0
             continueMyRelation.userId = model.id ?? 0
             self.navigationController?.pushViewController(continueMyRelation, animated: true)
         }

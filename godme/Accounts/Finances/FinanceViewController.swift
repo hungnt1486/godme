@@ -196,6 +196,42 @@ class FinanceViewController: BaseViewController {
         }
     }
     
+    func showDetail(cell: FollowTableViewCell, weeks: [HistorySubModel]){
+        for item in weeks {
+            if item.serviceType == "BASIC" {
+                if !isGodcoin {
+                    cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                }else{
+                    cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                }
+            }else if item.serviceType == "EVENT" {
+                if !isGodcoin {
+                    cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                }else{
+                    cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                }
+            }else if item.serviceType == "AUCTION" {
+                if !isGodcoin {
+                    cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                }else{
+                    cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                }
+            }else if item.serviceType == "CONNECT_USER" {
+                if !isGodcoin {
+                    cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                }else{
+                    cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                }
+            }else{
+                if !isGodcoin {
+                    cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
+                }else{
+                    cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                }
+            }
+        }
+    }
+    
     
 }
 
@@ -269,543 +305,70 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowTableViewCell") as! FollowTableViewCell
-        cell.lbService.text = "0 Godcoin"
-        cell.lbAuction.text = "0 Godcoin"
-        cell.lbEvent.text = "0 Godcoin"
-        cell.lbRelationShip.text = "0 Godcoin"
-        cell.lbConnect.text = "0 Godcoin"
+        if isGodcoin {
+            cell.lbService.text = "0 Godcoin"
+            cell.lbAuction.text = "0 Godcoin"
+            cell.lbEvent.text = "0 Godcoin"
+            cell.lbRelationShip.text = "0 Godcoin"
+            cell.lbConnect.text = "0 Godcoin"
+        }else{
+            cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "0")
+            cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "0")
+            cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "0")
+            cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "0")
+            cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "0")
+        }
         if indexPath.section == 0 {
             let weeks = self.HistoryCurrentDate?.historyInWeek
-            for item in weeks ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: weeks ?? [])
             return cell
         }else if indexPath.section == 1 {
             let months = self.HistoryCurrentDate?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 2 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 3 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 4 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 5 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 6 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 7 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 8 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 9 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 10 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else if indexPath.section == 11 {
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }else{
             let months = self.History?.historyInMonth
-            for item in months ?? [] {
-                if item.serviceType == "BASIC" {
-                    if !isGodcoin {
-                        cell.lbService.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbService.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "EVENT" {
-                    if !isGodcoin {
-                        cell.lbEvent.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbEvent.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "AUCTION" {
-                    if !isGodcoin {
-                        cell.lbAuction.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbAuction.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else if item.serviceType == "CONNECT_USER" {
-                    if !isGodcoin {
-                        cell.lbConnect.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbConnect.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }else{
-                    if !isGodcoin {
-                        cell.lbRelationShip.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(item.totalAmount ?? "0") ?? 0)*1000)")
-                    }else{
-                        cell.lbRelationShip.text = "\(Double(item.totalAmount ?? "0")?.formatnumber() ?? "0") Godcoin"
-                    }
-                    break
-                }
-            }
+            self.showDetail(cell: cell, weeks: months ?? [])
             return cell
         }
     }

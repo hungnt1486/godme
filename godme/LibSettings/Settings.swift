@@ -381,11 +381,26 @@ class Settings: NSObject {
             
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
-                if #available(iOS 10.0, *) {
+                if #available(iOS 13.0, *) {
                     application.open(phoneCallURL, options: [:], completionHandler: nil)
                 } else {
                     // Fallback on earlier versions
                     application.openURL(phoneCallURL as URL)
+                    
+                }
+            }
+        }
+    }
+    
+    func openEmail(email: String){
+        if let emailUrl = URL(string: "mailto:\(email)"){
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(emailUrl)) {
+                if #available(iOS 13.0, *) {
+                    application.open(emailUrl, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                    application.openURL(emailUrl as URL)
                     
                 }
             }
