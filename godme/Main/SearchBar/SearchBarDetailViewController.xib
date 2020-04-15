@@ -15,10 +15,12 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBarDetailViewController" customModule="godme" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBarDetailViewController" customModule="Godme" customModuleProvider="target">
             <connections>
                 <outlet property="btConnect" destination="qqQ-Ld-F4L" id="WK3-Qb-LMx"/>
                 <outlet property="constraintHeightButtonConnect" destination="M6k-Yb-eUW" id="kQr-J2-aYS"/>
+                <outlet property="constraintHeightIconEmail" destination="gdb-6x-ILP" id="iMF-Fg-r4c"/>
+                <outlet property="constraintHeightLabelEmail" destination="bYN-12-YOg" id="buN-Vs-bTj"/>
                 <outlet property="constraintHeightLabelSlogan" destination="WLZ-mC-me4" id="WDX-MM-Oqp"/>
                 <outlet property="constraintHeightViewTop" destination="bPW-Kg-lIM" id="daD-Hn-UDq"/>
                 <outlet property="imgAvatar" destination="fDp-7B-EOT" id="gAV-Dg-ncO"/>
@@ -134,15 +136,6 @@
                                 <action selector="touchConnect:" destination="-1" eventType="touchUpInside" id="YeC-1y-Vho"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mỗi kết nối là cơ hội để bạn phát triển!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z0-ZZ-0QQ">
-                            <rect key="frame" x="10" y="220" width="394" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="WLZ-mC-me4"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                            <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_birthday" translatesAutoresizingMaskIntoConstraints="NO" id="Ruh-Hc-gXX">
                             <rect key="frame" x="145" y="53" width="16" height="16"/>
                             <constraints>
@@ -171,6 +164,15 @@
                                 <constraint firstAttribute="width" constant="16" id="jVB-6L-kda"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mỗi kết nối là cơ hội để bạn phát triển!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z0-ZZ-0QQ">
+                            <rect key="frame" x="145" y="220" width="259" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="WLZ-mC-me4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                            <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -207,10 +209,10 @@
                         <constraint firstItem="KhP-ne-TGO" firstAttribute="leading" secondItem="fDp-7B-EOT" secondAttribute="trailing" constant="5" id="mtr-Le-Wzj"/>
                         <constraint firstItem="2yn-ui-pye" firstAttribute="leading" secondItem="vNs-On-SwG" secondAttribute="trailing" constant="5" id="n1T-bf-TiP"/>
                         <constraint firstItem="m1r-UZ-3gc" firstAttribute="leading" secondItem="Qrw-yH-Zbf" secondAttribute="trailing" constant="5" id="nnu-8M-NI4"/>
-                        <constraint firstItem="6z0-ZZ-0QQ" firstAttribute="leading" secondItem="QLB-bC-Eg5" secondAttribute="leading" constant="10" id="oTe-NT-iMF"/>
                         <constraint firstAttribute="trailing" secondItem="6z0-ZZ-0QQ" secondAttribute="trailing" constant="10" id="pPf-76-p7M"/>
                         <constraint firstItem="Qrw-yH-Zbf" firstAttribute="top" secondItem="m1r-UZ-3gc" secondAttribute="top" id="rtE-Pa-8EC"/>
                         <constraint firstItem="NOc-Yy-fY5" firstAttribute="leading" secondItem="Hh6-en-gW6" secondAttribute="trailing" constant="5" id="tkC-pX-cVA"/>
+                        <constraint firstItem="6z0-ZZ-0QQ" firstAttribute="leading" secondItem="fDp-7B-EOT" secondAttribute="trailing" constant="5" id="w5q-zu-jFn"/>
                         <constraint firstItem="7pM-vb-hyJ" firstAttribute="leading" secondItem="mEe-OK-FpF" secondAttribute="trailing" constant="5" id="wtc-h1-Lfc"/>
                         <constraint firstItem="Qrw-yH-Zbf" firstAttribute="leading" secondItem="fDp-7B-EOT" secondAttribute="trailing" constant="5" id="zth-9f-7Df"/>
                     </constraints>

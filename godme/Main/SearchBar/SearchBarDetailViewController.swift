@@ -40,6 +40,8 @@ class SearchBarDetailViewController: BaseViewController {
     var searchBarInfo = SearchBarInfoBaseViewController()
     var searchBarMyRelationShip = SearchBarRelationShipViewController()
     var searchBarService = SearchBarServiceViewController()
+    @IBOutlet weak var constraintHeightLabelEmail: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightIconEmail: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,7 +49,7 @@ class SearchBarDetailViewController: BaseViewController {
         self.showProgressHub()
         self.getSearchDetailById()
 //        DispatchQueue.main.async {
-            self.setupUI()
+//            self.setupUI()
 //        }
         
         self.configButtonBack()
@@ -78,6 +80,9 @@ class SearchBarDetailViewController: BaseViewController {
             self.btConnect.isHidden = true
             self.constraintHeightLabelSlogan.constant = 0
             self.constraintHeightButtonConnect.constant = 0
+        }else{
+            self.constraintHeightLabelEmail.constant = 0
+            self.constraintHeightIconEmail.constant = 0
         }
     }
     
@@ -86,7 +91,7 @@ class SearchBarDetailViewController: BaseViewController {
         if self.modelDetail?.isConnected == 1 {
             self.constraintHeightViewTop.constant = 180
         }else{
-            self.constraintHeightViewTop.constant = 250
+            self.constraintHeightViewTop.constant = 230
         }
         options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.constraintHeightViewTop.constant, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!)
     }

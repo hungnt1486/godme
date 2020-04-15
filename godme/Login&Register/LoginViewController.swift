@@ -111,7 +111,10 @@ class LoginViewController: BaseViewController {
     
     func touchLogin(){
         let myNSRange = NSRange(location: 0, length: 1)
-        let strUserName = self.tfUserName.text?.replacingOccurrences(of: "0", with: "+84", options: .literal, range: Range.init(myNSRange, in: self.tfUserName.text ?? ""))
+        var strUserName = self.tfUserName.text?.replacingOccurrences(of: "0", with: "+84", options: .literal, range: Range.init(myNSRange, in: self.tfUserName.text ?? ""))
+        if !(strUserName?.contains("+84"))! {
+           strUserName = "+84\(strUserName ?? "")"
+        }
         UserManager.shareUserManager().loginUser(username: strUserName ?? "", password: self.tfPassword.text!) { [unowned self](response) in
             switch response {
                 

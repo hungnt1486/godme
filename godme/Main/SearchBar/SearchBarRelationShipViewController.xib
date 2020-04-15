@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBarRelationShipViewController" customModule="godme" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBarRelationShipViewController" customModule="Godme" customModuleProvider="target">
             <connections>
                 <outlet property="btRelationShip" destination="H8y-u1-nlL" id="V1f-71-1jn"/>
                 <outlet property="btRelationShipExpand" destination="Epn-WE-hdW" id="bJx-hD-Bk1"/>
