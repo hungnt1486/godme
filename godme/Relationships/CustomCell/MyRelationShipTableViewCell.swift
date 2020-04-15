@@ -10,6 +10,8 @@ import UIKit
 
 protocol MyRelationShipTableViewCellProtocol {
     func didMoreRelationShip(index: Int)
+    func didEmail(index: Int)
+    func didPhoneNumber(index: Int)
 }
 
 class MyRelationShipTableViewCell: UITableViewCell {
@@ -39,12 +41,26 @@ class MyRelationShipTableViewCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(touchMore))
         self.imgMore.isUserInteractionEnabled = true
         self.imgMore.addGestureRecognizer(tapGesture)
+        let tapEmail = UITapGestureRecognizer.init(target: self, action: #selector(touchEmail))
+        self.lbEmail.isUserInteractionEnabled = true
+        self.lbEmail.addGestureRecognizer(tapEmail)
+        let tapPhoneNumber = UITapGestureRecognizer.init(target: self, action: #selector(touchPhoneNumber))
+        self.lbPhone.isUserInteractionEnabled = true
+        self.lbPhone.addGestureRecognizer(tapPhoneNumber)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @objc func touchEmail(){
+        delegate?.didEmail(index: self.lbEmail.tag)
+    }
+    
+    @objc func touchPhoneNumber(){
+        delegate?.didPhoneNumber(index: self.lbPhone.tag)
     }
     
     @objc func touchMore(){

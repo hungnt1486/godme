@@ -200,8 +200,10 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
         cell.indexStar = model.totalStar ?? 0.0
         cell.lbCoin.text = "\(Double(model.totalBenefited ?? 0).formatnumber()) Godcoin"
         cell.lbEmail.text = model.email
+        cell.lbEmail.tag = indexPath.row
         cell.imgPhone.isHidden = true
         cell.lbPhone.text = ""
+        cell.lbPhone.tag = indexPath.row
         if let phone = model.phoneNumber, phone.count > 0 {
             cell.lbPhone.text = phone
             cell.imgPhone.isHidden = false
@@ -235,6 +237,16 @@ extension MyRelationShipExpandViewController: UITableViewDelegate, UITableViewDa
 }
 
 extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtocol{
+    func didEmail(index: Int) {
+        let model = self.listRelationShipExpand[index]
+        Settings.ShareInstance.openEmail(email: model.email ?? "")
+    }
+    
+    func didPhoneNumber(index: Int) {
+        let model = self.listRelationShipExpand[index]
+        Settings.ShareInstance.callPhoneNumber(phoneNumber: model.phoneNumber ?? "")
+    }
+    
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) {[unowned self] (action) in
