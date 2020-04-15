@@ -191,6 +191,18 @@ class ManageServicesManager{
         }
     }
     
+    func createOrderAuction(sellerId: Int, serviceId: Int, buyerId: Int, amount: Double, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["sellerId"] = sellerId
+        paramsBody["serviceId"] = serviceId
+        paramsBody["buyerId"] = buyerId
+        paramsBody["amount"] = amount
+        Alamofire.request(URLs.createOrderAuction, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("createOrderAuction = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
     func getListEventService(page: Int, pageSize: Int, sorts: [[String: String]], ge: [[String: String]], completion: @escaping(ListResult<EventModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["sorts"] = sorts

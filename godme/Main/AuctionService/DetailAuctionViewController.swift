@@ -78,6 +78,24 @@ class DetailAuctionViewController: BaseViewController {
             }
         }
     }
+    
+    func createOrderAuction(sellerId: Int, serviceId: Int, buyerId: Int, amount: Double){
+        ManageServicesManager.shareManageServicesManager().createOrderAuction(sellerId: sellerId, serviceId: serviceId, buyerId: buyerId, amount: amount) {[unowned self] (response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Bạn đã đấu giá thành công", vc: self) {[unowned self] (str) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 }
 
 extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSource{
@@ -268,8 +286,9 @@ extension DetailAuctionViewController: InfoAuctionTableViewCellProtocol{
     }
     
     func didAuction() {
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đấu giá dịch vụ?", vc: self) { (str) in
-            self.navigationController?.popToRootViewController(animated: true)
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đấu giá dịch vụ?", vc: self) {[unowned self] (str) in
+            self.showProgressHub()
+            self.createOrderAuction(sellerId: self.modelDetail?.userInfo?.id ?? 0, serviceId: self.modelDetail?.id ?? 0, buyerId: self.modelUser.userId ?? 0, amount: Double(self.cellInfo.tfMoney.text ?? "0.0") ?? 0.0)
         }
     }
     

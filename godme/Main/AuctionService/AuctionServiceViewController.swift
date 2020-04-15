@@ -65,12 +65,13 @@ class AuctionServiceViewController: BaseViewController {
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
-        self.showProgressHub()
-        self.getListAuctionService()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.showProgressHub()
+        self.getListAuctionService()
         self.navigationItem.title = Settings.ShareInstance.translate(key: "auction_service")
     }
     
