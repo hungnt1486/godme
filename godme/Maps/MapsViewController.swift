@@ -19,6 +19,7 @@ class MapsViewController: BaseViewController {
     var isMapMove = false
     let marker = GMSMarker()
     let markerUser = GMSMarker()
+    var circ = GMSCircle()
     
     var listAllService: [MapModel] = []
     
@@ -171,13 +172,37 @@ class MapsViewController: BaseViewController {
         mapView.addSubview(map!)
         mapView.frame = map!.bounds
     }
+    
+    func drawCircle(position: CLLocationCoordinate2D) {
+
+        //var latitude = position.latitude
+        //var longitude = position.longitude
+        //var circleCenter = CLLocationCoordinate2DMake(latitude, longitude)
+        
+        let circleCenter = CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
+        circ = GMSCircle(position: circleCenter, radius: 300)
+        self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+        self.circ.strokeColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+        circ.strokeWidth = 2.5;
+        circ.map = map;
+        
+        
+//        let circle = GMSCircle(position: position, radius: 150)
+//        circle.strokeColor = UIColor.blue
+//        circle.fillColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.05)
+//        circle.map = map
+
+    }
 
     func addMarkerUser() -> Void {
         let userModel = Settings.ShareInstance.getDictUser()
         markerUser.position = CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
         markerUser.title = userModel.fullName
         markerUser.icon = UIImage.init(named: "ic_marker_user")
+        markerUser.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+        markerUser.appearAnimation = GMSMarkerAnimation.pop
         markerUser.map = map
+//        self.drawCircle(position: CLLocationCoordinate2D(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng))
     }
     
     func addMarkerToMap(arrAllService: [MapModel]) -> Void {
@@ -247,10 +272,20 @@ extension MapsViewController: GMSMapViewDelegate {
         if isMapMove {
             print("thanhc ong = \(position.target.latitude), lng = \(position.target.longitude)")
             //mapView.clear() let marker = GMSMarker()
+//            self.circ.map = nil
             marker.position = CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)
+//            let circleCenter = CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)
+//            self.circ = GMSCircle(position: circleCenter, radius: 300)
             UIView.animate(withDuration: 0.5) {
                 self.marker.icon = UIImage.init(named: "ic_marker_user")
                 self.marker.map = self.map
+                
+                
+                
+//                self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+//                self.circ.strokeColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+//                self.circ.strokeWidth = 2.5;
+//                self.circ.map = self.map;
             }
 //            mapView.moveCamera(GMSCameraUpdate.setCamera(position))
         }
@@ -264,6 +299,7 @@ extension MapsViewController: GMSMapViewDelegate {
         print("gesture = \(gesture)")
         isMapMove = gesture
         markerUser.map = nil
+        circ.map = nil
     }
 
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
@@ -273,6 +309,7 @@ extension MapsViewController: GMSMapViewDelegate {
             let distance = locationCurrent.distance(from: locationNew)
             BaseViewController.Lat = mapView.camera.target.latitude
             BaseViewController.Lng = mapView.camera.target.longitude
+//            self.drawCircle(position: CLLocationCoordinate2D(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng))
 //            if arrayDoctor.count > 0 {
 //                let homeModel = arrayDoctor[0]
 //                if distance/1000 > homeModel.Radius! {
