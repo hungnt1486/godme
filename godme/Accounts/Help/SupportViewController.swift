@@ -11,7 +11,7 @@ import UIKit
 class SupportViewController: BaseViewController {
 
     @IBOutlet weak var tbvSupport: UITableView!
-    let arr: [String] = ["Liên hệ", "Thoả thuận sử dụng", "Hỗ trợ/Báo lỗi/Khiếu nại", "Ngôn ngữ"]
+    let arr: [String] = ["Liên hệ", "Thoả thuận sử dụng", "Hỗ trợ/Báo lỗi/Khiếu nại", "Ngôn ngữ", "Thay đổi mật khẩu"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,6 +67,10 @@ extension SupportViewController: UITableViewDelegate, UITableViewDataSource{
         case 3:
             let language = LanguagesViewController()
             self.navigationController?.pushViewController(language, animated: true)
+            break
+        case 4:
+            let changePassword = ChangePasswordViewController()
+            self.navigationController?.pushViewController(changePassword, animated: true)
             break
         default:
             break

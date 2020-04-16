@@ -27,6 +27,7 @@
 "CONFIRMED" = "Confirmed";
 "RECHARGE" = "Recharge Godcoin";
 "languages" = "Language";
+"change_password" = "Change password";
 
 "info_user" = "Information User";
 

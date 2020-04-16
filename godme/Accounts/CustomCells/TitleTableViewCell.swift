@@ -27,6 +27,8 @@ import UIKit
     func getTextEditProfile(_ str: String, type: typeCellEditProfile)
     @objc optional
     func getTextForgotPassword(_ str: String, type: typeCellForGot)
+    @objc optional
+    func getTextChangePassword(_ str: String, type: typeCellChangePassword)
 }
 
 class TitleTableViewCell: UITableViewCell {
@@ -60,6 +62,7 @@ class TitleTableViewCell: UITableViewCell {
         delegate?.getTextTitle?(self.tfInput.text ?? "")
         delegate?.getTextEditProfile?(self.tfInput.text ?? "", type: typeCellEditProfile(rawValue: self.tfInput.tag)!)
         delegate?.getTextForgotPassword?(self.tfInput.text ?? "", type: typeCellForGot(rawValue: self.tfInput.tag)!)
+        delegate?.getTextChangePassword?(self.tfInput.text ?? "", type: typeCellChangePassword(rawValue: self.tfInput.tag)!)
     }
     
     func setupUI(){

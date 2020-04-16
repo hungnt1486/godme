@@ -29,7 +29,7 @@ class UserManager{
         paramsBodySub["name"] = "iPhone"
         paramsBody["device"] = paramsBodySub
         Alamofire.request(URLs.login, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
+            print("loginUser = \(response)")
             completion(SingleResult<UserLoginReturnModel>.handleResponse(response))
         }
     }
@@ -39,7 +39,7 @@ class UserManager{
         paramsBody["username"] = model.username
         paramsBody["password"] = model.password
         paramsBody["newPassword"] = model.newPassword
-        Alamofire.request(URLs.changePassword, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+        Alamofire.request(URLs.changePassword, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("changePassword = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }

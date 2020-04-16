@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3A9923B4A1742715745CD5A0 /* Pods_godme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C84A0DCDC291BD1FA50E445 /* Pods_godme.framework */; };
+		410B148E2447E76600E6CE64 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B148C2447E76600E6CE64 /* ChangePasswordViewController.swift */; };
+		410B148F2447E76600E6CE64 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410B148D2447E76600E6CE64 /* ChangePasswordViewController.xib */; };
 		410E67E02414285C00FA2F54 /* HeaderMyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E67DF2414285C00FA2F54 /* HeaderMyServices.swift */; };
 		410E67E22414286700FA2F54 /* HeaderMyServices.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410E67E12414286700FA2F54 /* HeaderMyServices.xib */; };
 		410E67E524142B9F00FA2F54 /* ServicesInfoBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E67E324142B9F00FA2F54 /* ServicesInfoBookTableViewCell.swift */; };
@@ -358,6 +360,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		410B148C2447E76600E6CE64 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		410B148D2447E76600E6CE64 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		410E67DF2414285C00FA2F54 /* HeaderMyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMyServices.swift; sourceTree = "<group>"; };
 		410E67E12414286700FA2F54 /* HeaderMyServices.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderMyServices.xib; sourceTree = "<group>"; };
 		410E67E324142B9F00FA2F54 /* ServicesInfoBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesInfoBookTableViewCell.swift; sourceTree = "<group>"; };
@@ -814,6 +818,8 @@
 				41786A552440096500F91695 /* SupportViewController.xib */,
 				41786A58244010A400F91695 /* LanguagesViewController.swift */,
 				41786A59244010A400F91695 /* LanguagesViewController.xib */,
+				410B148C2447E76600E6CE64 /* ChangePasswordViewController.swift */,
+				410B148D2447E76600E6CE64 /* ChangePasswordViewController.xib */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -1500,6 +1506,7 @@
 				4155004D2419BECB006B189E /* SearchBarServiceViewController.xib in Resources */,
 				4150DA74241B15B600F8A7E4 /* Roboto-BlackItalic.ttf in Resources */,
 				410F1AF72431C7E300841231 /* PushNotificationViewController.xib in Resources */,
+				410B148F2447E76600E6CE64 /* ChangePasswordViewController.xib in Resources */,
 				E66F691F241B792F00A0EC99 /* province.json in Resources */,
 				E66F690F241B41F500A0EC99 /* MyRelationShipTableViewCell.xib in Resources */,
 				415500442419B9C2006B189E /* SearchBarRelationShipTableViewCell.xib in Resources */,
@@ -1892,6 +1899,7 @@
 				4121FA262412920A00AF26D3 /* IntroView.swift in Sources */,
 				41AA8CC9243B75B300BDF892 /* JobTableViewCell.swift in Sources */,
 				E6B490B3241F724000D206A1 /* UserModel.swift in Sources */,
+				410B148E2447E76600E6CE64 /* ChangePasswordViewController.swift in Sources */,
 				411329C22416A78C0089DD18 /* BookServiceTableViewCell.swift in Sources */,
 				41AD16C82413FC31001E132E /* ViewPagerTab.swift in Sources */,
 				4113299C24168A090089DD18 /* BasicServiceViewController.swift in Sources */,
