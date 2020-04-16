@@ -27,6 +27,7 @@ class MainViewController: BaseViewController {
     var locationManagerHome = CLLocationManager()
     var latt: Double = 0.0
     var longt: Double = 0.0
+    var modelUser = Settings.ShareInstance.getDictUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,12 @@ class MainViewController: BaseViewController {
         self.getAmountCharity()
         self.getListJobsMain()
         self.getListGroupRelationShip()
+        if (modelUser.isFirstLogin ?? false) {
+            Settings.ShareInstance.showAlertView(message: "Vui lòng cập nhật thông tin", vc: self) {[unowned self] (str) in
+                let profile = EditProfileViewController()
+                self.navigationController?.pushViewController(profile, animated: true)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

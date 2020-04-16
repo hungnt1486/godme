@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import Toaster
+import SwiftyJSON
 
 @objc enum typeCellEditProfile: Int{
     case Avatar = 0
@@ -244,6 +245,17 @@ class EditProfileViewController: BaseViewController {
         }
     }
     
+    func updateLoginInfo(){
+        let modelUser = Settings.ShareInstance.getDictUser()
+        var dict = Dictionary<String, String>()
+        dict = ["access_token":"\(modelUser.access_token ?? "")", "fullName":"\(modelUser.fullName ?? "")", "userId":"\(modelUser.userId ?? 0)", "userName":"\(modelUser.userName ?? "")", "permissions":"\(modelUser.permissions ?? [])", "isFirstLogin": "\(false)"]
+//        let jsonUser = "{\"access_token\":\"\(modelUser.access_token ?? "")\", \"fullName\":\"\(modelUser.fullName ?? "")\", \"userId\":\"\(modelUser.userId ?? 0)\", \"userName\":\"\(modelUser.userName ?? "")\", \"permissions\":\"\(modelUser.permissions ?? [])\", \"isFirstLogin\": \"\(false)\"}"
+        let json = JSON.init(dict)
+        let data = UserLoginReturnModel.init(json: json)
+        Settings.ShareInstance.setDictUser(data: data!)
+        print("model = \(modelUser)")
+    }
+    
     func updateProfile(){
         let group = DispatchGroup()
         if self.isUploadImg {
@@ -295,6 +307,7 @@ class EditProfileViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
+                self.updateLoginInfo()
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -501,7 +514,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTitle.text = "Giá trị kết nối"
             cell.tfInput.tag = indexPath.row
-//            cell.tfInput.text = userInfoModel.userCode
+            cell.tfInput.text = ""//userInfoModel.userCode
             cell.tfInput.keyboardType = .numberPad
             cell.delegate = self
             return cell

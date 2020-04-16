@@ -69,6 +69,7 @@ class Settings: NSObject {
         model.access_token = dict.object(forKey: "access_token") as! NSString as String
         model.fullName = dict.object(forKey: "fullName") as! NSString as String
         model.permissions = dict.object(forKey: "permissions") as? [String]
+        model.isFirstLogin = dict.object(forKey: "isFirstLogin") as? Bool
         return model
     }
     
@@ -102,6 +103,7 @@ class Settings: NSObject {
                     "userName": data.userName ?? "",
                     "userId": data.userId ?? 0,
                     "access_token": data.access_token ?? "",
+                    "isFirstLogin": data.isFirstLogin ?? "",
         "permissions": data.permissions ?? []] as [String: Any]
         
         UserDefaults.standard.set(dict, forKey: information_login)

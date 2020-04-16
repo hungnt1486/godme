@@ -156,6 +156,7 @@ class UserLoginReturnModel: BaseModel{
     var userId: Int?
     var userName: String?
     var permissions: [String]?
+    var isFirstLogin: Bool?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -164,15 +165,18 @@ class UserLoginReturnModel: BaseModel{
         userId = json["userId"].intValue
         userName = json["userName"].stringValue
         permissions = json["permissions"].arrayObject as? [String]
+        isFirstLogin = json["isFirstLogin"].boolValue
     }
 }
 
 struct UserLogin {
     var access_token: String?
-       var fullName: String?
-       var userId: Int?
-       var userName: String?
-       var permissions: [String]?
+    var fullName: String?
+    var userId: Int?
+    var userName: String?
+    var permissions: [String]?
+    var isFirstLogin: Bool?
+    
 }
 
 class JobModel: BaseModel {
