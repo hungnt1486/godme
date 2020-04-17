@@ -117,6 +117,20 @@ class MapsViewController: BaseViewController {
     @objc func touchRight(){
         self.showProgressHub()
         self.getListAllService()
+        self.circ.map = nil
+        let circleCenter = CLLocationCoordinate2D(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng)
+        self.circ = GMSCircle(position: circleCenter, radius: CLLocationDistance(Int(self.slider.value)*1000))
+        UIView.animate(withDuration: 0.5) {
+            self.marker.icon = UIImage.init(named: "ic_marker_user")
+            self.marker.map = self.map
+            
+            self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+            self.circ.strokeColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+//                self.circ.strokeWidth = 2.5;
+            self.circ.map = self.map;
+            
+            
+        }
     }
     
     @objc func changeSliderValue(){
@@ -139,7 +153,7 @@ class MapsViewController: BaseViewController {
         model.centerLat = BaseViewController.Lat
         model.centerLong = BaseViewController.Lng
         model.keySearch = vSearchBar.tfInputText.text ?? ""
-        model.radius = Int(self.slider.value)
+        model.radius = Int(self.slider.value) == 0 ? 1 : Int(self.slider.value)
         model.services = arr
         ManageServicesManager.shareManageServicesManager().searchServiceOnMap(model: model) {[unowned self] (response) in
             switch response {
@@ -166,24 +180,24 @@ class MapsViewController: BaseViewController {
         let window = UIApplication.shared.keyWindow
         let topPadding = window?.safeAreaInsets.top
         let bottomPadding = window?.safeAreaInsets.bottom
-        camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 15.0)
+        camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 11.6)
         map = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: CGFloat(UIScreen.main.bounds.width), height: CGFloat(UIScreen.main.bounds.height - (topPadding ?? 0) - (bottomPadding ?? 0))), camera: camera!)
         map!.delegate = self
         mapView.addSubview(map!)
         mapView.frame = map!.bounds
     }
     
-    func drawCircle(position: CLLocationCoordinate2D) {
+    func drawCircle() {
 
         //var latitude = position.latitude
         //var longitude = position.longitude
         //var circleCenter = CLLocationCoordinate2DMake(latitude, longitude)
-        
+        circ.map = nil
         let circleCenter = CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
-        circ = GMSCircle(position: circleCenter, radius: 300)
+        circ = GMSCircle(position: circleCenter, radius: CLLocationDistance(Int(self.slider.value)*1000))
         self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
         self.circ.strokeColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
-        circ.strokeWidth = 2.5;
+//        circ.strokeWidth = 2.5;
         circ.map = map;
         
         
@@ -202,7 +216,7 @@ class MapsViewController: BaseViewController {
         markerUser.groundAnchor = CGPoint(x: 0.5, y: 0.5)
         markerUser.appearAnimation = GMSMarkerAnimation.pop
         markerUser.map = map
-//        self.drawCircle(position: CLLocationCoordinate2D(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng))
+        self.drawCircle()
     }
     
     func addMarkerToMap(arrAllService: [MapModel]) -> Void {
@@ -272,20 +286,22 @@ extension MapsViewController: GMSMapViewDelegate {
         if isMapMove {
             print("thanhc ong = \(position.target.latitude), lng = \(position.target.longitude)")
             //mapView.clear() let marker = GMSMarker()
-//            self.circ.map = nil
+            BaseViewController.Lat = position.target.latitude
+            BaseViewController.Lng = position.target.longitude
             marker.position = CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)
-//            let circleCenter = CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)
-//            self.circ = GMSCircle(position: circleCenter, radius: 300)
+            self.circ.map = nil
+            let circleCenter = CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)
+            self.circ = GMSCircle(position: circleCenter, radius: CLLocationDistance(Int(self.slider.value)*1000))
             UIView.animate(withDuration: 0.5) {
                 self.marker.icon = UIImage.init(named: "ic_marker_user")
                 self.marker.map = self.map
                 
-                
-                
-//                self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
-//                self.circ.strokeColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+                self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
+                self.circ.strokeColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
 //                self.circ.strokeWidth = 2.5;
-//                self.circ.map = self.map;
+                self.circ.map = self.map;
+                
+                
             }
 //            mapView.moveCamera(GMSCameraUpdate.setCamera(position))
         }
@@ -304,9 +320,9 @@ extension MapsViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         if isMapMove {
-            let locationCurrent = CLLocation.init(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng)
-            let locationNew = CLLocation.init(latitude: mapView.camera.target.latitude, longitude: mapView.camera.target.longitude)
-            let distance = locationCurrent.distance(from: locationNew)
+//            let locationCurrent = CLLocation.init(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng)
+//            let locationNew = CLLocation.init(latitude: mapView.camera.target.latitude, longitude: mapView.camera.target.longitude)
+//            let distance = locationCurrent.distance(from: locationNew)
             BaseViewController.Lat = mapView.camera.target.latitude
             BaseViewController.Lng = mapView.camera.target.longitude
 //            self.drawCircle(position: CLLocationCoordinate2D(latitude: BaseViewController.Lat, longitude: BaseViewController.Lng))
