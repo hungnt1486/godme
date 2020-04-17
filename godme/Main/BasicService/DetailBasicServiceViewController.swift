@@ -25,6 +25,7 @@ class DetailBasicServiceViewController: BaseViewController {
     var listBaseService: [BaseServiceModel] = []
     var cellImageDetail: ImageDetailTableViewCell!
     var modelUser = Settings.ShareInstance.getDictUser()
+    var listLanguage = Settings.ShareInstance.Languages()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -155,11 +156,14 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
                 return cellImageDetail
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
-//                let date = NSDate.init(timeIntervalSinceNow: modelDetail?.dateTime1 ?? 0.0)
-//                print("date = \(date)")
                 cell.lbAddress.text = modelDetail?.address
                 cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0)
-                cell.lbLanguages.text = modelDetail?.language
+                for item in self.listLanguage {
+                    if item.Id ?? "" == modelDetail?.language {
+                        cell.lbLanguages.text = Settings.ShareInstance.translate(key: item.Name ?? "")
+                        break
+                    }
+                }
                 cell.lbNumberBooked.text = "Tổng số người đặt: \(modelDetail?.totalOrder ?? 0)"
                 return cell
             case .Detail:

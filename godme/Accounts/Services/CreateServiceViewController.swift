@@ -37,6 +37,10 @@ class CreateServiceViewController: BaseViewController {
     var linkImg2: String = ""
     var linkImg3: String = ""
     
+    var arrayGender: [[String: String]] = []
+    var arrTemp: [GenderModel] = []
+    var indexLanguage = -1
+    
     var indexRow = 1
     
     var listTypeCell: [typeCellCreateService] = [.Image, .Title]
@@ -56,6 +60,12 @@ class CreateServiceViewController: BaseViewController {
     
     func setupUI(){
         imagePicker.delegate = self
+        self.arrTemp = Settings.ShareInstance.Languages()
+        if  self.arrTemp.count > 0 {
+            for item in self.arrTemp {
+                self.arrayGender.append(["name":Settings.ShareInstance.translate(key: item.Name ?? ""), "code": "\(item.Id ?? "")"])
+            }
+        }
     }
     
     func setupTableView(){
@@ -67,6 +77,7 @@ class CreateServiceViewController: BaseViewController {
         self.tbvCreateService.register(UINib.init(nibName: "Title1TableViewCell", bundle: nil), forCellReuseIdentifier: "Title1TableViewCell")
         self.tbvCreateService.register(UINib.init(nibName: "TimeTableViewCell", bundle: nil), forCellReuseIdentifier: "TimeTableViewCell")
         self.tbvCreateService.register(UINib.init(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
+        self.tbvCreateService.register(UINib.init(nibName: "TypeCarTableViewCell", bundle: nil), forCellReuseIdentifier: "TypeCarTableViewCell")
         self.tbvCreateService.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
         self.tbvCreateService.delegate = self
         self.tbvCreateService.dataSource = self
@@ -165,26 +176,30 @@ class CreateServiceViewController: BaseViewController {
                 self.basicModel.language.count == 0 ||
                 self.basicModel.title.count == 0 ||
                 linkImgs.count == 0 {
-                Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
-                return
+                DispatchQueue.main.async {
+                    self.hideProgressHub()
+                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                }
+            }else {
+                let modelLanguage = self.arrayGender[self.indexLanguage]
+                var model = AddNewBaseServiceParams()
+                model.dateTime1 = self.basicModel.dateTime1
+                model.dateTime2 = self.basicModel.dateTime2
+                model.dateTime3 = self.basicModel.dateTime3
+                model.dateTime4 = self.basicModel.dateTime4
+                model.dateTime5 = self.basicModel.dateTime5
+                model.dateTime6 = self.basicModel.dateTime6
+                model.dateTime7 = self.basicModel.dateTime7
+                model.amount = self.basicModel.amount
+                model.address = self.basicModel.address
+                model.latitude = self.basicModel.latitude
+                model.longitude = self.basicModel.longitude
+                model.description = self.basicModel.description
+                model.language = modelLanguage["code"]//self.basicModel.language
+                model.images = linkImgs
+                model.title = self.basicModel.title
+                self.createNewService(model: model)
             }
-            var model = AddNewBaseServiceParams()
-            model.dateTime1 = self.basicModel.dateTime1
-            model.dateTime2 = self.basicModel.dateTime2
-            model.dateTime3 = self.basicModel.dateTime3
-            model.dateTime4 = self.basicModel.dateTime4
-            model.dateTime5 = self.basicModel.dateTime5
-            model.dateTime6 = self.basicModel.dateTime6
-            model.dateTime7 = self.basicModel.dateTime7
-            model.amount = self.basicModel.amount
-            model.address = self.basicModel.address
-            model.latitude = self.basicModel.latitude
-            model.longitude = self.basicModel.longitude
-            model.description = self.basicModel.description
-            model.language = self.basicModel.language
-            model.images = linkImgs
-            model.title = self.basicModel.title
-            self.createNewService(model: model)
         }
         
     }
@@ -280,12 +295,16 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.delegate = self
                 return cell
             case .Language:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Title1TableViewCell") as! Title1TableViewCell
-                cell.tfInput.tag = indexPath.row
-                cell.delegate = self
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
                 cell.lbTitle.text = "Ngôn ngữ"
-                cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
-                cell.tfInput.text = self.basicModel.language
+                cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
+                cell.lbTypeCar.tag = indexPath.row
+                cell.lbTypeCar.text = self.basicModel.language
+                cell.delegate = self
+                if cell.arr.count == 0 {
+                    cell.arr = self.arrayGender
+                    cell.setupTypeDropdown()
+                }
                 return cell
             case .Fee:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Title1TableViewCell") as! Title1TableViewCell
@@ -468,9 +487,9 @@ extension CreateServiceViewController: Title1TableViewCellProtocol{
         if type == .Fee {
             basicModel.amount = str
         }
-        if type == .Language {
-            basicModel.language = str
-        }
+//        if type == .Language {
+//            basicModel.language = str
+//        }
     }
 }
 
@@ -491,4 +510,29 @@ extension CreateServiceViewController: TimeTableViewCellProtocol{
             vDatePicker.delegate = self
         }
     }
+}
+
+extension CreateServiceViewController: TypeCarTableViewCellProtocol{
+    func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int) {
+        
+    }
+    
+    func eventGetTextTypeCreateService(_ string: String, type: typeCellCreateService1, index: Int) {
+        switch type {
+            
+        case .Position:
+            break
+        case .Description:
+            break
+        case .Language:
+            self.basicModel.language = string
+            self.indexLanguage = index
+            break
+        case .Fee:
+            break
+        case .CreateService:
+            break
+        }
+    }
+    
 }

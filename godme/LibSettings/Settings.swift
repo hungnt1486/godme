@@ -518,6 +518,31 @@ class Settings: NSObject {
         return arrGender
     }
     
+    func Languages() -> [GenderModel] {
+        let jsonSex = "[{\"Name\":\"vietnamese\",\"Id\":vn}, {\"Name\":\"english\",\"Id\":en}]"
+        let json = JSON.init(jsonSex)
+        var arrGender: [GenderModel] = []
+        for i in 0..<2 {
+            switch i {
+            case 0:
+                let sexModel = GenderModel.init(json: json)
+                sexModel?.Id = "vn"
+                sexModel?.Name = "vietnamese"
+                arrGender.append(sexModel!)
+                break
+            case 1:
+                let sexModel = GenderModel.init(json: json)
+                sexModel?.Id = "en"
+                sexModel?.Name = "english"
+                arrGender.append(sexModel!)
+                break
+            default:
+                break
+            }
+        }
+        return arrGender
+    }
+    
     func convertTimeIntervalToDateTime(timeInterval: Double)-> String{
         if timeInterval == 0 {
             return ""

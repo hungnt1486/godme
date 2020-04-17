@@ -37,6 +37,10 @@ class CreateAuctionViewController: BaseViewController {
     var linkImg2: String = ""
     var linkImg3: String = ""
     
+    var arrayGender: [[String: String]] = []
+    var arrTemp: [GenderModel] = []
+    var indexLanguage = -1
+    
     var listTypeCell: [typeCellCreateAuction] = [.Image, .Title, .Time, .Position, .Description, .Language, .Start_Price, .Step_Price, .CreateAuction]
     
     override func viewDidLoad() {
@@ -56,6 +60,13 @@ class CreateAuctionViewController: BaseViewController {
     
     func setupUI(){
         imagePicker.delegate = self
+        
+        self.arrTemp = Settings.ShareInstance.Languages()
+        if  self.arrTemp.count > 0 {
+            for item in self.arrTemp {
+                self.arrayGender.append(["name":Settings.ShareInstance.translate(key: item.Name ?? ""), "code": "\(item.Id ?? "")"])
+            }
+        }
     }
     
     func setupTableView(){
@@ -64,6 +75,7 @@ class CreateAuctionViewController: BaseViewController {
         self.tbvCreateAuction.register(UINib(nibName: "AddressPostCarTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressPostCarTableViewCell")
         self.tbvCreateAuction.register(UINib.init(nibName: "StartEndTimeTableViewCell", bundle: nil), forCellReuseIdentifier: "StartEndTimeTableViewCell")
         self.tbvCreateAuction.register(UINib.init(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
+        self.tbvCreateAuction.register(UINib.init(nibName: "TypeCarTableViewCell", bundle: nil), forCellReuseIdentifier: "TypeCarTableViewCell")
 //        self.tbvCreateAuction.register(UINib.init(nibName: "DateTableViewCell", bundle: nil), forCellReuseIdentifier: "DateTableViewCell")
         self.tbvCreateAuction.register(UINib.init(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
         self.tbvCreateAuction.delegate = self
@@ -166,9 +178,11 @@ class CreateAuctionViewController: BaseViewController {
                 self.auctionModel.priceStep.count == 0 ||
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
+                    self.hideProgressHub()
                     Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
                 }
             }else {
+                let modelLanguage = self.arrayGender[self.indexLanguage]
                 var model = AddNewAuctionServiceParams()
                 model.startTime = self.auctionModel.startTime
                 model.endTime = self.auctionModel.endTime
@@ -177,7 +191,7 @@ class CreateAuctionViewController: BaseViewController {
                 model.latitude = self.auctionModel.latitude
                 model.longitude = self.auctionModel.longitude
                 model.description = self.auctionModel.description
-                model.language = self.auctionModel.language
+                model.language = modelLanguage["code"]//self.auctionModel.language
                 model.images = linkImgs
                 model.title = self.auctionModel.title
                 model.priceStep = self.auctionModel.priceStep
@@ -263,12 +277,22 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             cell.delegate = self
             return cell
         case .Language:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
             cell.lbTitle.text = "Ngôn ngữ"
-            cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
-            cell.tfInput.text = self.auctionModel.language
-            cell.tfInput.tag = indexPath.row
+            cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
+            cell.lbTypeCar.tag = indexPath.row
+            cell.lbTypeCar.text = self.auctionModel.language
             cell.delegate = self
+            if cell.arr.count == 0 {
+                cell.arr = self.arrayGender
+                cell.setupTypeDropdown()
+            }
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+//            cell.lbTitle.text = "Ngôn ngữ"
+//            cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
+//            cell.tfInput.text = self.auctionModel.language
+//            cell.tfInput.tag = indexPath.row
+//            cell.delegate = self
             return cell
         case .Start_Price:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
@@ -421,7 +445,6 @@ extension CreateAuctionViewController: TitleTableViewCellProtocol{
         case .Description:
             break
         case .Language:
-            self.auctionModel.language = str
             break
         case .Start_Price:
             self.auctionModel.amount = str
@@ -469,5 +492,37 @@ extension CreateAuctionViewController: StartEndTimeTableViewCellProtocol{
              self.view.addSubview(vDatePicker)
              vDatePicker.delegate = self
          }
+    }
+}
+
+extension CreateAuctionViewController: TypeCarTableViewCellProtocol{
+    func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int) {
+        
+    }
+    
+    func eventGetTextTypeCreateAuctionService(_ string: String, type: typeCellCreateAuction, index: Int) {
+        switch type {
+            
+        case .Image:
+            break
+        case .Title:
+            break
+        case .Time:
+            break
+        case .Position:
+            break
+        case .Description:
+            break
+        case .Language:
+            self.auctionModel.language = string
+            self.indexLanguage = index
+            break
+        case .Start_Price:
+            break
+        case .Step_Price:
+            break
+        case .CreateAuction:
+            break
+        }
     }
 }

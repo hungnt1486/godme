@@ -25,6 +25,7 @@ class DetailAuctionViewController: BaseViewController {
     var listAuction:[AuctionServiceModel] = []
     var cellInfo: InfoAuctionTableViewCell!
     var modelUser = Settings.ShareInstance.getDictUser()
+    var listLanguage = Settings.ShareInstance.Languages()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -205,7 +206,12 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.v1.isHidden = true
                 cell.lbAddress.text = modelDetail?.address
                 cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
-                 cell.lbLanguages.text = modelDetail?.language
+                for item in self.listLanguage {
+                    if item.Id ?? "" == modelDetail?.language {
+                        cell.lbLanguages.text = Settings.ShareInstance.translate(key: item.Name ?? "")
+                        break
+                    }
+                }
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell

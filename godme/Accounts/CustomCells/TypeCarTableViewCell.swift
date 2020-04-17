@@ -11,6 +11,12 @@ import DropDown
 
 @objc protocol TypeCarTableViewCellProtocol {
     @objc optional
+    func eventGetTextTypeCreateService(_ string: String, type: typeCellCreateService1, index: Int)
+    @objc optional
+    func eventGetTextTypeCreateAuctionService(_ string: String, type: typeCellCreateAuction, index: Int)
+    @objc optional
+    func eventGetTextTypeCreateEventService(_ string: String, type: typeCellCreateEvent, index: Int)
+    @objc optional
     func eventGetTextTypeCar(_ string: String, index: Int)
     
     func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int)
@@ -67,6 +73,9 @@ class TypeCarTableViewCell: UITableViewCell {
             self.lbTypeCar.text = item
             self.delegate?.eventGetTextEditProfile(item, type: typeCellEditProfile(rawValue: self.lbTypeCar.tag)!, index: index)
             self.delegate?.eventGetTextTypeCar?(item, index: index)
+            self.delegate?.eventGetTextTypeCreateService?(item, type: typeCellCreateService1(rawValue: self.lbTypeCar.tag)!, index: index)
+            self.delegate?.eventGetTextTypeCreateAuctionService?(item, type: typeCellCreateAuction(rawValue: self.lbTypeCar.tag)!, index: index)
+            self.delegate?.eventGetTextTypeCreateEventService?(item, type: typeCellCreateEvent(rawValue: self.lbTypeCar.tag)!, index: index)
         }
     }
     

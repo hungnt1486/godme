@@ -37,6 +37,10 @@ class CreateEventViewController: BaseViewController {
     var linkImg2: String = ""
     var linkImg3: String = ""
     
+    var arrayGender: [[String: String]] = []
+    var arrTemp: [GenderModel] = []
+    var indexLanguage = -1
+    
     var listTypeCell: [typeCellCreateEvent] = [.Image, .Title, .Time, .Position, .MaxOrder, .Description, .Language, .Fee, .CreateEvent]
     
     override func viewDidLoad() {
@@ -56,13 +60,20 @@ class CreateEventViewController: BaseViewController {
     
     func setupUI(){
         imagePicker.delegate = self
+        
+        self.arrTemp = Settings.ShareInstance.Languages()
+        if  self.arrTemp.count > 0 {
+            for item in self.arrTemp {
+                self.arrayGender.append(["name":Settings.ShareInstance.translate(key: item.Name ?? ""), "code": "\(item.Id ?? "")"])
+            }
+        }
     }
     
     func setupTableView(){
         self.tbvCreateEvent.register(UINib(nibName: "ImageCarTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageCarTableViewCell")
         self.tbvCreateEvent.register(UINib(nibName: "DescriptionCarTableViewCell", bundle: nil), forCellReuseIdentifier: "DescriptionCarTableViewCell")
         self.tbvCreateEvent.register(UINib(nibName: "AddressPostCarTableViewCell", bundle: nil), forCellReuseIdentifier: "AddressPostCarTableViewCell")
-
+        self.tbvCreateEvent.register(UINib.init(nibName: "TypeCarTableViewCell", bundle: nil), forCellReuseIdentifier: "TypeCarTableViewCell")
         self.tbvCreateEvent.register(UINib.init(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "TitleTableViewCell")
         self.tbvCreateEvent.register(UINib.init(nibName: "StartEndTimeTableViewCell", bundle: nil), forCellReuseIdentifier: "StartEndTimeTableViewCell")
         self.tbvCreateEvent.register(UINib.init(nibName: "CompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "CompleteTableViewCell")
@@ -170,6 +181,7 @@ class CreateEventViewController: BaseViewController {
                     Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
                 }
             }else{
+                let modelLanguage = self.arrayGender[self.indexLanguage]
                 var model = AddNewAuctionServiceParams()
                 model.startTime = self.eventModel.startTime
                 model.endTime = self.eventModel.endTime
@@ -178,7 +190,7 @@ class CreateEventViewController: BaseViewController {
                 model.latitude = self.eventModel.latitude
                 model.longitude = self.eventModel.longitude
                 model.description = self.eventModel.description
-                model.language = self.eventModel.language
+                model.language = modelLanguage["code"]//self.eventModel.language
                 model.images = linkImgs
                 model.title = self.eventModel.title
                 model.maxOrder = self.eventModel.maxOrder
@@ -272,12 +284,16 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             cell.delegate = self
             return cell
         case .Language:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
             cell.lbTitle.text = "Ngôn ngữ"
-            cell.tfInput.placeholder = "Chọn ngôn ngữ sử dụng"
-            cell.tfInput.tag = indexPath.row
-            cell.tfInput.text = self.eventModel.language
+            cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
+            cell.lbTypeCar.tag = indexPath.row
+            cell.lbTypeCar.text = self.eventModel.language
             cell.delegate = self
+            if cell.arr.count == 0 {
+                cell.arr = self.arrayGender
+                cell.setupTypeDropdown()
+            }
             return cell
         case .Fee:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
@@ -440,7 +456,6 @@ extension CreateEventViewController: TitleTableViewCellProtocol{
         case .Description:
             break
         case .Language:
-            self.eventModel.language = str
             break
         case .Fee:
             self.eventModel.amount = str
@@ -464,5 +479,37 @@ extension CreateEventViewController: CompleteTableViewCellProtocol{
     func didComplete() {
         self.showProgressHub()
         self.addNewService()
+    }
+}
+
+extension CreateEventViewController: TypeCarTableViewCellProtocol{
+    func eventGetTextEditProfile(_ string: String, type: typeCellEditProfile, index: Int) {
+        
+    }
+    
+    func eventGetTextTypeCreateEventService(_ string: String, type: typeCellCreateEvent, index: Int) {
+        switch type {
+            
+        case .Image:
+            break
+        case .Title:
+            break
+        case .Time:
+            break
+        case .Position:
+            break
+        case .MaxOrder:
+            break
+        case .Description:
+            break
+        case .Language:
+            self.eventModel.language = string
+            self.indexLanguage = index
+            break
+        case .Fee:
+            break
+        case .CreateEvent:
+            break
+        }
     }
 }

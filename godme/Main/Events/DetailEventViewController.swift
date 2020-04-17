@@ -25,6 +25,7 @@ class DetailEventViewController: BaseViewController {
     var listEvents: [EventModel] = []
     var cellImageDetail: ImageDetailTableViewCell!
     var modelUser = Settings.ShareInstance.getDictUser()
+    var listLanguage = Settings.ShareInstance.Languages()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -157,7 +158,12 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
                 cell.v1.isHidden = true
                 cell.lbAddress.text = modelDetail?.address
                 cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.endTime ?? 0.0)
-                 cell.lbLanguages.text = modelDetail?.language
+                for item in self.listLanguage {
+                    if item.Id ?? "" == modelDetail?.language {
+                        cell.lbLanguages.text = Settings.ShareInstance.translate(key: item.Name ?? "")
+                        break
+                    }
+                }
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell

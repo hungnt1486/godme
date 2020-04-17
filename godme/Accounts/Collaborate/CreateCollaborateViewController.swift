@@ -157,6 +157,7 @@ class CreateCollaborateViewController: BaseViewController {
                 self.collaborationModel.phoneNumber.count == 0 ||
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
+                    self.hideProgressHub()
                     Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
                 }
             }else {
