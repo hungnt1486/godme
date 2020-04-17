@@ -72,7 +72,6 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
                 }
             }
             cell.lbCity.text = modelDetail?.address
-            cell.lbName.text = modelDetail?.userInfo?.userCategory
             cell.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         case .ConfirmContent:

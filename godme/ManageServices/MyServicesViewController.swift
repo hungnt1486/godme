@@ -39,7 +39,7 @@ class MyServicesViewController: BaseViewController {
 //        self.tbvMyServices.register(UINib.init(nibName: "HeaderMyServices", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderMyServices")
         
         self.tbvMyServices.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
-        self.tbvMyServices.register(UINib(nibName: "AuctionServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServicesTableViewCell")
+        self.tbvMyServices.register(UINib(nibName: "AuctionServices1TableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServices1TableViewCell")
         self.tbvMyServices.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
         
 
@@ -174,12 +174,11 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                 }
             }
             cell.lbCity.text = model.address
-            cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
             cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServicesTableViewCell") as! AuctionServicesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServices1TableViewCell") as! AuctionServices1TableViewCell
             let model = listAuction[indexPath.row]
             cell.lbTitle.text = model.title
             let images = model.images
@@ -194,7 +193,6 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                 }
             }
             cell.lbCity.text = model.address
-            cell.lbName.text = model.userInfo?.userCategory
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
             cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
@@ -214,7 +212,7 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                 }
             }
             cell.lbCity.text = model.address
-            cell.lbName.text = model.userInfo?.userCategory
+            cell.lbName.text = "Số người đã đăng ký: \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
             cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell

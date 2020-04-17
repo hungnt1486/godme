@@ -40,8 +40,13 @@ class SearchBarDetailViewController: BaseViewController {
     var searchBarInfo = SearchBarInfoBaseViewController()
     var searchBarMyRelationShip = SearchBarRelationShipViewController()
     var searchBarService = SearchBarServiceViewController()
+    @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var constraintHeightLabelEmail: NSLayoutConstraint!
     @IBOutlet weak var constraintHeightIconEmail: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightLabelPhone: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightIconPhone: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightPhoneToEmail: NSLayoutConstraint!
+    @IBOutlet weak var constraintHeightEmailToEducation: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,6 +76,13 @@ class SearchBarDetailViewController: BaseViewController {
         self.imgMore.isUserInteractionEnabled = true
         self.imgMore.addGestureRecognizer(tapGesture)
         
+        let tapEmail = UITapGestureRecognizer.init(target: self, action: #selector(touchEmail))
+        self.lbCity.isUserInteractionEnabled = true
+        self.lbCity.addGestureRecognizer(tapEmail)
+        
+        let tapPhone = UITapGestureRecognizer.init(target: self, action: #selector(touchPhone))
+        self.lbPhone.isUserInteractionEnabled = true
+        self.lbPhone.addGestureRecognizer(tapPhone)
         
         
         self.btConnect = Settings.ShareInstance.setupButton(button: self.btConnect)
@@ -83,17 +95,29 @@ class SearchBarDetailViewController: BaseViewController {
         }else{
             self.constraintHeightLabelEmail.constant = 0
             self.constraintHeightIconEmail.constant = 0
+            self.constraintHeightIconPhone.constant = 0
+            self.constraintHeightLabelPhone.constant = 0
+            self.constraintHeightPhoneToEmail.constant = 0
+            self.constraintHeightEmailToEducation.constant = 0
         }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if self.modelDetail?.isConnected == 1 {
-            self.constraintHeightViewTop.constant = 180
+            self.constraintHeightViewTop.constant = 210
         }else{
             self.constraintHeightViewTop.constant = 230
         }
         options.viewPagerFrame = CGRect.init(x: self.view.bounds.origin.x, y: self.constraintHeightViewTop.constant, width: self.view.bounds.width, height: self.view.bounds.height + (self.tabBarController?.tabBar.frame.height)!)
+    }
+    
+    @objc func touchEmail(){
+        Settings.ShareInstance.openEmail(email: self.modelDetail?.email ?? "")
+    }
+    
+    @objc func touchPhone(){
+        Settings.ShareInstance.callPhoneNumber(phoneNumber: self.modelDetail?.phoneNumber ?? "")
     }
     
     @objc func showMore(){
@@ -217,6 +241,7 @@ class SearchBarDetailViewController: BaseViewController {
                     }
                     self.lbDegree.text = strCareer
                     self.lbCity.text = self.modelDetail?.email ?? ""
+                    self.lbPhone.text = self.modelDetail?.phoneNumber ?? ""
                 }
                 break
             case .failure(let message):

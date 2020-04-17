@@ -74,6 +74,9 @@ struct URLs {
         static let getUserInfo = "api/mobile/user/getInfo"
         static let updateUserInfo = "api/mobile/user/update"
         static let register = "api/v1/auth/signupV2"
+        static let rateBaseService = "api/mobile/rating/basic/save"
+        static let rateAuctionService = "api/mobile/rating/auction/save"
+        static let rateEventService = "api/mobile/rating/event/save"
     }
     
     //// user
@@ -188,6 +191,9 @@ struct URLs {
     static var confirmOrderBaseService:String{
         return String(format: "%@%@", linkServer, Routes.confirmOrderBaseService)
     }
+    static var rateBaseService: String{
+        return String(format: "%@%@", linkServer, Routes.rateBaseService)
+    }
     
     /// auction service
     static var getListAuctionService: String{
@@ -205,6 +211,9 @@ struct URLs {
     static var createOrderAuction: String{
         return String(format: "%@%@", linkServer, Routes.createOrderAuction)
     }
+    static var rateAuctionService: String{
+        return String(format: "%@%@", linkServer, Routes.rateAuctionService)
+    }
     
     /// event service
     static var getListEventService: String{
@@ -221,6 +230,9 @@ struct URLs {
     }
     static var createOrderEventSave: String{
         return String(format: "%@%@", linkServer, Routes.createOrderEventSave)
+    }
+    static var rateEventService: String{
+        return String(format: "%@%@", linkServer, Routes.rateEventService)
     }
     
     ////  collaboration service

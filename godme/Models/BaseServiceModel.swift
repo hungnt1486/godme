@@ -290,4 +290,16 @@ struct AddNewFindMapParams {
     var services: [String]?
 }
 
+class RateBaseServiceParamsModel{
+    var point = 0
+    var sellerId = 0
+    var serviceId = 0
+}
+
+struct AddNewRateBaseServiceParams{
+    var point: Int?
+    var sellerId: Int?
+    var serviceId: Int?
+}
+
 

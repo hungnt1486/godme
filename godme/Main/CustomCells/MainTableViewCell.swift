@@ -94,7 +94,6 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             }
         }
         cell.lbCity.text = model.address
-        cell.lbTitleDetail.text = model.userInfo?.userCategory
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
         cell.lbGodcoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         return cell

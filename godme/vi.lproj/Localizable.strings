@@ -24,6 +24,7 @@
 "PAYMENTED" = "Đã thanh toán";
 "REJECT" = "Từ chối";
 "PENDING" = "Đang duyệt";
+"DONE" = "Hoàn tất dịch vụ";
 "CONFIRMED" = "Đã xác nhận";
 "RECHARGE" = "Nạp Godcoin";
 "languages" = "Ngôn ngữ";

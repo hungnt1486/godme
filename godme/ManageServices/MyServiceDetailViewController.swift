@@ -35,6 +35,7 @@ class MyServiceDetailViewController: BaseViewController {
     }
     
     func setupTableView(){
+        self.tbvMyServiceDetail.register(UINib(nibName: "MyServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "MyServicesTableViewCell")
         self.tbvMyServiceDetail.register(UINib(nibName: "MyBaseServiceDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyBaseServiceDetailTableViewCell")
         self.tbvMyServiceDetail.register(UINib(nibName: "MyBaseService1DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyBaseService1DetailTableViewCell")
         self.tbvMyServiceDetail.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
@@ -122,7 +123,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicServicesTableViewCell") as! BasicServicesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyServicesTableViewCell") as! MyServicesTableViewCell
             cell.lbTitle.text = modelDetail?.title
             let images = modelDetail?.images
             let arrImgage = images?.split(separator: ",")
@@ -135,9 +136,9 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                     cell.imgAvatar.image = image
                 }
             }
+            cell.delegate = self
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0)
             cell.lbCity.text = modelDetail?.address
-            cell.lbName.text = modelDetail?.userInfo?.userCategory
             cell.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
         }else{
@@ -327,5 +328,11 @@ extension MyServiceDetailViewController: MyBaseServiceDetailTableViewCellProtoco
         let searchBarDetail = SearchBarDetailViewController()
         searchBarDetail.userId = model.buyerId ?? 0
         self.navigationController?.pushViewController(searchBarDetail, animated: true)
+    }
+}
+
+extension MyServiceDetailViewController: MyServicesTableViewCellProtocol{
+    func didCancel(index: Int) {
+        
     }
 }

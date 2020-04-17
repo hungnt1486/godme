@@ -188,6 +188,22 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            let model = listBaseService[indexPath.row]
+            let service = ServicesInfoBookedDetailViewController()
+            service.listBaseServiceDetail = model
+            self.navigationController?.pushViewController(service, animated: true)
+        } else if indexPath.section == 1 {
+            let model = listAuction[indexPath.row]
+            let service = ServicesInfoBookedDetailAuctionViewController()
+            service.serviceId = model.serviceId ?? 0
+            self.navigationController?.pushViewController(service, animated: true)
+        } else{
+            let model = listEvents[indexPath.row]
+            let service = ServicesInfoBookedDetailEventViewController()
+            service.serviceId = model.serviceId ?? 0
+            self.navigationController?.pushViewController(service, animated: true)
+        }
     }
     
     

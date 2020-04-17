@@ -249,7 +249,6 @@ class EditProfileViewController: BaseViewController {
         let modelUser = Settings.ShareInstance.getDictUser()
         var dict = Dictionary<String, String>()
         dict = ["access_token":"\(modelUser.access_token ?? "")", "fullName":"\(modelUser.fullName ?? "")", "userId":"\(modelUser.userId ?? 0)", "userName":"\(modelUser.userName ?? "")", "permissions":"\(modelUser.permissions ?? [])", "isFirstLogin": "\(false)"]
-//        let jsonUser = "{\"access_token\":\"\(modelUser.access_token ?? "")\", \"fullName\":\"\(modelUser.fullName ?? "")\", \"userId\":\"\(modelUser.userId ?? 0)\", \"userName\":\"\(modelUser.userName ?? "")\", \"permissions\":\"\(modelUser.permissions ?? [])\", \"isFirstLogin\": \"\(false)\"}"
         let json = JSON.init(dict)
         let data = UserLoginReturnModel.init(json: json)
         Settings.ShareInstance.setDictUser(data: data!)

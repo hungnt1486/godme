@@ -24,6 +24,7 @@
 "PAYMENTED" = "Paymented";
 "REJECT" = "Rejected";
 "PENDING" = "Pending";
+"DONE" = "Done";
 "CONFIRMED" = "Confirmed";
 "RECHARGE" = "Recharge Godcoin";
 "languages" = "Language";

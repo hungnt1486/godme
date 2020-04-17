@@ -125,7 +125,6 @@ extension BasicServiceViewController: UITableViewDelegate, UITableViewDataSource
             }
         }
         cell.lbCity.text = model.address
-        cell.lbName.text = model.userInfo?.userCategory
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.dateTime1 ?? 0.0)
         if !isGodcoin {
             cell.lbCoin.text = Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)")

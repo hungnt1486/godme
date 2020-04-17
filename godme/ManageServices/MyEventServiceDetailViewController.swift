@@ -34,7 +34,7 @@ class MyEventServiceDetailViewController: BaseViewController {
      }
     
      func setupTableView(){
-         self.tbvMyEventServiceDetail.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
+         self.tbvMyEventServiceDetail.register(UINib(nibName: "MyEventServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "MyEventServiceTableViewCell")
      
          self.tbvMyEventServiceDetail.register(UINib(nibName: "MyEventServicesDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyEventServicesDetailTableViewCell")
         self.tbvMyEventServiceDetail.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
@@ -105,7 +105,7 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EventsTableViewCell") as! EventsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyEventServiceTableViewCell") as! MyEventServiceTableViewCell
             cell.lbTitle.text = modelDetail?.title
             let images = modelDetail?.images
             let arrImgage = images?.split(separator: ",")
@@ -118,6 +118,7 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
                     cell.imgAvatar.image = image
                 }
             }
+            cell.delegate = self
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.startTime ?? 0.0)
             cell.lbCity.text = modelDetail?.address
             cell.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
@@ -157,4 +158,10 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
     }
     
     
+}
+
+extension MyEventServiceDetailViewController: MyEventServiceTableViewCellProtocol{
+    func didCancel(index: Int) {
+        
+    }
 }

@@ -35,7 +35,7 @@ class MyAuctionServiceDetailViewController: BaseViewController {
     }
    
     func setupTableView(){
-        self.tbvMyAuctionServiceDetail.register(UINib(nibName: "AuctionServices1TableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServices1TableViewCell")
+        self.tbvMyAuctionServiceDetail.register(UINib(nibName: "MyAuctionServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "MyAuctionServiceTableViewCell")
     
         self.tbvMyAuctionServiceDetail.register(UINib(nibName: "MyAuctionServicesDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "MyAuctionServicesDetailTableViewCell")
         self.tbvMyAuctionServiceDetail.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "DefaultTableViewCell")
@@ -106,7 +106,7 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AuctionServices1TableViewCell") as! AuctionServices1TableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyAuctionServiceTableViewCell") as! MyAuctionServiceTableViewCell
             cell.lbTitle.text = modelDetail?.title
             let images = modelDetail?.images
             let arrImgage = images?.split(separator: ",")
@@ -119,9 +119,12 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
                     cell.imgAvatar.image = image
                 }
             }
-            cell.lbTime.text = "Giá hiện tại: \(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
-            cell.lbCity.text = "Bước giá: \(Double(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
-            cell.lbName.text = modelDetail?.userInfo?.userCategory
+            cell.delegate = self
+            cell.dateTime = Settings.ShareInstance.convertTimeIntervalToDateTimeForCountDown(timeInterval: modelDetail?.endTime ?? 0.0)
+            cell.countDown()
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDate(timeInterval: self.modelDetail?.endTime ?? 0.0)
+            cell.lbCity.text = "Giá hiện tại: \(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbName.text = "Bước giá: \(Double(modelDetail?.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
             cell.lbCoin.text = "Số lệnh đấu giá: \(Int(modelDetail?.amount ?? "0")?.formatnumber() ?? "0")"
             return cell
         }else{
@@ -157,4 +160,10 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
     }
     
     
+}
+
+extension MyAuctionServiceDetailViewController:MyAuctionServiceTableViewCellProtocol{
+    func didCancel(index: Int) {
+        
+    }
 }
