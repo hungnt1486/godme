@@ -55,6 +55,7 @@ class DetailBasicServiceViewController: BaseViewController {
         self.tbvDetailBasicService.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
         self.tbvDetailBasicService.delegate = self
         self.tbvDetailBasicService.dataSource = self
+        self.tbvDetailBasicService.allowsSelection = false
         self.tbvDetailBasicService.separatorColor = UIColor.clear
         self.tbvDetailBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvDetailBasicService.estimatedRowHeight = 300
@@ -157,7 +158,29 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
             case .Address:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TimeAddressTableViewCell") as! TimeAddressTableViewCell
                 cell.lbAddress.text = modelDetail?.address
-                cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0) + " - " + Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0)
+                var strTime = ""
+                if modelDetail?.dateTime1 ?? 0.0 > 0.0 {
+                    strTime = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime1 ?? 0.0)
+                }
+                if modelDetail?.dateTime2 ?? 0.0 > 0.0 {
+                    strTime = "\(strTime) - \(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime2 ?? 0.0))"
+                }
+                if modelDetail?.dateTime3 ?? 0.0 > 0.0 {
+                    strTime = "\(strTime) - \(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime3 ?? 0.0))"
+                }
+                if modelDetail?.dateTime4 ?? 0.0 > 0.0 {
+                    strTime = "\(strTime) - \(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime4 ?? 0.0))"
+                }
+                if modelDetail?.dateTime5 ?? 0.0 > 0.0 {
+                    strTime = "\(strTime) - \(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime5 ?? 0.0))"
+                }
+                if modelDetail?.dateTime6 ?? 0.0 > 0.0 {
+                    strTime = "\(strTime) - \(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime6 ?? 0.0))"
+                }
+                if modelDetail?.dateTime7 ?? 0.0 > 0.0 {
+                    strTime = "\(strTime) - \(Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: modelDetail?.dateTime7 ?? 0.0))"
+                }
+                cell.lbTime.text = strTime
                 for item in self.listLanguage {
                     if item.Id ?? "" == modelDetail?.language {
                         cell.lbLanguages.text = Settings.ShareInstance.translate(key: item.Name ?? "")
@@ -173,6 +196,29 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
             case .Book:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
                 cell.delegate = self
+                let date = Date()
+                if modelDetail?.dateTime7 ?? 0.0 > 0.0 && modelDetail?.dateTime7 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                }else if modelDetail?.dateTime6 ?? 0.0 > 0.0 && modelDetail?.dateTime6 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                }else if modelDetail?.dateTime5 ?? 0.0 > 0.0 && modelDetail?.dateTime5 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                } else if modelDetail?.dateTime4 ?? 0.0 > 0.0 && modelDetail?.dateTime4 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                } else if modelDetail?.dateTime3 ?? 0.0 > 0.0 && modelDetail?.dateTime3 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                } else if modelDetail?.dateTime2 ?? 0.0 > 0 && modelDetail?.dateTime2 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                } else if modelDetail?.dateTime1 ?? 0.0 > 0.0 && modelDetail?.dateTime1 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                }
                 return cell
             }
         }else{

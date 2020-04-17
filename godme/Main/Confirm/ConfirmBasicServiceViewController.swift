@@ -34,17 +34,17 @@ class ConfirmBasicServiceViewController: BaseViewController {
     }
     
     func setupTableView(){
-           self.tbvConfirmBasicService.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
-           self.tbvConfirmBasicService.register(UINib(nibName: "ConfirmBasicServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfirmBasicServiceTableViewCell")
-           self.tbvConfirmBasicService.register(UINib(nibName: "BookServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "BookServiceTableViewCell")
+        self.tbvConfirmBasicService.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
+        self.tbvConfirmBasicService.register(UINib(nibName: "ConfirmBasicServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "ConfirmBasicServiceTableViewCell")
+        self.tbvConfirmBasicService.register(UINib(nibName: "BookServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "BookServiceTableViewCell")
 
-           self.tbvConfirmBasicService.delegate = self
-           self.tbvConfirmBasicService.dataSource = self
-           self.tbvConfirmBasicService.separatorColor = UIColor.clear
-           self.tbvConfirmBasicService.separatorInset = UIEdgeInsets.zero
-           self.tbvConfirmBasicService.estimatedRowHeight = 300
-           self.tbvConfirmBasicService.rowHeight = UITableView.automaticDimension
-       }
+        self.tbvConfirmBasicService.delegate = self
+        self.tbvConfirmBasicService.dataSource = self
+        self.tbvConfirmBasicService.separatorColor = UIColor.clear
+        self.tbvConfirmBasicService.separatorInset = UIEdgeInsets.zero
+        self.tbvConfirmBasicService.estimatedRowHeight = 300
+        self.tbvConfirmBasicService.rowHeight = UITableView.automaticDimension
+   }
 }
 
 extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDataSource{
@@ -71,6 +71,7 @@ extension ConfirmBasicServiceViewController: UITableViewDelegate, UITableViewDat
                     cell.imgAvatar.image = image
                 }
             }
+            cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.modelDetail?.dateTime1 ?? 0.0)
             cell.lbCity.text = modelDetail?.address
             cell.lbCoin.text = "\(Double(modelDetail?.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell
@@ -122,10 +123,16 @@ extension ConfirmBasicServiceViewController: BookServiceTableViewCellProtocol{
             Settings.ShareInstance.showAlertView(message: "Vui lòng chọn thời gian", vc: self)
             return
         }
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đặt dịch vụ?", vc: self) { [unowned self](str) in
+        var strAlert = ""
+        if (Int(self.modelDetail?.amount ?? "0") == 0 ) {
+            strAlert = "Dịch vụ này là miễn phí từ người cung cấp, tuy nhiên để đặt dịch vụ bạn được đề nghị đóng góp vào Quỹ từ thiện GODME 20 Godcoin!"
+        }else{
+            strAlert = "Bạn có chắc chắn đặt dịch vụ?"
+        }
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: strAlert, vc: self) { [unowned self](str) in
             let modelUser = Settings.ShareInstance.getDictUser()
             var model = AddNewConfirmBasicServiceParams()
-            model.amount = Int(self.modelDetail?.amount ?? "0")
+            model.amount = Int(self.modelDetail?.amount ?? "0") == 0 ? 20 : Int(self.modelDetail?.amount ?? "0")
             model.buyerId = modelUser.userId ?? 0
             model.sellerId = self.modelDetail?.userInfo?.id
             model.serviceId = self.modelDetail?.id

@@ -55,6 +55,7 @@ class DetailEventViewController: BaseViewController {
         self.tbvDetailBasicService.register(UINib.init(nibName: "HeaderSubMain", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderSubMain")
         self.tbvDetailBasicService.delegate = self
         self.tbvDetailBasicService.dataSource = self
+        self.tbvDetailBasicService.allowsSelection = false
         self.tbvDetailBasicService.separatorColor = UIColor.clear
         self.tbvDetailBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvDetailBasicService.estimatedRowHeight = 300
@@ -173,6 +174,11 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
                 cell.btBookService.setTitle("Tham gia sự kiện", for: .normal)
                 cell.delegate = self
+                let date = Date()
+                if modelDetail?.endTime ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btBookService.isUserInteractionEnabled = false
+                    cell.btBookService.backgroundColor = UIColor.FlatColor.Gray.TextColor
+                }
                 return cell
             }
         }else{
@@ -193,10 +199,16 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension DetailEventViewController: BookServiceTableViewCellProtocol{
     func didBookService() {
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn tham gia sự kiện?", vc: self) { (str) in
+        var strAlert = ""
+        if (Int(self.modelDetail?.amount ?? "0") == 0 ) {
+            strAlert = "Dịch vụ này là miễn phí từ người cung cấp, tuy nhiên để đặt dịch vụ bạn được đề nghị đóng góp vào Quỹ từ thiện GODME 20 Godcoin!"
+        }else{
+            strAlert = "Bạn có chắc chắn tham gia sự kiện?"
+        }
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: strAlert, vc: self) { (str) in
             let modelUser = Settings.ShareInstance.getDictUser()
             var model = AddNewConfirmBasicServiceParams()
-            model.amount = Int(self.modelDetail?.amount ?? "0")
+            model.amount = Int(self.modelDetail?.amount ?? "0") == 0 ? 20 : Int(self.modelDetail?.amount ?? "0")
             model.buyerId = modelUser.userId ?? 0
             model.sellerId = self.modelDetail?.userInfo?.id
             model.serviceId = self.modelDetail?.id
