@@ -248,15 +248,16 @@ extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtoco
     }
     
     func didMoreRelationShip(index: Int) {
+        let model = self.listRelationShipExpand[index]
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             self.showProgressHub()
             self.hiddenRelationShip(index: index)
         }
-        let action1 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { (action) in
+        let action1 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
-            let model = self.listRelationShipExpand[index]
+            
             self.listUserId.append(model.id ?? 0)
             self.setupVCheckBox()
         }
@@ -271,7 +272,10 @@ extension MyRelationShipExpandViewController: MyRelationShipTableViewCellProtoco
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
-        
+        let action7 = UIAlertAction.init(title: model.fullName ?? "", style: .default) {(action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        alertControl.addAction(action7)
         alertControl.addAction(action2)
         alertControl.addAction(action1)
         alertControl.addAction(action3)

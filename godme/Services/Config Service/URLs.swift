@@ -17,6 +17,7 @@ struct URLs {
     static let linkServicebase = "\(linkHostName)/services/basic/view/"
     static let linkServiceAuction = "\(linkHostName)/services/auction/view/"
     static let linkServiceEvent = "\(linkHostName)/services/event/view/"
+    static let linkUserInfo = "\(linkHostName)/profile/user-info/"
     // for test
 //    static let linkServer = "http://45.117.169.99:8888/godme-service/"
     // for live http://13.229.146.11:8080/ //https://godme.vn:8443

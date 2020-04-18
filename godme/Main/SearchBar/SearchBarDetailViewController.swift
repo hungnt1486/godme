@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Toaster
 
 class SearchBarDetailViewController: BaseViewController {
     
@@ -123,6 +124,12 @@ class SearchBarDetailViewController: BaseViewController {
     @objc func showMore(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        let action1 = UIAlertAction.init(title: "Sao chép đường dẫn trang cá nhân", style: .default) { (action) in
+            alertControl.dismiss(animated: true, completion: nil)
+            UIPasteboard.general.string = "\(URLs.linkUserInfo)\(self.modelDetail?.id ?? 0)"
+            Toast.init(text: "Copy").show()
+        }
+        
         let action = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
@@ -131,6 +138,7 @@ class SearchBarDetailViewController: BaseViewController {
         let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
+        alertControl.addAction(action1)
         alertControl.addAction(action)
         alertControl.addAction(actionCancel)
         self.navigationController?.present(alertControl, animated: true, completion: nil)

@@ -260,6 +260,7 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
     }
     
     func didMoreRelationShip(index: Int) {
+        let model = self.listMyRelationShip[index]
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { [unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
@@ -293,6 +294,10 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
             self.listUserId.append(model.id ?? 0)
             self.setupVCheckBox(userId: model.id ?? 0)
         }
+        let action7 = UIAlertAction.init(title: model.fullName ?? "", style: .default) {(action) in
+            alertControl.dismiss(animated: true, completion: nil)
+        }
+        alertControl.addAction(action7)
         alertControl.addAction(action5)
         alertControl.addAction(action2)
         alertControl.addAction(action6)
