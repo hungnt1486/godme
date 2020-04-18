@@ -42,6 +42,7 @@ class UserRegisterReturnModel: BaseModel {
     var createdByUserId: Int?
     var totalStar: Float?
     var isConnected: Int?
+    var amountConnect: String?
     
     required init?(json: JSON) {
         super.init(json: json)
@@ -77,6 +78,7 @@ class UserRegisterReturnModel: BaseModel {
         createdByUserId = json["createdByUserId"].intValue
         totalStar = json["totalStar"].floatValue
         isConnected = json["isConnected"].intValue
+        amountConnect = json["amountConnect"].stringValue
     }
 }
 
@@ -113,6 +115,7 @@ class UserProfileParamsModel {
     var createdByUserId = 0
     var totalStar = 0.0
     var isConnected = 0
+    var amountConnect = ""
 }
 
 struct AddNewUserProfileParams {
@@ -148,6 +151,7 @@ struct AddNewUserProfileParams {
     var createdByUserId: Int?
     var totalStar: Float?
     var isConnected: Int?
+    var amountConnect: String?
 }
 
 class UserLoginReturnModel: BaseModel{

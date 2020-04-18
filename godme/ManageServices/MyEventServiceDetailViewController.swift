@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MyEventServiceDetailViewControllerProtocol {
+    func didDeleteEvent(_ index: Int)
+}
+
 class MyEventServiceDetailViewController: BaseViewController {
 
     @IBOutlet weak var tbvMyEventServiceDetail: UITableView!
@@ -15,6 +19,8 @@ class MyEventServiceDetailViewController: BaseViewController {
     var modelDetail: EventModel?
     var modelUser = Settings.ShareInstance.getDictUser()
     var listOrderEventServiceDetail: [EventServiceInfoBookedModel] = []
+    var delegate: MyEventServiceDetailViewControllerProtocol?
+    var indexRow = -1
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,6 +75,25 @@ class MyEventServiceDetailViewController: BaseViewController {
              }
          }
      }
+    
+    func deleteEventService(id: Int){
+        ManageServicesManager.shareManageServicesManager().deleteEventService(id: id) {[unowned self] (response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Bạn đã huỷ thành công", vc: self) {[unowned self] (str) in
+                    self.delegate?.didDeleteEvent(self.indexRow)
+                    self.navigationController?.popViewController(animated: true)
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 
 }
 
@@ -162,6 +187,9 @@ extension MyEventServiceDetailViewController: UITableViewDataSource, UITableView
 
 extension MyEventServiceDetailViewController: MyEventServiceTableViewCellProtocol{
     func didCancel(index: Int) {
-        
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có muốn huỷ dịch vụ?", vc: self) { [unowned self](str) in
+            self.showProgressHub()
+            self.deleteEventService(id: self.modelDetail?.id ?? 0)
+        }
     }
 }

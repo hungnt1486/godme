@@ -219,6 +219,7 @@ class UserManager{
         paramsBody["wardName"] = model.wardName
         paramsBody["address"] = model.address
         paramsBody["userCode"] = model.userCode
+        paramsBody["amountConnect"] = model.amountConnect
         Alamofire.request(URLs.updateUserInfo, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("updateUserInfo = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))

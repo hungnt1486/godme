@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MyAuctionServiceDetailViewControllerProtocol {
+    func didDeleteAuction(_ index: Int)
+}
+
 class MyAuctionServiceDetailViewController: BaseViewController {
 
     @IBOutlet weak var tbvMyAuctionServiceDetail: UITableView!
@@ -15,6 +19,8 @@ class MyAuctionServiceDetailViewController: BaseViewController {
     var modelDetail: AuctionServiceModel?
     var modelUser = Settings.ShareInstance.getDictUser()
     var listOrderAuctionServiceDetail: [AuctionServiceInfoBookedModel] = []
+    var delegate: MyAuctionServiceDetailViewControllerProtocol?
+    var indexRow = -1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,6 +68,25 @@ class MyAuctionServiceDetailViewController: BaseViewController {
                     self.listOrderAuctionServiceDetail.append(model)
                 }
                 self.tbvMyAuctionServiceDetail.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func deleteAuctionService(id: Int){
+        ManageServicesManager.shareManageServicesManager().deleteAuctionService(id: id) {[unowned self] (response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Bạn đã huỷ thành công", vc: self) {[unowned self] (str) in
+                    self.delegate?.didDeleteAuction(self.indexRow)
+                    self.navigationController?.popViewController(animated: true)
+                }
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -164,6 +189,9 @@ extension MyAuctionServiceDetailViewController: UITableViewDataSource, UITableVi
 
 extension MyAuctionServiceDetailViewController:MyAuctionServiceTableViewCellProtocol{
     func didCancel(index: Int) {
-        
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có muốn huỷ dịch vụ?", vc: self) { [unowned self](str) in
+            self.showProgressHub()
+            self.deleteAuctionService(id: self.modelDetail?.id ?? 0)
+        }
     }
 }

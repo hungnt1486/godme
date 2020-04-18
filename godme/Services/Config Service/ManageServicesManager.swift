@@ -94,6 +94,15 @@ class ManageServicesManager{
         }
     }
     
+    func deleteBaseService(id: Int, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        Alamofire.request(URLs.deleteBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("deleteBaseService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
     func searchOrderBaseService(buyerId: Int, sorts: [[String: String]], page: Int, pageSize: Int, completion: @escaping(ListResult<BaseServiceInfoBookedModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["buyerId"] = buyerId
@@ -240,6 +249,15 @@ class ManageServicesManager{
         }
     }
     
+    func deleteAuctionService(id: Int, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        Alamofire.request(URLs.deleteAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("deleteAuctionService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
     func createOrderAuction(sellerId: Int, serviceId: Int, buyerId: Int, amount: Double, completion: @escaping(SingleResult<BaseModel>) -> Void){
         var paramsBody = [String: Any]()
         paramsBody["sellerId"] = sellerId
@@ -334,6 +352,15 @@ class ManageServicesManager{
         paramsBody["serviceId"] = model.serviceId
         Alamofire.request(URLs.rateEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("rateEventService = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func deleteEventService(id: Int, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["id"] = id
+        Alamofire.request(URLs.deleteEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("deleteEventService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }

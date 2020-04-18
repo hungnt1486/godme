@@ -8,9 +8,9 @@
 
 struct URLs {
     // dev
-//    static let linkHostName = "https://godme.org"
+    static let linkHostName = "https://godme.org"
     // live
-    static let linkHostName = "https://godme.vn"
+//    static let linkHostName = "https://godme.vn"
     static let linkWebRefference = "\(linkHostName)/register?"
     static let linkWebCollaboration = "\(linkHostName)/services/coop/view/"
     static let linkwebBlog = "\(linkHostName)/article/"
@@ -18,9 +18,9 @@ struct URLs {
     static let linkServiceAuction = "\(linkHostName)/services/auction/view/"
     static let linkServiceEvent = "\(linkHostName)/services/event/view/"
     // for test
-//    static let linkServer = "http://45.117.169.99:8888/godme-service/"
+    static let linkServer = "http://45.117.169.99:8888/godme-service/"
     // for live http://13.229.146.11:8080/ //https://godme.vn:8443
-    static let linkServer = "http://13.229.146.11:8080/godme-service/"
+//    static let linkServer = "http://13.229.146.11:8080/godme-service/"
     private struct Routes{
         static let login = "api/v1/auth/login"
         static let changePassword = "api/v1/auth/changePassword"
@@ -77,6 +77,9 @@ struct URLs {
         static let rateBaseService = "api/mobile/rating/basic/save"
         static let rateAuctionService = "api/mobile/rating/auction/save"
         static let rateEventService = "api/mobile/rating/event/save"
+        static let deleteBaseService = "api/mobile/service/basic/delete"
+        static let deleteAuctionService = "api/mobile/service/auction/delete"
+        static let deleteEventService = "api/mobile/service/event/delete"
     }
     
     //// user
@@ -194,6 +197,9 @@ struct URLs {
     static var rateBaseService: String{
         return String(format: "%@%@", linkServer, Routes.rateBaseService)
     }
+    static var deleteBaseService: String{
+        return String(format: "%@%@", linkServer, Routes.deleteBaseService)
+    }
     
     /// auction service
     static var getListAuctionService: String{
@@ -214,6 +220,9 @@ struct URLs {
     static var rateAuctionService: String{
         return String(format: "%@%@", linkServer, Routes.rateAuctionService)
     }
+    static var deleteAuctionService: String{
+        return String(format: "%@%@", linkServer, Routes.deleteAuctionService)
+    }
     
     /// event service
     static var getListEventService: String{
@@ -233,6 +242,9 @@ struct URLs {
     }
     static var rateEventService: String{
         return String(format: "%@%@", linkServer, Routes.rateEventService)
+    }
+    static var deleteEventService: String{
+        return String(format: "%@%@", linkServer, Routes.deleteEventService)
     }
     
     ////  collaboration service

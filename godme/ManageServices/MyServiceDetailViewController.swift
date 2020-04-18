@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MyServiceDetailViewControllerProtocol {
+    func didDeleteData(_ index: Int)
+}
+
 class MyServiceDetailViewController: BaseViewController {
 
     @IBOutlet weak var tbvMyServiceDetail: UITableView!
@@ -15,6 +19,8 @@ class MyServiceDetailViewController: BaseViewController {
     var modelUser = Settings.ShareInstance.getDictUser()
     var listOrderBaseServiceDetail: [BaseServiceInfoBookedModel] = []
     var arrayJobs: [JobModel] = []
+    var indexRow = -1
+    var delegate: MyServiceDetailViewControllerProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,6 +71,25 @@ class MyServiceDetailViewController: BaseViewController {
                     self.listOrderBaseServiceDetail.append(model)
                 }
                 self.tbvMyServiceDetail.reloadData()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
+    
+    func deleteBaseService(id: Int){
+        ManageServicesManager.shareManageServicesManager().deleteBaseService(id: id) {[unowned self] (response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: "Bạn đã huỷ thành công", vc: self) {[unowned self] (str) in
+                    self.delegate?.didDeleteData(self.indexRow)
+                    self.navigationController?.popViewController(animated: true)
+                }
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -339,6 +364,9 @@ extension MyServiceDetailViewController: MyBaseServiceDetailTableViewCellProtoco
 
 extension MyServiceDetailViewController: MyServicesTableViewCellProtocol{
     func didCancel(index: Int) {
-        
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có muốn huỷ dịch vụ?", vc: self) { [unowned self](str) in
+            self.showProgressHub()
+            self.deleteBaseService(id: self.modelDetail?.id ?? 0)
+        }
     }
 }

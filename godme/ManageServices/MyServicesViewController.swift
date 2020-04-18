@@ -233,19 +233,44 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
             let model = listBaseService[indexPath.row]
             let detail = MyServiceDetailViewController()
             detail.modelDetail = model
+            detail.indexRow = indexPath.row
+            detail.delegate = self
             self.navigationController?.pushViewController(detail, animated: true)
         }else if indexPath.section == 1 {
             let model = listAuction[indexPath.row]
             let detail = MyAuctionServiceDetailViewController()
+            detail.delegate = self
+            detail.indexRow = indexPath.row
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }else {
             let model = listEvents[indexPath.row]
             let detail = MyEventServiceDetailViewController()
+            detail.delegate = self
+            detail.indexRow = indexPath.row
             detail.modelDetail = model
             self.navigationController?.pushViewController(detail, animated: true)
         }
     }
-    
-    
+}
+
+extension MyServicesViewController: MyServiceDetailViewControllerProtocol{
+    func didDeleteData(_ index: Int) {
+        self.listBaseService.remove(at: index)
+        self.tbvMyServices.reloadData()
+    }
+}
+
+extension MyServicesViewController: MyAuctionServiceDetailViewControllerProtocol {
+    func didDeleteAuction(_ index: Int) {
+        self.listAuction.remove(at: index)
+        self.tbvMyServices.reloadData()
+    }
+}
+
+extension MyServicesViewController: MyEventServiceDetailViewControllerProtocol {
+    func didDeleteEvent(_ index: Int) {
+        self.listEvents.remove(at: index)
+        self.tbvMyServices.reloadData()
+    }
 }

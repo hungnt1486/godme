@@ -235,6 +235,7 @@ class EditProfileViewController: BaseViewController {
                 self.userInfoModel.userInfo = self.userInfo?.userInfo ?? ""
                 self.userInfoModel.wardCode = self.userInfo?.wardCode ?? ""
                 self.userInfoModel.wardName = self.userInfo?.wardName ?? ""
+                self.userInfoModel.amountConnect = self.userInfo?.amountConnect ?? ""
                 self.tbvEditProfile.reloadData()
                 break
             case .failure(let message):
@@ -247,11 +248,13 @@ class EditProfileViewController: BaseViewController {
     
     func updateLoginInfo(){
         let modelUser = Settings.ShareInstance.getDictUser()
-        var dict = Dictionary<String, String>()
-        dict = ["access_token":"\(modelUser.access_token ?? "")", "fullName":"\(modelUser.fullName ?? "")", "userId":"\(modelUser.userId ?? 0)", "userName":"\(modelUser.userName ?? "")", "permissions":"\(modelUser.permissions ?? [])", "isFirstLogin": "\(false)"]
-        let json = JSON.init(dict)
-        let data = UserLoginReturnModel.init(json: json)
-        Settings.ShareInstance.setDictUser(data: data!)
+        if modelUser.isFirstLogin ?? false {
+            var dict = Dictionary<String, String>()
+            dict = ["access_token":"\(modelUser.access_token ?? "")", "fullName":"\(modelUser.fullName ?? "")", "userId":"\(modelUser.userId ?? 0)", "userName":"\(modelUser.userName ?? "")", "permissions":"\(modelUser.permissions ?? [])", "isFirstLogin": "\(false)"]
+            let json = JSON.init(dict)
+            let data = UserLoginReturnModel.init(json: json)
+            Settings.ShareInstance.setDictUser(data: data!)
+        }
         print("model = \(modelUser)")
     }
     
@@ -296,6 +299,7 @@ class EditProfileViewController: BaseViewController {
             model.wardName = self.userInfoModel.wardName
             model.address = self.userInfoModel.address
             model.userCode = self.userInfoModel.userCode
+            model.amountConnect = self.userInfoModel.amountConnect
             self.updateUserInfo(model: model)
         }
     }
@@ -513,7 +517,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTitle.text = "Giá trị kết nối"
             cell.tfInput.tag = indexPath.row
-            cell.tfInput.text = ""//userInfoModel.userCode
+            cell.tfInput.text = userInfoModel.amountConnect
             cell.tfInput.keyboardType = .numberPad
             cell.delegate = self
             return cell
@@ -671,6 +675,7 @@ extension EditProfileViewController: TitleTableViewCellProtocol{
             self.userInfoModel.userCode = str
             break
         case .ConnectValue:
+            self.userInfoModel.amountConnect = str
             break
         case .RealText:
             break
