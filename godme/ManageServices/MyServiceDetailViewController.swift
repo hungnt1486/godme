@@ -60,6 +60,7 @@ class MyServiceDetailViewController: BaseViewController {
                 
             case .success(let data):
                 self.hideProgressHub()
+                self.listOrderBaseServiceDetail.removeAll()
                 for model in data {
                     self.listOrderBaseServiceDetail.append(model)
                 }
@@ -73,21 +74,21 @@ class MyServiceDetailViewController: BaseViewController {
         }
     }
     
-    func getListJobs(){
-        UserManager.shareUserManager().getListJobs {[unowned self] (response) in
-            switch response {
-                
-            case .success(let data):
-                self.hideProgressHub()
-                self.arrayJobs = data
-                break
-            case .failure(let message):
-                self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: message, vc: self)
-                break
-            }
-        }
-    }
+//    func getListJobs(){
+//        UserManager.shareUserManager().getListJobs {[unowned self] (response) in
+//            switch response {
+//
+//            case .success(let data):
+//                self.hideProgressHub()
+//                self.arrayJobs = data
+//                break
+//            case .failure(let message):
+//                self.hideProgressHub()
+//                Settings.ShareInstance.showAlertView(message: message, vc: self)
+//                break
+//            }
+//        }
+//    }
 }
 
 extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDelegate{
@@ -152,7 +153,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
                 let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Gray.TextColor]
                 let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
-                let attr2 = NSMutableAttributedString(string: " đang duyệt ", attributes: attrs2 as [NSAttributedString.Key : Any])
+                let attr2 = NSMutableAttributedString(string: " đã đặt dịch vụ ", attributes: attrs2 as [NSAttributedString.Key : Any])
                 let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
                 attr2.append(attr3)
                 attr1.append(attr2)
@@ -163,12 +164,12 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 let arrCareer = career?.split(separator: ",")
                 var strCareer = ""
                 for item in arrCareer! {
-                    for item1 in self.arrayJobs {
-                        if Int(item) == item1.id {
+                    for item1 in BaseViewController.arrayJobs {
+                        if Int(item) == Int(item1["code"]!) {
                             if strCareer.count == 0 {
-                                strCareer = strCareer + item1.name!
+                                strCareer = strCareer + (item1["name"] ?? "")
                             }else {
-                                strCareer = strCareer + ", " + item1.name!
+                                strCareer = strCareer + ", " + (item1["name"] ?? "")
                             }
                             break
                         }
@@ -183,7 +184,7 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
                 let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Gray.TextColor]
                 let attr1 = NSMutableAttributedString(string: model.buyerInfo?.fullName ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
-                let attr2 = NSMutableAttributedString(string: " đã duyệt thành công ", attributes: attrs2 as [NSAttributedString.Key : Any])
+                let attr2 = NSMutableAttributedString(string: " đã đặt dịch vụ ", attributes: attrs2 as [NSAttributedString.Key : Any])
                 let attr3 = NSMutableAttributedString(string: modelDetail?.title ?? "", attributes: attrs1 as [NSAttributedString.Key : Any])
                 attr2.append(attr3)
                 attr1.append(attr2)
@@ -194,16 +195,21 @@ extension MyServiceDetailViewController: UITableViewDataSource, UITableViewDeleg
                 let arrCareer = career?.split(separator: ",")
                 var strCareer = ""
                 for item in arrCareer! {
-                    for item1 in self.arrayJobs {
-                        if Int(item) == item1.id {
+                    for item1 in BaseViewController.arrayJobs {
+                        if Int(item) == Int(item1["code"]!) {
                             if strCareer.count == 0 {
-                                strCareer = strCareer + item1.name!
+                                strCareer = strCareer + (item1["name"] ?? "")
                             }else {
-                                strCareer = strCareer + ", " + item1.name!
+                                strCareer = strCareer + ", " + (item1["name"] ?? "")
                             }
                             break
                         }
                     }
+                }
+                let date = Date()
+                if model.dateTime ?? 0.0 > Settings.ShareInstance.convertDateToTimeInterval(date: date) {
+                    cell.btConfirm.isUserInteractionEnabled = false
+                    cell.btConfirm.setTitleColor(UIColor.FlatColor.Gray.DisableText, for: .normal)
                 }
                 cell.btConfirm.tag = indexPath.row
                 cell.lbTime.text = strCareer
