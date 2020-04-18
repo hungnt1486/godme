@@ -196,12 +196,14 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
         } else if indexPath.section == 1 {
             let model = listAuction[indexPath.row]
             let service = ServicesInfoBookedDetailAuctionViewController()
-            service.serviceId = model.serviceId ?? 0
+//            service.serviceId = model.serviceId ?? 0
+            service.listAuctionServiceDetail = model
             self.navigationController?.pushViewController(service, animated: true)
         } else{
             let model = listEvents[indexPath.row]
             let service = ServicesInfoBookedDetailEventViewController()
-            service.serviceId = model.serviceId ?? 0
+//            service.serviceId = model.serviceId ?? 0
+            service.listEventServiceDetail = model
             self.navigationController?.pushViewController(service, animated: true)
         }
     }

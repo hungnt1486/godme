@@ -35,6 +35,7 @@ class ServicesInfoBookedDetailEventViewController: BaseViewController {
         self.showProgressHub()
         self.configButtonBack()
         self.setupTableView()
+        self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -283,7 +284,7 @@ extension ServicesInfoBookedDetailEventViewController: CompleteTableViewCellProt
 
 extension ServicesInfoBookedDetailEventViewController: DescriptionCarTableViewCellProtocol{
     func getDescriptionText(_ string: String) {
-        self.modelBaseService.comment = string ?? ""
+        self.modelBaseService.comment = string
     }
 }
 
