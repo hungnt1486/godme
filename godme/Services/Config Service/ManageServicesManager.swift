@@ -88,6 +88,7 @@ class ManageServicesManager{
         paramsBody["point"] = model.point
         paramsBody["sellerId"] = model.sellerId
         paramsBody["serviceId"] = model.serviceId
+        paramsBody["comment"] = model.comment
         Alamofire.request(URLs.rateBaseService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("rateBaseService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
@@ -243,6 +244,7 @@ class ManageServicesManager{
         paramsBody["point"] = model.point
         paramsBody["sellerId"] = model.sellerId
         paramsBody["serviceId"] = model.serviceId
+        paramsBody["comment"] = model.comment
         Alamofire.request(URLs.rateAuctionService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("rateAuctionService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))
@@ -350,6 +352,7 @@ class ManageServicesManager{
         paramsBody["point"] = model.point
         paramsBody["sellerId"] = model.sellerId
         paramsBody["serviceId"] = model.serviceId
+        paramsBody["comment"] = model.comment
         Alamofire.request(URLs.rateEventService, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
             print("rateEventService = \(response)")
             completion(SingleResult<BaseModel>.handleResponse(response))

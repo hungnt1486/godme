@@ -275,6 +275,7 @@ extension ServicesInfoBookedDetailAuctionViewController: CompleteTableViewCellPr
         model.point = intVote
         model.sellerId = model1.userInfo?.id ?? 0
         model.serviceId = model1.id ?? 0
+        model.comment = self.modelBaseService.comment
         self.rateBaseService(model: model)
 //        self.rateBaseService
         
@@ -283,7 +284,7 @@ extension ServicesInfoBookedDetailAuctionViewController: CompleteTableViewCellPr
 
 extension ServicesInfoBookedDetailAuctionViewController: DescriptionCarTableViewCellProtocol{
     func getDescriptionText(_ string: String) {
-//        self.modelBaseService.de
+        self.modelBaseService.comment = string
     }
 }
 

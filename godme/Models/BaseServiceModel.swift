@@ -294,12 +294,14 @@ class RateBaseServiceParamsModel{
     var point = 0
     var sellerId = 0
     var serviceId = 0
+    var comment = ""
 }
 
 struct AddNewRateBaseServiceParams{
     var point: Int?
     var sellerId: Int?
     var serviceId: Int?
+    var comment: String?
 }
 
 
