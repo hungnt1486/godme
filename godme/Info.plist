@@ -45,8 +45,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Godme needs access to your camera to take photos . It lets other users view your photo and identify you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location</string>
+	<string>You may find the posts that are near you.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Black.ttf</string>
