@@ -46,7 +46,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Godme needs access to your camera to take photos . It lets other users view your photo and identify you.</string>
+	<string>Godme needs access to your camera to take photos. When user create base service, event service and auction service.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>You may find the posts that are near you.</string>
 	<key>UIAppFonts</key>

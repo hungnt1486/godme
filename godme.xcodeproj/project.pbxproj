@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -2117,7 +2117,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.23;
+				CURRENT_PROJECT_VERSION = 1.24;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2142,7 +2142,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.23;
+				CURRENT_PROJECT_VERSION = 1.24;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
