@@ -55,6 +55,7 @@ class MainViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tbvMain.reloadData()
         self.setupSearchBar()
         self.setupLocation()
         BaseViewController.Current_Lat = 0.0
@@ -291,18 +292,19 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         header.backgroundColor = UIColor.FlatColor.Gray.BGColor
         header.delegate = self
         header.btMore.tag = section
+        header.btMore.setTitle(Settings.ShareInstance.translate(key: "label_watch_more"), for: .normal)
         if section == 0 {
-            header.lbTitle.text = "Dịch vụ cơ bản"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_service_basic")
         }else if section == 1 {
-            header.lbTitle.text = "Đấu giá dịch vụ"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_service_auction")//"Đấu giá dịch vụ"
         }else if section == 2{
-            header.lbTitle.text = "Sự kiện"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_event")//"Sự kiện"
         }else if section == 3{
-            header.lbTitle.text = "Hợp tác"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_coop")//"Hợp tác"
         }else if section == 4{
             header.lbTitle.text = "Godme Charity"
         }else if section == 5{
-            header.lbTitle.text = "Sản phẩm liên kết"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_coop_product")//"Sản phẩm liên kết"
         }else if section == 6{
             header.lbTitle.text = "Blogs"
         }

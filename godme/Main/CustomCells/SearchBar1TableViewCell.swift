@@ -48,6 +48,9 @@ class SearchBar1TableViewCell: UITableViewCell {
     }
     
     func setupUI(){
+        self.lbVote.text = Settings.ShareInstance.translate(key: "label_rate")
+        self.btConnect.setTitle(Settings.ShareInstance.translate(key: "label_connect"), for: .normal)
+        self.lbSlogan.text = Settings.ShareInstance.translate(key: "label_per_network_for_grow_up")
         self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
         vImgStars = VImageStarsOranges.instanceFromNib()
         

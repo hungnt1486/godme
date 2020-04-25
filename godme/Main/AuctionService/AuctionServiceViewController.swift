@@ -72,12 +72,12 @@ class AuctionServiceViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.showProgressHub()
         self.getListAuctionService()
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "auction_service")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_service_auction")
     }
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
-        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        let right = UIBarButtonItem.init(title: Settings.ShareInstance.translate(key: "label_switch_wallet"), style: .plain, target: self, action: #selector(touchRight))
         right.tintColor = UIColor.FlatColor.Oranges.BGColor
         self.navigationItem.rightBarButtonItem = right
     }
@@ -153,13 +153,13 @@ extension AuctionServiceViewController: UITableViewDelegate, UITableViewDataSour
             }
         }
         if isGodcoin {
-            cell.lbCity.text = "Bước giá: \(Double(model.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
-            cell.lbName.text = "Giá hiện tại: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCity.text = "\(Settings.ShareInstance.translate(key: "label_price_step")) \(Double(model.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbName.text = "\(Settings.ShareInstance.translate(key: "label_current_price")) \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         }else{
-            cell.lbCity.text = "Bước giá: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.priceStep ?? "0") ?? 0)*1000)"))"
-            cell.lbName.text = "Giá hiện tại: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
+            cell.lbCity.text = "\(Settings.ShareInstance.translate(key: "label_price_step")) \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.priceStep ?? "0") ?? 0)*1000)"))"
+            cell.lbName.text = "\(Settings.ShareInstance.translate(key: "label_current_price")) \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
         }
-        cell.lbCoin.text = "Số lệnh đã đấu giá: \(model.totalOrder ?? 0)"
+        cell.lbCoin.text = "\(Settings.ShareInstance.translate(key: "label_current_place")) \(model.totalOrder ?? 0)"
         cell.dateTime = Settings.ShareInstance.convertTimeIntervalToDateTimeForCountDown(timeInterval: model.endTime ?? 0.0)
         cell.countDown()
         return cell

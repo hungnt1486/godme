@@ -33,6 +33,7 @@ class SearchBarDetailViewController: BaseViewController {
     @IBOutlet weak var vImgStar: UIView!
     @IBOutlet weak var btConnect: UIButton!
     @IBOutlet weak var lbSlogan: UILabel!
+    @IBOutlet weak var lbVote: UILabel!
     @IBOutlet weak var constraintHeightLabelSlogan: NSLayoutConstraint!
     @IBOutlet weak var constraintHeightButtonConnect: NSLayoutConstraint!
     @IBOutlet weak var constraintHeightViewTop: NSLayoutConstraint!

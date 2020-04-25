@@ -18,23 +18,23 @@ class IntroduceViewController: BaseViewController {
     var introV: IntroView!
     
     var pages = [
-        ["title": "Quản trị mối quan hệ",
-         "description": "Giúp bạn quản lý thông tin chi tiết các mối quan hệ chất lượng.",
+        ["title": "label_intro_1",
+         "description": "label_intro_des_1",
          "imageView": "ic_intro_1"],
-        ["title": "Kết nối đúng người đúng việc",
-         "description": "Kết nối mở rộng mối quan hệ theo ngành, theo địa lý, hợp tác kinh doanh dự án.",
+        ["title": "label_intro_2",
+         "description": "label_intro_des_2",
          "imageView": "ic_intro_2"],
-        ["title": "Gia tăng thu nhập dựa trên những mối quan hệ bạn sở hữu",
-         "description": "Tạo dòng tài chính thu nhập thụ động từ những mối quan hệ chất lượng do bạn sở hữu.",
+        ["title": "label_intro_3",
+         "description": "label_intro_des_3",
          "imageView": "ic_intro_3"],
-        ["title": "Tự tạo ra dịch vụ từ giá trị bản thân",
-         "description": "Quản trị kiến thức và khả năng của bạn để tạo các dịch vụ chia sẽ giúp gia tăng mối quan hệ và tài chính.",
+        ["title": "label_intro_4",
+         "description": "label_intro_des_4",
          "imageView": "ic_intro_4"],
-        ["title": "Sản phẩm liên kết - Godme tạo một kho sản phẩm chất",
-         "description": "Người dùng vừa có thể cung cấp sản phẩm vừa trở thành CTV liên kết bán hàng.",
+        ["title": "label_intro_5",
+         "description": "label_intro_des_5",
          "imageView": "ic_intro_6"],
-        ["title": "Đóng góp xã hội cho quỹ từ thiện Godme",
-         "description": "Mỗi kết nối thành công trong hệ thống sẽ được trích tự động và công khai một phần tài chính vào quỹ từ thiện Godme Charity.",
+        ["title": "label_intro_6",
+         "description": "label_intro_des_6",
          "imageView": "ic_intro_5"]
     ]
 

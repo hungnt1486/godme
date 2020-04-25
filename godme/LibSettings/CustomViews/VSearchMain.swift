@@ -58,12 +58,10 @@ class VSearchMain: UIView {
         self.arrTemp = Settings.ShareInstance.Gender()
         if  self.arrTemp.count > 0 {
             for item in self.arrTemp {
-                self.arrayGender.append(["name":item.Name ?? "", "code": "\(item.Id ?? "")"])
+                self.arrayGender.append(["name":Settings.ShareInstance.translate(key: item.Name ?? ""), "code": "\(item.Id ?? "")"])
             }
         }
-//        self.arrayDistrict = self.loadDistrict()
-//        self.arrayWard = self.loadWard()
-//        self.arrayEducation = self.loade
+        self.btCancel.setTitle(Settings.ShareInstance.translate(key: "label_cancel"), for: .normal)
     }
     
     func setupTableView(){
@@ -154,7 +152,7 @@ class VSearchMain: UIView {
         let arrCountry = Settings.ShareInstance.loadEducation()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(["name":item.label ?? "", "code": "\(item.code ?? "")"])
+                arrString.append(["name":Settings.ShareInstance.translate(key: item.label ?? ""), "code": "\(item.code ?? "")"])
             }
         }
         return arrString
@@ -174,11 +172,12 @@ extension VSearchMain: UITableViewDelegate, UITableViewDataSource {
         case .InputText:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.delegate = self
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_full_name")
             return cell
         case .Gender:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.btShow.tag = indexPath.row
-            cell.tfText.placeholder = "Giới tính"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_gender")
             cell.delegate = self
             if cell.arr.count == 0 {
                 cell.arr = self.arrayGender
@@ -187,7 +186,7 @@ extension VSearchMain: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .Education:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Học vấn"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_learning")
             cell.btShow.tag = indexPath.row
             cell.delegate = self
             if cell.arr.count == 0 {
@@ -198,7 +197,7 @@ extension VSearchMain: UITableViewDelegate, UITableViewDataSource {
         case .Job:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
             cell.btShow.tag = indexPath.row
-            cell.tfText.placeholder = "Nghề nghiệp"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_career")
             cell.delegate = self
             if cell.arr.count == 0 {
                 cell.arr = self.arrayJobs
@@ -207,7 +206,7 @@ extension VSearchMain: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Thành phố"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_city")
             cell.btShow.tag = indexPath.row
             cell.delegate = self
             if cell.arr.count == 0 {
@@ -217,14 +216,14 @@ extension VSearchMain: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .District:
             cellDistrict = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as? ComboboxTableViewCell
-            cellDistrict.tfText.placeholder = "Quận/Huyện"
+            cellDistrict.tfText.placeholder = Settings.ShareInstance.translate(key: "label_district")
             cellDistrict.btShow.tag = indexPath.row
             cellDistrict.delegate = self
             
             return cellDistrict
         case .Ward:
             cellWard = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as? ComboboxTableViewCell
-            cellWard.tfText.placeholder = "Phường/Xã"
+            cellWard.tfText.placeholder = Settings.ShareInstance.translate(key: "label_village")
             cellWard.btShow.tag = indexPath.row
             cellWard.delegate = self
             return cellWard
@@ -239,6 +238,11 @@ extension VSearchMain: InputTextTableViewCellProtocol{
 }
 
 extension VSearchMain: ComboboxTableViewCellProtocol{
+    
+    func hideKeyboardCombobox() {
+        self.endEditing(true)
+    }
+    
     func didTouchSearchMain(str: String, type: typeCellSearchMain, index: Int) {
         switch type {
             

@@ -40,13 +40,13 @@ class EventsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "events")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_event")
     }
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
         
-        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        let right = UIBarButtonItem.init(title: Settings.ShareInstance.translate(key: "label_switch_wallet"), style: .plain, target: self, action: #selector(touchRight))
         right.tintColor = UIColor.FlatColor.Oranges.BGColor
         self.navigationItem.rightBarButtonItem = right
     }
@@ -124,11 +124,11 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.lbCity.text = model.address
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
-        cell.lbName.text = "Số người đã đăng ký: \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
+        cell.lbName.text = "\(Settings.ShareInstance.translate(key: "label_event_total_register")) \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
         if !isGodcoin {
-            cell.lbCoin.text = "Phí tham gia: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
+            cell.lbCoin.text = "\(Settings.ShareInstance.translate(key: "label_cost")) \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"
         }else{
-            cell.lbCoin.text = "Phí tham gia: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+            cell.lbCoin.text = "\(Settings.ShareInstance.translate(key: "label_cost")) \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         }
 //        cell.lbCoin.text = "Phí tham gia: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         return cell

@@ -49,8 +49,8 @@ class IntroView: UIView {
         self.vTwo.roundCorners(corners: [.topLeft, .topRight], radius: 50.0)
         self.btStart = Settings.ShareInstance.setupButton(button: self.btStart)
         self.imageView.image = UIImage.init(named: data["imageView"] ?? "")
-        self.lbDescription.text = data["description"] ?? ""
-        self.lbTitle.text = data["title"] ?? ""
+        self.lbDescription.text = Settings.ShareInstance.translate(key: data["description"] ?? "")
+        self.lbTitle.text = Settings.ShareInstance.translate(key: data["title"] ?? "")
     }
     
     func setupLanguage(){

@@ -57,7 +57,7 @@ class SearchBarViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "find_job")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_search_job")
     }
     
     func setupUI(){
@@ -187,7 +187,7 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
             }
             cell.lbTitle.text = model.fullName
             cell.lbTime.text = Settings.ShareInstance.convertDOB(str: model.dob ?? "")
-            cell.lbCity.text = model.gender == "NAM" ? "Nam" : "Nữ"
+            cell.lbCity.text = model.gender == "NAM" ? Settings.ShareInstance.translate(key: "label_male"): Settings.ShareInstance.translate(key: "label_female")
             cell.imgGender.image = UIImage.init(named: model.gender == "NAM" ? "ic_male" : "ic_female")
             cell.lbAddress.text = model.address
             cell.indexStar = model.totalStar ?? 0.0
@@ -203,7 +203,7 @@ extension SearchBarViewController: UITableViewDelegate, UITableViewDataSource{
             }
             cell.lbTitle.text = model.fullName
             cell.lbTime.text = Settings.ShareInstance.convertDOB(str: model.dob ?? "")
-            cell.lbCity.text = model.gender == "NAM" ? "Nam" : "Nữ"
+            cell.lbCity.text = model.gender == "NAM" ? Settings.ShareInstance.translate(key: "label_male"): Settings.ShareInstance.translate(key: "label_female")
             cell.imgGender.image = UIImage.init(named: model.gender == "NAM" ? "ic_male" : "ic_female")
             cell.lbAddress.text = model.address
             cell.indexStar = model.totalStar ?? 0.0

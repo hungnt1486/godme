@@ -39,6 +39,9 @@ class LoginViewController: BaseViewController {
     func setupUI(){
         self.navigationController?.navigationBar.isHidden = false
         self.view.backgroundColor = UIColor.FlatColor.Gray.BGColor
+        self.btForgotPassword.setTitle(Settings.ShareInstance.translate(key: "label_forgot_password"), for: .normal)
+        self.btLogin.setTitle(Settings.ShareInstance.translate(key: "label_sign_in"), for: .normal)
+        
         self.tfUserName = Settings.ShareInstance.setupTextField(textField: self.tfUserName, isLeftView: true)
         self.tfUserName.ShadowTextField()
         
@@ -65,12 +68,12 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func touchForgotPassword(_ sender: Any) {
-        alertController = UIAlertController.init(title: "Khôi phục mật khẩu", message: "", preferredStyle: .alert)
+        alertController = UIAlertController.init(title: Settings.ShareInstance.translate(key: "label_reset_password"), message: "", preferredStyle: .alert)
                 alertController.addTextField { (textField) in
                     textField.placeholder = "Email"
                 }
             
-                let actionOk = UIAlertAction.init(title: "Đồng ý", style: .default) { [unowned self](action) in
+        let actionOk = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_ok"), style: .default) { [unowned self](action) in
                     self.alertController.dismiss(animated: true, completion: nil)
                     let firstTextField = self.alertController.textFields![0] as UITextField
                     if firstTextField.text!.isEmpty {
@@ -83,7 +86,7 @@ class LoginViewController: BaseViewController {
                         self.sendOTPForgotPassword(email: firstTextField.text ?? "")
                     }
                 }
-                let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) {[unowned self] (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) {[unowned self] (action) in
                     self.alertController.dismiss(animated: true, completion: nil)
                 }
                 alertController.addAction(actionOk)

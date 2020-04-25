@@ -43,13 +43,13 @@ class BasicServiceViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "basic_service")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_service_basic")
     }
     
     func setupUI(){
         self.tabBarController?.tabBar.isHidden = true
         
-        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        let right = UIBarButtonItem.init(title: Settings.ShareInstance.translate(key: "label_switch_wallet"), style: .plain, target: self, action: #selector(touchRight))
         right.tintColor = UIColor.FlatColor.Oranges.BGColor
         self.navigationItem.rightBarButtonItem = right
     }

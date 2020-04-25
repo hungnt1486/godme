@@ -494,7 +494,7 @@ class Settings: NSObject {
     }
     
     func Gender()->[GenderModel]{
-        let jsonSex = "[{\"Name\":\"Nữ\",\"Id\":NU}, {\"Name\":\"Nam\",\"Id\":NAM}]"
+        let jsonSex = "[{\"Name\":\"label_female\",\"Id\":NU}, {\"Name\":\"label_male\",\"Id\":NAM}]"
         let json = JSON.init(jsonSex)
         var arrGender: [GenderModel] = []
         for i in 0..<2 {
@@ -502,13 +502,13 @@ class Settings: NSObject {
             case 0:
                 let sexModel = GenderModel.init(json: json)
                 sexModel?.Id = "NU"
-                sexModel?.Name = "Nữ"
+                sexModel?.Name = "label_female"
                 arrGender.append(sexModel!)
                 break
             case 1:
                 let sexModel = GenderModel.init(json: json)
                 sexModel?.Id = "NAM"
-                sexModel?.Name = "Nam"
+                sexModel?.Name = "label_male"
                 arrGender.append(sexModel!)
                 break
             default:

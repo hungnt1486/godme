@@ -38,7 +38,7 @@ class VSearchBar: UIView {
         self.iconSearch.isUserInteractionEnabled = true
         self.iconSearch.addGestureRecognizer(tapGesture)
         
-        self.tfInput.attributedPlaceholder = NSAttributedString(string: "Tìm kiếm",
+        self.tfInput.attributedPlaceholder = NSAttributedString(string: Settings.ShareInstance.translate(key: "label_search"),
                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.FlatColor.Gray.BGColor])
     }
     

@@ -1,18 +1,18 @@
 [
   {
     "code": "TRUOC_DAI_HOC",
-    "label": "Trước đại học"
+    "label": "label_high_school"
   },
   {
     "code": "DAI_HOC",
-    "label": "Đại học"
+    "label": "label_university"
   },
   {
     "code": "THAC_SI",
-    "label": "Thạc sĩ"
+    "label": "label_phd"
   },
   {
     "code": "TIEN_SI",
-    "label": "Tiến sĩ"
+    "label": "label_master"
   }
 ]
