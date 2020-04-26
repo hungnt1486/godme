@@ -90,18 +90,18 @@ class CreateAuctionViewController: BaseViewController {
     
     @objc func chooseAvatar(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionChoicePhoto = UIAlertAction.init(title: "Thư viện ảnh", style: .default) { (action) in
+        let actionChoicePhoto = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_iamge_pick_gallery"), style: .default) { (action) in
             self.imagePicker.sourceType = .photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionChoiseCamera = UIAlertAction.init(title: "Chụp hình", style: .default) { (action) in
+        let actionChoiseCamera = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_image_capture_new"), style: .default) { (action) in
             self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.cameraDevice = .rear
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Hủy", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(actionChoicePhoto)
@@ -179,7 +179,7 @@ class CreateAuctionViewController: BaseViewController {
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
                     self.hideProgressHub()
-                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                    Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
                 }
             }else {
                 let modelLanguage = self.arrayGender[self.indexLanguage]
@@ -207,7 +207,7 @@ class CreateAuctionViewController: BaseViewController {
 
             case .success( _):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_create_service_success"), vc: self) { (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -232,12 +232,13 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
         switch typeCell {
         case .Image:
             cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
+            cellImage.lbTitle.text = Settings.ShareInstance.translate(key: "label_image")
             cellImage.delegate = self
             return cellImage
         case .Title:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Tiêu đề"
-            cell.tfInput.placeholder = "Tiêu đề của dịch vụ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_title")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_title_of_service")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = self.auctionModel.title
             cell.delegate = self
@@ -245,40 +246,40 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
         case .Time:
             cellDate = tableView.dequeueReusableCell(withIdentifier: "StartEndTimeTableViewCell") as? StartEndTimeTableViewCell
             cellDate.delegate = self
-            cellDate.lbTitle.text = "Thời gian"
+            cellDate.lbTitle.text = Settings.ShareInstance.translate(key: "label_time")
             cellDate.lbStartTime.tag = 1
             if self.auctionModel.startTime > 0.0 {
                 cellDate.lbStartTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.auctionModel.startTime)
             }else{
-                cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+                cellDate.lbStartTime.text = Settings.ShareInstance.translate(key: "label_time_start")
             }
             cellDate.lbEndTime.tag = 2
             if self.auctionModel.endTime > 0.0 {
                 cellDate.lbEndTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.auctionModel.endTime)
             }else{
-                cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
+                cellDate.lbEndTime.text = Settings.ShareInstance.translate(key: "label_time_end")
             }
             return cellDate
             
         case .Position:
             cellAddres = tableView.dequeueReusableCell(withIdentifier: "AddressPostCarTableViewCell") as? AddressPostCarTableViewCell
-            cellAddres.lbTitle.text = "Vị trí"
+            cellAddres.lbTitle.text = Settings.ShareInstance.translate(key: "label_position")
             if self.auctionModel.address.count > 0{
                 cellAddres.lbTypeCar.text = self.auctionModel.address
             }else {
-                cellAddres.lbTypeCar.text = "Chọn địa điểm"
+                cellAddres.lbTypeCar.text = Settings.ShareInstance.translate(key: "label_address")
             }
             cellAddres.delegate = self
             return cellAddres
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
-            cell.lbTitle.text = "Mô tả"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_description")
             cell.textView.text = self.auctionModel.description
             cell.delegate = self
             return cell
         case .Language:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
-            cell.lbTitle.text = "Ngôn ngữ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_language")
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTypeCar.tag = indexPath.row
             cell.lbTypeCar.text = self.auctionModel.language
@@ -296,8 +297,8 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         case .Start_Price:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Giá khởi điểm"
-            cell.tfInput.placeholder = "Nhập giá khởi điểm"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_start_price")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_input_start_price")
             cell.tfInput.text = self.auctionModel.amount
             cell.tfInput.keyboardType = .numberPad
             cell.tfInput.tag = indexPath.row
@@ -305,8 +306,8 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         case .Step_Price:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Bước giá"
-            cell.tfInput.placeholder = "Nhập bước giá"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_index_price")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_input_index_price")
             cell.tfInput.text = self.auctionModel.priceStep
             cell.tfInput.keyboardType = .numberPad
             cell.tfInput.tag = indexPath.row
@@ -314,7 +315,7 @@ extension CreateAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         case .CreateAuction:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
-            cell.btComplete.setTitle("Tạo dịch vụ", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_create_service"), for: .normal)
             cell.delegate = self
             return cell
         
@@ -389,6 +390,7 @@ extension CreateAuctionViewController: ViewDatePickerProtocol {
     func tapDone() {
         print("tap done")
         let df = DateFormatter.init()
+        df.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         df.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"
         if cellDate.indexLabel == 1 {
             cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)

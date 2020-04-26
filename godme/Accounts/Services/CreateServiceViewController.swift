@@ -91,18 +91,18 @@ class CreateServiceViewController: BaseViewController {
     
     @objc func chooseAvatar(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionChoicePhoto = UIAlertAction.init(title: "Thư viện ảnh", style: .default) { (action) in
+        let actionChoicePhoto = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_iamge_pick_gallery"), style: .default) { (action) in
             self.imagePicker.sourceType = .photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionChoiseCamera = UIAlertAction.init(title: "Chụp hình", style: .default) { (action) in
+        let actionChoiseCamera = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_image_capture_new"), style: .default) { (action) in
             self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.cameraDevice = .rear
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Hủy", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(actionChoicePhoto)
@@ -178,7 +178,7 @@ class CreateServiceViewController: BaseViewController {
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
                     self.hideProgressHub()
-                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                    Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
                 }
             }else {
                 let modelLanguage = self.arrayGender[self.indexLanguage]
@@ -210,7 +210,7 @@ class CreateServiceViewController: BaseViewController {
                 
             case .success( _):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_create_service_success"), vc: self) { (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -251,8 +251,8 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
         header.delegate = self
         header.btMore.tag = section
         if section == 1 {
-            header.lbTitle.text = "Thời gian"
-            header.btMore.setTitle("Thêm thời gian", for: .normal)
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_time")
+            header.btMore.setTitle(Settings.ShareInstance.translate(key: "label_add_time"), for: .normal)
             return header
         }
         return UIView()
@@ -265,10 +265,13 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 
             case .Image:
                 cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
+                cellImage.lbTitle.text = Settings.ShareInstance.translate(key: "label_image")
                 cellImage.delegate = self
                 return cellImage
             case .Title:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_title")
+                cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_title_of_service")
                 cell.tfInput.tag = indexPath.row
                 cell.tfInput.text = self.basicModel.title
                 cell.delegate = self
@@ -280,23 +283,23 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 
             case .Position:
                 cellAddres = tableView.dequeueReusableCell(withIdentifier: "AddressPostCarTableViewCell") as? AddressPostCarTableViewCell
-                cellAddres.lbTitle.text = "Vị trí"
+                cellAddres.lbTitle.text = Settings.ShareInstance.translate(key: "label_position")
                 if self.basicModel.address.count > 0 {
                     cellAddres.lbTypeCar.text = self.basicModel.address
                 }else {
-                    cellAddres.lbTypeCar.text = "Chọn địa điểm"
+                    cellAddres.lbTypeCar.text = Settings.ShareInstance.translate(key: "label_address")
                 }
                 cellAddres.delegate = self
                 return cellAddres
             case .Description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
-                cell.lbTitle.text = "Mô tả"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_description")
                 cell.textView.text = self.basicModel.description
                 cell.delegate = self
                 return cell
             case .Language:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
-                cell.lbTitle.text = "Ngôn ngữ"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_language")
                 cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
                 cell.lbTypeCar.tag = indexPath.row
                 cell.lbTypeCar.text = self.basicModel.language
@@ -310,14 +313,14 @@ extension CreateServiceViewController: UITableViewDelegate, UITableViewDataSourc
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Title1TableViewCell") as! Title1TableViewCell
                 cell.tfInput.tag = indexPath.row
                 cell.delegate = self
-                cell.lbTitle.text = "Phí tham dự"
-                cell.tfInput.placeholder = "Nhập phí tham gia"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_fee")
+                cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_input_fee_join")
                 cell.tfInput.keyboardType = .numberPad
                 cell.tfInput.text = self.basicModel.amount
                 return cell
             case .CreateService:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
-                cell.btComplete.setTitle("Tạo dịch vụ", for: .normal)
+                cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_create_service"), for: .normal)
                 cell.delegate = self
                 return cell
             }
@@ -422,6 +425,7 @@ extension CreateServiceViewController: ViewDatePicker1Protocol {
     func tapDone(_ index: Int) {
         print("tap done = \(index)")
         let df = DateFormatter.init()
+        df.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         df.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"
         cellDate = self.tbvCreateService.cellForRow(at: IndexPath.init(row: index, section: 1)) as? TimeTableViewCell
         cellDate.lbTime.text = df.string(from: vDatePicker.datePicker.date)

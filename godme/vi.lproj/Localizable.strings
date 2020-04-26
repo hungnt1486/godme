@@ -184,6 +184,10 @@
 "label_create_service_success"  =  "Tạo dịch vụ thành công";
 "label_current_place"  =  "Số lệnh đã đặt:";
 "label_current_price"  =  "Giá hiện tại:";
+"label_start_price"  =  "Giá khởi điểm";
+"label_input_start_price"  =  "Nhập giá khởi điểm";
+"label_max_people" = "Số người tối đa";
+"label_input_max_people" = "Nhập số người tối đa";
 "label_current_winner"  =  "Người thắng hiện tại:";
 "label_date"  =  "Ngày";
 "label_date_left_s"  =  "%d ngày";
@@ -210,6 +214,7 @@
 "label_experience"  =  "Kinh nghiệm";
 "label_extension_network_successfully"  =  "Gia hạn mối quan hệ thành công!!!";
 "label_fee_join"  =  "Phí";
+"label_image"  =  "Hình ảnh";
 "label_feedback_image"  =  "Hình ảnh đính kèm";
 "label_female"  =  "Nữ";
 "label_filter"  =  "Lọc";
@@ -228,6 +233,7 @@
 "label_iamge_pick_gallery"  =  "Chọn ảnh có sẵn";
 "label_image_capture_new"   = "Chụp ảnh mới";
 "label_index_price"  =  "Bước giá";
+"label_input_index_price"  =  "Nhập bước giá";
 "label_input_info"  =  "Nhập thông tin";
 "label_intro_1"  =  "Quản trị mối quan hệ";
 "label_intro_2"  =  "Kết nối đúng người đúng việc";
@@ -264,6 +270,7 @@
 "label_network_hide"  =  "Danh sách ẩn";
 "label_not_yet_account"  =  "Bạn chưa có tài khoản?";
 "label_notification"  =  "Thông báo";
+"label_alert"  =  "Thông báo";
 "label_ok"  =  "OK";
 "label_option"   = "Tuỳ chọn";
 "label_order_service_info"  =  "Thông tin đặt dịch vụ";
@@ -336,10 +343,14 @@
 "label_time_s"  =  "%d lần";
 "label_time_start" =   "Thời gian bắt đầu";
 "label_title" =   "Tiêu đề";
+"label_title_of_service" =   "Tiêu đề của dịch vụ";
 "label_total_year_s"  =  "%d Godcoin / năm";
 "label_transaction_type"   = "Loại giao dịch";
 "label_unit"  =   "Đơn vị:";
 "label_cost" = "Phí tham gia:";
+"label_fee" = "Phí tham dự";
+"label_input_fee_join" = "Nhập phí tham dự (Đơn vị Godcoin)";
+"label_please_fill_in_full" = "Vui lòng điền đầy đủ thông tin";
 "label_university"  =  "Đại học";
 "label_update_group_relationship_success"  =  "Cập nhật nhóm mối quan hệ thành công!";
 "label_update_info"  =  "Cập nhật";

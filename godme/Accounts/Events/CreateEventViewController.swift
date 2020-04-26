@@ -89,18 +89,18 @@ class CreateEventViewController: BaseViewController {
     
     @objc func chooseAvatar(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionChoicePhoto = UIAlertAction.init(title: "Thư viện ảnh", style: .default) { (action) in
+        let actionChoicePhoto = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_iamge_pick_gallery"), style: .default) { (action) in
             self.imagePicker.sourceType = .photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionChoiseCamera = UIAlertAction.init(title: "Chụp hình", style: .default) { (action) in
+        let actionChoiseCamera = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_image_capture_new"), style: .default) { (action) in
             self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.cameraDevice = .rear
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Hủy", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(actionChoicePhoto)
@@ -178,7 +178,7 @@ class CreateEventViewController: BaseViewController {
                 DispatchQueue.main.sync {
                     print(linkImgs)
                     self.hideProgressHub()
-                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                    Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
                 }
             }else{
                 let modelLanguage = self.arrayGender[self.indexLanguage]
@@ -206,7 +206,7 @@ class CreateEventViewController: BaseViewController {
 
             case .success( _):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_create_service_success"), vc: self) { (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -232,11 +232,12 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
         case .Image:
             cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
             cellImage.delegate = self
+            cellImage.lbTitle.text = Settings.ShareInstance.translate(key: "label_image")
             return cellImage
         case .Title:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Tiêu đề"
-            cell.tfInput.placeholder = "Tiêu đề của dịch vụ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_title")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_title_of_service")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = self.eventModel.title
             cell.delegate = self
@@ -244,48 +245,48 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
         case .Time:
             cellDate = tableView.dequeueReusableCell(withIdentifier: "StartEndTimeTableViewCell") as? StartEndTimeTableViewCell
             cellDate.delegate = self
-            cellDate.lbTitle.text = "Thời gian"
+            cellDate.lbTitle.text = Settings.ShareInstance.translate(key: "label_time")
             cellDate.lbStartTime.tag = 1
             if self.eventModel.startTime > 0.0  {
                 cellDate.lbStartTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.eventModel.startTime)
             }else {
-                cellDate.lbStartTime.text = "Chọn thời gian bắt đầu"
+                cellDate.lbStartTime.text = Settings.ShareInstance.translate(key: "label_time_start")
             }
             cellDate.lbEndTime.tag = 2
             if self.eventModel.endTime > 0.0  {
                 cellDate.lbEndTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: self.eventModel.endTime)
             }else {
-                cellDate.lbEndTime.text = "Chọn thời gian kết thúc"
+                cellDate.lbEndTime.text = Settings.ShareInstance.translate(key: "label_time_end")
             }
             return cellDate
             
         case .Position:
             cellAddres = tableView.dequeueReusableCell(withIdentifier: "AddressPostCarTableViewCell") as? AddressPostCarTableViewCell
-            cellAddres.lbTitle.text = "Vị trí"
+            cellAddres.lbTitle.text = Settings.ShareInstance.translate(key: "label_position")
             if self.eventModel.address.count > 0 {
                 cellAddres.lbTypeCar.text = self.eventModel.address
             }else {
-                cellAddres.lbTypeCar.text = "Chọn địa điểm"
+                cellAddres.lbTypeCar.text = Settings.ShareInstance.translate(key: "label_address")
             }
             cellAddres.delegate = self
             return cellAddres
         case .MaxOrder:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Số người tối đa"
-            cell.tfInput.placeholder = "Nhập số người tối đa"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_max_people")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_input_max_people")
             cell.tfInput.text = self.eventModel.maxOrder
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
             return cell
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
-            cell.lbTitle.text = "Mô tả"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_description")
             cell.textView.text = self.eventModel.description
             cell.delegate = self
             return cell
         case .Language:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
-            cell.lbTitle.text = "Ngôn ngữ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_language")
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTypeCar.tag = indexPath.row
             cell.lbTypeCar.text = self.eventModel.language
@@ -297,8 +298,8 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         case .Fee:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Phí tham dự"
-            cell.tfInput.placeholder = "Nhập phí tham dự"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_fee")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_input_fee_join")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = self.eventModel.amount
             cell.tfInput.keyboardType = .numberPad
@@ -307,7 +308,7 @@ extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource{
         case .CreateEvent:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
-            cell.btComplete.setTitle("Tạo dịch vụ", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_create_service"), for: .normal)
             return cell
         
         }
@@ -385,6 +386,7 @@ extension CreateEventViewController: ViewDatePickerProtocol {
     func tapDone() {
         print("tap done")
         let df = DateFormatter.init()
+        df.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         df.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"
         if cellDate.indexLabel == 1 {
             cellDate.updateDate(str: df.string(from: vDatePicker.datePicker.date), index: cellDate.indexLabel)

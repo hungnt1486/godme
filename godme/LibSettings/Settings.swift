@@ -330,8 +330,8 @@ class Settings: NSObject {
     }
     
     func showAlertView(message: String, vc: UIViewController, showAlerCallback: ((_ message: String) -> Void)? = nil) -> Void {
-        let alert = UIAlertController.init(title: "Thông báo", message: message, preferredStyle: UIAlertController.Style.alert)
-        let actionOk = UIAlertAction.init(title: "Ok", style: .default) { (action) in
+        let alert = UIAlertController.init(title: Settings.ShareInstance.translate(key: "label_alert"), message: message, preferredStyle: UIAlertController.Style.alert)
+        let actionOk = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_ok"), style: .default) { (action) in
             switch action.style {
                 
             case .default:
@@ -352,8 +352,8 @@ class Settings: NSObject {
     }
     
     func showAlertViewWithOkCancel(message: String, vc: UIViewController, showAlerCallback: ((_ message: String) -> Void)? = nil) -> Void {
-        let alert = UIAlertController.init(title: "Thông báo", message: message, preferredStyle: UIAlertController.Style.alert)
-        let actionOk = UIAlertAction.init(title: "Ok", style: .default) { (action) in
+        let alert = UIAlertController.init(title: Settings.ShareInstance.translate(key: "label_alert"), message: message, preferredStyle: UIAlertController.Style.alert)
+        let actionOk = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_ok"), style: .default) { (action) in
             switch action.style {
                 
             case .default:
@@ -369,7 +369,7 @@ class Settings: NSObject {
             }
             vc.dismiss(animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .default) { (nil) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .default) { (nil) in
             vc.dismiss(animated: true, completion: nil)
         }
         alert.addAction(actionOk)

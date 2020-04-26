@@ -184,6 +184,10 @@
 "label_create_service_success"  =  "Create service success";
 "label_current_place"  =  "Number of orders placed:";
 "label_current_price"  =  "Current price:";
+"label_start_price"  =  "Start price";
+"label_input_start_price"  =  "Input start price";
+"label_max_people" = "Max people";
+"label_input_max_people" = "Input max people";
 "label_current_winner"  =  "Current winner:";
 "label_date"  =  "Day";
 "label_date_left_s"  =  "%d day";
@@ -210,6 +214,7 @@
 "label_experience"  =  "Experience";
 "label_extension_network_successfully"  =  "Extension network successfully!";
 "label_fee_join"  =  "Fee";
+"label_image"  =  "Photos";
 "label_feedback_image"  =  "Attached photo";
 "label_female"  =  "Female";
 "label_filter"  =  "Filter";
@@ -228,6 +233,7 @@
 "label_iamge_pick_gallery"  =  "Pick from gallery";
 "label_image_capture_new"   = "Capture";
 "label_index_price"  =  "Index price";
+"label_input_index_price"  =  "Input index price";
 "label_input_info"  =  "Enter information";
 "label_intro_1"  =  "Relationship management";
 "label_intro_2"  =  "Connecting the right people to the right jobs";
@@ -264,6 +270,7 @@
 "label_network_hide"  =  "Hide Network";
 "label_not_yet_account"  =  "Haven\'t account yet?";
 "label_notification"  =  "Notification";
+"label_alert"  =  "Alert!";
 "label_ok"  =  "OK";
 "label_option"   = "Option";
 "label_order_service_info"  =  "My Orders";
@@ -336,10 +343,14 @@
 "label_time_s"  =  "%d times";
 "label_time_start" =   "Start time";
 "label_title" =   "Title";
+"label_title_of_service" =   "Title of service";
 "label_total_year_s"  =  "%d Godcoin / year";
 "label_transaction_type"   = "Transaction type";
 "label_unit"  =   "Unit:";
 "label_cost" = "Cost:";
+"label_fee" = "Cost";
+"label_input_fee_join" = "Input cost";
+"label_please_fill_in_full" = "Please fill in full information";
 "label_university"  =  "University";
 "label_update_group_relationship_success"  =  "Update relationship successfully!";
 "label_update_info"  =  "Update";
