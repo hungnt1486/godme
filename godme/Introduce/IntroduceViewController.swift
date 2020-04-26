@@ -138,6 +138,11 @@ class IntroduceViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        for view in self.scrollView.subviews {
+            if view.tag == 10 {
+                view.removeFromSuperview()
+            }
+        }
         if introV != nil {
             introV.viewWithTag(10)?.removeFromSuperview()
             introV = nil
@@ -162,6 +167,11 @@ extension IntroduceViewController: IntroViewProtocol{
     }
     
     func didVN() {
+        for view in self.scrollView.subviews {
+            if view.tag == 10 {
+                view.removeFromSuperview()
+            }
+        }
         if introV != nil {
             introV.viewWithTag(10)?.removeFromSuperview()
             introV = nil
@@ -183,6 +193,11 @@ extension IntroduceViewController: IntroViewProtocol{
     }
     
     func didEnglish() {
+        for view in self.scrollView.subviews {
+            if view.tag == 10 {
+                view.removeFromSuperview()
+            }
+        }
         if introV != nil {
             introV.viewWithTag(10)?.removeFromSuperview()
             introV = nil
