@@ -48,12 +48,13 @@
 "find_history" = "Tra cứu lịch sử";
 "follow_table" = "Bảng theo dõi thụ hưởng";
 
-"withdraw_money" = "Số tiền cần rút";
-"bank_name" = "Tên ngân hàng";
-"branch" = "Chi nhánh";
-"account_name" = "Tên chủ tài khoản";
+"withdraw_money" = "Amount to withdraw";
+"bank_name" = "Bank name";
+"account_number" = "Card number";
+"branch" = "Branch";
+"account_name" = "Bank owner";
 "same_account" = "(Phải trùng với tài khoản user Godme)";
-"confirm" = "Xác nhận";
+"confirm" = "Submit";
 
 // main page
 "basic_service" = "Basic service";
@@ -143,6 +144,9 @@
 "label_cancel"  =  "Cancel";
 "label_change"  =  "Change";
 "label_change_password"  =  "Change password";
+"label_old_password"  =  "Old password";
+"label_new_password"  =  "New password";
+"label_confirm_new_password"  =  "Confirm new password";
 "label_check_history"  =  "History";
 "label_check_ref"  =  "References";
 "label_check_sms"  =  "Please check your phone. We wil send verify code via sms";
@@ -195,7 +199,7 @@
 "label_deposit"  =  "Deposit";
 "label_deposit_coin"  =  "Deposit Godcoin";
 "label_deposit_godcoin"  =  "Deposit Godcoin";
-"label_deposit_info"  =  "Bạn vui lòng chuyển khoản theo thông tin bên dưới\nCÔNG TNHH GODME\nNgười đại diện: Mr. Nguyễn HỮU TOÀN";
+"label_deposit_info"  =  "Please transfer follow below information\nGODME COMPANY LIMITED\nRepresentative: Mr. Nguyễn HỮU TOÀN";
 "label_deposit_s"  =  "NAP %s";
 "label_description"  =  "Description";
 "label_detail"  =  "Detail";
@@ -253,6 +257,7 @@
 "label_career"  =  "Career";
 "label_keyword" =  "Keyword";
 "label_language"  =  "Language";
+"label_change_language"  =  "Do you want change language?";
 "label_learning" =   "Education";
 "label_lg_en"  =  "English";
 "label_lg_vi"  =  "Vietnamese";
@@ -390,6 +395,7 @@
 "msg_place_auction_service"    = "Auction";
 "msg_push_notification_success"   = "Send notification successfully!";
 "msg_request_withdraw_success"  =  "Request sent successfully";
+"msg_request_send_recharge_godcoin_success"  =  "Send request recharge Godcoin";
 "msg_request_withdraw_success_detail"   = "Your previous request is being processed, please wait for processing to be completed before you can create a new request.";
 "msg_send_fb_detail"   = "Thank you for contributing to perfecting Godme!";
 "msg_send_fb_success" =   "Send feedback successfully";

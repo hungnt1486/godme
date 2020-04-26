@@ -76,31 +76,31 @@ extension ChangePasswordViewController: UITableViewDelegate, UITableViewDataSour
         case .PasswordOld:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.delegate = self
-            cell.lbTitle.text = "Mật khẩu cũ"
-            cell.tfInput.placeholder = "Mật khẩu cũ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_old_password")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_old_password")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.isSecureTextEntry = true
             return cell
         case .PasswordNew:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.delegate = self
-            cell.lbTitle.text = "Mật khẩu mới"
-            cell.tfInput.placeholder = "Mật khẩu mới"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_new_password")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_new_password")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.isSecureTextEntry = true
             return cell
         case .PasswordConfirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.delegate = self
-            cell.lbTitle.text = "Nhập lại mật khẩu mới"
-            cell.tfInput.placeholder = "Nhập lại mật khẩu mới"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_confirm_new_password")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_confirm_new_password")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.isSecureTextEntry = true
             return cell
         case .Confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
-            cell.btComplete.setTitle("Thay đổi", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_change"), for: .normal)
             return cell
         }
     }

@@ -23,6 +23,15 @@ class FollowTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.setupUI()
+    }
+    
+    func setupUI(){
+        self.lbTitleConnect.text = Settings.ShareInstance.translate(key: "label_connect_income")
+        self.lbTitleRelationShip.text = Settings.ShareInstance.translate(key: "label_relationship_income")
+        self.lbTitleService.text = Settings.ShareInstance.translate(key: "label_basic_income")
+        self.lbTitleAuction.text = Settings.ShareInstance.translate(key: "label_auction_income")
+        self.lbTitleEvent.text = Settings.ShareInstance.translate(key: "label_event_income")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

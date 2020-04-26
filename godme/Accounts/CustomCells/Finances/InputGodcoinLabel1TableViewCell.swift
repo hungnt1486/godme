@@ -27,6 +27,7 @@ class InputGodcoinLabel1TableViewCell: UITableViewCell {
     
     func setupUI(){
         self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
+        self.lbTitle.text = Settings.ShareInstance.translate(key: "label_content_deposit")
     }
     
 }

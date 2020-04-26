@@ -60,7 +60,7 @@ extension LanguagesViewController: UITableViewDataSource, UITableViewDelegate{
         tableView.deselectRow(at: indexPath, animated: true)
         let model = listLanguages[indexPath.row]
         if currentLanguage != model["code"] {
-            Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn muốn chuyển ngôn ngữ khác?", vc: self) {[unowned self] (str) in
+            Settings.ShareInstance.showAlertViewWithOkCancel(message: Settings.ShareInstance.translate(key: "label_change_language"), vc: self) {[unowned self] (str) in
                 let model = self.listLanguages[indexPath.row]
                 
                 UserDefaults.standard.setValue(model["code"], forKey: info_language)

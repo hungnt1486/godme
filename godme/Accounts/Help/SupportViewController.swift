@@ -11,7 +11,7 @@ import UIKit
 class SupportViewController: BaseViewController {
 
     @IBOutlet weak var tbvSupport: UITableView!
-    let arr: [String] = ["Liên hệ", "Thoả thuận sử dụng", "Hỗ trợ/Báo lỗi/Khiếu nại", "Ngôn ngữ", "Thay đổi mật khẩu"]
+    let arr: [String] = ["label_contact", "label_term_and_services", "label_report_error", "label_language", "change_password"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +22,7 @@ class SupportViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tbvSupport.reloadData()
         self.navigationItem.title = Settings.ShareInstance.translate(key: "support_report")
     }
 
@@ -47,7 +48,7 @@ extension SupportViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HelpTableViewCell") as! HelpTableViewCell
         cell.accessoryType = .disclosureIndicator
-        cell.lbTitle.text = arr[indexPath.row]
+        cell.lbTitle.text = Settings.ShareInstance.translate(key: arr[indexPath.row])
         return cell
     }
     

@@ -31,7 +31,7 @@ class WithdrawViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "withdraw")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_withdraw")
     }
     
     func setupTableView(){
@@ -89,7 +89,7 @@ extension WithdrawViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         case .Label5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDrawLabelTableViewCell") as! WithDrawLabelTableViewCell
-            cell.lbTitle.text = Settings.ShareInstance.translate(key: "same_account")
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_withdraw_warning")
             return cell
         case .Button6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "WithDrawButtonTableViewCell") as! WithDrawButtonTableViewCell

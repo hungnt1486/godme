@@ -25,6 +25,7 @@ class FinanceViewController: BaseViewController {
     @IBOutlet weak var lbInputCoin: UILabel!
     @IBOutlet weak var lbWithDraw: UILabel!
     @IBOutlet weak var lbHistory: UILabel!
+    @IBOutlet weak var lbFollowTable: UILabel!
     var myWallet: MyWalletModel?
     @IBOutlet weak var tbvFollow: CollapseTableView!
     var listMonthYear: [String] = []
@@ -113,11 +114,12 @@ class FinanceViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.vMain = Settings.ShareInstance.setupView(v: self.vMain)
         self.lbCoin = Settings.ShareInstance.setupBTLabelView(v: self.lbCoin)
-        self.lbInputCoin.text = Settings.ShareInstance.translate(key: "input_godcoin")
-        self.lbWithDraw.text = Settings.ShareInstance.translate(key: "withdraw")
-        self.lbHistory.text = Settings.ShareInstance.translate(key: "find_history")
+        self.lbInputCoin.text = Settings.ShareInstance.translate(key: "RECHARGE")
+        self.lbWithDraw.text = Settings.ShareInstance.translate(key: "label_withdraw")
+        self.lbHistory.text = Settings.ShareInstance.translate(key: "label_check_history")
+        self.lbFollowTable.text = Settings.ShareInstance.translate(key: "label_list_extends")
         
-        let right = UIBarButtonItem.init(title: "đ<->Godcoin", style: .plain, target: self, action: #selector(touchRight))
+        let right = UIBarButtonItem.init(title: Settings.ShareInstance.translate(key: "label_switch_wallet"), style: .plain, target: self, action: #selector(touchRight))
         right.tintColor = UIColor.FlatColor.Oranges.BGColor
         self.navigationItem.rightBarButtonItem = right
     }
@@ -249,10 +251,10 @@ extension FinanceViewController: UITableViewDelegate, UITableViewDataSource{
         view.vSub.backgroundColor = UIColor.white
         if section == 0 {
             view.vSub.backgroundColor = UIColor.FlatColor.Gray.BGColor
-            view.lbTitle.text = "Tuần này"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_this_week")
         } else if section == 1 {
             view.vSub.backgroundColor = UIColor.FlatColor.Gray.BGColor
-            view.lbTitle.text = "Tháng này"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_this_month")
         } else if section >= 2 {
             switch (section - 2) {
             case 0:

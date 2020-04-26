@@ -46,11 +46,13 @@ class HistoryViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "find_history")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_check_history")
     }
     
     func setupUI(){
         self.btFromDate = Settings.ShareInstance.setupButton(button: self.btFromDate)
+        self.btFromDate.setTitle(Settings.ShareInstance.translate(key: "label_start_date"), for: .normal)
+        self.btToDate.setTitle(Settings.ShareInstance.translate(key: "label_end_date"), for: .normal)
         self.btToDate = Settings.ShareInstance.setupButton(button: self.btToDate)
         self.vFromDate = Settings.ShareInstance.setupBTV(v: self.vFromDate)
         self.vToDate = Settings.ShareInstance.setupBTV(v: self.vToDate)
@@ -79,8 +81,8 @@ class HistoryViewController: BaseViewController {
         currentPage = 1
         fromDate = 0.0
         toDate = 0.0
-        self.btFromDate.setTitle("Từ ngày", for: .normal)
-        self.btToDate.setTitle("Đến ngày", for: .normal)
+        self.btFromDate.setTitle(Settings.ShareInstance.translate(key: "label_start_date"), for: .normal)
+        self.btToDate.setTitle(Settings.ShareInstance.translate(key: "label_end_date"), for: .normal)
         self.getListTransaction()
         refreshControl.endRefreshing()
     }
@@ -171,7 +173,12 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryLabelTableViewCell") as! HistoryLabelTableViewCell
         let model = self.listTransaction[indexPath.row]
+        cell.lbTitleTransaction.text = "\(Settings.ShareInstance.translate(key: "label_transaction_type")):"
+        cell.lbTitleMoney.text = "\(Settings.ShareInstance.translate(key: "label_amount")):"
+        cell.lbTitleStatus.text = "\(Settings.ShareInstance.translate(key: "label_status"))"
         cell.lbTransaction.text = Settings.ShareInstance.translate(key: model.transactionType ?? "")
+        cell.lbTitleDescription.text = "\(Settings.ShareInstance.translate(key: "label_description")):"
+        cell.lbTitleDay.text = "\(Settings.ShareInstance.translate(key: "label_date")):"
         cell.lbStatus.text = Settings.ShareInstance.translate(key: model.status ?? "")
         cell.lbMoney.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
         cell.lbDay.text = Settings.ShareInstance.convertTimeIntervalToDate(timeInterval: model.createdOn ?? 0.0)
@@ -198,6 +205,7 @@ extension HistoryViewController: ViewDatePicker1Protocol {
     func tapDone(_ index: Int) {
         print("tap done")
         let df = DateFormatter.init()
+        df.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         df.dateFormat = "dd/MM/yyyy"
         if index == 1 {
             self.fromDate = Settings.ShareInstance.convertDateToTimeInterval(date: vDatePicker.datePicker.date)

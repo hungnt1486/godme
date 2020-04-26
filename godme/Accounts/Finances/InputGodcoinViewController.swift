@@ -34,7 +34,7 @@ class InputGodcoinViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = Settings.ShareInstance.translate(key: "input_godcoin")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_deposit")
     }
     
     func setupTableView(){
@@ -58,7 +58,7 @@ class InputGodcoinViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Bạn đã gửi yêu cầu thành công", vc: self)
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "msg_request_withdraw_success"), vc: self)
                 break
             case .failure(let message):
                 self.hideProgressHub()
@@ -103,16 +103,16 @@ extension InputGodcoinViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "BankTableViewCell") as! BankTableViewCell
             let model = imageBank[indexPath.row]
             cell.imgAvatar.image = UIImage.init(named: model["icon"]!)
-            cell.lbTitle.text = "Tên chủ tài khoản: \(model["fullname"] ?? "")"
-            cell.lbTime.text = "Ngân hàng: \(model["bank_name"] ?? "")"
-            cell.lbCity.text = "Số tài khoản: \(model["number"] ?? "")"
-            cell.lbName.text = "Chi nhánh: \(model["branch"] ?? "")"
-            cell.lbCoin.text = "Nội dung: NAP \(modelUser.userName ?? "")"
+            cell.lbTitle.text = "\(Settings.ShareInstance.translate(key: "account_name")): \(model["fullname"] ?? "")"
+            cell.lbTime.text = "\(Settings.ShareInstance.translate(key: "bank_name")): \(model["bank_name"] ?? "")"
+            cell.lbCity.text = "\(Settings.ShareInstance.translate(key: "account_number")): \(model["number"] ?? "")"
+            cell.lbName.text = "\(Settings.ShareInstance.translate(key: "branch")): \(model["branch"] ?? "")"
+            cell.lbCoin.text = "\(Settings.ShareInstance.translate(key: "label_content")): NAP \(modelUser.userName ?? "")"
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
-            cell.btComplete.setTitle("Gửi yêu cầu nạp Godcoin", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "msg_request_send_recharge_godcoin_success"), for: .normal)
             return cell
 
         }

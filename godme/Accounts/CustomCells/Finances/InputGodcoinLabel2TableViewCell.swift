@@ -14,12 +14,17 @@ class InputGodcoinLabel2TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setupUI(){
+        self.lbTitle.text = Settings.ShareInstance.translate(key: "label_deposit_info")
     }
     
 }

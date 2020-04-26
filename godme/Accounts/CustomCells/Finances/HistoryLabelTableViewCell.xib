@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,25 +13,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HistoryLabelTableViewCell" customModule="godme" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HistoryLabelTableViewCell" customModule="Godme" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loại giao dịch:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzx-IU-jIL">
-                        <rect key="frame" x="10" y="5" width="100" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Loại giao dịch:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzx-IU-jIL">
+                        <rect key="frame" x="10" y="5" width="130" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="BJQ-nK-2k9"/>
-                            <constraint firstAttribute="width" constant="100" id="Qft-kU-YZl"/>
+                            <constraint firstAttribute="width" constant="130" id="Qft-kU-YZl"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                         <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMS-cK-1KA">
-                        <rect key="frame" x="115" y="5" width="195" height="20"/>
+                        <rect key="frame" x="145" y="5" width="165" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="gZM-bM-Vye"/>
                         </constraints>
@@ -40,9 +40,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số tiền:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-oE-41i">
-                        <rect key="frame" x="10" y="35" width="100" height="20"/>
+                        <rect key="frame" x="10" y="35" width="130" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="5SN-Dk-lax"/>
+                            <constraint firstAttribute="width" constant="130" id="5SN-Dk-lax"/>
                             <constraint firstAttribute="height" constant="20" id="7nY-ww-rX1"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1u-1q-7RA">
-                        <rect key="frame" x="115" y="35" width="195" height="20"/>
+                        <rect key="frame" x="145" y="35" width="165" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="eQe-tc-UnI"/>
                         </constraints>
@@ -59,9 +59,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3e3-06-ixc">
-                        <rect key="frame" x="10" y="65" width="100" height="20"/>
+                        <rect key="frame" x="10" y="65" width="130" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="KRz-07-ibp"/>
+                            <constraint firstAttribute="width" constant="130" id="KRz-07-ibp"/>
                             <constraint firstAttribute="height" constant="20" id="ee0-rD-Ifh"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -69,7 +69,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KI-S9-wpz">
-                        <rect key="frame" x="115" y="65" width="195" height="20"/>
+                        <rect key="frame" x="145" y="65" width="165" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="etl-vt-uyd"/>
                         </constraints>
@@ -78,7 +78,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhY-Dh-j51">
-                        <rect key="frame" x="115" y="95" width="195" height="20"/>
+                        <rect key="frame" x="145" y="95" width="165" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="QY9-SG-xlF"/>
                         </constraints>
@@ -87,25 +87,25 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mô tả:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Dc-2a-myo">
-                        <rect key="frame" x="10" y="125" width="100" height="20"/>
+                        <rect key="frame" x="10" y="125" width="130" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="04J-0m-IG1"/>
-                            <constraint firstAttribute="width" constant="100" id="HND-SJ-yRD"/>
+                            <constraint firstAttribute="width" constant="130" id="HND-SJ-yRD"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                         <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3m-l8-oMb">
-                        <rect key="frame" x="115" y="125" width="195" height="20"/>
+                        <rect key="frame" x="145" y="125" width="165" height="20"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trạng thái:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFV-pd-RFd">
-                        <rect key="frame" x="10" y="95" width="100" height="20"/>
+                        <rect key="frame" x="10" y="95" width="130" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="O2D-ia-nCT"/>
+                            <constraint firstAttribute="width" constant="130" id="O2D-ia-nCT"/>
                             <constraint firstAttribute="height" constant="20" id="h68-QJ-D1h"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>

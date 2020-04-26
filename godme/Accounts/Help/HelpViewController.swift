@@ -66,18 +66,18 @@ class HelpViewController: BaseViewController {
     
     @objc func chooseAvatar(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionChoicePhoto = UIAlertAction.init(title: "Thư viện ảnh", style: .default) { (action) in
+        let actionChoicePhoto = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_iamge_pick_gallery"), style: .default) { (action) in
             self.imagePicker.sourceType = .photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionChoiseCamera = UIAlertAction.init(title: "Chụp hình", style: .default) { (action) in
+        let actionChoiseCamera = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_image_capture_new"), style: .default) { (action) in
             self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.cameraDevice = .rear
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Hủy", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(actionChoicePhoto)
@@ -147,7 +147,7 @@ class HelpViewController: BaseViewController {
                 self.helpModel.description.count == 0 ||
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
-                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                    Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
                 }
             }else {
                 var model = AddNewHelpServiceParams()
@@ -166,7 +166,7 @@ class HelpViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã tạo dịch vụ thành công.", vc: self) { (str) in
+                Settings.ShareInstance.showAlertView(message:Settings.ShareInstance.translate(key: "label_create_service_success"), vc: self) { (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -192,24 +192,25 @@ extension HelpViewController: UITableViewDelegate, UITableViewDataSource{
         case .Image:
             cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
             cellImage.delegate = self
+            cellImage.lbTitle.text = Settings.ShareInstance.translate(key: "label_image")
             return cellImage
         case .Title:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Tiêu đề"
-            cell.tfInput.placeholder = "Tiêu đề"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_title")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_title")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = self.helpModel.title
             cell.delegate = self
             return cell
         case .Description:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
-            cell.lbTitle.text = "Mô tả"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_description")
             cell.textView.text = self.helpModel.description
             cell.delegate = self
             return cell
         case .Confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
-            cell.btComplete.setTitle("Xác nhận", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "confirm"), for: .normal)
             cell.delegate = self
             return cell
         }
