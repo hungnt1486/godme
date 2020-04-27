@@ -184,8 +184,9 @@
 "label_country"  =  "Nation";
 "label_country_vn"  =  "+84";
 "label_create_auction"  =  "Create Auction";
+"label_create_my_auction" = "Create my auction";
 "label_create_coop"   = "Create cooperation";
-"label_create_event"  =  "Create Event";
+"label_create_event"  =  "Create My Event";
 "label_create_service"  =  "Create Service";
 "label_create_service_success"  =  "Create service success";
 "label_create_group_success"  =  "Create group success";
@@ -271,6 +272,7 @@
 "label_male"  =  "Male";
 "label_map"  =  "Map";
 "label_order_date_time" = "Order date time:";
+"label_order" = "Book order";
 "label_master" =   "Masters";
 "label_maximun_time"   = "Time is maximum";
 "label_money_godcoin" =   "Beneficiary amount: %d Godcoin";
@@ -282,6 +284,20 @@
 "label_network_hide"  =  "Hide Network";
 "label_not_yet_account"  =  "Haven\'t account yet?";
 "label_notification"  =  "Notification";
+"label_push_notification"  =  "Push notification";
+"label_object_receive_notification"  =  "Subject receives notice";
+"label_social_security_number" = "ID card number";
+"label_charity_godme" = "Godme charity fund";
+"label_services_difference" = "Difference services";
+"label_auction_difference" = "Difference auctions";
+"label_event_difference" = "Difference events";
+"label_are_you_sure_auction" = "Are you sure to want to bid?";
+"label_you_have_successfull_bid" = "You have successfully bid";
+"label_create_services" = "Create my service";
+"label_error" = "Error";
+"label_join" = "Join";
+"label_join_event" = "Join Event";
+"label_joined_event_successful" = "You joined successful";
 "label_alert"  =  "Alert!";
 "label_ok"  =  "OK";
 "label_option"   = "Option";
@@ -304,6 +320,7 @@
 "label_re_pay_network" =   "Extension network";
 "label_reject"  =  "Reject";
 "label_relationship"  =  "Network";
+"label_relationship_expand"  =  "Network expand";
 "label_relationship_income"  =  "Income by network";
 "label_relationship_need_to_repay"  =  "Relationship need to repay";
 "label_relationship_need_to_repay_please"  =  "Please choose relationship need to repay";
@@ -347,6 +364,7 @@
 "label_submit_feedback"  =  "Send request";
 "label_successfully"  =  "Successfully";
 "label_sum_coin_to_pay" =   "Total coin for pay";
+"label_total_people_booked" =   "Total booked";
 "label_support_dev"   = "Support and development";
 "label_support_feedback"  =  "Support / Bugs report";
 "label_switch_wallet"   = "đ ⇌ coin";
@@ -369,7 +387,8 @@
 "label_please_fill_in_full" = "Please fill in full information";
 "label_university"  =  "University";
 "label_update_group_relationship_success"  =  "Update relationship successfully!";
-"label_update_info"  =  "Update";
+"label_update_info"  =  "Update information";
+"label_update"  =  "Update";
 "label_us"  =  "US";
 "label_user_order_list"  =  "Service reservation list";
 "label_user_profile"   = "User profile";
@@ -385,7 +404,7 @@
 "label_vn"  =  "Viet Nam";
 "label_vnd"  =  "VNĐ";
 "label_wallet_s"   = "%@ %@";
-"label_warning_edit_description_profile"  =  "Personal contact information is not permitted in the description.";
+"label_warning_edit_description_profile"  =  "Personal contact information is not permitted in the description. ";
 "label_warning_sign_up"  =  "Recommend using real information for the benefit of user finance.";
 "label_warning_update_profile"  =  "Are you sure to want to update?";
 "label_watch_more"   = "More";

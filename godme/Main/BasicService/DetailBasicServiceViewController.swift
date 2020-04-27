@@ -103,7 +103,7 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
             header.backgroundColor = UIColor.FlatColor.Gray.BGColor
             header.btMore.isHidden = true
-            header.lbTitle.text = "Các dịch vụ khác"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_services_difference")
             return header
         }
         return UIView()
@@ -187,15 +187,17 @@ extension DetailBasicServiceViewController: UITableViewDelegate, UITableViewData
                         break
                     }
                 }
-                cell.lbNumberBooked.text = "Tổng số người đặt: \(modelDetail?.totalOrder ?? 0)"
+                cell.lbNumberBooked.text = "\(Settings.ShareInstance.translate(key: "label_total_people_booked")): \(modelDetail?.totalOrder ?? 0)"
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_detail_user")
                 cell.lbDetail.text = modelDetail?.description
                 return cell
             case .Book:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
                 cell.delegate = self
+                cell.btBookService.setTitle(Settings.ShareInstance.translate(key: "label_order"), for: .normal)
                 let date = Date()
                 if modelDetail?.dateTime7 ?? 0.0 > 0.0 && modelDetail?.dateTime7 ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
                     cell.btBookService.isUserInteractionEnabled = false
@@ -270,17 +272,17 @@ extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
     
     func didShowMore() {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Tạo dịch vụ của bạn", style: .default) {[unowned self] (action) in
+        let action2 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_create_services"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let createService = CreateServiceViewController()
             self.navigationController?.pushViewController(createService, animated: true)
         }
-        let action3 = UIAlertAction.init(title: "Báo lỗi", style: .default) {[unowned self] (action) in
+        let action3 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_error"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         

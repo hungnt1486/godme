@@ -550,7 +550,7 @@ class Settings: NSObject {
         let date = NSDate.init(timeIntervalSince1970: timeInterval/1000)
         let formatDate = DateFormatter.init()
         formatDate.dateFormat = "HH:mm, EEEE, dd/MM/yyyy"//"yyyy-MM-dd HH:mm"
-        formatDate.locale = Locale.current
+        formatDate.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         let dateConvert = formatDate.string(from: date as Date)
         return dateConvert
     }
@@ -562,7 +562,7 @@ class Settings: NSObject {
         let date = NSDate.init(timeIntervalSince1970: timeInterval/1000)
         let formatDate = DateFormatter.init()
         formatDate.dateFormat = "yyyy/MM/dd/HH/mm/ss"//"yyyy-MM-dd HH:mm"
-        formatDate.locale = Locale.current
+        formatDate.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         let dateConvert = formatDate.string(from: date as Date)
         return dateConvert
     }
@@ -574,7 +574,7 @@ class Settings: NSObject {
         let date = NSDate.init(timeIntervalSince1970: timeInterval/1000)
         let formatDate = DateFormatter.init()
         formatDate.dateFormat = "dd/MM/yyyy"//"yyyy-MM-dd HH:mm"
-        formatDate.locale = Locale.current
+        formatDate.locale = Locale.init(identifier: Settings.ShareInstance.getCurrentLanguage())
         let dateConvert = formatDate.string(from: date as Date)
         return dateConvert
     }

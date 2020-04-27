@@ -55,7 +55,7 @@ class PushNotificationViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Thông báo đẩy"//Settings.ShareInstance.translate(key: "support_report")
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_push_notification")//Settings.ShareInstance.translate(key: "support_report")
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -83,18 +83,18 @@ class PushNotificationViewController: BaseViewController {
     
     @objc func chooseAvatar(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionChoicePhoto = UIAlertAction.init(title: "Thư viện ảnh", style: .default) { (action) in
+        let actionChoicePhoto = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_iamge_pick_gallery"), style: .default) { (action) in
             self.imagePicker.sourceType = .photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionChoiseCamera = UIAlertAction.init(title: "Chụp hình", style: .default) { (action) in
+        let actionChoiseCamera = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_image_capture_new"), style: .default) { (action) in
             self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.cameraDevice = .rear
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Hủy", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(actionChoicePhoto)
@@ -184,7 +184,7 @@ class PushNotificationViewController: BaseViewController {
                 self.helpModel.description.count == 0 ||
                 linkImgs.count == 0 {
                 DispatchQueue.main.async {
-                    Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin.", vc: self)
+                    Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
                     self.hideProgressHub()
                 }
             }else {
@@ -228,7 +228,7 @@ class PushNotificationViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Lưu thành công", vc: self) {[unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_successfully"), vc: self) {[unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -262,7 +262,7 @@ extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSo
             return UIView()
         }
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderMyServices") as! HeaderMyServices
-        view.lbTitle.text = "Đối tượng nhận thông báo"
+        view.lbTitle.text = Settings.ShareInstance.translate(key: "label_object_receive_notification")
         return view
     }
     
@@ -282,27 +282,28 @@ extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSo
             case .Image:
                 cellImage = tableView.dequeueReusableCell(withIdentifier: "ImageCarTableViewCell") as? ImageCarTableViewCell
                 cellImage.delegate = self
+                cellImage.lbTitle.text = Settings.ShareInstance.translate(key: "label_image")
                 return cellImage
             case .Title:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-                cell.lbTitle.text = "Tiêu đề"
-                cell.tfInput.placeholder = "Tiêu đề"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_title")
+                cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_title")
                 cell.tfInput.tag = indexPath.row
                 cell.delegate = self
                 return cell
             case .Description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
-                cell.lbTitle.text = "Mô tả"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_description")
                 cell.delegate = self
                 return cell
             }
         }else if indexPath.section == 1 {
             cellCheckBox = tableView.dequeueReusableCell(withIdentifier: "CheckBoxTableViewCell") as? CheckBoxTableViewCell
             if indexPath.row == 0 {
-                cellCheckBox.lbTitle1.text = "Mối quan hệ"
+                cellCheckBox.lbTitle1.text = Settings.ShareInstance.translate(key: "label_relationship")
 //                cellCheckBox.img1.image = UIImage.init(named: "ic_checked")
             }else if indexPath.row == 1 {
-                cellCheckBox.lbTitle1.text = "Mối quan hệ mở rộng"
+                cellCheckBox.lbTitle1.text = Settings.ShareInstance.translate(key: "label_relationship_expand")
             }else{
                 if listGroup.count > 0  {
                     let model = listGroup[indexPath.row - 2]
@@ -315,7 +316,7 @@ extension PushNotificationViewController: UITableViewDelegate, UITableViewDataSo
             return cellCheckBox
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
-            cell.btComplete.setTitle("Xác nhận", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "confirm"), for: .normal)
             cell.delegate = self
             return cell
         }

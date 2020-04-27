@@ -45,6 +45,8 @@ class ImageDetailTableViewCell: UITableViewCell {
         let tapConvert = UITapGestureRecognizer.init(target: self, action: #selector(touchConvert))
         self.lbCoinConvert.isUserInteractionEnabled = true
         self.lbCoinConvert.addGestureRecognizer(tapConvert)
+        self.lbCoinConvert.text = Settings.ShareInstance.translate(key: "label_switch_wallet")
+        self.lbCopy.text = Settings.ShareInstance.translate(key: "label_copy_affiliate")
         
         let tapCopy = UITapGestureRecognizer.init(target: self, action: #selector(touchCopy))
         self.lbCopy.isUserInteractionEnabled = true

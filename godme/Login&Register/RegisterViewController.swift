@@ -78,7 +78,7 @@ class RegisterViewController: BaseViewController {
         self.arrTemp = Settings.ShareInstance.Gender()
         if  self.arrTemp.count > 0 {
             for item in self.arrTemp {
-                self.arrayGender.append(["name":item.Name ?? "", "code": "\(item.Id ?? "")"])
+                self.arrayGender.append(["name":Settings.ShareInstance.translate(key: item.Name ?? ""), "code": "\(item.Id ?? "")"])
             }
         }
     }
@@ -153,7 +153,7 @@ class RegisterViewController: BaseViewController {
         let arrCountry = Settings.ShareInstance.loadEducation()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(["name":item.label ?? "", "code": "\(item.code ?? "")"])
+                arrString.append(["name":Settings.ShareInstance.translate(key: item.label ?? ""), "code": "\(item.code ?? "")"])
             }
         }
         return arrString

@@ -86,7 +86,7 @@ class DetailAuctionViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Bạn đã đấu giá thành công", vc: self) {[unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_you_have_successfull_bid"), vc: self) {[unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -119,7 +119,7 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
             header.backgroundColor = UIColor.FlatColor.Gray.BGColor
             header.btMore.isHidden = true
-            header.lbTitle.text = "Các đấu giá khác"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_auction_difference")
             return header
         }
         return UIView()
@@ -215,6 +215,7 @@ extension DetailAuctionViewController: UITableViewDelegate, UITableViewDataSourc
                 return cell
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_detail")
                 cell.lbDetail.text = modelDetail?.description
                 return cell
             }
@@ -247,17 +248,17 @@ extension DetailAuctionViewController: ImageDetailAuctionTableViewCellProtocol{
     
     func didShowMoreAuction() {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Tạo đấu giá dịch vụ của bạn", style: .default) {[unowned self] (action) in
+        let action2 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_create_my_auction"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let createAuction = CreateAuctionViewController()
             self.navigationController?.pushViewController(createAuction, animated: true)
         }
-        let action3 = UIAlertAction.init(title: "Báo lỗi", style: .default) {[unowned self] (action) in
+        let action3 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_error"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         
@@ -292,7 +293,7 @@ extension DetailAuctionViewController: InfoAuctionTableViewCellProtocol{
     }
     
     func didAuction() {
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc chắn đấu giá dịch vụ?", vc: self) {[unowned self] (str) in
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: Settings.ShareInstance.translate(key: "label_are_you_sure_auction"), vc: self) {[unowned self] (str) in
             self.showProgressHub()
             self.createOrderAuction(sellerId: self.modelDetail?.userInfo?.id ?? 0, serviceId: self.modelDetail?.id ?? 0, buyerId: self.modelUser.userId ?? 0, amount: Double(self.cellInfo.tfMoney.text ?? "0.0") ?? 0.0)
         }

@@ -101,7 +101,7 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
             header.backgroundColor = UIColor.FlatColor.Gray.BGColor
             header.btMore.isHidden = true
-            header.lbTitle.text = "Các đấu giá khác"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_event_difference")
             return header
         }
         return UIView()
@@ -169,10 +169,11 @@ extension DetailEventViewController: UITableViewDelegate, UITableViewDataSource{
             case .Detail:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoDetailTableViewCell") as! InfoDetailTableViewCell
                 cell.lbDetail.text = modelDetail?.description
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_detail")
                 return cell
             case .Book:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BookServiceTableViewCell") as! BookServiceTableViewCell
-                cell.btBookService.setTitle("Tham gia sự kiện", for: .normal)
+                cell.btBookService.setTitle(Settings.ShareInstance.translate(key: "label_join_event"), for: .normal)
                 cell.delegate = self
                 let date = Date()
                 if modelDetail?.endTime ?? 0.0 < Settings.ShareInstance.convertDateToTimeInterval(date: date) {
@@ -218,7 +219,7 @@ extension DetailEventViewController: BookServiceTableViewCellProtocol{
                 case .success(let data):
                     self.hideProgressHub()
                     print("data = \(data)")
-                    Settings.ShareInstance.showAlertView(message: "Bạn đã tham gia thành công", vc: self) { [unowned self](str) in
+                    Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_joined_event_successful"), vc: self) { [unowned self](str) in
                         self.navigationController?.popToRootViewController(animated: true)
                     }
                     break
@@ -255,17 +256,17 @@ extension DetailEventViewController: ImageDetailTableViewCellProtocol{
     
     func didShowMore() {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Tạo sự kiện của bạn", style: .default) {[unowned self] (action) in
+        let action2 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_create_event"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let createEvent = CreateEventViewController()
             self.navigationController?.pushViewController(createEvent, animated: true)
         }
-        let action3 = UIAlertAction.init(title: "Báo lỗi", style: .default) {[unowned self] (action) in
+        let action3 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_error"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         

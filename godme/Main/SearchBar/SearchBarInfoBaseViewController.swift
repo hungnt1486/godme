@@ -38,7 +38,7 @@ class SearchBarInfoBaseViewController: BaseViewController {
         let arrCountry = Settings.ShareInstance.loadEducation()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(["name":item.label ?? "", "code": "\(item.code ?? "")"])
+                arrString.append(["name":Settings.ShareInstance.translate(key: item.label ?? ""), "code": "\(item.code ?? "")"])
             }
         }
         return arrString

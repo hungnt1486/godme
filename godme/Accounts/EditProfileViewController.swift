@@ -78,12 +78,12 @@ class EditProfileViewController: BaseViewController {
         self.arrTemp = Settings.ShareInstance.Gender()
         if  self.arrTemp.count > 0 {
             for item in self.arrTemp {
-                self.arrayGender.append(["name":item.Name ?? "", "code": "\(item.Id ?? "")"])
+                self.arrayGender.append(["name":Settings.ShareInstance.translate(key: item.Name ?? ""), "code": "\(item.Id ?? "")"])
             }
         }
         
         imagePicker.delegate = self
-        self.navigationItem.title = "Cập nhật thông tin"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_update_info")
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -147,7 +147,7 @@ class EditProfileViewController: BaseViewController {
         let arrCountry = Settings.ShareInstance.loadEducation()
         if arrCountry.count > 0 {
             for item in arrCountry {
-                arrString.append(["name":item.label ?? "", "code": "\(item.code ?? "")"])
+                arrString.append(["name":Settings.ShareInstance.translate(key: item.label ?? ""), "code": "\(item.code ?? "")"])
             }
         }
         return arrString
@@ -155,18 +155,18 @@ class EditProfileViewController: BaseViewController {
     
     @objc func chooseAvatar(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionChoicePhoto = UIAlertAction.init(title: "Thư viện ảnh", style: .default) { (action) in
+        let actionChoicePhoto = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_iamge_pick_gallery"), style: .default) { (action) in
             self.imagePicker.sourceType = .photoLibrary
             self.imagePicker.allowsEditing = true
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionChoiseCamera = UIAlertAction.init(title: "Chụp hình", style: .default) { (action) in
+        let actionChoiseCamera = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_image_capture_new"), style: .default) { (action) in
             self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self.imagePicker.allowsEditing = true
             self.imagePicker.cameraDevice = .rear
             self.present(self.imagePicker, animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Hủy", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(actionChoicePhoto)
@@ -346,21 +346,22 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             }else {
                 cellImage.imgAvatar.image = imgAvatar
             }
-            cellImage.lbCode.text = "Mã giới thiệu: \(userInfoModel.userCode)"
+            cellImage.lbCode.text = "\(Settings.ShareInstance.translate(key: "label_invite_code")): \(userInfoModel.userCode)"
+            cellImage.lbCopy.text = Settings.ShareInstance.translate(key: "label_copy_affiliate")
             cellImage.delegate = self
             return cellImage
         case .FullName:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Họ và tên"
-            cell.tfInput.placeholder = "Họ và tên"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_full_name")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_full_name")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = userInfoModel.fullName
             cell.delegate = self
             return cell
         case .Gender:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
-            cell.lbTitle.text = "Giới tính"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_gender")
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTypeCar.tag = indexPath.row
             cell.lbTypeCar.text = userInfoModel.gender == "NAM" ? "Nam" : "Nữ"
@@ -373,7 +374,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Education:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Học vấn"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_learning")
             cell.lbTypeCar.tag = indexPath.row
             for item in self.arrayEducation {
                 if item["code"] == userInfoModel.education {
@@ -390,7 +391,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Position:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Chức vụ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_position_job")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = userInfoModel.position
             cell.delegate = self
@@ -398,7 +399,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .SocialSecurity:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Số CMND"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_social_security_number")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = "\(userInfoModel.idNumber)"
             cell.delegate = self
@@ -406,7 +407,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Job:
             let cell = tableView.dequeueReusableCell(withIdentifier: "JobTableViewCell") as! JobTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Ngành nghề"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_career")
             cell.lbTypeCar.tag = indexPath.row
             if userInfoModel.career.count > 0 {
                 let career = userInfoModel.career
@@ -431,7 +432,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .DOB:
             cellDate = tableView.dequeueReusableCell(withIdentifier: "DateTableViewCell") as? DateTableViewCell
             cellDate.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cellDate.lbTitle.text = "Ngày sinh"
+            cellDate.lbTitle.text = Settings.ShareInstance.translate(key: "label_dob")
             cellDate.lbTypeCar.tag = indexPath.row
             cellDate.lbTypeCar.text = userInfoModel.dob
             cellDate.delegate = self
@@ -439,7 +440,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .National:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Quốc gia"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_country")
             cell.lbTypeCar.tag = indexPath.row
             cell.lbTypeCar.text = userInfoModel.nationName
             cell.delegate = self
@@ -447,7 +448,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Tỉnh/Thành phố"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_city")
             cell.lbTypeCar.tag = indexPath.row
             cell.lbTypeCar.text = userInfoModel.provinceName
             cell.delegate = self
@@ -459,7 +460,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .District:
             cellDistrict = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as? TypeCarTableViewCell
             cellDistrict.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cellDistrict.lbTitle.text = "Quận/Huyện"
+            cellDistrict.lbTitle.text = Settings.ShareInstance.translate(key: "label_district")
             cellDistrict.lbTypeCar.tag = indexPath.row
             cellDistrict.lbTypeCar.text = userInfoModel.districtName
             cellDistrict.delegate = self
@@ -467,7 +468,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Ward:
             cellWard = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as? TypeCarTableViewCell
             cellWard.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cellWard.lbTitle.text = "Phường/Xã"
+            cellWard.lbTitle.text = Settings.ShareInstance.translate(key: "label_village")
             cellWard.lbTypeCar.tag = indexPath.row
             cellWard.lbTypeCar.text = userInfoModel.wardName
             cellWard.delegate = self
@@ -475,7 +476,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Address:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Địa chỉ"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_address")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = userInfoModel.address
             cell.delegate = self
@@ -483,7 +484,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Email:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Email"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_email")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = userInfoModel.email
             cell.delegate = self
@@ -491,7 +492,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Experience:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Kinh nghiệm"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_experience")
             cell.textView.tag = indexPath.row
             cell.textView.text = userInfoModel.experience
             cell.delegate = self
@@ -499,7 +500,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Intro:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Giới thiệu bản thân"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_intro_ur_self")
             cell.textView.tag = indexPath.row
             cell.textView.text = userInfoModel.userInfo
             cell.delegate = self
@@ -507,7 +508,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .Code:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Mã giới thiệu"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_invite_code")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = userInfoModel.userCode
             cell.delegate = self
@@ -515,7 +516,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
         case .ConnectValue:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
-            cell.lbTitle.text = "Giá trị kết nối"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_amount_connect")
             cell.tfInput.tag = indexPath.row
             cell.tfInput.text = userInfoModel.amountConnect
             cell.tfInput.keyboardType = .numberPad
@@ -525,15 +526,15 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell") as! ContentTableViewCell
             let attrs1 = [NSAttributedString.Key.font : UIFont(name: "Roboto-regular", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.FlatColor.Red.TextColor]
             let attrs2 = [NSAttributedString.Key.font : UIFont(name: "Roboto-Medium", size: 15.0), NSAttributedString.Key.foregroundColor : UIColor.black]
-            let attr1 = NSMutableAttributedString(string: "Không được phép nhập thông tin liên hệ cá nhân vào mô tả. ", attributes: attrs1 as [NSAttributedString.Key : Any])
-            let attr2 = NSMutableAttributedString(string: "Khuyến nghị sử dụng thông tin thật vì lợi ích tài chính người dùng", attributes: attrs2 as [NSAttributedString.Key : Any])
+            let attr1 = NSMutableAttributedString(string: Settings.ShareInstance.translate(key: "label_warning_edit_description_profile"), attributes: attrs1 as [NSAttributedString.Key : Any])
+            let attr2 = NSMutableAttributedString(string: Settings.ShareInstance.translate(key: "label_warning_sign_up"), attributes: attrs2 as [NSAttributedString.Key : Any])
             attr1.append(attr2)
             cell.lbText.attributedText = attr1
             return cell
         case .Confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
-            cell.btComplete.setTitle("Cập nhật", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_update"), for: .normal)
             return cell
         }
     }

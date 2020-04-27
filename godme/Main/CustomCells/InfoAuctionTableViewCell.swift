@@ -45,6 +45,13 @@ class InfoAuctionTableViewCell: UITableViewCell {
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(touchConvert))
         self.lbCoinConvert.isUserInteractionEnabled = true
         self.lbCoinConvert.addGestureRecognizer(tap)
+        self.lbStep.text = Settings.ShareInstance.translate(key: "label_price_step")
+        self.lbTitlePrice.text = Settings.ShareInstance.translate(key: "label_current_price")
+        self.lbTitleNumber.text = Settings.ShareInstance.translate(key: "label_current_place")
+        self.lbTitleWiner.text = Settings.ShareInstance.translate(key: "label_current_winner")
+        self.btAuction.setTitle(Settings.ShareInstance.translate(key: "label_auction"), for: .normal)
+        self.tfMoney.placeholder = Settings.ShareInstance.translate(key: "label_input_start_price")
+        self.lbCoinConvert.text = Settings.ShareInstance.translate(key: "label_switch_wallet")
     }
     
     @objc func touchConvert(){

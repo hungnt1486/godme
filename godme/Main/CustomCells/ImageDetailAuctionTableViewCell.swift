@@ -26,6 +26,7 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
     @IBOutlet weak var lbJob: UILabel!
     @IBOutlet weak var lbCoin: UILabel!
     @IBOutlet weak var lbCopy: UILabel!
+    @IBOutlet weak var lbSession: UILabel!
     @IBOutlet weak var constraintHeightLabelCopy: NSLayoutConstraint!
     
     var delegate: ImageDetailAuctionTableViewCellProtocol?
@@ -48,6 +49,9 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
         let tapFullName = UITapGestureRecognizer.init(target: self, action: #selector(touchFullName))
         self.lbFullName.isUserInteractionEnabled = true
         self.lbFullName.addGestureRecognizer(tapFullName)
+        
+        self.lbCopy.text = Settings.ShareInstance.translate(key: "label_copy_affiliate")
+        self.lbSession.text = Settings.ShareInstance.translate(key: "label_auction_expire_on")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -57,36 +61,36 @@ class ImageDetailAuctionTableViewCell: UITableViewCell {
     }
     
     func countDown(){
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
-        }
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func UpdateTime() {
+        let userCalendar = Calendar.current
+        // Set Current Date
+        let date = Date()
+        let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: date)
+        let currentDate = userCalendar.date(from: components)!
         
-        @objc func UpdateTime() {
-            let userCalendar = Calendar.current
-            // Set Current Date
-            let date = Date()
-            let components = userCalendar.dateComponents([.hour, .minute, .month, .year, .day, .second], from: date)
-            let currentDate = userCalendar.date(from: components)!
-            
-            // Set Event Date
-            let arr = dateTime.split(separator: "/")
-            var eventDateComponents = DateComponents()
-            eventDateComponents.year = Int(String(arr[0]))
-            eventDateComponents.month = Int(String(arr[1]))
-            eventDateComponents.day = Int(String(arr[2]))
-            eventDateComponents.hour = Int(String(arr[3]))
-            eventDateComponents.minute = Int(String(arr[4]))
-            eventDateComponents.second = Int(String(arr[5]))
-    //        eventDateComponents.timeZone = TimeZone(abbreviation: "GMT")
-            
-            // Convert eventDateComponents to the user's calendar
-            let eventDate = userCalendar.date(from: eventDateComponents)!
-            
-            // Change the seconds to days, hours, minutes and seconds
-            let timeLeft = userCalendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDate)
-            
-            // Display Countdown
-            self.lbCoin.text = "\(timeLeft.day!) ngày \(timeLeft.hour!) giờ:\(timeLeft.minute!) phút:\(timeLeft.second!) giây"
-        }
+        // Set Event Date
+        let arr = dateTime.split(separator: "/")
+        var eventDateComponents = DateComponents()
+        eventDateComponents.year = Int(String(arr[0]))
+        eventDateComponents.month = Int(String(arr[1]))
+        eventDateComponents.day = Int(String(arr[2]))
+        eventDateComponents.hour = Int(String(arr[3]))
+        eventDateComponents.minute = Int(String(arr[4]))
+        eventDateComponents.second = Int(String(arr[5]))
+//        eventDateComponents.timeZone = TimeZone(abbreviation: "GMT")
+        
+        // Convert eventDateComponents to the user's calendar
+        let eventDate = userCalendar.date(from: eventDateComponents)!
+        
+        // Change the seconds to days, hours, minutes and seconds
+        let timeLeft = userCalendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDate)
+        
+        // Display Countdown
+        self.lbCoin.text = String.init(format: Settings.ShareInstance.translate(key: "label_auction_time_start_in"), "\(timeLeft.day!)", "\(timeLeft.hour!)", "\(timeLeft.minute!)", "\(timeLeft.second!)")
+    }
     
     @objc func touchCopy(){
         delegate?.didCopy()

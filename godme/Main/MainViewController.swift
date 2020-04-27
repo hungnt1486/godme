@@ -183,7 +183,7 @@ class MainViewController: BaseViewController {
                 let total = Double(self.walletCharity?.totalAmountGodmeCharity ?? "0.0")
                 self.headerMain?.lbTotalMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(total! * 1000)")
                 self.headerMain?.lbMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")! * 1000)")
-                self.headerMain?.lbCharity.text = "Quỹ từ thiện Godme"
+                self.headerMain?.lbCharity.text = Settings.ShareInstance.translate(key: "label_charity_godme")
                 self.tbvMain.reloadData()
                 break
             case .failure(let message):

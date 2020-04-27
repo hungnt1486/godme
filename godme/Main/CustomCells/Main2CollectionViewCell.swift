@@ -34,6 +34,7 @@ class Main2CollectionViewCell: UICollectionViewCell {
 //        self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
         self.vSubContent.layer.borderColor = UIColor.FlatColor.Gray.TextColor.cgColor
         self.vSubContent.layer.borderWidth = 0.5
+        self.btJoin.setTitle(Settings.ShareInstance.translate(key: "label_join"), for: .normal)
     }
 
     @IBAction func touchJoin(_ sender: Any) {
