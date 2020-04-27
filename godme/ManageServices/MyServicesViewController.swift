@@ -33,11 +33,12 @@ class MyServicesViewController: BaseViewController {
         self.getListSearchEventService()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tbvMyServices.reloadData()
+    }
+    
     func setupTableView(){
-//        self.tbvMyServices.register(UINib(nibName: "MyServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "MyServicesTableViewCell")
-//        self.tbvMyServices.register(UINib(nibName: "MyServicesJoinTableViewCell", bundle: nil), forCellReuseIdentifier: "MyServicesJoinTableViewCell")
-//        self.tbvMyServices.register(UINib.init(nibName: "HeaderMyServices", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderMyServices")
-        
         self.tbvMyServices.register(UINib(nibName: "BasicServicesTableViewCell", bundle: nil), forCellReuseIdentifier: "BasicServicesTableViewCell")
         self.tbvMyServices.register(UINib(nibName: "AuctionServices1TableViewCell", bundle: nil), forCellReuseIdentifier: "AuctionServices1TableViewCell")
         self.tbvMyServices.register(UINib(nibName: "EventsTableViewCell", bundle: nil), forCellReuseIdentifier: "EventsTableViewCell")
@@ -139,11 +140,11 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as! SectionHeaderView
         if section == 0 {
-            view.lbTitle.text = "Dịch vụ cơ bản"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_service_basic")
         }else if section == 1 {
-            view.lbTitle.text = "Đấu giá dịch vụ"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_service_auction")
         }else{
-            view.lbTitle.text = "Sự kiện"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_event")
         }
         return view
     }
@@ -212,7 +213,7 @@ extension MyServicesViewController: UITableViewDataSource, UITableViewDelegate{
                 }
             }
             cell.lbCity.text = model.address
-            cell.lbName.text = "Số người đã đăng ký: \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
+            cell.lbName.text = "\(Settings.ShareInstance.translate(key: "label_event_total_register")) \(model.totalOrder ?? 0)/\(model.maxOrder ?? 0)"
             cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: model.startTime ?? 0.0)
             cell.lbCoin.text = "\(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
             return cell

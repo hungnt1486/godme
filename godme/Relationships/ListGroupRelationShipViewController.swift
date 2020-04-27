@@ -23,7 +23,7 @@ class ListGroupRelationShipViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Danh sách nhóm mối quan hệ"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_group_relationship")
         self.showProgressHub()
         // parent
         self.getListGroupRelationShip()
@@ -78,7 +78,7 @@ class ListGroupRelationShipViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Bạn đã xoá nhóm thành công", vc: self) {[unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "warning_delete_relationship_group_successful"), vc: self) {[unowned self] (str) in
                     self.getListGroupRelationShip()
                     self.listGroupRelationShip.remove(at: index)
                     self.tbvListGroupRelationShip.reloadData()
@@ -122,7 +122,8 @@ extension ListGroupRelationShipViewController: ListGroupRelationShipTableViewCel
     }
     
     func didDelete(_ index: Int) {
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có chắc muốn xoá nhóm này?", vc: self) {[unowned self] (str) in
+        let model = self.listGroupRelationShip[index]
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: String.init(format: Settings.ShareInstance.translate(key: "warning_delete_relationship_group"), model.name ?? ""), vc: self) {[unowned self] (str) in
             self.showProgressHub()
             self.deleteGroupRelationShip(index: index)
         }

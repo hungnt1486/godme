@@ -32,6 +32,9 @@ class ServicesInfoBookTableViewCell: UITableViewCell {
     
     func setupUI(){
         self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
+        self.lbStatus.text = Settings.ShareInstance.translate(key: "label_status")
+        self.lbTime.text = Settings.ShareInstance.translate(key: "label_order_date_time")
+        self.lbCoin.text = Settings.ShareInstance.translate(key: "label_unit")
     }
     
 }

@@ -11,12 +11,13 @@ import UIKit
 class ServicesManageViewController: BaseViewController {
     
     var tabs = [
-        ViewPagerTab(title: "Dịch vụ của bạn", image: nil),
-        ViewPagerTab(title: "Thông tin đặt dịch vụ", image: nil),
+        ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_my_service"), image: nil),
+        ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_order_service_info"), image: nil),
     ]
         
     var viewPager: ViewPagerController!
     var options: ViewPagerOptions!
+    var strLanguage = Settings.ShareInstance.getCurrentLanguage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,34 @@ class ServicesManageViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if strLanguage != Settings.ShareInstance.getCurrentLanguage() {
+            
+            for view in self.view.subviews {
+                if view.tag == 3 {
+                    view.removeFromSuperview()
+                }
+            }
+            if viewPager != nil {
+                viewPager.view.viewWithTag(3)?.removeFromSuperview()
+                viewPager = nil
+                
+            }
+            tabs = [
+                ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_my_service"), image: nil),
+                ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_order_service_info"), image: nil),
+            ]
+            self.configPageView()
+            strLanguage = Settings.ShareInstance.getCurrentLanguage()
+        }
         self.navigationItem.title = Settings.ShareInstance.translate(key: "manager_service")
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if strLanguage != Settings.ShareInstance.getCurrentLanguage() {
+            self.removeChild()
+        }
     }
     
     func setupUI(){

@@ -48,6 +48,8 @@ class MyRelationShip1TableViewCell: UITableViewCell {
         let tapPhoneNumber = UITapGestureRecognizer.init(target: self, action: #selector(touchPhoneNumber))
         self.lbPhone.isUserInteractionEnabled = true
         self.lbPhone.addGestureRecognizer(tapPhoneNumber)
+        
+        self.lbVote.text = Settings.ShareInstance.translate(key: "label_rate")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

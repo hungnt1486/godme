@@ -27,7 +27,7 @@ class CreateNotificationViewController: BaseViewController {
     }
     
     func setupUI(){
-        self.navigationItem.title = "Thông báo"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_notification")
         self.btConfirm = Settings.ShareInstance.setupButton(button: self.btConfirm)
         self.tfInputTitle = Settings.ShareInstance.setupTextField(textField: self.tfInputTitle, isLeftView: true)
         

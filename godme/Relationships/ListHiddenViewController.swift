@@ -51,11 +51,13 @@ class ListHiddenViewController: BaseViewController {
         self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
         
         self.tfInputName = Settings.ShareInstance.setupTextField(textField: self.tfInputName, isLeftView: true)
+        self.tfInputName.placeholder = Settings.ShareInstance.translate(key: "label_search_name_user")
         
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showType))
         tapGesture.numberOfTouchesRequired = 1
         self.lbFilterJob.isUserInteractionEnabled = true
         self.lbFilterJob.addGestureRecognizer(tapGesture)
+        self.btFind.setTitle(Settings.ShareInstance.translate(key: "label_search"), for: .normal)
     }
 
     func setupTableView(){
@@ -72,7 +74,7 @@ class ListHiddenViewController: BaseViewController {
     func setupTypeDropdown(){
         TypeDropdown.anchorView = self.lbFilterJob
         self.arr = BaseViewController.arrayJobs
-        self.arr.insert(["name": "Tất cả", "code": "0"], at: 0)
+        self.arr.insert(["name": Settings.ShareInstance.translate(key: "label_all"), "code": "0"], at: 0)
         self.lbFilterJob.text = self.arr[0]["name"]
         TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbFilterJob.bounds.height)
             for item in arr {
@@ -235,21 +237,21 @@ extension ListHiddenViewController: MyRelationShipTableViewCellProtocol{
     
     func didMoreRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Hiển thị mối quan hệ", style: .default) {[unowned self]  (action) in
+        let action2 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_show_network"), style: .default) {[unowned self]  (action) in
             alertControl.dismiss(animated: true, completion: nil)
             self.showProgressHub()
             self.showRelationShip(index: index)
         }
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) {[unowned self]  (action) in
+        let action3 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_report"), style: .default) {[unowned self]  (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) {(action) in
+        let action4 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_remove_network"), style: .default) {(action) in
             alertControl.dismiss(animated: true, completion: nil)
             
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         

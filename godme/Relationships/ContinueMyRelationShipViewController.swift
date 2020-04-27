@@ -35,7 +35,7 @@ class ContinueMyRelationShipViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Gia hạn mối quan hệ"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_re_pay_network")
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -75,7 +75,7 @@ class ContinueMyRelationShipViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã gia hạn thành công", vc: self) { (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_extension_network_successfully"), vc: self) { (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -99,7 +99,7 @@ extension ContinueMyRelationShipViewController: UITableViewDelegate, UITableView
             
         case .Title:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCarTableViewCell") as! TypeCarTableViewCell
-            cell.lbTitle.text = "Tiêu đề"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_title")
             cell.lbTypeCar.tag = indexPath.row
             var arr: [String] = []
             for item in self.listUser {
@@ -124,6 +124,7 @@ extension ContinueMyRelationShipViewController: UITableViewDelegate, UITableView
             return cellNumber
         case .Confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_sign_up"), for: .normal)
             cell.delegate = self
             return cell
         }
@@ -135,21 +136,21 @@ extension ContinueMyRelationShipViewController: NumberOfYearTableViewCellProtoco
         if intYear > 1 {
             intYear = intYear - 1
             cellNumber.lbNumberOfYearValue.text = String(intYear)
-            cellNumber.lbTitleCoinValue.text = String(intYear * 10) + " Godcoin/năm"
+            cellNumber.lbTitleCoinValue.text = String(intYear * 10) + " \(Settings.ShareInstance.translate(key: "label_total_year_s"))"
         }
     }
     
     func didPlus() {
         intYear = intYear + 1
         cellNumber.lbNumberOfYearValue.text = String(intYear)
-        cellNumber.lbTitleCoinValue.text = String(intYear * 10) + " Godcoin/năm"
+        cellNumber.lbTitleCoinValue.text = String(intYear * 10) + " \(Settings.ShareInstance.translate(key: "label_total_year_s"))"
     }
 }
 
 extension ContinueMyRelationShipViewController: CompleteTableViewCellProtocol{
     func didComplete() {
         if self.intRelationShip == 0 {
-            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn mối quan hệ để gia hạn.", vc: self)
+            Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_relationship_need_to_repay_please"), vc: self)
             return
         }
         self.showProgressHub()

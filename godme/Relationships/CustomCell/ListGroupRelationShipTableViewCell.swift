@@ -37,7 +37,9 @@ class ListGroupRelationShipTableViewCell: UITableViewCell {
     func setupUI(){
         self.vSub = Settings.ShareInstance.setupBTV(v: self.vSub)
         self.btDelete = Settings.ShareInstance.setupButton(button: self.btDelete)
+        self.btDelete.setTitle(Settings.ShareInstance.translate(key: "label_delete"), for: .normal)
         self.btEdit = Settings.ShareInstance.setupButton(button: self.btEdit)
+        self.btEdit.setTitle(Settings.ShareInstance.translate(key: "label_edit"), for: .normal)
     }
     
     @IBAction func touchEdit(_ sender: Any) {

@@ -16,7 +16,7 @@ class MyRelationShipViewController: BaseViewController {
     @IBOutlet weak var tfInputName: UITextField!
     @IBOutlet weak var lbFilterJob: UILabel!
     @IBOutlet weak var tbvMyRelationShip: UITableView!
-    @IBOutlet weak var btFind: NSLayoutConstraint!
+    @IBOutlet weak var btFind: UIButton!
     
     var listMyRelationShip: [RelationShipsModel] = []
     
@@ -62,11 +62,13 @@ class MyRelationShipViewController: BaseViewController {
         self.vTop = Settings.ShareInstance.setupView(v: self.vTop)
         
         self.tfInputName = Settings.ShareInstance.setupTextField(textField: self.tfInputName, isLeftView: true)
+        self.tfInputName.placeholder = Settings.ShareInstance.translate(key: "label_search_name_user")
         
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(showType))
         tapGesture.numberOfTouchesRequired = 1
         self.lbFilterJob.isUserInteractionEnabled = true
         self.lbFilterJob.addGestureRecognizer(tapGesture)
+        self.btFind.setTitle(Settings.ShareInstance.translate(key: "label_search"), for: .normal)
         
     }
     
@@ -85,7 +87,7 @@ class MyRelationShipViewController: BaseViewController {
     func setupTypeDropdown(){
         TypeDropdown.anchorView = self.lbFilterJob
         self.arr = BaseViewController.arrayJobs
-        self.arr.insert(["name": "Tất cả", "code": "0"], at: 0)
+        self.arr.insert(["name": Settings.ShareInstance.translate(key: "label_all"), "code": "0"], at: 0)
         self.lbFilterJob.text = self.arr[0]["name"]
         TypeDropdown.bottomOffset = CGPoint(x: 0, y: self.lbFilterJob.bounds.height)
             for item in arr {
@@ -151,7 +153,7 @@ class MyRelationShipViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Ẩn mối quan hệ thành công", vc: self) {[unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_hidde_network_successful"), vc: self) {[unowned self] (str) in
                     self.listMyRelationShip.remove(at: index)
                     self.tbvMyRelationShip.reloadData()
                 }
@@ -223,7 +225,7 @@ extension MyRelationShipViewController: UITableViewDelegate, UITableViewDataSour
             cell.constraintHeightPhone.constant = 0
         }
         cell.lbCity.text = model.address
-        cell.lbDayLeft.text = "\(model.datesLeft ?? 0) ngày"
+        cell.lbDayLeft.text = "\(model.datesLeft ?? 0) \(Settings.ShareInstance.translate(key: "label_date_left_s"))"
         cell.setupUI()
         return cell
     }
@@ -262,24 +264,24 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
     func didMoreRelationShip(index: Int) {
         let model = self.listMyRelationShip[index]
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Ẩn mối quan hệ", style: .default) { [unowned self] (action) in
+        let action2 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_hidde_network"), style: .default) { [unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             self.showProgressHub()
             self.hiddenRelationShip(index: index)
         }
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+        let action3 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_report"), style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
+        let action4 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_remove_network"), style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
             Settings.ShareInstance.showAlertView(message: "Coming soon", vc: self)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
-        let action5 = UIAlertAction.init(title: "Gia hạn mối quan hệ", style: .default) {[unowned self] (action) in
+        let action5 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_re_pay_network"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let model = self.listMyRelationShip[index]
             let continueMyRelation = ContinueMyRelationShipViewController()
@@ -288,7 +290,7 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
             self.navigationController?.pushViewController(continueMyRelation, animated: true)
         }
         
-        let action6 = UIAlertAction.init(title: "Thêm mối quan hệ vào nhóm", style: .default) { [unowned self] (action) in
+        let action6 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_add_party"), style: .default) { [unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let model = self.listMyRelationShip[index]
             self.listUserId.append(model.id ?? 0)
@@ -311,7 +313,7 @@ extension MyRelationShipViewController: MyRelationShip1TableViewCellProtocol{
 extension MyRelationShipViewController: ViewShowListCheckBoxProtocol{
     func tapDone(_ list: [Int]) {
         if list.count == 0 {
-            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn nhóm quan hệ", vc: self)
+            Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_group_relationship_choose"), vc: self)
             return
         }
         for i in 0..<list.count {

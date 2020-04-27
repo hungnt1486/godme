@@ -11,14 +11,15 @@ import UIKit
 class RelationshipsViewController: BaseViewController {
     
     var tabs = [
-        ViewPagerTab(title: "Các mối quan hệ", image: nil),
-        ViewPagerTab(title: "MQH mở rộng", image: nil),
-        ViewPagerTab(title: "Danh sách ẩn", image: nil),
-        ViewPagerTab(title: "Nhóm mối quan hệ", image: nil),
+        ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network"), image: nil),
+        ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network_advance"), image: nil),
+        ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network_hide"), image: nil),
+        ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network_group"), image: nil),
     ]
         
     var viewPager: ViewPagerController!
     var options: ViewPagerOptions!
+    var strLanguage = Settings.ShareInstance.getCurrentLanguage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,36 @@ class RelationshipsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if strLanguage != Settings.ShareInstance.getCurrentLanguage() {
+            
+            for view in self.view.subviews {
+                if view.tag == 3 {
+                    view.removeFromSuperview()
+                }
+            }
+            if viewPager != nil {
+                viewPager.view.viewWithTag(3)?.removeFromSuperview()
+                viewPager = nil
+                
+            }
+            tabs = [
+                ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network"), image: nil),
+                ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network_advance"), image: nil),
+                ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network_hide"), image: nil),
+                ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_network_group"), image: nil),
+            ]
+            self.configPageView()
+            strLanguage = Settings.ShareInstance.getCurrentLanguage()
+        }
         self.navigationItem.title = Settings.ShareInstance.translate(key: "relationships")
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if strLanguage != Settings.ShareInstance.getCurrentLanguage() {
+            self.removeChild()
+        }
     }
     
     func setupUI(){
@@ -56,17 +85,17 @@ class RelationshipsViewController: BaseViewController {
     
     @objc func touchRight1(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action2 = UIAlertAction.init(title: "Nhóm mối quan hệ", style: .default) {(action) in
+        let action2 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_group_relationship"), style: .default) {(action) in
             alertControl.dismiss(animated: true, completion: nil)
             let listGroup = ListGroupRelationShipViewController()
             self.navigationController?.pushViewController(listGroup, animated: true)
         }
-        let action1 = UIAlertAction.init(title: "Gia hạn mối quan hệ", style: .default) {(action) in
+        let action1 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_re_pay_network"), style: .default) {(action) in
             alertControl.dismiss(animated: true, completion: nil)
             let continueMyRelationShip = ContinueMyRelationShipViewController()
             self.navigationController?.pushViewController(continueMyRelationShip, animated: true)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(action2)

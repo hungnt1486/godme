@@ -27,7 +27,7 @@ class EditGroupViewController: BaseViewController {
     }
     
     func setupUI(){
-        self.navigationItem.title = "Cập nhật nhóm mối quan hệ"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_update_group_relationship")
     }
     
     func setupTableView(){
@@ -80,7 +80,7 @@ class EditGroupViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Bạn đã cập nhật nhóm thành công", vc: self) { [unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_update_group_relationship_success"), vc: self) { [unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -115,7 +115,7 @@ extension EditGroupViewController: UITableViewDelegate, UITableViewDataSource {
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderSubMain") as! HeaderSubMain
             header.backgroundColor = UIColor.FlatColor.Gray.BGColor
             header.btMore.isHidden = true
-            header.lbTitle.text = "Mối quan hệ"
+            header.lbTitle.text = Settings.ShareInstance.translate(key: "label_network_group")
             return header
         }
         return UIView()
@@ -137,7 +137,7 @@ extension EditGroupViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.delegate = self
             cell.lbTitle.font = UIFont(name: "Roboto-Medium", size: 15.0)!
-            cell.lbTitle.text = "Tên nhóm"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_group_name")
             cell.tfInput.text = model.name ?? ""
             self.strName = model.name ?? ""
             return cell
@@ -146,7 +146,7 @@ extension EditGroupViewController: UITableViewDelegate, UITableViewDataSource {
                 let model = self.listGroupRelationShip[0].listUserInfo
                 if model?.count == 0 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
-                    cell.lbTitle.text = "Bạn chưa có mối quan hệ nào"
+                    cell.lbTitle.text = Settings.ShareInstance.translate(key: "warning_you_dont_have_any_relatetionship")
                     return cell
                 }else {
                     let model = self.listGroupRelationShip[0].listUserInfo?[indexPath.row]
@@ -159,13 +159,13 @@ extension EditGroupViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
-                cell.lbTitle.text = "Bạn chưa có mối quan hệ nào"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "warning_you_dont_have_any_relatetionship")
                 return cell
             }
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
-            cell.btComplete.setTitle("Xác nhận", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "confirm"), for: .normal)
             return cell
         }
     }

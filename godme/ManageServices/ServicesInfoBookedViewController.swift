@@ -36,6 +36,11 @@ class ServicesInfoBookedViewController: BaseViewController {
         self.getListSearchOrderEventService()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tbvServicesInfoBook.reloadData()
+    }
+    
     func setupTableView(){
         self.tbvServicesInfoBook.register(UINib(nibName: "ServicesInfoBookTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesInfoBookTableViewCell")
         
@@ -140,11 +145,11 @@ extension ServicesInfoBookedViewController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as! SectionHeaderView
         if section == 0 {
-            view.lbTitle.text = "Dịch vụ cơ bản"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_service_basic")
         }else if section == 1 {
-            view.lbTitle.text = "Đấu giá dịch vụ"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_service_auction")
         }else{
-            view.lbTitle.text = "Sự kiện"
+            view.lbTitle.text = Settings.ShareInstance.translate(key: "label_event")
         }
         return view
     }

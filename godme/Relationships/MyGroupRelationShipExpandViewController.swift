@@ -172,15 +172,15 @@ extension MyGroupRelationShipExpandViewController: UITableViewDelegate, UITableV
 extension MyGroupRelationShipExpandViewController: MyGroupRelationShipTableViewCellProtocol{
     func didMoreGroupRelationShip(index: Int) {
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-        let action3 = UIAlertAction.init(title: "Báo xấu", style: .default) {[unowned self] (action) in
+        let action3 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_report"), style: .default) {[unowned self] (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let action4 = UIAlertAction.init(title: "Xoá mối quan hệ", style: .default) { (action) in
+        let action4 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_remove_network"), style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(action3)

@@ -58,7 +58,7 @@ public class ViewPagerController:UIViewController {
         super.viewDidLoad()
         
         self.view.frame = options.viewPagerFrame
-        
+        self.view.tag = 3
         setupTabContainerView()
         setupTabs()
         createPageViewController()

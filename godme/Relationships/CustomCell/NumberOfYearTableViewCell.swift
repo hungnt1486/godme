@@ -24,6 +24,7 @@ class NumberOfYearTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,6 +32,13 @@ class NumberOfYearTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setupUI(){
+        self.lbNumberOfYear.text = Settings.ShareInstance.translate(key: "label_year_to_repay")
+        self.lbTitleCoinValue.text = "10 \(Settings.ShareInstance.translate(key: "label_total_year_s"))"
+        self.lbTitleCoin.text = Settings.ShareInstance.translate(key: "label_sum_coin_to_pay")
+    }
+    
     @IBAction func touchMinus(_ sender: Any) {
         delegate?.didMinus()
     }

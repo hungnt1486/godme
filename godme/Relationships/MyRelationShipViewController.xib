@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,9 +12,9 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRelationShipViewController" customModule="godme" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRelationShipViewController" customModule="Godme" customModuleProvider="target">
             <connections>
-                <outlet property="btFind" destination="dZB-03-roB" id="KzT-CL-9Zo"/>
+                <outlet property="btFind" destination="qtY-Qt-m9E" id="q9X-fd-RRO"/>
                 <outlet property="lbFilterJob" destination="sRu-qe-4uS" id="fy6-nE-b5d"/>
                 <outlet property="tbvMyRelationShip" destination="gtN-mQ-9Q1" id="GYm-ZY-jK6"/>
                 <outlet property="tfInputName" destination="6jK-tC-zHX" id="XKH-Bt-Bfv"/>

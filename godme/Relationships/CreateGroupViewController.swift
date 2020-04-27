@@ -28,7 +28,7 @@ class CreateGroupViewController: BaseViewController {
     }
     
     func setupUI(){
-        self.navigationItem.title = "Tạo nhóm mối quan hệ"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_add_group_relationship")
     }
     
     func setupTableView(){
@@ -48,7 +48,7 @@ class CreateGroupViewController: BaseViewController {
             switch response {
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng đã tạo nhóm thành công", vc: self) {[unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_create_group_success"), vc: self) {[unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -72,13 +72,14 @@ extension CreateGroupViewController: UITableViewDelegate, UITableViewDataSource{
             
         case .Title:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
-            cell.lbTitle.text = "Tên nhóm"
-            cell.tfInput.placeholder = "Nhập tên nhóm"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_group_name")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_group_name")
             cell.delegate = self
             return cell
         case .Confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_sign_up"), for: .normal)
             return cell
         }
     }
