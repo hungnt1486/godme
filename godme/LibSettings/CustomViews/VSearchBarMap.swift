@@ -33,6 +33,7 @@ class VSearchBarMap: UIView {
     func setupUI(){
         self.vContent = Settings.ShareInstance.setupView(v: self.vContent)
         self.tfInputText = Settings.ShareInstance.setupTextField(textField: self.tfInputText, isLeftView: true)
+        self.tfInputText.placeholder = Settings.ShareInstance.translate(key: "label_search")
     }
     
 }

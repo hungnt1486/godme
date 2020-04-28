@@ -98,6 +98,10 @@ class MapsViewController: BaseViewController {
         self.vSlide.addSubview(slider)
         self.vSlide.clipsToBounds = true
         self.lbKm.text = "\(Int(self.slider.value)) km"
+        
+        self.btBaseService.setTitle(Settings.ShareInstance.translate(key: "label_services"), for: .normal)
+        self.btAuctionService.setTitle(Settings.ShareInstance.translate(key: "label_auction"), for: .normal)
+        self.btEventService.setTitle(Settings.ShareInstance.translate(key: "label_event"), for: .normal)
     }
     
     func setupSearchBar(){
