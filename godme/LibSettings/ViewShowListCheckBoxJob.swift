@@ -67,6 +67,9 @@ class ViewShowListCheckBoxJob: UIView {
         self.btCancel.setBorder()
         self.btDone = Settings.ShareInstance.setupButton(button: self.btDone)
         
+        self.btCancel.setTitle(Settings.ShareInstance.translate(key: "label_cancel"), for: .normal)
+        self.btDone.setTitle(Settings.ShareInstance.translate(key: "label_ok"), for: .normal)
+        
         vPopup.layer.cornerRadius = 10.0
         vPopup.layer.borderWidth = 1.0
         vPopup.backgroundColor = UIColor.FlatColor.Gray.BGColor

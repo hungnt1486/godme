@@ -64,7 +64,7 @@ class AccountsViewController: BaseViewController {
     }
     
     @objc func touchRight(){
-        Settings.ShareInstance.showAlertViewWithOkCancel(message: "Bạn có muốn thoát ứng dụng?", vc: self) { [unowned self] (str) in
+        Settings.ShareInstance.showAlertViewWithOkCancel(message: Settings.ShareInstance.translate(key: "label_do_you_want_to_sign_out"), vc: self) { [unowned self] (str) in
             self.showProgressHub()
             UserManager.shareUserManager().logout {[unowned self] (response) in
                 switch response {

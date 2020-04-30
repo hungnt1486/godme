@@ -182,7 +182,7 @@ class RegisterViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Chúc mừng bạn đã đăng ký thành công", vc: self) { [unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_sign_up_success"), vc: self) { [unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -208,18 +208,18 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             
            case .RealText:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell") as! ContentTableViewCell
-            cell.lbText.text = "Khuyến nghị sử dụng thông tin thật vì lợi ích tài chính người dùng."
+            cell.lbText.text = Settings.ShareInstance.translate(key: "label_warning_sign_up")
             return cell
            case .FullName:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Họ và tên"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_full_name")
             cell.tfText.tag = indexPath.row
             cell.tfText.text = self.registerModel.fullName
             cell.delegate = self
             return cell
            case .UserName:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Số điện thoại"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_phone")
             cell.tfText.tag = indexPath.row
             cell.tfText.isUserInteractionEnabled = false
             cell.tfText.text = self.registerModel.username
@@ -227,7 +227,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .Password:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Mật khẩu"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_password")
             cell.tfText.tag = indexPath.row
             cell.tfText.isSecureTextEntry = true
             cell.tfText.text = self.registerModel.password
@@ -235,7 +235,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .PasswordConfirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Xác nhận mật khẩu"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_confirm_password")
             cell.tfText.tag = indexPath.row
             cell.tfText.isSecureTextEntry = true
             cell.tfText.text = self.registerModel.passwordConfirm
@@ -243,13 +243,13 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .Email:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Email"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_email")
             cell.tfText.tag = indexPath.row
             cell.delegate = self
             return cell
            case .Country:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Quốc gia"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_country")
             cell.tfText.text = "Việt Nam"
             cell.btShow.tag = indexPath.row
             self.registerModel.nationCode = "VN"
@@ -258,7 +258,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .City:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as! ComboboxTableViewCell
-            cell.tfText.placeholder = "Thành phố"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_city")
             cell.btShow.tag = indexPath.row
             cell.delegate = self
             if cell.arr.count == 0 {
@@ -268,27 +268,27 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .District:
             cellDistrict = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as? ComboboxTableViewCell
-            cellDistrict.tfText.placeholder = "Quận/Huyện"
+            cellDistrict.tfText.placeholder = Settings.ShareInstance.translate(key: "label_district")
             cellDistrict.btShow.tag = indexPath.row
             cellDistrict.delegate = self
             return cellDistrict
            case .Ward:
             cellWard = tableView.dequeueReusableCell(withIdentifier: "ComboboxTableViewCell") as? ComboboxTableViewCell
-            cellWard.tfText.placeholder = "Phường/Xã"
+            cellWard.tfText.placeholder = Settings.ShareInstance.translate(key: "label_village")
             cellWard.btShow.tag = indexPath.row
             cellWard.delegate = self
             return cellWard
            case .Address:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
-            cell.tfText.placeholder = "Địa chỉ"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_address")
             cell.tfText.tag = indexPath.row
             cell.tfText.text = self.registerModel.address
             cell.delegate = self
             return cell
            case .Job:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TwiceComboboxTableViewCell") as! TwiceComboboxTableViewCell
-            cell.tfText1.placeholder = "Ngành nghề"
-            cell.tfText2.placeholder = "Học vấn"
+            cell.tfText1.placeholder = Settings.ShareInstance.translate(key: "label_career")
+            cell.tfText2.placeholder = Settings.ShareInstance.translate(key: "label_learning")
             cell.btShow1.tag = indexPath.row
             cell.btShow2.tag = indexPath.row
             if self.arrayJobs.count > 0 {
@@ -331,9 +331,9 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .Gender:
             cellDob = tableView.dequeueReusableCell(withIdentifier: "TwiceComboboxTableViewCell") as? TwiceComboboxTableViewCell
-            cellDob.tfText1.placeholder = "Độ tuổi"
-            cellDob.tfText2.placeholder = "Giới tính"
-            cellDob.tfText2.text = self.registerModel.gender == "NAM" ? "Nam" : "Nữ"
+            cellDob.tfText1.placeholder = Settings.ShareInstance.translate(key: "label_age")
+            cellDob.tfText2.placeholder = Settings.ShareInstance.translate(key: "label_gender")
+            cellDob.tfText2.text = self.registerModel.gender == "NAM" ? Settings.ShareInstance.translate(key:"label_male") : Settings.ShareInstance.translate(key: "label_female")
             cellDob.tfText1.text = self.registerModel.dob
             cellDob.btShow1.tag = indexPath.row
             cellDob.btShow2.tag = indexPath.row
@@ -349,7 +349,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .Refferal:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputTextTableViewCell") as! InputTextTableViewCell
             cell.tfText.tag = indexPath.row
-            cell.tfText.placeholder = "Mã giới thiệu"
+            cell.tfText.placeholder = Settings.ShareInstance.translate(key: "label_invite_code")
             cell.tfText.text = self.registerModel.referralCode
             cell.delegate = self
             return cell
@@ -360,6 +360,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
            case .Complete:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_sign_up"), for: .normal)
             return cell
         }
     }
@@ -612,7 +613,7 @@ extension RegisterViewController: TwiceComboboxTableViewCellProtocol{
 extension RegisterViewController: ViewShowListCheckBoxJobProtocol{
     func tapDone(_ list: [Int]) {
         if list.count == 0 {
-            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn nhóm quan hệ", vc: self)
+            Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_group_relationship_choose"), vc: self)
             return
         }
         var str: String = ""
@@ -684,7 +685,7 @@ extension RegisterViewController: CompleteTableViewCellProtocol{
             self.registerModel.provinceCode.count == 0 ||
             self.registerModel.username.count == 0 ||
             self.registerModel.wardCode.count == 0 {
-            Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin", vc: self)
+            Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
             self.hideProgressHub()
             return
         }

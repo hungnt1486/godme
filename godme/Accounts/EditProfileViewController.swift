@@ -364,7 +364,7 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_gender")
             cell.lbTitle.textColor = UIColor.FlatColor.Gray.TextColor
             cell.lbTypeCar.tag = indexPath.row
-            cell.lbTypeCar.text = userInfoModel.gender == "NAM" ? "Nam" : "Nữ"
+            cell.lbTypeCar.text = userInfoModel.gender == "NAM" ? Settings.ShareInstance.translate(key:"label_male") : Settings.ShareInstance.translate(key: "label_female")
             cell.delegate = self
             if cell.arr.count == 0 {
                 cell.arr = self.arrayGender

@@ -61,8 +61,8 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfoTableViewCell") as! SearchBarBaseInfoTableViewCell
-        cell.lbGender.text = "Giới tính: \(self.modelDetail?.gender == "NAM" ? "Nam" : "Nữ")"
-        cell.lbDOB.text = "Ngày sinh: \(Settings.ShareInstance.convertDOB(str: self.modelDetail?.dob ?? ""))"
+        cell.lbGender.text = "\(Settings.ShareInstance.translate(key: "label_gender")): \(self.modelDetail?.gender == "NAM" ? Settings.ShareInstance.translate(key:"label_male") : Settings.ShareInstance.translate(key: "label_female"))"
+        cell.lbDOB.text = "\(Settings.ShareInstance.translate(key: "label_dob")): \(Settings.ShareInstance.convertDOB(str: self.modelDetail?.dob ?? ""))"
         let career = self.modelDetail?.career
         let arrCareer = career?.split(separator: ",")
         var strCareer = ""
@@ -80,17 +80,17 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
         }
         for item in self.arrayEducation {
             if item["code"] == self.modelDetail?.education {
-                cell.lbEducation.text = "Học vấn: \(item["name"] ?? "")"
+                cell.lbEducation.text = "\(Settings.ShareInstance.translate(key: "label_learning")): \(item["name"] ?? "")"
                 break
             }
         }
-        cell.lbJob.text = "Ngành nghề: \(strCareer)"
-        cell.lbEmail.text = "Email: \(self.modelDetail?.email ?? "")"
+        cell.lbJob.text = "\(Settings.ShareInstance.translate(key: "label_career")): \(strCareer)"
+        cell.lbEmail.text = "\(Settings.ShareInstance.translate(key: "label_email")): \(self.modelDetail?.email ?? "")"
         cell.lbContentShowInfo.text = self.modelDetail?.userInfo
         cell.lbContentExperience.text = self.modelDetail?.experience
-        cell.lbPosition.text = "Chức vụ: \(self.modelDetail?.position ?? "")"
-        cell.lbAddress.text = "Địa chỉ: \(self.modelDetail?.address ?? "")"
-        cell.lbPhone.text = "Số điện thoại: \(self.modelDetail?.phoneNumber ?? "")"
+        cell.lbPosition.text = "\(Settings.ShareInstance.translate(key: "label_position_job")): \(self.modelDetail?.position ?? "")"
+        cell.lbAddress.text = "\(Settings.ShareInstance.translate(key: "label_address")): \(self.modelDetail?.address ?? "")"
+        cell.lbPhone.text = "\(Settings.ShareInstance.translate(key: "label_phone")): \(self.modelDetail?.phoneNumber ?? "")"
         return cell
     }
     

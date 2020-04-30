@@ -296,6 +296,7 @@
 "label_create_services" = "Create my service";
 "label_error" = "Error";
 "label_join" = "Join";
+"label_do_you_want_to_sign_out" = "Do you want to logout?";
 "label_join_event" = "Join Event";
 "label_joined_event_successful" = "You joined successful";
 "label_alert"  =  "Alert!";
