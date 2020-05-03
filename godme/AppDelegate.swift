@@ -77,6 +77,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+        if Auth.auth().canHandleNotification(userInfo) {
+            completionHandler(.noData)
+            return
+        }
+        
+        completionHandler(.newData)
+        print(userInfo)
+        
+        if application.applicationState == .inactive {
+            
+        } else if application.applicationState == .active {
+            
+        }  else {
+            
+        }
+
+    }
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
+        print("token = \(token)")
+//        Singleton.shared.deviceToken = token
+        Auth.auth().setAPNSToken(deviceToken, type: .unknown)
+    }
 
 
 }
