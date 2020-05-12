@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        GMSServices.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
 //        GMSPlacesClient.provideAPIKey("AIzaSyDSj2djntN0lRFgEjojMDi5V5vsjUiXxDo")
     
+        // config Notification
+        registerForPushNotifications()
         // keyborad Manager
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
@@ -44,7 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         GMSServices.provideAPIKey("AIzaSyBVVFTLZlEwbYwCFvL68MG23sTyJu4biYk")
         GMSPlacesClient.provideAPIKey("AIzaSyBVVFTLZlEwbYwCFvL68MG23sTyJu4biYk")
-        FirebaseApp.configure()
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")!
+        let options = FirebaseOptions(contentsOfFile: filePath)
+        FirebaseApp.configure(options: options!)
+//        FirebaseApp.configure()
         // init AWS
         self.initializeS3()
         self.checkLogin()
@@ -78,6 +83,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
     
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current() // 1
+            .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
+                granted, error in
+                print("Permission granted: \(granted)") // 3
+                guard granted else { return }
+                self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
@@ -105,6 +130,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("token = \(token)")
 //        Singleton.shared.deviceToken = token
         Auth.auth().setAPNSToken(deviceToken, type: .unknown)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
     }
 
 

@@ -317,7 +317,7 @@
 		41ADEAF6241E505D002C95FA /* CreateCollaborateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */; };
 		41ADEAF8241E7D8D002C95FA /* VMapLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */; };
 		41ADEAFA241E7D9A002C95FA /* VMapLeft.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */; };
-		41C1B4D8245EC80E00D37423 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41C1B4D7245EC80E00D37423 /* GoogleService-Info.plist */; };
+		41C1B4E62463E38800D37423 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41C1B4E52463E38800D37423 /* GoogleService-Info.plist */; };
 		41E06085243334A300E1942D /* ViewShowListCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E06083243334A300E1942D /* ViewShowListCheckBox.xib */; };
 		41E06086243334A300E1942D /* ViewShowListCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E06084243334A300E1942D /* ViewShowListCheckBox.swift */; };
 		41EACD0C242E1B00003A6962 /* MyBaseService2DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EACD0A242E1AFF003A6962 /* MyBaseService2DetailTableViewCell.swift */; };
@@ -686,7 +686,7 @@
 		41ADEAF4241E505C002C95FA /* CreateCollaborateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCollaborateViewController.swift; sourceTree = "<group>"; };
 		41ADEAF7241E7D8D002C95FA /* VMapLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMapLeft.swift; sourceTree = "<group>"; };
 		41ADEAF9241E7D9A002C95FA /* VMapLeft.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VMapLeft.xib; sourceTree = "<group>"; };
-		41C1B4D7245EC80E00D37423 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41C1B4E52463E38800D37423 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41E06083243334A300E1942D /* ViewShowListCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewShowListCheckBox.xib; sourceTree = "<group>"; };
 		41E06084243334A300E1942D /* ViewShowListCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShowListCheckBox.swift; sourceTree = "<group>"; };
 		41EACD0A242E1AFF003A6962 /* MyBaseService2DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBaseService2DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -1416,7 +1416,7 @@
 				E6500C772408BAB1001E023D /* LaunchScreen.storyboard */,
 				41132992241684450089DD18 /* Localizable.strings */,
 				E6500C7A2408BAB1001E023D /* Info.plist */,
-				41C1B4D7245EC80E00D37423 /* GoogleService-Info.plist */,
+				41C1B4E52463E38800D37423 /* GoogleService-Info.plist */,
 				E6500C742408BAB1001E023D /* Preview Content */,
 			);
 			path = godme;
@@ -1671,7 +1671,7 @@
 				41AD16A5241359AA001E132E /* WithDrawLabelTableViewCell.xib in Resources */,
 				E6500C762408BAB1001E023D /* Preview Assets.xcassets in Resources */,
 				410B14AA24497AC300E6CE64 /* ServicesInfoBookedDetailAuctionViewController.xib in Resources */,
-				41C1B4D8245EC80E00D37423 /* GoogleService-Info.plist in Resources */,
+				41C1B4E62463E38800D37423 /* GoogleService-Info.plist in Resources */,
 				4195E780243FFD1B00D48D1C /* Main5TableViewCell.xib in Resources */,
 				4113298524154E710089DD18 /* Main1CollectionViewCell.xib in Resources */,
 				4195E784244006AE00D48D1C /* HelpTableViewCell.xib in Resources */,
@@ -2117,7 +2117,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2126,7 +2126,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = Godme;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2143,7 +2143,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2152,7 +2152,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = Godme;
 				PROVISIONING_PROFILE_SPECIFIER = "";

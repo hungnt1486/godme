@@ -445,3 +445,6 @@
 "warning_sign_out" =    "Are you sure to want to sign out?";
 "warning_start_end_time_invalid" = "End time invalid";
 "warning_you_dont_have_any_relatetionship"   = "You don\'t have any relationship";
+"label_if_you_dont_have_intro_code" = "If you don\'t have any the reference code, please use the default reference code: Godme1789";
+"label_please_input_email" = "Please input email";
+"label_change_password_successful" = "You changed password successful";

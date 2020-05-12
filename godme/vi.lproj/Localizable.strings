@@ -445,4 +445,7 @@
 "warning_sign_out" =    "Bạn có chắc chắn muốn đăng xuất?";
 "warning_start_end_time_invalid" = "Thời gian kết thúc không hợp lệ";
 "warning_you_dont_have_any_relatetionship"   = "Bạn không có mối quan hệ nào";
+"label_if_you_dont_have_intro_code" = "Nếu bạn chưa có mã giới thiệu thì nhập mã giới thiệu mặc định: Godme1789";
+"label_please_input_email" = "Vui lòng nhập email";
+"label_change_password_successful" = "Bạn đã đổi mật khẩu thành công";
 

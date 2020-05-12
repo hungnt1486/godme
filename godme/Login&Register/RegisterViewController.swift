@@ -355,7 +355,7 @@ extension RegisterViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
            case .RefferalDefault:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell") as! ContentTableViewCell
-            cell.lbText.text = "Nếu bạn chưa có mã giới thiệu thì nhập mã giới thiệu mặc định: Godme 1789"
+            cell.lbText.text = Settings.ShareInstance.translate(key: "label_if_you_dont_have_intro_code")
             return cell
            case .Complete:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell

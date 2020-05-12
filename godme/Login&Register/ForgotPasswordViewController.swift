@@ -33,7 +33,7 @@ class ForgotPasswordViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Khôi phục mật khẩu"
+        self.navigationItem.title = Settings.ShareInstance.translate(key: "label_reset_password")
     }
     
     func setupTableView(){
@@ -55,7 +55,7 @@ class ForgotPasswordViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Bạn đã đổi mật khẩu thành công", vc: self) {[unowned self] (str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_change_password_successful"), vc: self) {[unowned self] (str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -89,8 +89,8 @@ extension ForgotPasswordViewController: UITableViewDelegate, UITableViewDataSour
         case .PasswordNew:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.tfInput.tag = indexPath.row
-            cell.lbTitle.text = "Mật khẩu mới"
-            cell.tfInput.placeholder = "Mật khẩu mới"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_new_password")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_new_password")
             cell.tfInput.isSecureTextEntry = true
             cell.delegate = self
             return cell
@@ -98,21 +98,21 @@ extension ForgotPasswordViewController: UITableViewDelegate, UITableViewDataSour
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.tfInput.tag = indexPath.row
             cell.delegate = self
-            cell.lbTitle.text = "Nhập lại mật khẩu mới"
-            cell.tfInput.placeholder = "Nhập lại mật khẩu mới"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_confirm_new_password")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_confirm_new_password")
             cell.tfInput.isSecureTextEntry = true
             return cell
         case .OTP:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell") as! TitleTableViewCell
             cell.tfInput.tag = indexPath.row
-            cell.lbTitle.text = "Nhập mã OTP"
-            cell.tfInput.placeholder = "Xác nhận mã OTP"
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_verify_otp")
+            cell.tfInput.placeholder = Settings.ShareInstance.translate(key: "label_verify_otp")
             cell.delegate = self
             return cell
         case .Complete:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
             cell.delegate = self
-            cell.btComplete.setTitle("Thay đổi", for: .normal)
+            cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_change"), for: .normal)
             return cell
         }
     }
@@ -145,7 +145,7 @@ extension ForgotPasswordViewController: CompleteTableViewCellProtocol{
             self.modelForgot.newPassword.isEmpty ||
             self.modelForgot.username.isEmpty ||
             self.modelForgot.confirmPassword != self.modelForgot.newPassword {
-            Settings.ShareInstance.showAlertView(message: "Vui lòng điền đầy đủ thông tin", vc: self)
+            Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_fill_in_full"), vc: self)
             return
         }
         self.showProgressHub()

@@ -77,7 +77,7 @@ class LoginViewController: BaseViewController {
                     self.alertController.dismiss(animated: true, completion: nil)
                     let firstTextField = self.alertController.textFields![0] as UITextField
                     if firstTextField.text!.isEmpty {
-                        Settings.ShareInstance.showAlertView(message: "Vui lòng nhập email", vc: self)
+                        Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_input_email"), vc: self)
                         
                     }else{
 //                        let otpPhone = OTPPhone(target: self)
