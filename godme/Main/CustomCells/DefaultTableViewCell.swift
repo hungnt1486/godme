@@ -14,6 +14,7 @@ class DefaultTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.lbTitle.text = Settings.ShareInstance.translate(key: "label_you_dont_have_services")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

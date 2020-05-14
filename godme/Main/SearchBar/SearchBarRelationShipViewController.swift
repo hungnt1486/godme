@@ -84,7 +84,7 @@ extension SearchBarRelationShipViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if listMyRelationShip.count == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell") as! DefaultTableViewCell
-            cell.lbTitle.text = "Không có mối quan hệ nào."
+            cell.lbTitle.text = Settings.ShareInstance.translate(key: "warning_you_dont_have_any_relatetionship")
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarRelationShipTableViewCell") as! SearchBarRelationShipTableViewCell
@@ -94,6 +94,7 @@ extension SearchBarRelationShipViewController: UITableViewDelegate, UITableViewD
                 cell.imgAvatar.image = image
             }
         }
+        cell.lbVote.text = Settings.ShareInstance.translate(key: "label_rate")
         cell.lbTitle.text = model.fullName
         cell.lbTime.text = model.address
         let career = model.career

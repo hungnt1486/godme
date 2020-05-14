@@ -61,6 +61,7 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchBarBaseInfoTableViewCell") as! SearchBarBaseInfoTableViewCell
+        cell.lbTitleInfoBase.text = Settings.ShareInstance.translate(key: "label_basic_info")
         cell.lbGender.text = "\(Settings.ShareInstance.translate(key: "label_gender")): \(self.modelDetail?.gender == "NAM" ? Settings.ShareInstance.translate(key:"label_male") : Settings.ShareInstance.translate(key: "label_female"))"
         cell.lbDOB.text = "\(Settings.ShareInstance.translate(key: "label_dob")): \(Settings.ShareInstance.convertDOB(str: self.modelDetail?.dob ?? ""))"
         let career = self.modelDetail?.career
@@ -84,6 +85,8 @@ extension SearchBarInfoBaseViewController: UITableViewDelegate, UITableViewDataS
                 break
             }
         }
+        cell.lbShowInfo.text = Settings.ShareInstance.translate(key: "label_intro_ur_self")
+        cell.lbExperience.text = Settings.ShareInstance.translate(key: "label_experience")
         cell.lbJob.text = "\(Settings.ShareInstance.translate(key: "label_career")): \(strCareer)"
         cell.lbEmail.text = "\(Settings.ShareInstance.translate(key: "label_email")): \(self.modelDetail?.email ?? "")"
         cell.lbContentShowInfo.text = self.modelDetail?.userInfo

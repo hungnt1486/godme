@@ -287,6 +287,8 @@
 		41AD16D724141A55001E132E /* MyServicesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD16D524141A55001E132E /* MyServicesTableViewCell.xib */; };
 		41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD16D82414210A001E132E /* MyServicesJoinTableViewCell.swift */; };
 		41AD16DB2414210A001E132E /* MyServicesJoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD16D92414210A001E132E /* MyServicesJoinTableViewCell.xib */; };
+		41AD8034246D493500530EED /* FooterVersionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AD8033246D493500530EED /* FooterVersionApp.swift */; };
+		41AD8036246D494A00530EED /* FooterVersionApp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41AD8035246D494A00530EED /* FooterVersionApp.xib */; };
 		41ADEABC241DD83B002C95FA /* AccountCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEABA241DD83A002C95FA /* AccountCollectionViewCell.xib */; };
 		41ADEABD241DD83B002C95FA /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ADEABB241DD83A002C95FA /* AccountCollectionViewCell.swift */; };
 		41ADEAC0241E0210002C95FA /* ImageCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41ADEABE241E020F002C95FA /* ImageCarTableViewCell.xib */; };
@@ -656,6 +658,8 @@
 		41AD16D524141A55001E132E /* MyServicesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyServicesTableViewCell.xib; sourceTree = "<group>"; };
 		41AD16D82414210A001E132E /* MyServicesJoinTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyServicesJoinTableViewCell.swift; sourceTree = "<group>"; };
 		41AD16D92414210A001E132E /* MyServicesJoinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyServicesJoinTableViewCell.xib; sourceTree = "<group>"; };
+		41AD8033246D493500530EED /* FooterVersionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterVersionApp.swift; sourceTree = "<group>"; };
+		41AD8035246D494A00530EED /* FooterVersionApp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterVersionApp.xib; sourceTree = "<group>"; };
 		41ADEABA241DD83A002C95FA /* AccountCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCollectionViewCell.xib; sourceTree = "<group>"; };
 		41ADEABB241DD83A002C95FA /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		41ADEABE241E020F002C95FA /* ImageCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCarTableViewCell.xib; sourceTree = "<group>"; };
@@ -852,6 +856,8 @@
 				41786A59244010A400F91695 /* LanguagesViewController.xib */,
 				410B148C2447E76600E6CE64 /* ChangePasswordViewController.swift */,
 				410B148D2447E76600E6CE64 /* ChangePasswordViewController.xib */,
+				41AD8033246D493500530EED /* FooterVersionApp.swift */,
+				41AD8035246D494A00530EED /* FooterVersionApp.xib */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -1624,6 +1630,7 @@
 				41286B25241151A90021157C /* MapsViewController.xib in Resources */,
 				4195E775243FF84B00D48D1C /* Main4CollectionViewCell.xib in Resources */,
 				4182D17D24457776006845B8 /* ForgotPasswordViewController.xib in Resources */,
+				41AD8036246D494A00530EED /* FooterVersionApp.xib in Resources */,
 				410E67E624142B9F00FA2F54 /* ServicesInfoBookTableViewCell.xib in Resources */,
 				413937572425C6140079C587 /* Main3TableViewCell.xib in Resources */,
 				41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */,
@@ -1830,6 +1837,7 @@
 				41AD16DA2414210A001E132E /* MyServicesJoinTableViewCell.swift in Sources */,
 				41F15EEF2421A9220031D066 /* ManageServicesManager.swift in Sources */,
 				41AD16A4241359AA001E132E /* WithDrawLabelTableViewCell.swift in Sources */,
+				41AD8034246D493500530EED /* FooterVersionApp.swift in Sources */,
 				41286B15241151210021157C /* AccountsViewController.swift in Sources */,
 				41ADEAED241E4AD6002C95FA /* CreateEventViewController.swift in Sources */,
 				4170C42D24387EC1004F400D /* ListGroupRelationShipViewController.swift in Sources */,
@@ -2117,7 +2125,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2143,7 +2151,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;

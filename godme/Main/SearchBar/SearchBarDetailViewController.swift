@@ -13,9 +13,9 @@ import Toaster
 class SearchBarDetailViewController: BaseViewController {
     
     var tabs = [
-           ViewPagerTab(title: "Mối quan hệ", image: nil),
-           ViewPagerTab(title: "Thông tin cơ bản", image: nil),
-           ViewPagerTab(title: "Dịch vụ", image: nil),
+           ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_relationship"), image: nil),
+           ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_basic_info"), image: nil),
+           ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_services"), image: nil),
        ]
            
        var viewPager: ViewPagerController!
@@ -86,6 +86,10 @@ class SearchBarDetailViewController: BaseViewController {
         self.lbPhone.isUserInteractionEnabled = true
         self.lbPhone.addGestureRecognizer(tapPhone)
         
+        self.lbVote.text = Settings.ShareInstance.translate(key: "label_rate")
+        self.btConnect.setTitle(Settings.ShareInstance.translate(key: "label_connect"), for: .normal)
+        self.lbSlogan.text = Settings.ShareInstance.translate(key: "label_per_network_for_grow_up")
+        
         
         self.btConnect = Settings.ShareInstance.setupButton(button: self.btConnect)
         self.btConnect.setBorder()
@@ -125,18 +129,18 @@ class SearchBarDetailViewController: BaseViewController {
     @objc func showMore(){
         let alertControl = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let action1 = UIAlertAction.init(title: "Sao chép đường dẫn trang cá nhân", style: .default) { (action) in
+        let action1 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_copy_link_profile"), style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
             UIPasteboard.general.string = "\(URLs.linkUserInfo)\(self.modelDetail?.id ?? 0)"
             Toast.init(text: "Copy").show()
         }
         
-        let action = UIAlertAction.init(title: "Báo xấu", style: .default) { (action) in
+        let action = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_report"), style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
             let help = HelpViewController()
             self.navigationController?.pushViewController(help, animated: true)
         }
-        let actionCancel = UIAlertAction.init(title: "Huỷ", style: .cancel) { (action) in
+        let actionCancel = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_cancel"), style: .cancel) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
         }
         alertControl.addAction(action1)
@@ -192,7 +196,7 @@ class SearchBarDetailViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Gửi yêu cầu kết nối thành công", vc: self)
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_request_connect_success"), vc: self)
                 break
             case .failure(let message):
                 self.hideProgressHub()

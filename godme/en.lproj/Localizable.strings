@@ -275,7 +275,7 @@
 "label_order" = "Book order";
 "label_master" =   "Masters";
 "label_maximun_time"   = "Time is maximum";
-"label_money_godcoin" =   "Beneficiary amount: %d Godcoin";
+"label_money_godcoin" =   "Beneficiary amount: %@ Godcoin";
 "label_my_amount_charity"  =  "Cá nhân: %@ VND";
 "label_my_service"  =  "My services";
 "label_network"  =  "Network";
@@ -448,3 +448,5 @@
 "label_if_you_dont_have_intro_code" = "If you don\'t have any the reference code, please use the default reference code: Godme1789";
 "label_please_input_email" = "Please input email";
 "label_change_password_successful" = "You changed password successful";
+"label_you_dont_have_services" = "You don't have services";
+"label_version" = "Version: %@";

@@ -275,7 +275,7 @@
 "label_order" = "Đặt dịch vụ";
 "label_master" =   "Tiến sĩ";
 "label_maximun_time"   = "Số thời gian đã tối đa";
-"label_money_godcoin" =   "Số tiền thụ hưởng: %d Godcoin";
+"label_money_godcoin" =   "Số tiền thụ hưởng: %@ Godcoin";
 "label_my_amount_charity"  =  "Cá nhân: %@ VND";
 "label_my_service"  =  "Dịch vụ của bạn";
 "label_network"  =  "Các mối quan hệ";
@@ -307,7 +307,7 @@
 "label_password"  =  "Mật khẩu";
 "label_paymented"  =  "Đã thanh toán";
 "label_pending"  =  "Chờ duyệt";
-"label_per_network_for_grow_up"  =  "Mỗi kết nối là cơ hội để bạn phát triển";
+"label_per_network_for_grow_up"  =  "Mỗi kết nối là cơ hội để bạn phát triển!";
 "label_phd"  =  "Thạc sĩ";
 "label_phone"  =  "Số điện thoại";
 "label_phone_number_s"  =  "Số điện thoại: %@";
@@ -448,4 +448,6 @@
 "label_if_you_dont_have_intro_code" = "Nếu bạn chưa có mã giới thiệu thì nhập mã giới thiệu mặc định: Godme1789";
 "label_please_input_email" = "Vui lòng nhập email";
 "label_change_password_successful" = "Bạn đã đổi mật khẩu thành công";
+"label_you_dont_have_services" = "Bạn chưa có dịch vụ nào";
+"label_version" = "Phiên bản: %@";
 

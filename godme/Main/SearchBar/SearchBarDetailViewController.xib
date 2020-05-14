@@ -111,16 +111,16 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOc-Yy-fY5">
-                            <rect key="frame" x="220" y="168" width="184" height="20"/>
+                            <rect key="frame" x="212.33333333333337" y="168" width="191.66666666666663" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="d1G-Hq-VpN"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đánh giá:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh6-en-gW6">
-                            <rect key="frame" x="145" y="168" width="70" height="20"/>
+                            <rect key="frame" x="145" y="168" width="62.333333333333343" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="70" id="ejR-D8-jp4"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="ejR-D8-jp4"/>
                                 <constraint firstAttribute="height" constant="20" id="o5B-Cn-ndZ"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>

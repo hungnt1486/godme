@@ -28,6 +28,7 @@ class SupportViewController: BaseViewController {
 
     func setupTableView(){
         self.tbvSupport.register(UINib(nibName: "HelpTableViewCell", bundle: nil), forCellReuseIdentifier: "HelpTableViewCell")
+        self.tbvSupport.register(UINib.init(nibName: "FooterVersionApp", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterVersionApp")
 
         self.tbvSupport.delegate = self
         self.tbvSupport.dataSource = self
@@ -50,6 +51,17 @@ extension SupportViewController: UITableViewDelegate, UITableViewDataSource{
         cell.accessoryType = .disclosureIndicator
         cell.lbTitle.text = Settings.ShareInstance.translate(key: arr[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterVersionApp") as! FooterVersionApp
+        footer.backgroundColor = UIColor.white
+        footer.lbVersion.text = String.init(format: Settings.ShareInstance.translate(key: "label_version"), Settings.ShareInstance.getVersionApp())
+        return footer
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
