@@ -24,7 +24,9 @@ class LoginViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
-        self.getListJobsMain()
+        if status == "" {
+            self.getListJobsMain()
+        }
         self.configButtonBack()
     }
     
@@ -33,6 +35,7 @@ class LoginViewController: BaseViewController {
         self.navigationItem.title = Settings.ShareInstance.translate(key: "login")
         if status == "logout" {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem()
+            self.status = ""
         }
     }
     

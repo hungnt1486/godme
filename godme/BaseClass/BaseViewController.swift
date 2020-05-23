@@ -53,7 +53,7 @@ class BaseViewController: UIViewController {
     }
     
     func configToken() {
-        BaseViewController.headers = ["X-Auth-Token": BaseViewController.accessToken, "Accept": "application/json"]
+        BaseViewController.headers = ["X-Auth-Token": BaseViewController.accessToken, "Accept": "application/json", "lang" : Settings.ShareInstance.getCurrentLanguage()]
 //        BaseViewController.deviceToken = "gewgewg"
     }
     

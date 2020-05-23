@@ -18,6 +18,9 @@ class AvatarTableViewCell: UITableViewCell {
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var lbCode: UILabel!
     @IBOutlet weak var lbCopy: UILabel!
+    @IBOutlet weak var lbFullname: UILabel!
+    @IBOutlet weak var lbPlus: UILabel!
+    @IBOutlet weak var icKey1: UIImageView!
     var delegate: AvatarTableViewCellProtocol?
     override func awakeFromNib() {
         super.awakeFromNib()

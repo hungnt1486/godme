@@ -65,6 +65,9 @@ extension LanguagesViewController: UITableViewDataSource, UITableViewDelegate{
                 
                 UserDefaults.standard.setValue(model["code"], forKey: info_language)
                 UserDefaults.standard.synchronize()
+                print("language = \(Settings.ShareInstance.getCurrentLanguage())")
+                self.configToken()
+                self.getListJobsMain()
                 self.navigationController?.popViewController(animated: true)
             }
         }

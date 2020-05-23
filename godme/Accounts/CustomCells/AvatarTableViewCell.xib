@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,11 +17,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AvatarTableViewCell" customModule="godme" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AvatarTableViewCell" customModule="Godme" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="FLi-mL-Cdr">
@@ -32,7 +32,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Minh Hung" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lp-5W-1gd">
-                        <rect key="frame" x="26" y="105" width="268" height="20"/>
+                        <rect key="frame" x="26" y="130" width="268" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Bjx-kZ-rua"/>
                         </constraints>
@@ -40,13 +40,40 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fullname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLq-cW-HRO">
+                        <rect key="frame" x="131.5" y="105" width="57" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="R4y-wj-QdA"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="jkf-MY-QbG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ma gioi thieu: 378" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-lh-tc2">
-                        <rect key="frame" x="10" y="130" width="300" height="20"/>
+                        <rect key="frame" x="10" y="155" width="300" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="fzP-2E-hfe"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                         <color key="textColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_key" translatesAutoresizingMaskIntoConstraints="NO" id="e3p-xo-0yX">
+                        <rect key="frame" x="193.5" y="105" width="10" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="fve-et-x2g"/>
+                            <constraint firstAttribute="width" constant="10" id="xCf-wd-A7t"/>
+                        </constraints>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5C-eS-KBp">
+                        <rect key="frame" x="204.5" y="105" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="DCt-oA-Bo7"/>
+                            <constraint firstAttribute="width" constant="10" id="xDL-pH-MLw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -56,23 +83,33 @@
                     <constraint firstItem="D9e-lh-tc2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="F5G-Fv-C4O"/>
                     <constraint firstItem="FLi-mL-Cdr" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="LKX-hA-o7g"/>
                     <constraint firstItem="D9e-lh-tc2" firstAttribute="top" secondItem="4lp-5W-1gd" secondAttribute="bottom" constant="5" id="NR9-3n-Kjl"/>
+                    <constraint firstItem="uLq-cW-HRO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="SKE-hx-iij"/>
+                    <constraint firstItem="e3p-xo-0yX" firstAttribute="centerY" secondItem="uLq-cW-HRO" secondAttribute="centerY" id="Ugo-Rc-EEe"/>
+                    <constraint firstItem="B5C-eS-KBp" firstAttribute="leading" secondItem="e3p-xo-0yX" secondAttribute="trailing" constant="1" id="Uxq-i2-CHB"/>
+                    <constraint firstItem="4lp-5W-1gd" firstAttribute="top" secondItem="uLq-cW-HRO" secondAttribute="bottom" constant="5" id="aOH-6G-oJ0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4lp-5W-1gd" secondAttribute="trailing" constant="10" id="ajd-d4-nrb"/>
+                    <constraint firstItem="e3p-xo-0yX" firstAttribute="leading" secondItem="uLq-cW-HRO" secondAttribute="trailing" constant="5" id="eMZ-0W-gLW"/>
                     <constraint firstAttribute="bottom" secondItem="D9e-lh-tc2" secondAttribute="bottom" constant="5" id="i9k-ey-7Fw"/>
-                    <constraint firstItem="4lp-5W-1gd" firstAttribute="top" secondItem="FLi-mL-Cdr" secondAttribute="bottom" constant="10" id="ij8-NG-enJ"/>
+                    <constraint firstItem="B5C-eS-KBp" firstAttribute="top" secondItem="e3p-xo-0yX" secondAttribute="top" id="iIs-tc-ala"/>
+                    <constraint firstItem="uLq-cW-HRO" firstAttribute="top" secondItem="FLi-mL-Cdr" secondAttribute="bottom" constant="10" id="pVf-9E-aay"/>
                     <constraint firstAttribute="trailing" secondItem="D9e-lh-tc2" secondAttribute="trailing" constant="10" id="t0m-3c-Vwk"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="icKey1" destination="e3p-xo-0yX" id="hPc-Cp-zFf"/>
                 <outlet property="imgAvatar" destination="FLi-mL-Cdr" id="71G-lw-N7c"/>
                 <outlet property="lbCode" destination="4lp-5W-1gd" id="dTJ-Uw-jVd"/>
                 <outlet property="lbCopy" destination="D9e-lh-tc2" id="nfL-Q6-Lmz"/>
+                <outlet property="lbFullname" destination="uLq-cW-HRO" id="88z-Mo-aEM"/>
+                <outlet property="lbPlus" destination="B5C-eS-KBp" id="pUN-kX-Yff"/>
             </connections>
-            <point key="canvasLocation" x="-39.130434782608695" y="114.50892857142857"/>
+            <point key="canvasLocation" x="-39.130434782608695" y="106.47321428571428"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="ic_avatar" width="24.5" height="24.5"/>
+        <image name="ic_key" width="16.666666030883789" height="37"/>
     </resources>
 </document>

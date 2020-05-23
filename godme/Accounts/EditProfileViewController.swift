@@ -346,6 +346,14 @@ extension EditProfileViewController: UITableViewDataSource, UITableViewDelegate 
             }else {
                 cellImage.imgAvatar.image = imgAvatar
             }
+            cellImage.lbFullname.text = userInfoModel.fullName
+            if userInfoModel.userCategory == "GOLD" {
+                cellImage.icKey1.isHidden = false
+            }
+            if userInfoModel.userCategory == "VIP" {
+                cellImage.icKey1.isHidden = false
+                cellImage.lbPlus.isHidden = false
+            }
             cellImage.lbCode.text = "\(Settings.ShareInstance.translate(key: "label_invite_code")): \(userInfoModel.userCode)"
             cellImage.lbCopy.text = Settings.ShareInstance.translate(key: "label_copy_affiliate")
             cellImage.delegate = self
