@@ -7,9 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationsViewController" customModule="Godme" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationDetailViewController" customModule="Godme" customModuleProvider="target">
             <connections>
-                <outlet property="tbvNotifications" destination="o3c-JO-ejl" id="py3-HH-u2q"/>
+                <outlet property="tbvNotificationDetail" destination="XbY-M0-BjX" id="e32-sW-0O4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,21 +18,21 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o3c-JO-ejl">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-M0-BjX">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="Dv9-oa-Gq7"/>
-                        <outlet property="delegate" destination="-1" id="hsr-V0-z81"/>
+                        <outlet property="dataSource" destination="-1" id="lWt-ol-C1e"/>
+                        <outlet property="delegate" destination="-1" id="Vo4-ec-7UM"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="o3c-JO-ejl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="FVD-1t-H5v"/>
-                <constraint firstItem="o3c-JO-ejl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LYz-OL-Jo5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="o3c-JO-ejl" secondAttribute="trailing" id="Xxd-7l-xWt"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="o3c-JO-ejl" secondAttribute="bottom" id="qRf-xz-L51"/>
+                <constraint firstItem="XbY-M0-BjX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="25x-wO-hfw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XbY-M0-BjX" secondAttribute="trailing" id="HU6-ik-iQb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XbY-M0-BjX" secondAttribute="bottom" id="SDe-fg-hLi"/>
+                <constraint firstItem="XbY-M0-BjX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vk7-0R-0bE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="137"/>

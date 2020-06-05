@@ -81,6 +81,7 @@ struct URLs {
         static let deleteBaseService = "api/mobile/service/basic/delete"
         static let deleteAuctionService = "api/mobile/service/auction/delete"
         static let deleteEventService = "api/mobile/service/event/delete"
+        static let notificationSearch = "api/mobile/notification/search"
     }
     
     //// user
@@ -277,6 +278,11 @@ struct URLs {
     // map
     static var searchServiceOnMap: String{
         return String(format: "%@%@", linkServer, Routes.searchServiceOnMap)
+    }
+    
+    // notification
+    static var notificationSearch: String{
+        return String(format: "%@%@", linkServer, Routes.notificationSearch)
     }
     
 }

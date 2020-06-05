@@ -252,4 +252,11 @@ class UserManager{
             completion(SingleResult<BaseModel>.handleResponse(response))
         }
     }
+    
+    func getListNotification(completion: @escaping(ListResult<NotificationModel>)-> Void){
+        Alamofire.request(URLs.notificationSearch, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListNotification = \(response)")
+            completion(ListResult<NotificationModel>.handleResponse(response))
+        }
+    }
 }

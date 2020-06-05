@@ -429,3 +429,34 @@ struct AddNewRegisterParams {
     var codeOTP: String?
     var referralCode: String?
 }
+
+// notifications
+
+class NotificationModel: BaseModel {
+    var createdBy: String?
+    var createdByUserId: Int?
+    var createdOn: Double?
+    var description: String?
+    var id: Int?
+    var images: String?
+    var modifiedOn: Double?
+    var notifyType: String?
+    var status: String?
+    var title: String?
+    var toUserIds: Int?
+    
+    required init?(json: JSON) {
+        super.init(json: json)
+        createdBy = json["createdBy"].stringValue
+        createdByUserId = json["createdByUserId"].intValue
+        createdOn = json["createdOn"].doubleValue
+        description = json["description"].stringValue
+        id = json["id"].intValue
+        images = json["images"].stringValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        notifyType = json["notifyType"].stringValue
+        status = json["status"].stringValue
+        title = json["title"].stringValue
+        toUserIds = json["toUserIds"].intValue
+    }
+}

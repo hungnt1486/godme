@@ -9,23 +9,29 @@
 import UIKit
 
 class NotificationsViewController: BaseViewController {
-
-    var tabs = [
-        ViewPagerTab(title: "Các mối quan hệ", image: nil),
-        ViewPagerTab(title: "MQH mở rộng", image: nil),
-        ViewPagerTab(title: "Danh sách ẩn", image: nil),
-    ]
-        
-    var viewPager: ViewPagerController!
-    var options: ViewPagerOptions!
+    @IBOutlet weak var tbvNotifications: UITableView!
+    
+    var listNotification: [NotificationModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.setupUI()
         self.configButtonBack()
-        self.configPageView()
+        self.showProgressHub()
+        self.setupTableView()
+        self.getListNotification()
+
+    }
+    
+    func setupTableView(){
+        self.tbvNotifications.register(UINib(nibName: "InputGodcoinLabel2TableViewCell", bundle: nil), forCellReuseIdentifier: "InputGodcoinLabel2TableViewCell")
+
+        self.tbvNotifications.delegate = self
+        self.tbvNotifications.dataSource = self
+        self.tbvNotifications.separatorColor = UIColor.clear
+        self.tbvNotifications.separatorInset = UIEdgeInsets.zero
+        self.tbvNotifications.estimatedRowHeight = 300
+        self.tbvNotifications.rowHeight = UITableView.automaticDimension
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,94 +39,45 @@ class NotificationsViewController: BaseViewController {
         self.navigationItem.title = Settings.ShareInstance.translate(key: "notification")
     }
     
-    func setupUI(){
-        
-//        let left = UIBarButtonItem.init(image: UIImage.init(named: "ic_people_white")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchLeft))
-//        self.navigationItem.leftBarButtonItem = left
-//
-//        let right = UIBarButtonItem.init(image: UIImage.init(named: "ic_notification_fast")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(touchRight))
-//        self.navigationItem.rightBarButtonItem = right
-    }
-    
-//    @objc func touchLeft(){
-//        print("left")
-//    }
-//    
-//    @objc func touchRight(){
-//        print("right")
-//        let createNotification = CreateNotificationViewController()
-//        self.navigationController?.pushViewController(createNotification, animated: true)
-//    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        options.viewPagerFrame = self.view.bounds
-    }
-    
-    func configPageView() {
-        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
-        
-        options = ViewPagerOptions(viewPagerWithFrame: self.view.bounds)
-        options.tabViewHeight = 50.0
-        options.tabType = ViewPagerTabType.imageWithText
-        options.tabViewImageSize = CGSize(width: 20, height: 20)
-        options.tabViewTextFont = UIFont(name: "Roboto-Medium", size: 15.0)!
-        options.tabViewPaddingLeft = 25
-        options.tabViewPaddingRight = 25
-//        if #available(iOS 13.0, *) {
-//            options.tabViewBackgroundDefaultColor = UIColor.systemBackground
-//            options.tabViewBackgroundHighlightColor = UIColor.systemBackground
-//            options.tabViewTextDefaultColor = UIColor.label
-//
-//        } else {
-//            options.tabViewBackgroundDefaultColor = UIColor.white
-//            options.tabViewBackgroundHighlightColor = UIColor.white
-//            options.tabViewTextDefaultColor = "#080000".colorFromHexString()
-//
-//        }
-        
-//        options.tabViewTextHighlightColor = Color.appColor.colorFromHexString()
-//        options.tabIndicatorViewBackgroundColor = Color.appColor.colorFromHexString()
-//        options.tabImageName1 = "ic_page_post"
-//        options.tabImageName2 = "ic_manage_post"
-//        options.tabImageName3 = "ic_candidate"
-//        options.tabImageName1Active = "ic_page_post_active"
-//        options.tabImageName2Active = "ic_manage_post_active"
-//        options.tabImageName3Active = "ic_candidate_active"
-        options.isTabHighlightAvailable = true
-        viewPager = ViewPagerController()
-        viewPager.options = options
-        viewPager.dataSource = self
-        
-        
-        self.addChild(viewPager)
-        self.view.addSubview(viewPager.view)
-        viewPager.didMove(toParent: self)
+    func getListNotification(){
+        UserManager.shareUserManager().getListNotification { [unowned self] (response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                for model in data {
+                    self.listNotification.append(model)
+                }
+                self.tbvNotifications.reloadData()
+                break
+            case .failure(message: let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
 }
 
-extension NotificationsViewController: ViewPagerControllerDataSource {
-    
-    func numberOfPages() -> Int {
-        return tabs.count
+extension NotificationsViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listNotification.count
     }
     
-    func viewControllerAtPosition(position:Int) -> UIViewController {
-        if position == 0 {
-            return MyRelationShipViewController()
-        } else if position == 1 {
-            return MyRelationShipExpandViewController()
-        }else{
-            return ListHiddenViewController()
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InputGodcoinLabel2TableViewCell") as! InputGodcoinLabel2TableViewCell
+        let detail = listNotification[indexPath.row]
+        cell.lbTitle.text = detail.title ?? ""
+        return cell
     }
     
-    func tabsForPages() -> [ViewPagerTab] {
-        return tabs
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detail = listNotification[indexPath.row]
+        let notificationsDetail = NotificationDetailViewController()
+        notificationsDetail.detail = detail
+        self.navigationController?.pushViewController(notificationsDetail, animated: true)
     }
     
-    func startViewPagerAtIndex() -> Int {
-        return 0
-    }
+    
 }
