@@ -44,6 +44,12 @@ extension NotificationDetailViewController: UITableViewDelegate, UITableViewData
         cell.lbTitle.text = detail?.title
         cell.lbContent.text = detail?.description
         cell.lbName.text = detail?.createdBy
+        cell.delegate = self
+        cell.lbConnect.text = Settings.ShareInstance.translate(key: "label_connect")
+        cell.constraintWidth.constant = 0
+        if detail?.notifyType == "CONNECT_USER" {
+            cell.constraintWidth.constant = 100
+        }
         cell.lbTime.text = Settings.ShareInstance.convertTimeIntervalToDateTime(timeInterval: detail?.createdOn ?? 0.0)
         return cell
     }
@@ -53,4 +59,23 @@ extension NotificationDetailViewController: UITableViewDelegate, UITableViewData
     }
     
     
+}
+
+extension NotificationDetailViewController: NotificationDetailTableViewCellProtocol{
+    func didTouchConnect() {
+        let modelUser = Settings.ShareInstance.getDictUser()
+        self.showProgressHub()
+        RelationShipsManager.shareRelationShipsManager().agreeConnectRelationShip(id: modelUser.userId ?? 0, toUserId: detail?.toUserIds ?? 0) { [unowned self](response) in
+            switch response {
+                
+            case .success(_):
+                self.hideProgressHub()
+                break
+            case .failure(message: let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
+    }
 }
