@@ -25,7 +25,7 @@ class UserManager{
         paramsBodySub["os"] = "ios"
         paramsBodySub["osVersion"] = Settings.ShareInstance.getVersionApp()
         paramsBodySub["uuid"] = Settings.ShareInstance.getUDIDString()
-        paramsBodySub["fcmToken"] = "gwgwihgwiug"//Settings.ShareInstance.device
+        paramsBodySub["fcmToken"] = Settings.ShareInstance.deviceToken
         paramsBodySub["name"] = "iPhone"
         paramsBody["device"] = paramsBodySub
         Alamofire.request(URLs.login, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in

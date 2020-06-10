@@ -128,7 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
         print("token = \(token)")
-//        Singleton.shared.deviceToken = token
+        Settings.ShareInstance.deviceToken = token
         Auth.auth().setAPNSToken(deviceToken, type: .unknown)
     }
     

@@ -15,6 +15,8 @@ class Settings: NSObject {
     // declare singleton
     static let ShareInstance = Settings()
     
+    var deviceToken = ""
+    
     // callback
     fileprivate var showAlerCallback: ((_ message: String) -> Void)?
     public func setOnShowAlertCallback(callback: ((_ message: String) -> Void)?) {
