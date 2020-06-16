@@ -14,6 +14,7 @@ class SearchBarServiceViewController: BaseViewController {
     var listBaseService: [BaseServiceModel] = []
     var listAuction:[AuctionServiceModel] = []
     var listEvents: [EventModel] = []
+    let group = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,7 @@ class SearchBarServiceViewController: BaseViewController {
             self.tbvServices.openSection(0, animated: true)
         }
         self.showProgressHub()
-        self.getListSearchBaseService()
-        self.getListSearchAuctionService()
-        self.getListSearchEventService()
+        self.callAllServices()
     }
     
     func setupTableView(){
@@ -59,58 +58,78 @@ class SearchBarServiceViewController: BaseViewController {
         CATransaction.commit()
     }
     
+    func callAllServices(){
+        self.getListSearchBaseService()
+        self.getListSearchAuctionService()
+        self.getListSearchEventService()
+        group.notify(queue: DispatchQueue.global(qos: .background)) {
+            DispatchQueue.main.async {
+                self.hideProgressHub()
+            }
+        }
+    }
+    
     func getListSearchBaseService(){
+        group.enter()
         ManageServicesManager.shareManageServicesManager().searchBaseService(createdByUserId: modelDetail?.id ?? 0, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 for model in data {
                     self.listBaseService.append(model)
                 }
                 self.tbvServices.reloadData()
+                self.group.leave()
                 break
             case .failure(let message):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 Settings.ShareInstance.showAlertView(message: message, vc: self)
+                self.group.leave()
                 break
             }
         }
     }
     
     func getListSearchAuctionService(){
+        group.enter()
         ManageServicesManager.shareManageServicesManager().searchAuctionService(createdByUserId: modelDetail?.id ?? 0, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 for model in data {
                     self.listAuction.append(model)
                 }
                 self.tbvServices.reloadData()
+                self.group.leave()
                 break
             case .failure(let message):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 Settings.ShareInstance.showAlertView(message: message, vc: self)
+                self.group.leave()
                 break
             }
         }
     }
     
     func getListSearchEventService(){
+        group.enter()
         ManageServicesManager.shareManageServicesManager().searchEventService(createdByUserId: modelDetail?.id ?? 0, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 for model in data {
                     self.listEvents.append(model)
                 }
                 self.tbvServices.reloadData()
+                self.group.leave()
                 break
             case .failure(let message):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 Settings.ShareInstance.showAlertView(message: message, vc: self)
+                self.group.leave()
                 break
             }
         }

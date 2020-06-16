@@ -43,6 +43,7 @@ class MyRelationShipExpandViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.showProgressHub()
         self.setupUI()
         self.setupTypeDropdown()
         self.setupTableView()

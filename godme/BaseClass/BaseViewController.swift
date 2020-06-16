@@ -16,7 +16,12 @@ import MBProgressHUD
 
 class BaseViewController: UIViewController {
     
-    //    var disposeBag = DisposeBag()
+    // callback
+    fileprivate var getListJobsMainCallback: ((_ message: String) -> Void)?
+    public func setOnGetListJobsMainCallback(callback: ((_ message: String) -> Void)?) {
+        getListJobsMainCallback = callback
+    }
+    // call back
     
     var tabbarController: UITabBarController = UITabBarController()
     let delegateApp = UIApplication.shared.delegate as! AppDelegate
@@ -64,12 +69,16 @@ class BaseViewController: UIViewController {
     
     func showProgressHub() -> Void {
 //        MBProgressHUD.showAdded(to: self.view.window ?? UIWindow(), animated: true)
-        MBProgressHUD.showAdded(to: self.view ?? UIView(), animated: true)
+        let window = delegateApp.window
+        MBProgressHUD.showAdded(to: window!, animated: true)
+//        MBProgressHUD.showAdded(to: self.view ?? UIView(), animated: true)
     }
     
     func hideProgressHub() -> Void {
+        let window = delegateApp.window
+        MBProgressHUD.hide(for: window!, animated: true)
 //        MBProgressHUD.hide(for: self.view.window ?? UIWindow(), animated: true)
-        MBProgressHUD.hide(for: self.view ?? UIView(), animated: true)
+//        MBProgressHUD.hide(for: self.view ?? UIView(), animated: true)
     }
     
     func configButtonBack() {
@@ -81,7 +90,7 @@ class BaseViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func getListJobsMain(){
+    func getListJobsMain(getListJobsMainCallback: ((_ message: String) -> Void)? = nil) -> Void{
         UserManager.shareUserManager().getListJobs {[unowned self] (response) in
             switch response {
                 
@@ -92,6 +101,9 @@ class BaseViewController: UIViewController {
                     for item in data {
                         BaseViewController.arrayJobs.append(["name":item.name ?? "", "code": "\(item.id ?? 0)"])
                     }
+                }
+                if let callback = getListJobsMainCallback {
+                    callback("")
                 }
                 break
             case .failure(let message):

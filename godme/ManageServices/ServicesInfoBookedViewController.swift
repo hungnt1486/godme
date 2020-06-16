@@ -16,6 +16,7 @@ class ServicesInfoBookedViewController: BaseViewController {
     var listAuction:[AuctionServiceInfoBookedModel] = []
     var listEvents: [EventServiceInfoBookedModel] = []
     var modelUser = Settings.ShareInstance.getDictUser()
+    let group = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,7 @@ class ServicesInfoBookedViewController: BaseViewController {
         }
         
         self.showProgressHub()
-        self.getListSearchOrderBaseService()
-        self.getListSearchOrderAuctionService()
-        self.getListSearchOrderEventService()
+        self.callAllServices()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,58 +67,79 @@ class ServicesInfoBookedViewController: BaseViewController {
         CATransaction.commit()
     }
     
+    func callAllServices(){
+        self.getListSearchOrderBaseService()
+        self.getListSearchOrderAuctionService()
+        self.getListSearchOrderEventService()
+        group.notify(queue: DispatchQueue.global(qos: .background)) {
+            DispatchQueue.main.async {
+                self.hideProgressHub()
+            }
+        }
+        
+    }
+    
     func getListSearchOrderBaseService(){
+        group.enter()
         ManageServicesManager.shareManageServicesManager().searchOrderBaseService(buyerId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 for model in data {
                     self.listBaseService.append(model)
                 }
                 self.tbvServicesInfoBook.reloadData()
+                self.group.leave()
                 break
             case .failure(let message):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 Settings.ShareInstance.showAlertView(message: message, vc: self)
+                self.group.leave()
                 break
             }
         }
     }
     
     func getListSearchOrderAuctionService(){
+        group.enter()
         ManageServicesManager.shareManageServicesManager().searchOrderAuctionService(buyerId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 for model in data {
                     self.listAuction.append(model)
                 }
                 self.tbvServicesInfoBook.reloadData()
+                self.group.leave()
                 break
             case .failure(let message):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 Settings.ShareInstance.showAlertView(message: message, vc: self)
+                self.group.leave()
                 break
             }
         }
     }
     
     func getListSearchOrderEventService(){
+        group.enter()
         ManageServicesManager.shareManageServicesManager().searchOrderEventService(buyerId: modelUser.userId!, sorts: [["field":"modifiedOn", "order": "desc"]], page: 1, pageSize: 1000) { [unowned self](response) in
             switch response {
                 
             case .success(let data):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 for model in data {
                     self.listEvents.append(model)
                 }
                 self.tbvServicesInfoBook.reloadData()
+                self.group.leave()
                 break
             case .failure(let message):
-                self.hideProgressHub()
+//                self.hideProgressHub()
                 Settings.ShareInstance.showAlertView(message: message, vc: self)
+                self.group.leave()
                 break
             }
         }

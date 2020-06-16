@@ -61,14 +61,17 @@ extension LanguagesViewController: UITableViewDataSource, UITableViewDelegate{
         let model = listLanguages[indexPath.row]
         if currentLanguage != model["code"] {
             Settings.ShareInstance.showAlertViewWithOkCancel(message: Settings.ShareInstance.translate(key: "label_change_language"), vc: self) {[unowned self] (str) in
+                self.showProgressHub()
                 let model = self.listLanguages[indexPath.row]
                 
                 UserDefaults.standard.setValue(model["code"], forKey: info_language)
                 UserDefaults.standard.synchronize()
                 print("language = \(Settings.ShareInstance.getCurrentLanguage())")
                 self.configToken()
-                self.getListJobsMain()
-                self.navigationController?.popViewController(animated: true)
+                self.getListJobsMain {[unowned self] (string) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                
             }
         }
     }
