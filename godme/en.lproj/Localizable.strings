@@ -318,6 +318,7 @@
 "label_price_step"  =  "Price step:";
 "label_profile"  =  "Profile";
 "label_rate"  =  "Rate:";
+"label_rate_title"  =  "Rate";
 "label_re_pay_network" =   "Extension network";
 "label_reject"  =  "Reject";
 "label_relationship"  =  "Network";
@@ -450,3 +451,13 @@
 "label_change_password_successful" = "You changed password successful";
 "label_you_dont_have_services" = "You don't have services";
 "label_version" = "Version: %@";
+"label_send_vote" = "Send vote";
+"label_view_all_vote" = "View all votes";
+"label_write_vote" = "Write a review";
+"label_please_choose_star_for_vote" = "Please select stars to rate";
+"label_dissatisfaction" = "Dissatisfaction";
+"label_unsatisfied" = "Unsatisfied";
+"label_normal" = "Normal";
+"label_satisfied" = "Satisfied";
+"label_very_satisfied" = "Very satisfied";
+"label_thank_vote" = "Thank for vote";

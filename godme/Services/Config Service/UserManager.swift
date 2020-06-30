@@ -259,4 +259,24 @@ class UserManager{
             completion(ListResult<NotificationModel>.handleResponse(response))
         }
     }
+    
+    func rateUser(model: AddNewRateBaseServiceParams, completion: @escaping(SingleResult<BaseModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["point"] = model.point
+        paramsBody["toUserId"] = model.sellerId
+        paramsBody["comment"] = model.comment
+        Alamofire.request(URLs.rateUser, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("rateUser = \(response)")
+            completion(SingleResult<BaseModel>.handleResponse(response))
+        }
+    }
+    
+    func getListRating(toUserId: Int, completion: @escaping(ListResult<ListRatingModel>) -> Void){
+        var paramsBody = [String: Any]()
+        paramsBody["toUserId"] = toUserId
+        Alamofire.request(URLs.getListRating, method: .post, parameters: paramsBody, encoding: JSONEncoding.default, headers: BaseViewController.headers).responseJSON { (response) in
+            print("getListRating = \(response)")
+            completion(ListResult<ListRatingModel>.handleResponse(response))
+        }
+    }
 }

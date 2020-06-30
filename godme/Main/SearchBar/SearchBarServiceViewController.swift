@@ -205,8 +205,8 @@ extension SearchBarServiceViewController: UITableViewDelegate, UITableViewDataSo
                 }
             }
 //            if isGodcoin {
-                cell.lbCity.text = "Bước giá: \(Double(model.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
-                cell.lbName.text = "Giá hiện tại: \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cell.lbCity.text = "\(Settings.ShareInstance.translate(key: "label_price_step")) \(Double(model.priceStep ?? "0")?.formatnumber() ?? "0") Godcoin"
+                cell.lbName.text = "\(Settings.ShareInstance.translate(key: "label_current_price")) \(Double(model.amount ?? "0")?.formatnumber() ?? "0") Godcoin"
 //            }else{
 //                cell.lbCity.text = "Bước giá: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.priceStep ?? "0") ?? 0)*1000)"))"
 //                cell.lbName.text = "Giá hiện tại: \(Settings.ShareInstance.formatCurrency(Value: "\((Double(model.amount ?? "0") ?? 0)*1000)"))"

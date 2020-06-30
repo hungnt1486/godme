@@ -97,6 +97,10 @@
 		4121FA4824133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4624133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib */; };
 		4121FA4B24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */; };
 		4121FA4C24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */; };
+		4125E89024A4FB4E00DE5C2A /* SearchBarVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125E88E24A4FB4E00DE5C2A /* SearchBarVoteViewController.swift */; };
+		4125E89124A4FB4E00DE5C2A /* SearchBarVoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4125E88F24A4FB4E00DE5C2A /* SearchBarVoteViewController.xib */; };
+		4125E89424A5919A00DE5C2A /* VotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125E89224A5919900DE5C2A /* VotesTableViewCell.swift */; };
+		4125E89524A5919A00DE5C2A /* VotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4125E89324A5919A00DE5C2A /* VotesTableViewCell.xib */; };
 		41286AD4240EB1120021157C /* IntroduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286AD2240EB1120021157C /* IntroduceViewController.swift */; };
 		41286AD5240EB1120021157C /* IntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41286AD3240EB1120021157C /* IntroduceViewController.xib */; };
 		41286AE9240F3EE70021157C /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41286ADD240F3EE60021157C /* Defines.swift */; };
@@ -471,6 +475,10 @@
 		4121FA4624133B5000AF26D3 /* FinanceOrangesButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceOrangesButtonTableViewCell.xib; sourceTree = "<group>"; };
 		4121FA4924133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceBlueButtonTableViewCell.swift; sourceTree = "<group>"; };
 		4121FA4A24133B6D00AF26D3 /* FinanceBlueButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinanceBlueButtonTableViewCell.xib; sourceTree = "<group>"; };
+		4125E88E24A4FB4E00DE5C2A /* SearchBarVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarVoteViewController.swift; sourceTree = "<group>"; };
+		4125E88F24A4FB4E00DE5C2A /* SearchBarVoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarVoteViewController.xib; sourceTree = "<group>"; };
+		4125E89224A5919900DE5C2A /* VotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesTableViewCell.swift; sourceTree = "<group>"; };
+		4125E89324A5919A00DE5C2A /* VotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotesTableViewCell.xib; sourceTree = "<group>"; };
 		41286ACB240D57400021157C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41286AD2240EB1120021157C /* IntroduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceViewController.swift; sourceTree = "<group>"; };
 		41286AD3240EB1120021157C /* IntroduceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroduceViewController.xib; sourceTree = "<group>"; };
@@ -847,6 +855,8 @@
 				41AA8CD8243F7A9000BDF892 /* Main6CollectionViewCell.xib */,
 				4195E779243FF9F900D48D1C /* DefaultCollectionViewCell.swift */,
 				4195E77A243FF9F900D48D1C /* DefaultCollectionViewCell.xib */,
+				4125E89224A5919900DE5C2A /* VotesTableViewCell.swift */,
+				4125E89324A5919A00DE5C2A /* VotesTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1281,6 +1291,8 @@
 				415500472419BEB2006B189E /* SearchBarInfoBaseViewController.xib */,
 				4155004A2419BECB006B189E /* SearchBarServiceViewController.swift */,
 				4155004B2419BECB006B189E /* SearchBarServiceViewController.xib */,
+				4125E88E24A4FB4E00DE5C2A /* SearchBarVoteViewController.swift */,
+				4125E88F24A4FB4E00DE5C2A /* SearchBarVoteViewController.xib */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -1626,6 +1638,7 @@
 				410B14922448C3E000E6CE64 /* MyAuctionServiceTableViewCell.xib in Resources */,
 				4121FA4324133B1E00AF26D3 /* FinanceTitleTableViewCell.xib in Resources */,
 				E66F6902241B404B00A0EC99 /* MyRelationShipViewController.xib in Resources */,
+				4125E89524A5919A00DE5C2A /* VotesTableViewCell.xib in Resources */,
 				41AD16B524139CCF001E132E /* HistoryViewController.xib in Resources */,
 				415500492419BEB3006B189E /* SearchBarInfoBaseViewController.xib in Resources */,
 				4170C432243880EC004F400D /* ListGroupRelationShipTableViewCell.xib in Resources */,
@@ -1672,6 +1685,7 @@
 				4121FA3F24133AC500AF26D3 /* FinanceViewController.xib in Resources */,
 				41738DD62489EC1200999AAA /* NotificationDetailTableViewCell.xib in Resources */,
 				41738DD02489EA2500999AAA /* NotificationDetailViewController.xib in Resources */,
+				4125E89124A4FB4E00DE5C2A /* SearchBarVoteViewController.xib in Resources */,
 				41EACD18242E5378003A6962 /* MyEventServicesDetailTableViewCell.xib in Resources */,
 				41286B08240FEA670021157C /* TwiceComboboxTableViewCell.xib in Resources */,
 				411329C32416A78C0089DD18 /* BookServiceTableViewCell.xib in Resources */,
@@ -1839,6 +1853,7 @@
 				41550055241B12CB006B189E /* SearchBarBaseInfoTableViewCell.swift in Sources */,
 				413937A8242B65020079C587 /* Title1TableViewCell.swift in Sources */,
 				E60FA9AB2424AFAB00A45AFF /* WalletManager.swift in Sources */,
+				4125E89024A4FB4E00DE5C2A /* SearchBarVoteViewController.swift in Sources */,
 				E6F024A52423737900A75EA1 /* BaseServiceModel.swift in Sources */,
 				41286AEC240F3EE70021157C /* Extension+UIImage.swift in Sources */,
 				E66F6905241B405C00A0EC99 /* MyRelationShipExpandViewController.swift in Sources */,
@@ -1870,6 +1885,7 @@
 				4113297C2414E3DA0089DD18 /* MainTableViewCell.swift in Sources */,
 				41AD169024134A2F001E132E /* InputGodcoinLabel2TableViewCell.swift in Sources */,
 				4130D13B24342F5000DDC9D6 /* ViewDatePicker1.swift in Sources */,
+				4125E89424A5919A00DE5C2A /* VotesTableViewCell.swift in Sources */,
 				412CF31F2439C52B00064301 /* BankTableViewCell.swift in Sources */,
 				41738DCF2489EA2500999AAA /* NotificationDetailViewController.swift in Sources */,
 				410F1AF62431C7E300841231 /* PushNotificationViewController.swift in Sources */,
@@ -2149,7 +2165,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2159,7 +2175,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = Godme;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2176,7 +2192,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2186,7 +2202,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = Godme;
 				PROVISIONING_PROFILE_SPECIFIER = "";

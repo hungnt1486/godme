@@ -318,6 +318,7 @@
 "label_price_step"  =  "Bước giá:";
 "label_profile"  =  "Cá nhân";
 "label_rate"  =  "Đánh giá:";
+"label_rate_title"  =  "Đánh giá";
 "label_re_pay_network" =   "Gia hạn mối quan hệ";
 "label_reject"  =  "Từ chối";
 "label_relationship"  =  "Mối quan hệ";
@@ -450,4 +451,13 @@
 "label_change_password_successful" = "Bạn đã đổi mật khẩu thành công";
 "label_you_dont_have_services" = "Bạn chưa có dịch vụ nào";
 "label_version" = "Phiên bản: %@";
-
+"label_send_vote" = "Gửi đánh giá";
+"label_view_all_vote" = "Xem tất cả đánh giá";
+"label_write_vote" = "Viết đánh giá";
+"label_please_choose_star_for_vote" = "Vui lòng chọn sao để đánh giá";
+"label_dissatisfaction" = "Rất không hài lòng";
+"label_unsatisfied" = "Không hài lòng";
+"label_normal" = "Bình thường";
+"label_satisfied" = "Hài lòng";
+"label_very_satisfied" = "Rất hài lòng";
+"label_thank_vote" = "Cám ơn bạn đã đánh giá";

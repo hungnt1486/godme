@@ -16,6 +16,7 @@ class SearchBarDetailViewController: BaseViewController {
            ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_relationship"), image: nil),
            ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_basic_info"), image: nil),
            ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_services"), image: nil),
+           ViewPagerTab(title: Settings.ShareInstance.translate(key: "label_rate_title"), image: nil),
        ]
            
        var viewPager: ViewPagerController!
@@ -42,6 +43,7 @@ class SearchBarDetailViewController: BaseViewController {
     var searchBarInfo = SearchBarInfoBaseViewController()
     var searchBarMyRelationShip = SearchBarRelationShipViewController()
     var searchBarService = SearchBarServiceViewController()
+    var searchBarVote = SearchBarVoteViewController()
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var constraintHeightLabelEmail: NSLayoutConstraint!
     @IBOutlet weak var constraintHeightIconEmail: NSLayoutConstraint!
@@ -280,9 +282,12 @@ extension SearchBarDetailViewController: ViewPagerControllerDataSource {
         } else if position == 1 {
             searchBarInfo.modelDetail = self.modelDetail
             return searchBarInfo
-        }else {
+        }else if position == 2 {
             searchBarService.modelDetail = self.modelDetail
             return searchBarService
+        }else{
+            searchBarVote.modelDetail = self.modelDetail
+            return searchBarVote
         }
     }
     

@@ -460,3 +460,52 @@ class NotificationModel: BaseModel {
         toUserIds = json["toUserIds"].intValue
     }
 }
+
+class ListRatingModel: BaseModel{
+    var comment: String?
+    var createdBy: String?
+    var createdByUserId: Int?
+    var createdOn: Double?
+    var id: Int?
+    var modifiedOn: Double?
+    var point: Double?
+    var toUserId: Int?
+    var reviewers: ReviewersModel?
+    required init?(json: JSON) {
+        super.init(json: json)
+        comment = json["comment"].stringValue
+        createdBy = json["createdBy"].stringValue
+        createdByUserId = json["createdByUserId"].intValue
+        createdOn = json["createdOn"].doubleValue
+        id = json["id"].intValue
+        modifiedOn = json["modifiedOn"].doubleValue
+        point = json["point"].doubleValue
+        toUserId = json["toUserId"].intValue
+        reviewers = ReviewersModel.init(json: json["reviewers"])
+    }
+}
+
+class ReviewersModel: BaseModel{
+    var address: String?
+    var amountConnect: Int?
+    var avatar: String?
+    var career: String?
+    var fullName: String?
+    var id: Int?
+    var totalStar: Float?
+    var userCategory: String?
+    var userInfo: String?
+    
+    required init?(json: JSON) {
+        super.init(json: json)
+        address = json["address"].stringValue
+        amountConnect = json["amountConnect"].intValue
+        avatar = json["avatar"].stringValue
+        career = json["career"].stringValue
+        fullName = json["fullName"].stringValue
+        id = json["id"].intValue
+        totalStar = json["totalStar"].floatValue
+        userCategory = json["userCategory"].stringValue
+        userInfo = json["userInfo"].stringValue
+    }
+}

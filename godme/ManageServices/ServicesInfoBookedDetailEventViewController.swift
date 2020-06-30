@@ -124,7 +124,7 @@ class ServicesInfoBookedDetailEventViewController: BaseViewController {
                 
             case .success(_):
                 self.hideProgressHub()
-                Settings.ShareInstance.showAlertView(message: "Cám ơn bạn đã đánh giá", vc: self) { [unowned self](str) in
+                Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_thank_vote"), vc: self) { [unowned self](str) in
                     self.navigationController?.popViewController(animated: true)
                 }
                 break
@@ -242,11 +242,11 @@ extension ServicesInfoBookedDetailEventViewController: UITableViewDelegate, UITa
             case .Description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCarTableViewCell") as! DescriptionCarTableViewCell
                 cell.delegate = self
-                cell.lbTitle.text = "Viết đánh giá"
+                cell.lbTitle.text = Settings.ShareInstance.translate(key: "label_write_vote")
                 return cell
             case .Confirm:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteTableViewCell") as! CompleteTableViewCell
-                cell.btComplete.setTitle("Gửi đánh giá", for: .normal)
+                cell.btComplete.setTitle(Settings.ShareInstance.translate(key: "label_send_vote"), for: .normal)
                 cell.delegate = self
                 return cell
             }
@@ -266,7 +266,7 @@ extension ServicesInfoBookedDetailEventViewController: UITableViewDelegate, UITa
 extension ServicesInfoBookedDetailEventViewController: CompleteTableViewCellProtocol{
     func didComplete() {
         if intVote == 0 {
-            Settings.ShareInstance.showAlertView(message: "Vui lòng chọn sao để đánh giá", vc: self)
+            Settings.ShareInstance.showAlertView(message: Settings.ShareInstance.translate(key: "label_please_choose_star_for_vote"), vc: self)
             return
         }
         self.showProgressHub()
@@ -291,31 +291,31 @@ extension ServicesInfoBookedDetailEventViewController: DescriptionCarTableViewCe
 extension ServicesInfoBookedDetailEventViewController: VoteTableViewCellProtocol{
     func didImg1() {
         cellVote.setupStar(index: 1.0)
-        cellVote.lbResult.text = "Rất không hài lòng"
+        cellVote.lbResult.text = Settings.ShareInstance.translate(key: "label_dissatisfaction")
         intVote = 1
     }
     
     func didImg2() {
         cellVote.setupStar(index: 2.0)
-        cellVote.lbResult.text = "Không hài lòng"
+        cellVote.lbResult.text = Settings.ShareInstance.translate(key: "label_unsatisfied")
         intVote = 2
     }
     
     func didImg3() {
         cellVote.setupStar(index: 3.0)
-        cellVote.lbResult.text = "Bình thường"
+        cellVote.lbResult.text = Settings.ShareInstance.translate(key: "label_normal")
         intVote = 3
     }
     
     func didImg4() {
         cellVote.setupStar(index: 4.0)
-        cellVote.lbResult.text = "Hài lòng"
+        cellVote.lbResult.text = Settings.ShareInstance.translate(key: "label_satisfied")
         intVote = 4
     }
     
     func didImg5() {
         cellVote.setupStar(index: 5.0)
-        cellVote.lbResult.text = "Rất hài lòng"
+        cellVote.lbResult.text = Settings.ShareInstance.translate(key: "label_very_satisfied")
         intVote = 5
     }
 }

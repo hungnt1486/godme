@@ -82,6 +82,8 @@ struct URLs {
         static let deleteAuctionService = "api/mobile/service/auction/delete"
         static let deleteEventService = "api/mobile/service/event/delete"
         static let notificationSearch = "api/mobile/notification/search"
+        static let rateUser = "api/mobile/rating/user/save"
+        static let getListRating = "api/mobile/rating/user/search"
     }
     
     //// user
@@ -127,6 +129,12 @@ struct URLs {
     }
     static var sendOTPForgotPassword: String{
         return String(format: "%@%@", linkServer, Routes.sendOTPForgotPassword)
+    }
+    static var rateUser: String{
+        return String(format: "%@%@", linkServer, Routes.rateUser)
+    }
+    static var getListRating: String{
+        return String(format: "%@%@", linkServer, Routes.getListRating)
     }
     
     /// relationship
