@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import Toaster
 
 class SearchBarDetailViewController: BaseViewController {
     
@@ -134,7 +133,7 @@ class SearchBarDetailViewController: BaseViewController {
         let action1 = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_copy_link_profile"), style: .default) { (action) in
             alertControl.dismiss(animated: true, completion: nil)
             UIPasteboard.general.string = "\(URLs.linkUserInfo)\(self.modelDetail?.id ?? 0)"
-            Toast.init(text: "Copy").show()
+            self.showToast()
         }
         
         let action = UIAlertAction.init(title: Settings.ShareInstance.translate(key: "label_report"), style: .default) { (action) in

@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import Toaster
 import SwiftyJSON
 
 @objc enum typeCellEditProfile: Int{
@@ -697,7 +696,7 @@ extension EditProfileViewController: TitleTableViewCellProtocol{
 extension EditProfileViewController: AvatarTableViewCellProtocol{
     func didCopy() {
         UIPasteboard.general.string = "\(URLs.linkWebRefference)refId=\(self.userInfoModel.id)"
-        Toast.init(text: "Copy").show()
+        self.showToast()
     }
     
     func didImg() {

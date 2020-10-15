@@ -159,11 +159,13 @@ class MapsViewController: BaseViewController {
         model.keySearch = vSearchBar.tfInputText.text ?? ""
         model.radius = Int(self.slider.value) == 0 ? 1 : Int(self.slider.value)
         model.services = arr
+        self.listAllService.removeAll()
         ManageServicesManager.shareManageServicesManager().searchServiceOnMap(model: model) {[unowned self] (response) in
             switch response {
                 
             case .success(let data):
                 self.hideProgressHub()
+                self.listAllService = data
                 if self.map == nil {
                     self.configMapView(lat: BaseViewController.Lat, lng: BaseViewController.Lng)
                     self.addMarkerUser()
@@ -230,8 +232,9 @@ class MapsViewController: BaseViewController {
         }
         self.arrayMarkerDoctor.removeAll()
 
-        for homeModel in arrAllService {
+        for (index, homeModel) in arrAllService.enumerated() {
             let marker1 = GMSMarker()
+            marker1.zIndex = Int32(index)
             marker1.position = CLLocationCoordinate2D(latitude: homeModel.latitude!, longitude: homeModel.longitude!)
             marker1.title = homeModel.title
             if homeModel.serviceType == "BASIC" {
@@ -320,6 +323,24 @@ extension MapsViewController: GMSMapViewDelegate {
         isMapMove = gesture
         markerUser.map = nil
         circ.map = nil
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        print("thanh cong")
+        let model = self.listAllService[Int(marker.zIndex)]
+        if model.serviceType == "BASIC" {
+            let detail = DetailBasicServiceViewController()
+            detail.serviceID = model.id ?? 0
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else if model.serviceType == "AUCTION" {
+            let detail = DetailAuctionViewController()
+            detail.serviceID = model.id ?? 0
+            self.navigationController?.pushViewController(detail, animated: true)
+        }else{
+            let detail = DetailEventViewController()
+            detail.serviceID = model.id ?? 0
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
     }
 
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {

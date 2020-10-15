@@ -11,6 +11,7 @@ import UIKit
 import UIKit
 import Alamofire
 import MBProgressHUD
+import Toast_Swift
 //import RxSwift
 //import RxCocoa
 
@@ -79,6 +80,10 @@ class BaseViewController: UIViewController {
         MBProgressHUD.hide(for: window!, animated: true)
 //        MBProgressHUD.hide(for: self.view.window ?? UIWindow(), animated: true)
 //        MBProgressHUD.hide(for: self.view ?? UIView(), animated: true)
+    }
+    
+    func showToast(){
+        self.view.makeToast("Copy")
     }
     
     func configButtonBack() {

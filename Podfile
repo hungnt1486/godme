@@ -8,7 +8,8 @@ target 'godme' do
   # Pods for godme
 
 pod 'Alamofire', '~> 4.9.0'
-pod 'Toaster'
+#pod 'Toaster'
+pod 'Toast-Swift'
 pod 'SwiftyJSON'
 pod 'IQKeyboardManagerSwift'
 pod 'DropDown'
@@ -29,5 +30,6 @@ pod 'FirebaseUI/Phone'
 pod 'GSKStretchyHeaderView'
 pod 'AWSS3'
 #pod 'CollapseTableView'
+pod 'PPCounter'
 
 end

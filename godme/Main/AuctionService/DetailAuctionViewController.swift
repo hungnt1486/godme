@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toaster
 
 enum typeCellDetailAuction: Int {
     case Avatar = 0
@@ -26,6 +25,7 @@ class DetailAuctionViewController: BaseViewController {
     var cellInfo: InfoAuctionTableViewCell!
     var modelUser = Settings.ShareInstance.getDictUser()
     var listLanguage = Settings.ShareInstance.Languages()
+    var serviceID = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +34,18 @@ class DetailAuctionViewController: BaseViewController {
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
-        self.getListAuctionServiceByCurrentService()
+        if serviceID == 0 {
+            self.getListAuctionServiceByCurrentService()
+        }else{
+            self.getDetailBaseService()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = modelDetail?.title
+        if serviceID == 0 {
+            self.navigationItem.title = modelDetail?.title
+        }
     }
     
     func setupUI(){
@@ -59,6 +65,24 @@ class DetailAuctionViewController: BaseViewController {
         self.tbvDetailAuction.separatorInset = UIEdgeInsets.zero
         self.tbvDetailAuction.estimatedRowHeight = 300
         self.tbvDetailAuction.rowHeight = UITableView.automaticDimension
+    }
+    
+    func getDetailBaseService(){
+        ManageServicesManager.shareManageServicesManager().getDetailAuctionService(id: serviceID) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+//                self.hideProgressHub()
+                self.modelDetail = data[0]
+                self.navigationItem.title = self.modelDetail?.title ?? ""
+                self.getListAuctionServiceByCurrentService()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func getListAuctionServiceByCurrentService(){
@@ -243,7 +267,7 @@ extension DetailAuctionViewController: ImageDetailAuctionTableViewCellProtocol{
     func didCopy() {
         let str = "\(modelDetail?.title ?? "") \(modelDetail?.id ?? 0)"
         UIPasteboard.general.string = "\(URLs.linkServiceAuction)\(str.convertedToSlug() ?? "")?refId=\(modelUser.userId ?? 0)"
-        Toast.init(text: "Copy").show()
+        self.showToast()
     }
     
     func didShowMoreAuction() {

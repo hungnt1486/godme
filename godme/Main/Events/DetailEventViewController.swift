@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import Toaster
 
 enum typeCellDetailEvent: Int {
     case Avatar = 0
@@ -26,6 +25,7 @@ class DetailEventViewController: BaseViewController {
     var cellImageDetail: ImageDetailTableViewCell!
     var modelUser = Settings.ShareInstance.getDictUser()
     var listLanguage = Settings.ShareInstance.Languages()
+    var serviceID = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +34,18 @@ class DetailEventViewController: BaseViewController {
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
-        self.getListEventServiceByCurrentService()
+        if serviceID == 0 {
+            self.getListEventServiceByCurrentService()
+        }else{
+            self.getDetailBaseService()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = modelDetail?.title ?? ""
+        if serviceID == 0{
+            self.navigationItem.title = modelDetail?.title ?? ""
+        }
     }
     
     func setupUI(){
@@ -60,6 +66,24 @@ class DetailEventViewController: BaseViewController {
         self.tbvDetailBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvDetailBasicService.estimatedRowHeight = 300
         self.tbvDetailBasicService.rowHeight = UITableView.automaticDimension
+    }
+    
+    func getDetailBaseService(){
+        ManageServicesManager.shareManageServicesManager().getDetailEventService(id: serviceID) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+                self.hideProgressHub()
+                self.modelDetail = data[0]
+                self.navigationItem.title = self.modelDetail?.title ?? ""
+                self.getListEventServiceByCurrentService()
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func getListEventServiceByCurrentService(){
@@ -243,7 +267,7 @@ extension DetailEventViewController: ImageDetailTableViewCellProtocol{
     func didCopy() {
         let str = "\(modelDetail?.title ?? "") \(modelDetail?.id ?? 0)"
         UIPasteboard.general.string = "\(URLs.linkServiceEvent)\(str.convertedToSlug() ?? "")?refId=\(modelUser.userId ?? 0)"
-        Toast.init(text: "Copy").show()
+        self.showToast()
     }
     
     func didCoinConvert() {

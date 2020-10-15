@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import Toaster
 
 enum typeCellDetailBasic: Int {
     case Avatar = 0
@@ -26,6 +25,7 @@ class DetailBasicServiceViewController: BaseViewController {
     var cellImageDetail: ImageDetailTableViewCell!
     var modelUser = Settings.ShareInstance.getDictUser()
     var listLanguage = Settings.ShareInstance.Languages()
+    var serviceID = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +34,18 @@ class DetailBasicServiceViewController: BaseViewController {
         self.setupUI()
         self.setupTableView()
         self.configButtonBack()
-        self.getListBaseServiceByCurrentService()
+        if serviceID == 0 {
+            self.getListBaseServiceByCurrentService()
+        }else{
+            self.getDetailBaseService()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = modelDetail?.title
+        if serviceID == 0 {
+            self.navigationItem.title = modelDetail?.title
+        }
     }
     
     func setupUI(){
@@ -60,6 +66,31 @@ class DetailBasicServiceViewController: BaseViewController {
         self.tbvDetailBasicService.separatorInset = UIEdgeInsets.zero
         self.tbvDetailBasicService.estimatedRowHeight = 300
         self.tbvDetailBasicService.rowHeight = UITableView.automaticDimension
+    }
+    
+    // for push from map screen
+    
+    func getDetailBaseService(){
+        ManageServicesManager.shareManageServicesManager().getDetailBaseService(id: serviceID) { [unowned self](response) in
+            switch response {
+                
+            case .success(let data):
+//                self.hideProgressHub()
+                if data.count > 0 {
+                    self.modelDetail = data[0]
+//                    let model = self.modelDetail[0]
+//                    self.strTitle = self.modelDetail.title ?? ""
+                    self.navigationItem.title = self.modelDetail?.title ?? ""
+                    self.getListBaseServiceByCurrentService()
+//                    self.tbvServicesInfoBookedDetail.reloadData()
+                }
+                break
+            case .failure(let message):
+                self.hideProgressHub()
+                Settings.ShareInstance.showAlertView(message: message, vc: self)
+                break
+            }
+        }
     }
     
     func getListBaseServiceByCurrentService(){
@@ -259,7 +290,8 @@ extension DetailBasicServiceViewController: ImageDetailTableViewCellProtocol{
     func didCopy() {
         let str = "\(modelDetail?.title ?? "") \(modelDetail?.id ?? 0)"
         UIPasteboard.general.string = "\(URLs.linkServicebase)\(str.convertedToSlug() ?? "")?refId=\(modelUser.userId ?? 0)"
-        Toast.init(text: "Copy").show()
+        self.showToast()
+        
     }
     
     func didCoinConvert() {

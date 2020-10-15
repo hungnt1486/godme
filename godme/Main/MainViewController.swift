@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import PPCounter
 
 class MainViewController: BaseViewController {
 
@@ -174,6 +175,9 @@ class MainViewController: BaseViewController {
     }
     
     func getAmountCharity(){
+        self.headerMain?.lbTotalMoney.pp_(fromNumber: 0.0, toNumber: 424408627867, duration: 2.0, format: { (number) -> String? in
+            return ""
+        })
         WalletManager.shareWalletManager().getAmountCharity {[unowned self] (response) in
             switch response {
                 

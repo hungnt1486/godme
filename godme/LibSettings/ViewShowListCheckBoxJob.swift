@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Toaster
+//import Toaster
+import Toast_Swift
 
 protocol ViewShowListCheckBoxJobProtocol {
     func tapDone(_ list: [Int])
@@ -151,7 +152,8 @@ extension ViewShowListCheckBoxJob: CheckBoxTableViewCellProtocol{
                 print(self.listId)
             }else{
                 if self.listId.count == 3 {
-                    Toast.init(text: "Chọn tối đa 3 ngành nghề").show()
+//                    Toast.init(text: "Chọn tối đa 3 ngành nghề").show()
+                    self.makeToast("Chọn tối đa 3 ngành nghề")
                     return
                 }
                 cellCheckBox?.img1.image = UIImage.init(named: "ic_checked")
