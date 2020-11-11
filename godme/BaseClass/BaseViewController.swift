@@ -12,6 +12,7 @@ import UIKit
 import Alamofire
 import MBProgressHUD
 import Toast_Swift
+import IQKeyboardManagerSwift
 //import RxSwift
 //import RxCocoa
 
@@ -48,6 +49,7 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         configToken()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(named: "ic_bg_nav"), for: .default)
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = Settings.ShareInstance.translate(key: "label_done")
     }
     
     override var prefersStatusBarHidden: Bool {
