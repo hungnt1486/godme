@@ -175,9 +175,6 @@ class MainViewController: BaseViewController {
     }
     
     func getAmountCharity(){
-        self.headerMain?.lbTotalMoney.pp_(fromNumber: 0.0, toNumber: 424408627867, duration: 2.0, format: { (number) -> String? in
-            return ""
-        })
         WalletManager.shareWalletManager().getAmountCharity {[unowned self] (response) in
             switch response {
                 
@@ -185,8 +182,16 @@ class MainViewController: BaseViewController {
                 self.hideProgressHub()
                 self.walletCharity = data
                 let total = Double(self.walletCharity?.totalAmountGodmeCharity ?? "0.0")
-                self.headerMain?.lbTotalMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(total! * 1000)")
-                self.headerMain?.lbMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")! * 1000)")
+                
+                self.headerMain?.lbTotalMoney.pp_(fromNumber: 0.0, toNumber: CGFloat(total! * 1000), duration: 2.0, format: { (number) -> String? in
+                    return Settings.ShareInstance.formatCurrency(Value: "\(number)")
+                })
+                let subTotal = Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")
+                self.headerMain?.lbMoney.pp_(fromNumber: 0.0, toNumber: CGFloat(subTotal! * 1000), duration: 2.0, format: { (number) -> String? in
+                    return Settings.ShareInstance.formatCurrency(Value: "\(number)")
+                })
+//                self.headerMain?.lbTotalMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(total! * 1000)")
+//                self.headerMain?.lbMoney.text = Settings.ShareInstance.formatCurrency(Value: "\(Double(self.walletCharity?.totalAmountUserCharity ?? "0.0")! * 1000)")
                 self.headerMain?.lbCharity.text = Settings.ShareInstance.translate(key: "label_charity_godme")
                 self.tbvMain.reloadData()
                 break

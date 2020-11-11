@@ -20,6 +20,7 @@ class MapsViewController: BaseViewController {
     let marker = GMSMarker()
     let markerUser = GMSMarker()
     var circ = GMSCircle()
+    var isFirst = true
     
     var listAllService: [MapModel] = []
     
@@ -188,6 +189,9 @@ class MapsViewController: BaseViewController {
         let bottomPadding = window?.safeAreaInsets.bottom
         camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 11.6)
         map = GMSMapView.map(withFrame: CGRect.init(x: 0, y: 0, width: CGFloat(UIScreen.main.bounds.width), height: CGFloat(UIScreen.main.bounds.height - (topPadding ?? 0) - (bottomPadding ?? 0))), camera: camera!)
+        map?.settings.compassButton = true
+        map?.settings.myLocationButton = true
+        map?.isMyLocationEnabled = true
         map!.delegate = self
         mapView.addSubview(map!)
         mapView.frame = map!.bounds
@@ -218,7 +222,7 @@ class MapsViewController: BaseViewController {
         let userModel = Settings.ShareInstance.getDictUser()
         markerUser.position = CLLocationCoordinate2D(latitude: BaseViewController.Current_Lat, longitude: BaseViewController.Current_Lng)
         markerUser.title = userModel.fullName
-        markerUser.icon = UIImage.init(named: "ic_marker_user")
+        markerUser.icon = pinView.image//UIImage.init(named: "ic_marker_user")
         markerUser.groundAnchor = CGPoint(x: 0.5, y: 0.5)
         markerUser.appearAnimation = GMSMarkerAnimation.pop
         markerUser.map = map
@@ -248,6 +252,20 @@ class MapsViewController: BaseViewController {
             arrayMarkerDoctor.append(marker1)
         }
     }
+    
+    lazy var pinView: UIImageView = { [unowned self] in
+        let v = UIImageView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        v.image = UIImage.init(named: "ic_marker_user")
+//        v.iMapViewControllermage = UIImage(named: "map_pin", in: Bundle(for: MapViewController.self), compatibleWith: nil)
+        v.image = v.image?.withRenderingMode(.alwaysOriginal)
+//        v.tintColor = self.view.tintColor
+//        v.tintColor = UIColor.red
+        v.backgroundColor = .clear
+        v.clipsToBounds = true
+        v.contentMode = .scaleAspectFit
+        v.isUserInteractionEnabled = false
+        return v
+        }()
     
     @IBAction func touchBaseService(_ sender: Any) {
         if isChooseBase {
@@ -300,7 +318,7 @@ extension MapsViewController: GMSMapViewDelegate {
             let circleCenter = CLLocationCoordinate2D(latitude: position.target.latitude, longitude: position.target.longitude)
             self.circ = GMSCircle(position: circleCenter, radius: CLLocationDistance(Int(self.slider.value)*1000))
             UIView.animate(withDuration: 0.5) {
-                self.marker.icon = UIImage.init(named: "ic_marker_user")
+                self.marker.icon = self.pinView.image//UIImage.init(named: "ic_marker_user")
                 self.marker.map = self.map
                 
                 self.circ.fillColor = UIColor(red: 0.0/255, green: 52/255, blue: 112/255, alpha: 0.2)
@@ -320,7 +338,7 @@ extension MapsViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         print("gesture = \(gesture)")
-        isMapMove = gesture
+        isMapMove = true
         markerUser.map = nil
         circ.map = nil
     }

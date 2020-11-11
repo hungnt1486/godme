@@ -73,6 +73,10 @@ class DetailAuctionViewController: BaseViewController {
                 
             case .success(let data):
 //                self.hideProgressHub()
+                if data.count == 0 {
+                    self.hideProgressHub()
+                    return
+                }
                 self.modelDetail = data[0]
                 self.navigationItem.title = self.modelDetail?.title ?? ""
                 self.getListAuctionServiceByCurrentService()

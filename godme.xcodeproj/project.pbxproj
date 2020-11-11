@@ -2165,7 +2165,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2175,7 +2175,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = Godme;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2192,7 +2192,7 @@
 				CODE_SIGN_ENTITLEMENTS = godme/godme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"godme/Preview Content\"";
 				DEVELOPMENT_TEAM = S8YG79WM4M;
 				ENABLE_PREVIEWS = YES;
@@ -2202,7 +2202,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toan.godme;
 				PRODUCT_NAME = Godme;
 				PROVISIONING_PROFILE_SPECIFIER = "";

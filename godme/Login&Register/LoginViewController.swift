@@ -46,6 +46,7 @@ class LoginViewController: BaseViewController {
         self.btLogin.setTitle(Settings.ShareInstance.translate(key: "label_sign_in"), for: .normal)
         
         self.tfUserName = Settings.ShareInstance.setupTextField(textField: self.tfUserName, isLeftView: true)
+//        self.tfUserName
         self.tfUserName.ShadowTextField()
         
         self.tfPassword = Settings.ShareInstance.setupTextField(textField: self.tfPassword, isLeftView: true)
